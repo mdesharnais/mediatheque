@@ -1,4 +1,11 @@
 section
 {
-	background-color:white;
+	max-width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+section p
+{
+	margin: 1em;
 }
