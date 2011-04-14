@@ -1,3 +1,11 @@
+header,
+nav,
+section,
+footer
+{
+	display: block;
+}
+
 html,
 body,
 h1,
