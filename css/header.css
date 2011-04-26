@@ -1,3 +1,20 @@
+#user-bar
+{
+	background-color:blue;
+	margin:0;
+	text-align:right;
+}
+
+#user-bar a,
+#user-bar p
+{
+	display:table-cell;
+}
+
+#user-bar p
+{
+}
+
 header
 {
 	background-color:black;

@@ -3,7 +3,7 @@ nav,
 section,
 footer
 {
-	display: block;
+	display:block;
 }
 
 html,
@@ -12,24 +12,23 @@ h1,
 p,
 ul
 {
-	margin: 0;
-	padding: 0;
+	margin:0;
+	padding:0;
 }
 
 body
 {
-	background-color: white;
+	background-color:white;
 	min-width:650px;
 }
 
 a
 {
-	text-decoration: none;
-	color: black;
+	text-decoration:none;
+	color:yellow;
 }
 
 a:hover
 {
-	text-decoration: underline;
+	text-decoration:underline;
 }
-
