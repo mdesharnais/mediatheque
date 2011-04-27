@@ -1,11 +1,54 @@
-section
+#content
 {
-	max-width: 1250px;
-	margin-left: auto;
+	width: 990px;
+	background-color: red;
 	margin-right: auto;
+	margin-left: auto;
 }
 
-section p
+#vertical-breadcrumb
 {
+	float: left;
+	padding: 10px;
+	background-color: blue;
+	width: 175px;
+}
+
+#search-results
+{
+	background-color: green;
+	margin-left: 215px;
+}
+
+/*
+#search-results,
+#vertical-breadcrumb
+{
+	display: block;
+	float: left;
+	text-align: left;
 	margin: 1em;
+}
+
+#search-results
+{
+	background-color: red;
+	max-width: 1200px;
+}
+
+*/
+@media (max-width:1024px)
+{
+	#content
+	{
+		background-color: yellow;
+		width:auto;
+		margin:0;
+		padding: 0 10px;
+	}
+
+	aside
+	{
+		margin-left: 10px;
+	}
 }
