@@ -19,12 +19,13 @@ ul
 body
 {
 	background-color: white;
+	font-family: Optima, "Trebuchet MS", Lucida, Arial, Geneva, Verdana, "Lucida Grande", Tahoma, Helvetica, sans-serif;
 }
 
 a
 {
 	text-decoration: none;
-	color: yellow;
+	color: #c52100;
 }
 
 a:hover
@@ -35,4 +36,41 @@ a:hover
 p
 {
 	margin: 1em;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-weight: bold;
+}
+
+h1
+{
+	font-size: 1.9em;
+}
+
+h2
+{
+	font-size: 1.75em;
+}
+
+h3
+{
+	font-size: 1.4em;
+}
+
+h4
+{
+	font-size: 1.2em;
+	margin-top: 0.75em;
+	margin-bottom: 0.2em;
+}
+
+h5
+{
+	font-size: 1.15em;
+}
+
+h6
+{
+	font-size: 1.1em;
 }
