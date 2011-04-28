@@ -19,6 +19,33 @@ header h1 a
 	color: white;
 }
 
+header > form
+{
+	position: absolute;
+	top: 4em;
+	right: 1em;
+	color: white;
+}
+
+header > form button[type=submit]
+{
+	width: 2.5em;
+	height: 2.5em;
+	-webkit-background-size: 2.5em 2.5em;
+	-moz-background-size: 2.5em 2.5em;
+	background-size: 2.5em 2.5em;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+	background-image: url(../images/icons/search.png);
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position: center top;
+	text-indent: -1000em;
+
+}
+
 header nav
 {
 	margin-top: 1em;
