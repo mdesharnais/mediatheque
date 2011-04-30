@@ -2,7 +2,7 @@
 # Martin Desharnais
 ##################################################
 
-Design du fils d'Ariane vertical
+Design du fil d'Ariane vertical
 Modifier un média
 
 ##################################################
@@ -10,7 +10,11 @@ Modifier un média
 ##################################################
 
 Résultats de recherche
+	-Afficher les résultats comme suit: chaque résultat avec une image à gauche représentant
+	l'élément avec les détails à droite. Si aucune image est définie pour l'élément, on affiche
+	l'image du type de média.
 Parcourir
+	-Utiliser le fil d'ariane verticale
 Recherche avancée
 
 ##################################################
