@@ -7,7 +7,8 @@
 }
 
 #vertical-breadcrumb,
-#search-results
+#search-results,
+#driving-table
 {
 	background-color: #e6e6e6;
 	padding: 10px;
@@ -31,6 +32,24 @@
 #search-results
 {
 	margin-left: 215px;
+}
+
+form#driving-table table,
+form#driving-table table tr,
+form#driving-table table tr td,
+form#driving-table table tr th
+{
+	border-style: solid;
+	border-width: 0.15em;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+form#driving-table table thead tr#new-row
+{
+	border-style: solid;
+	border-width: 0.25em;
+	margin-bottom: 2em;
 }
 
 @media (max-width:1280px)
