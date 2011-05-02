@@ -9,10 +9,9 @@
 		<link rel="stylesheet" href="css/style1.css">
 		<link rel="icon" href="images/logoCegep.svg">
 
+		<script src="javascript/jquery/jquery.js"></script>
+		<script src="javascript/jquery/jquery.tablesorter.min.js"></script>
 		<script src="javascript/driving-table.js"></script>
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 	</head>
 	<body>
 		<div id="user-bar">
@@ -40,35 +39,39 @@
 			<form id="driving-table">
 				<table>
 					<caption>Table de pilotage</caption>
+					<colgroup>
+						<col class="ID">
+						<col span="3">
+					</colgroup>
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th class="ID">ID</th>
 							<th>Nom</th>
 							<th>Description</th>
 							<th>Inactif</th>
 						</tr>
 						<tr id="new-row">
-							<td><input type="number" id="id" name="id"></td>
-							<td><input type="text" id="nom" name="nom" required></td>
+							<td class="ID"><input type="number" id="id" name="id"></td>
+							<td><input type="text" id="nom" name="nom"></td>
 							<td><input type="text" id="description" name="description"></td>
 							<td><input type="checkbox" id="inactif" name="inactif"></td>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="number" id="id1" name="id1" value="1"></td>
+							<td class="ID"><input type="number" id="id1" name="id1" value="1"></td>
 							<td><input type="text" id="nom1" name="nom1" value="AAA" required></td>
 							<td><input type="text" id="description1" name="description1" value="Lorem ipsum dolor sit amet."></td>
 							<td><input type="checkbox" id="inactif1" name="inactif1"></td>
 						</tr>
 						<tr>
-							<td><input type="number" id="id2" name="id2" value="2"></td>
-							<td><input type="text" id="nom2" name="nom2" value="BBB" required></td>
+							<td class="ID"><input type="number" id="id2" name="id2" value="2"></td>
+							<td><input type="text" id="nom2" name="nom2" value="DDD" required></td>
 							<td><input type="text" id="description2" name="description2"></td>
 							<td><input type="checkbox" id="inactif2" name="inactif2"></td>
 						</tr>
 						<tr>
-							<td><input type="number" id="id3" name="id3" value="3"></td>
+							<td class="ID"><input type="number" id="id3" name="id3" value="3"></td>
 							<td><input type="text" id="nom3" name="nom3" value="CCC" required></td>
 							<td><input type="text" id="description3" name="description3" value="Consectetur adispsing elit."></td>
 							<td><input type="checkbox" id="inactif3" name="inactif3"></td>

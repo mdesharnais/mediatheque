@@ -1,4 +1,15 @@
-window.onload = initDrivingTable;
+$(document).ready(function() { 
+	initDrivingTable();
+
+	$("table").tablesorter({
+		sortList: [[1,0]],
+		textExtraction: extractInputValue
+	}); 
+}); 
+
+var extractInputValue = function(node) {
+	return $(node).find(':input').val();
+}
 
 function initDrivingTable()
 {
@@ -66,6 +77,8 @@ function addRow(e)
 	inputs = tr.getElementsByTagName('input');
 	for(var i = 0; i < inputs.length; ++i)
 		inputs[i].value = null;
+
+	$('table').trigger('update');
 }
 
 function deleteRow(e)

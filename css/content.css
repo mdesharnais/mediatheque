@@ -52,6 +52,38 @@ form#driving-table table thead tr#new-row
 	margin-bottom: 2em;
 }
 
+form#driving-table table .ID
+{
+	background-color: red;
+	display: none;
+}
+
+th.header,
+th.headerSortUp,
+th.headerSortDown
+{
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+	font-weight: bold;
+	padding-right: 20px;
+}
+
+th.header
+{
+	background-image: url(../images/icons/upAndDown.gif);
+}
+
+th.headerSortUp
+{
+	background-image: url(../images/icons/up.gif);
+}
+
+th.headerSortDown
+{
+	background-image: url(../images/icons/down.gif);
+}
+
 @media (max-width:1280px)
 {
 	#content
