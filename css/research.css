@@ -1,0 +1,24 @@
+#moresearches
+{
+margin-top:0.1em;
+margin-left:1em;
+}
+
+#moresearches a:link, #moresearches a:visited {
+	color : #007fae;
+	font-weight : normal;
+	font-family: Lucida grande, Arial;
+	font-size: 12px;
+	background: url(../images/img_puce_search.png) no-repeat left center;
+	margin-right: 12px;
+	padding-left: 12px;
+}
+
+.row-search div {
+		clear:none;
+}
+
+	
+.row-search .input {
+		margin-left:0;
+}
