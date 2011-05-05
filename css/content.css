@@ -4,6 +4,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	padding: 20px;
+	overflow: hidden;
 }
 
 #vertical-breadcrumb,
@@ -27,6 +28,11 @@
 #vertical-breadcrumb ul
 {
 	list-style-type: none;
+}
+
+#vertical-breadcrumb span.showMore
+{
+	cursor: pointer;
 }
 
 #search-results
