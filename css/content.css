@@ -40,6 +40,11 @@
 	margin-left: 215px;
 }
 
+form#driving-table table
+{
+	margin: 0.5em;
+}
+
 form#driving-table table,
 form#driving-table table tr,
 form#driving-table table tr td,
