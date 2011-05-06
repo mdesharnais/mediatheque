@@ -4,6 +4,7 @@
 	margin-right: auto;
 	margin-left: auto;
 	padding: 20px;
+	overflow: hidden;
 }
 
 #vertical-breadcrumb,
@@ -29,6 +30,11 @@
 	list-style-type: none;
 }
 
+#vertical-breadcrumb span.showMore
+{
+	cursor: pointer;
+}
+
 #search-results
 {
 	margin-left: 215px;
@@ -52,10 +58,14 @@ form#driving-table table thead tr#new-row
 	margin-bottom: 2em;
 }
 
-form#driving-table table .ID
+form#driving-table table tr th#col_row_state,
+form#driving-table table tr td[headers=col_row_state],
+form#driving-table table tr th#col_id,
+form#driving-table table tr td[headers=col_id]
 {
-	background-color: red;
+	/*
 	display: none;
+	*/
 }
 
 th.header,
