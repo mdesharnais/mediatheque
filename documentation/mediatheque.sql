@@ -76,8 +76,11 @@ CREATE TABLE IF NOT EXISTS Tonalites (
 
 CREATE TABLE IF NOT EXISTS Utilisateurs (
   ID int(11),
+  matricule int(7) NOT NULL,
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
+  telephone varchar(10) NOT NULL,
+  email varchar(100),
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
