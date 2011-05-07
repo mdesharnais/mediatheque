@@ -164,10 +164,11 @@ CREATE TABLE IF NOT EXISTS Audios_videos (
   position_collection int(11),
   CUP int(11) NOT NULL,
   realisateurs varchar(200),
-  nationalite int(11),
+  nationaliteID int(11),
   PRIMARY KEY (ID),
   FOREIGN KEY (exID) REFERENCES Medias(ID) ON DELETE CASCADE,
-  FOREIGN KEY (collectionID) REFERENCES Collections(ID)
+  FOREIGN KEY (collectionID) REFERENCES Collections(ID),
+  FOREIGN KEY (nationaliteID) REFERENCES Nationalites(ID)
 ) ENGINE=InnoDB;
 
 
