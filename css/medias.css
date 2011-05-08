@@ -1,0 +1,43 @@
+form#media label
+{
+	display: inline-block;
+	width: 12em;
+	vertical-align: top;
+	margin: 0;
+}
+
+form#media label:after
+{
+	content: " :";
+}
+
+form#media input
+{
+}
+
+form#media div
+{
+	overflow: auto;
+}
+
+form#media table
+{
+	width: 100em;
+}
+
+form#media table tr:nth-child(2n)
+{
+	background-color: white;
+}
+
+form#media #subform div.niveau3
+{
+	background-color: red;
+	margin-left: 12em;
+}
+
+form#media #subform div.niveau3 select,
+form#media #subform div.niveau3 input
+{
+	margin: 0.1em;
+}
