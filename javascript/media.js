@@ -33,17 +33,14 @@ function openSubform()
 	$('#subform div.niveau3').hide();
 	$('#subform div.niveau3 select').after('<input type="button" value="-"><br>');
 	$('#subform div.niveau3 select + input:last').after('<input type="button" value="+">');
-	$('#subform div.niveau3').before('<span class="niveau3"></span>');
+	$('#subform div.niveau3').before('<span class="niveau3">Aucun</span>');
 
 	$('#subform div.niveau3').each(function() {
-		var $span = $(this).prev('span.niveau3');
+		updateDivDetails($(this));
+	});
 
-		$(this).find('select').each(function() {
-			if($span.text() == '')
-				$span.append($(this).val());
-			else
-				$span.append(', ' + $(this).val());
-		});
+	$('#subform div.niveau3 select').change(function() {
+		updateDivDetails($(this).closest('div.niveau3'));
 	});
 
 	$('#subform span.niveau3').click(function() {
@@ -54,4 +51,17 @@ function openSubform()
 
 function closeSubform()
 {
+}
+
+function updateDivDetails($div)
+{
+	var $span = $div.prev('span.niveau3');
+	$span.text('Aucun');
+
+	$div.find('select').each(function() {
+		if($span.text() == 'Aucun')
+			$span.text($(this).find('option[value=' + $(this).val() + ']').text());
+		else
+			$span.append(', ' + $(this).find('option[value=' + $(this).val() + ']').text());
+	});
 }
