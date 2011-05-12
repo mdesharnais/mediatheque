@@ -1,6 +1,4 @@
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,13 +27,11 @@ CREATE TABLE IF NOT EXISTS Maisons_edition (
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS Instrumentations (
   ID int(11),
   nom varchar(50) NOT NULL,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS Categories (
   ID int(11),
@@ -50,14 +46,12 @@ CREATE TABLE IF NOT EXISTS Nationalites (
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS Collections (
   ID int(11),
   nom varchar(50) NOT NULL,
   type varchar(50) NOT NULL,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS Catalogues (
   ID int(11),
@@ -66,13 +60,11 @@ CREATE TABLE IF NOT EXISTS Catalogues (
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS Tonalites (
   ID int(11),
   nom varchar(50) NOT NULL,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS Utilisateurs (
   ID int(11),
@@ -83,8 +75,6 @@ CREATE TABLE IF NOT EXISTS Utilisateurs (
   email varchar(100),
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
-
-
 
 CREATE TABLE IF NOT EXISTS Genres (
   ID int(11),
@@ -104,7 +94,6 @@ CREATE TABLE IF NOT EXISTS Formes (
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS Medias (
   ID int(11),
   titre varchar(50) NOT NULL,
@@ -119,7 +108,6 @@ CREATE TABLE IF NOT EXISTS Medias (
   FOREIGN KEY (categorieID) REFERENCES Categories(ID),
   FOREIGN KEY (maison_editionID) REFERENCES Maisons_edition(ID)
 ) ENGINE=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS Imprimes (
   ID int(11),
@@ -196,7 +184,6 @@ CREATE TABLE IF NOT EXISTS Pieces (
   FOREIGN KEY (catalogueID) REFERENCES Catalogues(ID)
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS Arrangeurs_pieces (
   ID int(11),
   exID int(11) NOT NULL,
@@ -205,10 +192,6 @@ CREATE TABLE IF NOT EXISTS Arrangeurs_pieces (
   FOREIGN KEY (exID) REFERENCES Pieces(ID) ON DELETE CASCADE,
   FOREIGN KEY (artisteID) REFERENCES Artistes(ID)
 ) ENGINE=InnoDB;
-
-
-
-
 
 CREATE TABLE IF NOT EXISTS Artistes_pieces (
   ID int(11),
@@ -219,11 +202,6 @@ CREATE TABLE IF NOT EXISTS Artistes_pieces (
   FOREIGN KEY (artisteID) REFERENCES Artistes(ID)
 ) ENGINE=InnoDB;
 
-
-
-
-
-
 CREATE TABLE IF NOT EXISTS Compositeurs_details_imprimes (
   ID int(11),
   exID int(11) NOT NULL,
@@ -233,7 +211,6 @@ CREATE TABLE IF NOT EXISTS Compositeurs_details_imprimes (
   FOREIGN KEY (artisteID) REFERENCES Artistes(ID)
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS Compositeurs_pieces (
   ID int(11),
   exID int(11) NOT NULL,
@@ -242,8 +219,6 @@ CREATE TABLE IF NOT EXISTS Compositeurs_pieces (
   FOREIGN KEY (exID) REFERENCES Pieces(ID) ON DELETE CASCADE,
   FOREIGN KEY (artisteID) REFERENCES Artistes(ID)
 ) ENGINE=InnoDB;
-
-
 
 CREATE TABLE IF NOT EXISTS Emprunts (
   ID int(11),
@@ -259,7 +234,6 @@ CREATE TABLE IF NOT EXISTS Emprunts (
   FOREIGN KEY (mediaID) REFERENCES Medias(ID)
 ) ENGINE=InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS Parolier_pieces (
   ID int(11),
   exID int(11) NOT NULL,
@@ -268,7 +242,6 @@ CREATE TABLE IF NOT EXISTS Parolier_pieces (
   FOREIGN KEY (exID) REFERENCES Pieces(ID) ON DELETE CASCADE,
   FOREIGN KEY (artisteID) REFERENCES Artistes(ID)
 ) ENGINE=InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS Interpretes_pieces (
   ID int(11),
@@ -280,8 +253,6 @@ CREATE TABLE IF NOT EXISTS Interpretes_pieces (
   FOREIGN KEY (artisteID) REFERENCES Artistes(ID)
 ) ENGINE=InnoDB;
 
-
-
 CREATE TABLE IF NOT EXISTS Orchestrateurs_pieces (
   ID int(11) NOT NULL,
   exID int(11) NOT NULL,
@@ -290,7 +261,3 @@ CREATE TABLE IF NOT EXISTS Orchestrateurs_pieces (
   FOREIGN KEY (exID) REFERENCES Pieces(ID) ON DELETE CASCADE,
   FOREIGN KEY (artisteID) REFERENCES Artistes(ID)
 ) ENGINE=InnoDB;
-
-
-
-
