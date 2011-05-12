@@ -29,23 +29,24 @@ function openSubform()
 		'margin-left': '-20em'
 	}).fadeIn();
 
-	$('#subform div.niveau3').hide();
-	$('#subform div.niveau3 select').after('<input type="button" value="-"><br>');
-	$('#subform div.niveau3 select + input:last').after('<input type="button" value="+">');
-	$('#subform div.niveau3').before('<span class="niveau3">Aucun</span>');
+	$('#subform div.level3').hide();
+	$('#subform div.level3 div.rowLevel3').append('<input type="button" value="-">');
+	$('#subform div.level3 div.rowLevel3:last-child').after('<input type="button" value="+">');
+	$('#subform div.level3').before('<span class="level3">Aucun</span>');
 
-	$('#subform div.niveau3').each(function() {
+	$('#subform div.level3').each(function() {
 		updateDivDetails($(this));
 	});
 
-	$('#subform div.niveau3 select').change(function() {
-		updateDivDetails($(this).closest('div.niveau3'));
+	$('#subform div.level3 div.rowLevel3 :input').change(function() {
+		updateDivDetails($(this).closest('div.level3'));
 	});
 
-	$('#subform div.niveau3 input[type=button][value=-]').click(removeElement);
+	$('#subform div.level3 div.rowLevel3 input[type=button][value=-]').click(removeElement);
+	$('#subform div.level3 div.rowLevel3 + input[type=button][value=+]').click(addElement);
 
-	$('#subform span.niveau3').click(function() {
-		$(this).next('div.niveau3').slideToggle('fast');
+	$('#subform span.level3').click(function() {
+		$(this).next('div.level3').slideToggle('fast');
 	});
 
 }
@@ -56,17 +57,27 @@ function closeSubform()
 
 function removeElement()
 {
-	$(this).prev('select').remove();
-	$(this).next('br').remove();
+	$div = $(this).closest('div.level3');
+	$(this).closest('div.rowLevel3').remove();
+	updateDivDetails($div);
+}
 
-	updateDivDetails($(this).closest('div.niveau3'));
+function addElement()
+{
+	$newRow = $(this).prev('div.rowLevel3').clone();
+	$newRow.find('select').val(0);
+	$newRow.insertBefore($(this));
+	$newRow.find('input[type=button][value=-]').click(removeElement);
+	$newRow.find(':input').change(function() {
+		updateDivDetails($(this).closest('div.level3'));
+	});
 
-	$(this).remove();
+	updateDivDetails($(this).closest('div.level3'));
 }
 
 function updateDivDetails($div)
 {
-	var $span = $div.prev('span.niveau3');
+	var $span = $div.prev('span.level3');
 	$span.text('Aucun');
 
 	$div.find('select').each(function() {

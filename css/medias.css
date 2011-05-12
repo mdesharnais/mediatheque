@@ -30,14 +30,20 @@ form#media table tr:nth-child(2n)
 	background-color: white;
 }
 
-form#media #subform div.niveau3
+form#media #subform div.level3
 {
 	background-color: red;
 	margin-left: 12em;
 }
 
-form#media #subform div.niveau3 select,
-form#media #subform div.niveau3 input
+form#media #subform div.level3 div.rowLevel3:last-of-type
+{
+	background-color: orange;
+	display: inline;
+}
+
+form#media #subform div.level3 div.rowLevel3 select,
+form#media #subform div.level3 div.rowLevel3 input
 {
 	margin: 0.1em;
 }
