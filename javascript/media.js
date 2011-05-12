@@ -17,7 +17,6 @@ function openSubform()
 		'opacity': '0.75'
 	}).fadeIn();
 
-	//$('body').append('<div id="subform"></div>');
 	$('#subform').css({
 		'width': '40em',
 		'height': '35em',
@@ -43,6 +42,8 @@ function openSubform()
 		updateDivDetails($(this).closest('div.niveau3'));
 	});
 
+	$('#subform div.niveau3 input[type=button][value=-]').click(removeElement);
+
 	$('#subform span.niveau3').click(function() {
 		$(this).next('div.niveau3').slideToggle('fast');
 	});
@@ -51,6 +52,16 @@ function openSubform()
 
 function closeSubform()
 {
+}
+
+function removeElement()
+{
+	$(this).prev('select').remove();
+	$(this).next('br').remove();
+
+	updateDivDetails($(this).closest('div.niveau3'));
+
+	$(this).remove();
 }
 
 function updateDivDetails($div)
