@@ -22,15 +22,20 @@ body
 	font-family: Optima, "Trebuchet MS", Lucida, Arial, Geneva, Verdana, "Lucida Grande", Tahoma, Helvetica, sans-serif;
 }
 
-a
+a,
+span.buttonAdd,
+span.buttonRemove
 {
 	text-decoration: none;
 	color: #c52100;
 }
 
-a:hover
+a:hover,
+span.buttonAdd:hover,
+span.buttonRemove:hover
 {
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 p
