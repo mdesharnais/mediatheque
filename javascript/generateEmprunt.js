@@ -1,9 +1,11 @@
 $(document).ready(function() {
+	$('form#emprunt input#ID').hide();
+
 	$('form#emprunt input#utilisateurID').after('<input type="button" value="Afficher" class="foo">');
 	$('form#emprunt input[type="button"].foo').click(function() {
 		$.ajax({
 			type: "GET",
-			url: "utilisateurs.xml",
+			url: "xml/utilisateurs.xml",
 			dataType: "xml",
 			success: function(xml) {
 				$(xml).find('utilisateur').each(function() {
@@ -17,4 +19,52 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('form#emprunt input#mediaID').after('<input type="button" value="+" class="add">');
+	$('form#emprunt input[type="button"].add').click(function() {
+		$.ajax({
+			type: "GET",
+			url: "xml/medias.xml",
+			dataType: "xml",
+			success: function(xml) {
+				$(xml).find('media').each(function() {
+					if ($('form#emprunt input[type="number"]#mediaID').val() == $(this).attr('reference'))
+					{
+						var $mediaInfo = $('<div id="' + $(this).attr('reference') + '"></div>');
+						$mediaInfo.append(getDates());
+						$mediaInfo.append($(this).attr('reference') + ' | ' + $(this).attr('titre') + '(' + $(this).attr('annee_publication')/* + ') du <input type="date" class="date_emprunt"> au <input type="date" class="date_retour">'*/);
+						$('form#emprunt').append($mediaInfo);
+					}
+				});
+			}
+		});
+	});
+	
+	$('form#emprunt input#mediaID').after('<input type="button" value="-" class="suppress">');
+	$('form#emprunt input[type="button"].suppress').click(function() {
+		$('div#' + $('form#emprunt input[type="number"]#mediaID').val()).remove();
+	});
 });
+
+/// sort options before insert in select
+function getDates()
+{
+	var $dateSelect = $('<select id=date_emprunt></select>');
+	$.ajax({
+		type: "GET",
+		url: "xml/dates.xml",
+		dataType: "xml",
+		success: function(xml) {
+			$(xml).find('date').each(function() {
+				var myDate=new Date();
+				myDate.setFullYear($(this).attr('annee'), $(this).attr('mois'), $(this).attr('jour'));
+				for (var i=0;i<=15;i=i+1)
+				{
+					myDate.setDate(myDate.getDate()+7);
+					$dateSelect.append('<option value="' + myDate.getFullYear + '-' + myDate.getMonth() + 1 + '-' + myDate.getDate() + '">' + myDate.getFullYear() + '-' + myDate.getMonth() + 1 + '-' + myDate.getDate() + '</option>');
+				}
+			});
+		}
+	});
+	return $dateSelect;
+}
