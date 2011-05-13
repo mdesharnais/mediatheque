@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS Utilisateurs (
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
   telephone varchar(10) NOT NULL,
-  email varchar(100),
+  courriel varchar(320),
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
