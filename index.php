@@ -17,28 +17,7 @@
 		<![endif]-->
 	</head>
 	<body>
-		<header>
-			<div id="user-bar">
-				<a href="#">Inscription</a>
-				<a href="#">Connexion</a>
-			</div>
-			<h1><a href="index.html" title="Retour à l'accueil">Carcajou</a></h1>
-			<img alt="Logo du Cégep de Trois-Rivières" src="images/logo.png">
-			<form>
-				<input type="search" size="60" placeholder="Entrez votre recherche">
-				<button type="submit">Rechercher</button>
-				<p id="moresearches"><a href="advancedSearch.html">Recherche avancée</a></p>
-			</form>
-			<nav>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-			</nav>
-		</header>
+		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
 			<div id="vertical-breadcrumb">
 				<h3>Affinez votre recherche</h3>
@@ -87,25 +66,7 @@
 				<p>Donec lobortis leo eget velit dictum cursus. In dictum magna ac ligula accumsan adipiscing. Donec venenatis faucibus purus nec sagittis. Praesent rhoncus lacus in ante auctor fermentum. Nunc leo leo, luctus non vestibulum eget, porta vitae diam. Nullam id nisi nec nunc condimentum auctor vel in libero. Mauris tempus luctus nisi, at sodales nisl porta sit amet. Donec feugiat tempus posuere. Ut consectetur leo ut diam porttitor iaculis. Fusce rhoncus mauris sit amet mauris scelerisque hendrerit. Duis ultrices pretium risus, at tincidunt ligula pulvinar ac. Vestibulum dapibus tristique leo sed ultricies. Mauris tristique justo non augue ultrices hendrerit. Quisque enim leo, elementum non laoreet nec, vulputate ac elit. Maecenas sit amet ipsum enim, non tempor tellus. Sed volutpat eleifend mauris et ornare. Phasellus ipsum velit, pretium sit amet interdum eu, vulputate eget lacus. Vivamus rutrum, mauris eu vulputate tempus, augue ante luctus dui, nec pellentesque sem risus vitae ligula. Etiam elementum rutrum velit in pretium. Duis ut leo eget metus tempor feugiat vel vel lacus.</p>
 			</div>
 		</div>
-		<footer>
-			<p>Travail fait par Marin Desharnais, Samuel Milette-Lacombe et Marc-André Destrempe.</p>
-			<nav>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-			</nav>
-		</footer>
+		<?php require('sharedFiles/footer.inc.php'); ?>
 	</body>
 </html>
 
