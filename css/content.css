@@ -67,9 +67,9 @@ form#driving-table table thead tr#new-row
 }
 
 form#driving-table table tr th#col_row_state,
-form#driving-table table tr td[headers=col_row_state],
+form#driving-table table tr td[headers="col_row_state"],
 form#driving-table table tr th#col_id,
-form#driving-table table tr td[headers=col_id]
+form#driving-table table tr td[headers="col_id"]
 {
 	/*
 	display: none;
