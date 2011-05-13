@@ -1,51 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="author" content="Martin Desharnais">
-
-		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
-
-		<link rel="stylesheet" href="css/style1.css">
-		<link rel="icon" href="images/logoCegep.svg">
-
-		<script src="javascript/jquery/jquery.js"></script>
-		<script src="javascript/jquery/jquery.tablesorter.min.js"></script>
-		<script src="javascript/driving-table.js"></script>
-	</head>
-	<body>
-		<div id="user-bar">
-			<a href="#">Inscription</a>
-			<a href="#">Connexion</a>
-		</div>
-		<header>
-			<h1><a href="#" title="Retour à l'accueil">Carcajou</a></h1>
-			<img src="images/logo.png">
-			<form>
-				<input type="search" placeholder="Rechercher">
-				<button type="submit">Rechercher</button>
-			</form>
-			<nav>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-			</nav>
-		</header>
-		<div id="content">
-			<form id="driving-table">
-				<!--
-				row_state:
-				1 = Unchanged
-				2 = Added
-				3 = Deleted
-				4 = Modified
-				-->
+<?php
+function printDrivingTable($tableName)
+{
+	/*
+	row_state:
+	1 = Unchanged
+	2 = Added
+	3 = Deleted
+	4 = Modified
+	*/
+	echo '<form id="driving-table">
 				<table>
-					<caption>Table de pilotage</caption>
+					<caption>'.$tableName.'</caption>
 					<thead>
 						<tr>
 							<th id="col_row_state">Row state</th>
@@ -88,27 +53,6 @@
 				</table>
 				<button type="submit">Enregistrer</button>
 				<button type="reset">Annuler</button>
-			</form>
-		</div>
-		<footer>
-			<p>Travail fait par Marin Desharnais, Samuel Milette-Lacombe et Marc-André Destrempe.</p>
-			<nav>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-			</nav>
-		</footer>
-	</body>
-</html>
-
+			</form>';
+}
+?>
