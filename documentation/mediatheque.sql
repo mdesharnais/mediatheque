@@ -18,18 +18,21 @@ use mediatheque;
 CREATE TABLE IF NOT EXISTS Epoques (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Maisons_edition (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Instrumentations (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
@@ -37,12 +40,14 @@ CREATE TABLE IF NOT EXISTS Categories (
   ID int(11),
   nom varchar(50) NOT NULL,
   type varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Nationalites (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
@@ -50,6 +55,7 @@ CREATE TABLE IF NOT EXISTS Collections (
   ID int(11),
   nom varchar(50) NOT NULL,
   type varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
@@ -57,12 +63,14 @@ CREATE TABLE IF NOT EXISTS Catalogues (
   ID int(11),
   code varchar(10) NOT NULL,
   description text,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Tonalites (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
@@ -73,24 +81,28 @@ CREATE TABLE IF NOT EXISTS Utilisateurs (
   prenom varchar(50) NOT NULL,
   telephone varchar(10) NOT NULL,
   courriel varchar(320),
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Genres (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Artistes (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS Formes (
   ID int(11),
   nom varchar(50) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
 
@@ -104,6 +116,7 @@ CREATE TABLE IF NOT EXISTS Medias (
   notes varchar(150),
   maison_editionID int(11),
   categorieID int(11) NOT NULL,
+  inactif BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (ID),
   FOREIGN KEY (categorieID) REFERENCES Categories(ID),
   FOREIGN KEY (maison_editionID) REFERENCES Maisons_edition(ID)
