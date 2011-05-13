@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('form#media table tbody tr').dblclick(openSubform);
-	$('form#media table tbody tr:first-child').trigger('dblclick');
+	//$('form#media table tbody tr:first-child').trigger('dblclick');
 });
 
 function openSubform()
