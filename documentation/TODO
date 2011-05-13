@@ -4,6 +4,8 @@
 
 Design du fil d'Ariane vertical
 Modifier un média
+Formulaires:
+	-Modifier les tables de pilotage
 
 ##################################################
 # Samuel Milette-Lacombe
@@ -37,5 +39,7 @@ Pied de page
 -
 Accueil
 Formulaires
-	-Modifier les tables de pilotage
 	-Gestion des utilisateurs
+
+Pour obtenir le dictionnaire de données d'une table il suffit d'utiliser la requête suivante:
+	SHOW FULL COLUMNS FROM table_name
