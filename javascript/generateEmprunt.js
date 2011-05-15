@@ -31,9 +31,11 @@ $(document).ready(function() {
 					if ($('form#emprunt input[type="number"]#mediaID').val() == $(this).attr('reference'))
 					{
 						var $mediaInfo = $('<div id="' + $(this).attr('reference') + '"></div>');
+						$mediaInfo.append($(this).attr('reference') + ' | ' + $(this).attr('titre') + '(' + $(this).attr('annee_publication') + ') du ');
 						$mediaInfo.append(getDates());
-						$mediaInfo.append($(this).attr('reference') + ' | ' + $(this).attr('titre') + '(' + $(this).attr('annee_publication')/* + ') du <input type="date" class="date_emprunt"> au <input type="date" class="date_retour">'*/);
-						$('form#emprunt').append($mediaInfo);
+						$mediaInfo.append(' au ');
+						$mediaInfo.append(getDates());
+						$('form#emprunt input[type="button"].add').after($mediaInfo);
 					}
 				});
 			}
@@ -46,7 +48,6 @@ $(document).ready(function() {
 	});
 });
 
-/// sort options before insert in select
 function getDates()
 {
 	var $dateSelect = $('<select id=date_emprunt></select>');
@@ -55,15 +56,23 @@ function getDates()
 		url: "xml/dates.xml",
 		dataType: "xml",
 		success: function(xml) {
+			var dates=new Array();
+			var j = 0;
 			$(xml).find('date').each(function() {
 				var myDate=new Date();
 				myDate.setFullYear($(this).attr('annee'), $(this).attr('mois'), $(this).attr('jour'));
 				for (var i=0;i<=15;i=i+1)
 				{
 					myDate.setDate(myDate.getDate()+7);
-					$dateSelect.append('<option value="' + myDate.getFullYear + '-' + myDate.getMonth() + 1 + '-' + myDate.getDate() + '">' + myDate.getFullYear() + '-' + myDate.getMonth() + 1 + '-' + myDate.getDate() + '</option>');
+					dates[j] = myDate.getFullYear() + "-" + myDate.getMonth() + "-" + myDate.getDate();
+					j += 1;
 				}
 			});
+			dates.sort();
+			for (var i=0;i<dates.length;i=i+1)
+			{
+				$dateSelect.append('<option value="' + dates[i] + '">' + dates[i] + '</option>');
+			}
 		}
 	});
 	return $dateSelect;
