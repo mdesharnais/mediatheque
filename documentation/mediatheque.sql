@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS audios_videos (
 	ID int(11) PRIMARY KEY,
 	exID int(11) NOT NULL,
 	collectionID int(11) COMMENT 'Collection',
-	position_collection int(11) 'Position dans la collection',
+	position_collection int(11) COMMENT 'Position dans la collection',
 	CUP int(11) NOT NULL COMMENT 'CUP',
 	realisateurs varchar(200) COMMENT 'Réalisateur',
 	nationaliteID int(11) COMMENT 'Nationalité',
