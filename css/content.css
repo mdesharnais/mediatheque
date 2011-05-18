@@ -112,7 +112,7 @@ th.headerSortDown
 		width:auto;
 	}
 
-	#search-results > h2:after
+	#content h2:after
 	{
 		content: " 1280x800";
 	}
@@ -125,7 +125,7 @@ th.headerSortDown
 		width:auto;
 	}
 
-	#search-results > h2:after
+	#content h2:after
 	{
 		content: " 1024x768";
 	}
@@ -138,7 +138,7 @@ th.headerSortDown
 		width:auto;
 	}
 
-	#search-results > h2:after
+	#content h2:after
 	{
 		content: " 800x600";
 	}
@@ -156,7 +156,7 @@ th.headerSortDown
 		margin: 0;
 	}
 
-	#search-results > h2:after
+	#content h2:after
 	{
 		content: " 640x480";
 	}
