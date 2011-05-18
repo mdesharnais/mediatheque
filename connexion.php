@@ -1,3 +1,4 @@
+<?php require('sharedFiles/pageStart.inc.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -19,7 +20,7 @@
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
-			<form>
+			<form method="post" action="php/userLogIn.php">
 				<h2>Connexion</h2>
 				<label for="matricule">Matricule</label>
 				<input type="text" id="matricule" name="matricule">

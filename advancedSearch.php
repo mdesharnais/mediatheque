@@ -1,4 +1,5 @@
- <!DOCTYPE html>
+<?php require('sharedFiles/pageStart.inc.php'); ?>
+<!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">

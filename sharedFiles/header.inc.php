@@ -1,7 +1,17 @@
 <header>
 	<div id="user-bar">
-		<a href="#">Inscription</a>
-		<a href="connexion.php">Connexion</a>
+		<?php
+		if(isset($_SESSION['matricule']))
+		{
+			echo 'Bonjour '.$_SESSION['matricule'].' ';
+			echo '<a href="php/userLogOut.php">Déconnexion</a>';
+		}
+		else
+		{
+			echo '<a href="#">Inscription</a>'.' ';
+			echo '<a href="connexion.php">Connexion</a>';
+		}
+		?>
 	</div>
 	<h1><a href="index.php" title="Retour à l'accueil">Carcajou</a></h1>
 	<img alt="Logo du Cégep de Trois-Rivières" src="images/logo.png">
