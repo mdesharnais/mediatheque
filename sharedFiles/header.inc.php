@@ -1,7 +1,7 @@
 <header>
 	<div id="user-bar">
 		<a href="#">Inscription</a>
-		<a href="#">Connexion</a>
+		<a href="connexion.php">Connexion</a>
 	</div>
 	<h1><a href="index.php" title="Retour à l'accueil">Carcajou</a></h1>
 	<img alt="Logo du Cégep de Trois-Rivières" src="images/logo.png">
