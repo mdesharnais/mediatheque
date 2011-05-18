@@ -8,8 +8,13 @@ try
 	if(!isset($_POST['mot_de_passe']) || empty($_POST['mot_de_passe']))
 		throw new Exception('Le mot de passe est obligatoire.');
 
-	$_SESSION['matricule'] = $_POST['matricule'];
-	$_SESSION['mot_de_passe'] = $_POST['mot_de_passe'];
+	require_once('User.class.php');
+
+	$user = new User(1);
+	$user->setStudentNumber($_POST['matricule']);
+	$user->setPassword($_POST['mot_de_passe']);
+
+	$_SESSION['user'] = serialize($user);
 
 	header('Location: ../index.php');
 }

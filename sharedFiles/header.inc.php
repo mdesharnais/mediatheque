@@ -1,9 +1,13 @@
 <header>
 	<div id="user-bar">
 		<?php
-		if(isset($_SESSION['matricule']))
+		if(isset($_SESSION['user']))
 		{
-			echo 'Bonjour '.$_SESSION['matricule'].' ';
+			require_once('php/User.class.php');
+
+			$user = unserialize($_SESSION['user']);
+
+			echo 'Bonjour '.$user->getStudentNumber().' ';
 			echo '<a href="php/userLogOut.php">Déconnexion</a>';
 		}
 		else

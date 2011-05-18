@@ -1,6 +1,5 @@
 <?php
 session_start();
-unset($_SESSION['matricule']);
-unset($_SESSION['mot_de_passe']);
+unset($_SESSION['user']);
 header('Location: ../index.php');
 ?>
