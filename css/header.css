@@ -54,8 +54,21 @@ header > form
 	color: white;
 }
 
+header > form button[type=submit]:active
+{
+	padding: 0;
+	margin: 0;
+}
+
 header > form button[type=submit]
 {
+	vertical-align: middle;
+	background-color: transparent;
+	border-style: none;
+	border-width: 0;
+	padding: 0;
+	margin: 0;
+/*
 	width: 2.5em;
 	height: 2.5em;
 	-webkit-background-size: 2.5em 2.5em;
@@ -70,7 +83,7 @@ header > form button[type=submit]
 	background-repeat: no-repeat;
 	background-position: center top;
 	text-indent: -1000em;
-
+*/
 }
 
 header nav

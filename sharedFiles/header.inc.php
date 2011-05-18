@@ -7,7 +7,7 @@
 	<img alt="Logo du Cégep de Trois-Rivières" src="images/logo.png">
 	<form>
 		<input type="search" size="60" placeholder="Entrez votre recherche">
-		<button type="submit">Rechercher</button>
+		<button type="submit"><img src="images/icons/search32x32.png" alt="Rechercher"></button>
 		<p id="moresearches"><a href="advancedSearch.php">Recherche avancée</a></p>
 	</form>
 	<nav>
