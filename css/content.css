@@ -10,9 +10,11 @@
 }
 
 #vertical-breadcrumb,
+#advanced-search,
 #search-results,
 #driving-table,
-#media
+#media,
+#content > div
 {
 	background-color: #e6e6e6;
 	padding: 10px;
