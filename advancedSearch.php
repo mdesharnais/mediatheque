@@ -20,7 +20,7 @@
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
-			<form id="advanced-search">
+			<form id="advanced-search" method="post" action="searchResults.php">
 				<h1>Rechercher :</h1>
 				<div class="row-search">
 					<select name="idx">
