@@ -27,6 +27,13 @@
 				else
 					echo "Aucune table sélectionnée";
 			}
+			else
+			{
+				echo '<div class="error">';
+				echo '    <h2>Erreur</h2>';
+				echo '    Vous n\'avez pas les droits nécessaires pour accéder à cette page.';
+				echo '</div>';
+			}
 			?>
 		</div>
 		<?php require('sharedFiles/footer.inc.php'); ?>
