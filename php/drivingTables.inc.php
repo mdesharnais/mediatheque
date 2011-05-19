@@ -6,9 +6,9 @@ function printDrivingTable($tableName)
 	global $application;
 
 	$sqlQuery = "
-		SELECT information_schema.tables.table_comment,
+		SELECT information_schema.tables.table_comment, 
 			information_schema.columns.column_name, 
-			information_schema.columns.data_type,
+			information_schema.columns.data_type, 
 			information_schema.columns.column_comment, 
 			information_schema.columns.is_nullable 
 		FROM information_schema.tables 
