@@ -16,58 +16,58 @@ use mediatheque;
 -- --------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS epoques (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS maisons_edition (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS instrumentations (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS categories (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	type varchar(50) NOT NULL COMMENT 'Type de média',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS nationalites (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS collections (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	type varchar(50) NOT NULL COMMENT 'Type de média',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS catalogues (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	code varchar(10) NOT NULL COMMENT 'Code',
 	description text COMMENT 'Description',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS tonalites (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS utilisateurs (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	matricule int(8) NOT NULL COMMENT 'Matricule',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	prenom varchar(50) NOT NULL COMMENT 'Prénom',
@@ -77,25 +77,25 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS genres (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS artistes (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS formes (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS medias (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	titre varchar(50) NOT NULL COMMENT 'Titre',
 	annee_publication int(11) COMMENT 'Année de publication',
 	image varchar(100) COMMENT 'Image',
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS medias (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS imprimes (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	sous_titre varchar(100) COMMENT 'Sous-titre',
 	collectionID int(11) COMMENT 'Collection',
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS imprimes (
 
 
 CREATE TABLE IF NOT EXISTS details_imprimes (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	titre varchar(50) NOT NULL COMMENT 'Titre',
 	position_media int(11) NOT NULL COMMENT 'Position dans le média',
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS details_imprimes (
 
 
 CREATE TABLE IF NOT EXISTS arrangeurs_details_imprimes (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Arrangeur',
 	FOREIGN KEY(artisteID) REFERENCES artistes(ID),
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS arrangeurs_details_imprimes (
 
 
 CREATE TABLE IF NOT EXISTS audios_videos (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	collectionID int(11) COMMENT 'Collection',
 	position_collection int(11) COMMENT 'Position dans la collection',
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS audios_videos (
 
 
 CREATE TABLE IF NOT EXISTS pieces (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	titre varchar(50) NOT NULL COMMENT 'Titre',
 	position_media int(11) COMMENT 'Position dans le média',
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS pieces (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS arrangeurs_pieces (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Arrangeur',
 	FOREIGN KEY (exID) REFERENCES pieces(ID) ON DELETE CASCADE,
@@ -188,7 +188,7 @@ CREATE TABLE IF NOT EXISTS arrangeurs_pieces (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS artistes_pieces (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Artiste',
 	FOREIGN KEY (exID) REFERENCES pieces(ID) ON DELETE CASCADE,
@@ -196,7 +196,7 @@ CREATE TABLE IF NOT EXISTS artistes_pieces (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS compositeurs_details_imprimes (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Compositeur',
 	FOREIGN KEY (exID) REFERENCES details_imprimes(ID) ON DELETE CASCADE,
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS compositeurs_details_imprimes (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS compositeurs_pieces (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Compositeur',
 	FOREIGN KEY (exID) REFERENCES pieces(ID) ON DELETE CASCADE,
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS compositeurs_pieces (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS emprunts (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	utilisateurID int(11) NOT NULL COMMENT 'Utilisateur',
 	date_reservation date NOT NULL COMMENT 'Date de réservation',
 	date_voulue date NOT NULL COMMENT 'Date voulue',
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS emprunts (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS parolier_pieces (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Parolier',
 	FOREIGN KEY (exID) REFERENCES pieces(ID) ON DELETE CASCADE,
@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS parolier_pieces (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS interpretes_pieces (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Interprête',
 	taches varchar(50) NOT NULL COMMENT 'Tâche',
@@ -242,9 +242,16 @@ CREATE TABLE IF NOT EXISTS interpretes_pieces (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS orchestrateurs_pieces (
-	ID int(11) PRIMARY KEY,
+	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
 	artisteID int(11) NOT NULL COMMENT 'Orchestrateur',
 	FOREIGN KEY (exID) REFERENCES pieces(ID) ON DELETE CASCADE,
 	FOREIGN KEY (artisteID) REFERENCES artistes(ID)
 ) ENGINE=InnoDB;
+
+INSERT INTO epoques(ID, nom, inactif)
+VALUES (1, 'Baroque', FALSE),
+	(2, 'Classique', FALSE),
+	(3, 'Médiéval', FALSE),
+	(4, 'Renaissance', FALSE),
+	(5, 'Romantique', FALSE);
