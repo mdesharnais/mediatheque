@@ -15,7 +15,8 @@
 #driving-table,
 #media,
 #content > div,
-#content > form
+#content > form,
+#content > aside
 {
 	background-color: #e6e6e6;
 	padding: 10px;
@@ -25,15 +26,23 @@
 	border-radius: 10px;
 }
 
-#vertical-breadcrumb
+#vertical-breadcrumb,
+#content > aside
 {
 	float: left;
 	width: 175px;
 }
 
-#vertical-breadcrumb ul
+#vertical-breadcrumb ul,
+#content > aside ul
 {
 	list-style-type: none;
+}
+
+#vertical-breadcrumb ul li,
+#content > aside ul li
+{
+	margin-left: 0.5em;
 }
 
 #vertical-breadcrumb span.showMore
@@ -41,7 +50,8 @@
 	cursor: pointer;
 }
 
-#search-results
+#search-results,
+#content aside + div
 {
 	margin-left: 215px;
 }

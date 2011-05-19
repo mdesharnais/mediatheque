@@ -18,9 +18,10 @@ class User
 	// Constructor
 	//////////////////////////////////////////////////
 	
-	public function __construct($id)
+	public function __construct($id = null)
 	{
-		$this->ID = $id;
+		if(isset($id))
+			$this->ID = $id;
 	}
 
 	//////////////////////////////////////////////////
@@ -52,6 +53,11 @@ class User
 		return $this->nom;
 	}
 
+	public function getName()
+	{
+		return $this->getFirstName().' '.$this->getLastName();
+	}
+
 	public function getTelephoneNumber()
 	{
 		return $this->telephone;
@@ -70,6 +76,11 @@ class User
 	public function isInactive()
 	{
 		return $this->inactif == true;
+	}
+
+	public function isVisitor()
+	{
+		return !isset($this->ID);
 	}
 
 	//////////////////////////////////////////////////
@@ -120,5 +131,9 @@ class User
 	// Methods(s)
 	//////////////////////////////////////////////////
 	
+	public function haveRights($section, $rights)
+	{
+		return true;
+	}
 }
 ?>

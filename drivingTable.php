@@ -18,14 +18,17 @@
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
 			<?php
-			require('php/drivingTables.inc.php');
-			if(isset($_GET['table']))
-				printDrivingTable($_GET['table']);
-			else
-				echo "Aucune table sélectionnée";
+			if($application->currentUser->haveRights(__FILE__, $application->rights['read'] | $application->rights['write']))
+			{
+				require('php/drivingTables.inc.php');
+
+				if(isset($_GET['table']))
+					printDrivingTable($_GET['table']);
+				else
+					echo "Aucune table sélectionnée";
+			}
 			?>
 		</div>
 		<?php require('sharedFiles/footer.inc.php'); ?>
 	</body>
 </html>
-

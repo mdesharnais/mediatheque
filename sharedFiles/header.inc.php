@@ -1,19 +1,15 @@
 <header>
 	<div id="user-bar">
 		<?php
-		if(isset($_SESSION['user']))
-		{
-			require_once('php/User.class.php');
-
-			$user = unserialize($_SESSION['user']);
-
-			echo 'Bonjour '.$user->getStudentNumber().' ';
-			echo '<a href="php/userLogOut.php">Déconnexion</a>';
-		}
-		else
+		if($application->currentUser->isVisitor())
 		{
 			echo '<a href="#">Inscription</a>'.' ';
 			echo '<a href="connexion.php">Connexion</a>';
+		}
+		else
+		{
+			echo 'Bonjour '.$application->currentUser->getName().' ';
+			echo '<a href="php/userLogOut.php">Déconnexion</a>';
 		}
 		?>
 	</div>

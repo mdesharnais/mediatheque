@@ -13,6 +13,11 @@ try
 	$user = new User(1);
 	$user->setStudentNumber($_POST['matricule']);
 	$user->setPassword($_POST['mot_de_passe']);
+	$user->setFirstName('Paul');
+	$user->setLastName('Tremblay');
+	$user->setTelephoneNumber('819 555-1234');
+	$user->setEmailAddress('paul.tremblay@gmail.com');
+	$user->setActive();
 
 	$_SESSION['user'] = serialize($user);
 
