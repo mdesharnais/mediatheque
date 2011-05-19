@@ -18,17 +18,23 @@ class Application
 
 	public function __construct()
 	{
-		$this->database = new PDO(
-			'mysql:host='.self::DATABASE_HOST.
-			';dbname='.self::DATABASE_NAME,
-			self::DATABASE_USERNAME,
-			self::DATABASE_PASSWORD);
+		try
+		{
+			$this->database = new PDO(
+				'mysql:host='.self::DATABASE_HOST.
+				';dbname='.self::DATABASE_NAME,
+				self::DATABASE_USERNAME,
+				self::DATABASE_PASSWORD);
 
-		if(isset($_SESSION['user']))
-			$this->currentUser = unserialize($_SESSION['user']);
-		else
-			$this->currentUser = new User();
-
+			if(isset($_SESSION['user']))
+				$this->currentUser = unserialize($_SESSION['user']);
+			else
+				$this->currentUser = new User();
+		}
+		catch(PDOExecption $e)
+		{
+			echo $e.getMessage();
+		}
 	}
 }
 
