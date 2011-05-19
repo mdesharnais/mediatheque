@@ -1,4 +1,22 @@
 		$(document).ready(function() {
+		
+		
+		
+		 $.ajax( {
+            type: "GET",
+            url: "xml/sugTitres.xml",
+            dataType: "xml",
+            success: function(xml) 
+                     {
+                       $(xml).find('titre').each(   
+                         function()
+                         {
+                            var title = $(this).text();
+                            $('#lstSuggestion').append('<option value="'+title+'">');
+                      
+                          });
+                      }
+        	});
 			initSearchCriterias();
 		
 			var zIndexNumber = 1000;
