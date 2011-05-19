@@ -52,14 +52,13 @@
 					</select>
 					<select name="equalityOp">
 						<option value="LIKE" SELECTED>Contient</option>
-						<option value="Not LIKE">Ne contient pas</option>
 						<option value="=">(=) Est égale à</option>
 						<option value=">">(>) Est plus grand que</option>
 						<option value=">=">(>=) Est plus grand ou égal à</option>
 						<option value="<">(<) Est plus petit que</option>
 						<option value="<=">(<=) Est plus petit ou égal à</option>
 					</select>
-					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="" >
+					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="" list="lstSuggestion">
 				</div>
 				<div class="row-search">
 					<select name="op">
@@ -95,14 +94,13 @@
 					</select>
 					<select name="equalityOp">
 						<option value="LIKE" SELECTED>Contient</option>
-						<option value="Not LIKE">Ne contient pas</option>
 						<option value="=">(=) Est égale à</option>
 						<option value=">">(>) Est plus grand que</option>
 						<option value=">=">(>=) Est plus grand ou égal à</option>
 						<option value="<">(<) Est plus petit que</option>
 						<option value="<=">(<=) Est plus petit ou égal à</option>
 					</select>
-					<input type="text" size="30" name="q" title="Saisissez les termes de recherche">
+					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" list="lstSuggestion">
 				</div>
 				<div class="row-search">
 					<select name="op">
@@ -138,18 +136,21 @@
 					</select>
 					<select name="equalityOp">
 						<option value="LIKE" SELECTED>Contient</option>
-						<option value="Not LIKE">Ne contient pas</option>
 						<option value="=">(=) Est égale à</option>
 						<option value=">">(>) Est plus grand que</option>
 						<option value=">=">(>=) Est plus grand ou égal à</option>
 						<option value="<">(<) Est plus petit que</option>
 						<option value="<=">(<=) Est plus petit ou égal à</option>
 					</select>
-					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="" >
+					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="" list="lstSuggestion">
 				</div>
 				<br>
 				<input type="submit" value="Rechercher"> 
-				<input type="reset"> 
+				
+				<input type="reset">
+				    
+						<datalist id="lstSuggestion">  
+		 				</datalist>  
 			</form>
 		</div>
 		<?php require('sharedFiles/footer.inc.php'); ?>
