@@ -5,8 +5,22 @@ function printDrivingTable($tableName)
 {
 	global $application;
 
-	foreach($application->database->query("SHOW FULL COLUMNS FROM $tableName") as $row)
-		$columns[$row['Field']] = $row;
+	$sqlQuery = "
+		SELECT information_schema.tables.table_comment,
+			information_schema.columns.column_name, 
+			information_schema.columns.data_type,
+			information_schema.columns.column_comment, 
+			information_schema.columns.is_nullable 
+		FROM information_schema.tables 
+			INNER JOIN information_schema.columns ON information_schema.tables.table_name = information_schema.columns.table_name 
+		WHERE information_schema.tables.table_name = ?";
+	$query = $application->database->prepare($sqlQuery);
+	$query->execute(array($tableName));
+
+	foreach($query as $row)
+		$columns[$row['column_name']] = $row;
+
+	$firstColumn = current($columns);
 
 	/*
 	row_state:
@@ -18,13 +32,13 @@ function printDrivingTable($tableName)
 
 	echo '<form id="driving-table" method="POST" action="php/saveDrivingTable.php">';
 	echo '	<table>';
-	echo '		<caption>'.$tableName.'</caption>';
+	echo '		<caption>'.$firstColumn['table_comment'].'</caption>';
 	echo '		<thead>';
 	echo '			<tr>';
 	echo '				<th id="col_row_state">Row state</th>';
 
 	foreach($columns as $column)
-		echo '<th id="col_'.$column['Field'].'">'.$column['Comment'].'</th>';
+		echo '<th id="col_'.$column['column_name'].'">'.$column['column_comment'].'</th>';
 
 	echo '			</tr>';
 	echo '			<tr id="new-row">';
@@ -32,7 +46,7 @@ function printDrivingTable($tableName)
 
 	foreach($columns as $column)
 	{
-		echo '<td headers="col_'.$column['Field'].'">';
+		echo '<td headers="col_'.$column['column_name'].'">';
 		generateField($column);
 		echo '</td>';
 	}
@@ -48,8 +62,8 @@ function printDrivingTable($tableName)
 
 		foreach($columns as $column)
 		{
-			echo '<td headers="col_'.$column['Field'].'">';
-			generateField($column, $row[$column['Field']]);
+			echo '<td headers="col_'.$column['column_name'].'">';
+			generateField($column, $row[$column['column_name']]);
 			echo '</td>';
 		}
 
@@ -65,16 +79,16 @@ function printDrivingTable($tableName)
 
 function generateField($column, $value = null)
 {
-	$type = getInputType($column['Type']);
-	$required = ($column['Field'] != 'ID' && $column['Null'] == 'NO') ? ' required' : '';
+	$type = getInputType($column['data_type']);
+	$required = ($column['column_name'] != 'ID' && $column['is_nullable'] == 'NO') ? ' required' : '';
 
 	switch($type)
 	{
 		case 'checkbox':
 			if(is_null($value) || $value == 0)
-				echo '	<input type="checkbox" id="'.$column['Field'].'" name="'.$column['Field'].'">';
+				echo '	<input type="checkbox" id="'.$column['column_name'].'" name="'.$column['column_name'].'">';
 			else
-				echo '	<input type="checkbox" id="'.$column['Field'].'" name="'.$column['Field'].'" checked>';
+				echo '	<input type="checkbox" id="'.$column['column_name'].'" name="'.$column['column_name'].'" checked>';
 			break;
 
 		default:
@@ -83,16 +97,16 @@ function generateField($column, $value = null)
 			else
 				$valueAttribute = " value=\"$value\"";
 
-			echo '	<input type="'.$type.'" id="'.$column['Field'].'" name="'.$column['Field'].'"'.$valueAttribute.$required.'>';
+			echo '	<input type="'.$type.'" id="'.$column['column_name'].'" name="'.$column['column_name'].'"'.$valueAttribute.$required.'>';
 	}
 }
 
 function getInputType($dataType)
 {
-	if($dataType == 'tinyint(1)')
+	if($dataType == 'tinyint')
 		return 'checkbox';
 
-	switch(substr($dataType, 0, strpos($dataType, '(')))
+	switch($dataType)
 	{
 		case 'tinyint':
 		case 'smallint':
