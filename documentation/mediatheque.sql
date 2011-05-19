@@ -250,8 +250,8 @@ CREATE TABLE IF NOT EXISTS orchestrateurs_pieces (
 ) ENGINE=InnoDB;
 
 INSERT INTO epoques(ID, nom, inactif)
-VALUES (1, 'Baroque', FALSE),
+VALUES (1, 'Baroque', TRUE),
 	(2, 'Classique', FALSE),
 	(3, 'Médiéval', FALSE),
-	(4, 'Renaissance', FALSE),
+	(4, 'Renaissance', TRUE),
 	(5, 'Romantique', FALSE);
