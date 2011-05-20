@@ -1,3 +1,4 @@
+<?php require('sharedFiles/pageStart.inc.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -11,27 +12,7 @@
 		<script src="javascript/media.js"></script>
 	</head>
 	<body>
-		<div id="user-bar">
-			<a href="#">Inscription</a>
-			<a href="#">Connexion</a>
-		</div>
-		<header>
-			<h1><a href="#" title="Retour à l'accueil">Carcajou</a></h1>
-			<img src="images/logo.png">
-			<form>
-				<input type="search" placeholder="Rechercher">
-				<button type="submit">Rechercher</button>
-			</form>
-			<nav>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-			</nav>
-		</header>
+		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
 			<form id="media">
 				<label for="ID">ID</label>
@@ -414,24 +395,6 @@
 				<button type="reset">Annuler</button>
 			</form>
 		</div>
-		<footer>
-			<p>Travail fait par Marin Desharnais, Samuel Milette-Lacombe et Marc-André Destrempe.</p>
-			<nav>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-			</nav>
-		</footer>
+		<?php require('sharedFiles/footer.inc.php'); ?>
 	</body>
 </html>
