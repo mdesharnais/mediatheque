@@ -23,22 +23,7 @@ $(document).ready(function() {
 	
 	$('form#emprunt input#mediaID').after('<input type="button" value="+" class="add">');
 	$('form#emprunt input[type="button"].add').click(function() {
-		$.ajax({
-			type: "GET",
-			url: "xml/medias.xml",
-			dataType: "xml",
-			success: function(xml) {
-				$(xml).find('media').each(function() {
-					if ($('form#emprunt input[type="number"]#mediaID').val() == $(this).attr('reference'))
-					{
-						var $mediaInfo = $('<div id="' + $(this).attr('reference') + '"></div>');
-						$mediaInfo.append($(this).attr('reference') + ' | ' + $(this).attr('titre') + '(' + $(this).attr('annee_publication') + ')');
-						$('form#emprunt input[type="button"].add').after($mediaInfo);
-						showMedia($('form#emprunt input[type="number"]#mediaID').val());
-					}
-				});
-			}
-		});
+		showMedia($('form#emprunt input[type="number"]#mediaID').val());
 	});
 	
 	$('form#emprunt input#mediaID').after('<input type="button" value="-" class="suppress">');
@@ -47,29 +32,14 @@ $(document).ready(function() {
 	});
 });
 
-// need to change txtHint
-function showMedia(str)
-{
-if (str=="")
-{
-	document.getElementById("emprunt").innerHTML="";
-	return;
-} 
-if (window.XMLHttpRequest)
-	{// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-}
-else
-	{// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			document.getElementById("emprunt").innerHTML=xmlhttp.responseText;
+function showMedia(str) {
+	$.ajax({
+		type: "GET",
+		url: "php/getMedia.php",
+		data: "q="+str,
+		dataType: "html",
+		success: function(html){
+			$('form#emprunt input[type="button"].add').after(html);
 		}
-	}
-xmlhttp.open("GET","php/getMedia.php?q="+str,true);
-xmlhttp.send();
+	});
 }
