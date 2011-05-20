@@ -56,7 +56,13 @@
 	margin-left: 215px;
 }
 
-form#driving-table table
+form#driving-table div
+{
+	overflow: auto;
+	text-align: center;
+}
+
+form#driving-table div table
 {
 	margin: 0.5em;
 }
@@ -81,12 +87,10 @@ form#driving-table table thead tr#new-row
 
 form#driving-table table tr th#col_row_state,
 form#driving-table table tr td[headers="col_row_state"],
-form#driving-table table tr th#col_id,
-form#driving-table table tr td[headers="col_id"]
+form#driving-table table tr th#col_ID,
+form#driving-table table tr td[headers="col_ID"]
 {
-	/*
 	display: none;
-	*/
 }
 
 th.header,

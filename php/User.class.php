@@ -133,7 +133,10 @@ class User
 	
 	public function haveRights($section, $rights)
 	{
-		return true;
+		if(is_null($this->getID()))
+			return false;
+		else
+			return true;
 	}
 }
 ?>

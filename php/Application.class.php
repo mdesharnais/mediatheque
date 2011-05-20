@@ -25,15 +25,16 @@ class Application
 				';dbname='.self::DATABASE_NAME,
 				self::DATABASE_USERNAME,
 				self::DATABASE_PASSWORD);
+			$this->database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			if(isset($_SESSION['user']))
 				$this->currentUser = unserialize($_SESSION['user']);
 			else
 				$this->currentUser = new User();
 		}
-		catch(PDOExecption $e)
+		catch(PDOException $e)
 		{
-			echo $e.getMessage();
+			echo $e->getMessage();
 		}
 	}
 }
