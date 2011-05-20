@@ -7,8 +7,7 @@
 
 		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
 
-		<link rel="stylesheet" href="css/style1.css">
-		<link rel="icon" href="images/logoCegep.svg">
+		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/research.js"></script>
 		
