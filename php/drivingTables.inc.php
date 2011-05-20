@@ -10,9 +10,14 @@ function printDrivingTable($tableName)
 			information_schema.columns.column_name, 
 			information_schema.columns.data_type, 
 			information_schema.columns.column_comment, 
-			information_schema.columns.is_nullable 
+			information_schema.columns.is_nullable, 
+			information_schema.table_constraints.constraint_type, 
+			information_schema.key_column_usage.referenced_table_name, 
+			information_schema.key_column_usage.referenced_column_name 
 		FROM information_schema.tables 
 			INNER JOIN information_schema.columns ON information_schema.tables.table_name = information_schema.columns.table_name 
+			LEFT JOIN information_schema.key_column_usage ON information_schema.key_column_usage.table_name = information_schema.tables.table_name AND information_schema.key_column_usage.column_name = information_schema.columns.column_name 
+			LEFT JOIN information_schema.table_constraints ON information_schema.table_constraints.constraint_name = information_schema.key_column_usage.constraint_name AND information_schema.table_constraints.table_name = information_schema.tables.table_name 
 		WHERE information_schema.tables.table_name = ?";
 	$query = $application->database->prepare($sqlQuery);
 	$query->execute(array($tableName));
@@ -79,11 +84,15 @@ function printDrivingTable($tableName)
 
 function generateField($column, $value = null)
 {
-	$type = getInputType($column['data_type']);
+	$type = getInputType($column);
 	$required = ($column['column_name'] != 'ID' && $column['is_nullable'] == 'NO') ? ' required' : '';
 
 	switch($type)
 	{
+		case 'select':
+			echo '';
+			break;
+
 		case 'checkbox':
 			if(is_null($value) || $value == 0)
 				echo '	<input type="checkbox" id="'.$column['column_name'].'" name="'.$column['column_name'].'">';
@@ -101,12 +110,15 @@ function generateField($column, $value = null)
 	}
 }
 
-function getInputType($dataType)
+function getInputType($column)
 {
-	if($dataType == 'tinyint')
+	if($column['constraint_type'] == 'FOREIGN KEY')
+		return 'select';
+
+	if($column['data_type'] == 'tinyint')
 		return 'checkbox';
 
-	switch($dataType)
+	switch($column['data_type'])
 	{
 		case 'tinyint':
 		case 'smallint':
