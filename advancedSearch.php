@@ -9,14 +9,9 @@
 
 		<link rel="stylesheet" href="css/style1.css">
 		<link rel="icon" href="images/logoCegep.svg">
-
-		<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/research.js"></script>
-		<script src="javascript/vertical-breadcrumb.js"></script>
-
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+		
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
