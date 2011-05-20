@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <artistes>
-	<artiste>Wolgang Amadeus Mozart</artiste>
-	<artiste>Lorenzo da Ponte</artiste>
-	<artiste>Antonio Salieri</artiste>
-	<artiste>Johann Sebastian Bach</artiste>
-	<artiste>Ludwig van Beethoven</artiste>
-	<artiste>Frédéric Chopin</artiste>
-	<artiste>André Mathieu</artiste>
-</artiste>
+	<artiste ID="1" nom="Wolgang Amadeus Mozart" />
+	<artiste ID="2" nom="Lorenzo da Ponte" />
+	<artiste ID="3" nom="Antonio Salieri" />
+	<artiste ID="4" nom="Johann Sebastian Bach" />
+	<artiste ID="5" nom="Ludwig van Beethoven" />
+	<artiste ID="6" nom="Frédéric Chopin" />
+	<artiste ID="7" nom="André Mathieu" />
+</artistes>
