@@ -28,7 +28,9 @@ $(document).ready(function() {
 	
 	$('form#emprunt input#mediaID').after('<input type="button" value="-" class="suppress">');
 	$('form#emprunt input[type="button"].suppress').click(function() {
-		$('div#' + $('form#emprunt input[type="number"]#mediaID').val()).remove();
+		if ($('form#emprunt input[type="number"]#mediaID').val().length != 0) {
+			$('div#' + $('form#emprunt input[type="number"]#mediaID').val()).remove();
+		}
 	});
 });
 
