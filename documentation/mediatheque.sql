@@ -33,13 +33,18 @@ CREATE TABLE IF NOT EXISTS instrumentations (
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDb COMMENT 'Instrumentations';
 
--- Type de catégorie: 1 Imprimé, 2 Audio, 3 Vidéo
+CREATE TABLE IF NOT EXISTS types_support (
+	ID int(11) PRIMARY KEY COMMENT 'ID',
+	nom varchar(50) NOT NULL COMMENT 'Nom'
+) ENGINE=InnoDb COMMENT 'Types de support';
+
 CREATE TABLE IF NOT EXISTS supports (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	description varchar(100) NOT NULL COMMENT 'Description',
-	type smallint NOT NULL COMMENT 'Type de média',
-	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
+	typeID int(11) NOT NULL COMMENT 'Type de support',
+	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif',
+	FOREIGN KEY(typeID) REFERENCES types_support(ID)
 ) ENGINE=InnoDb COMMENT 'Catégories';
 
 CREATE TABLE IF NOT EXISTS nationalites (
@@ -257,83 +262,87 @@ CREATE TABLE IF NOT EXISTS orchestrateurs_pieces (
 ) ENGINE=InnoDb COMMENT 'Orchestrateurs';
 
 INSERT INTO epoques(ID, nom, inactif)
-VALUES (1, 'Baroque', TRUE),
+VALUES
+	(1, 'Baroque', TRUE),
 	(2, 'Classique', FALSE),
 	(3, 'Médiéval', FALSE),
 	(4, 'Renaissance', TRUE),
 	(5, 'Romantique', FALSE);
-	
-	
+
 INSERT INTO maisons_edition(ID, nom, inactif)
-VALUES (1, 'Actes Sud', FALSE),
+VALUES
+	(1, 'Actes Sud', FALSE),
 	(2, 'Les 400 coups', FALSE),
 	(3, 'Les Allusifs', FALSE),
 	(4, 'Éditions De Courberon', FALSE),
 	(5, 'Éditions Liber', FALSE),
 	(6, 'Paris Pocket', FALSE);
-	
-	-- Type de catégorie: 1 Imprimé, 2 Audio, 3 Vidéo
-INSERT INTO supports(ID, nom,description,type, inactif)
-VALUES (1, 'CD', 'Disque compact',2, FALSE),
-	(2, 'CS','Cassette audio', 2, TRUE),
-	(3, 'VHS','Vidéocassette VHS', 3, FALSE),
-	(4, 'Méthode','', 1, FALSE),
-	(5, 'Recueil','', 1, FALSE),
-	(6, 'Volume','', 1, FALSE),
-	(7, 'Références','', 1, FALSE),
-	(8, 'Livre roman','', 1, FALSE);
-	
-INSERT INTO `nationalites` (`ID`, `nom`, `inactif`) 
-VALUES
-	(1, 'Américain', 0),
-	(2, 'Français', 0),
-	(3, 'Canadien', 0),
-	(4, 'Belge', 0),
-	(5, 'Néo-zélandais', 0);
-	
-INSERT INTO medias(ID,titre,annee_publication,image,quantite,reference,notes,maison_editionID,supportID,inactif) 
-VALUES (1,'La communauté de l’anneau',1972,'',1,'1 Livre roman','',6,8,FALSE),
-	(2,'Les deux tours',1992,'',1,'2 Livre roman','',6,8,FALSE),
-	(3,'Le retour du Roi',1994,'',1,'3 Livre roman','',6,8,FALSE),
-	(4,'Indiana Jones et la Dernière Croisade',1987,'',1,'1 VHS','',6,3,FALSE),
-	(5,'Indiana Jones et le Temple maudit',1990,'',1,'2 VHS','',6,3,FALSE);	
 
-INSERT INTO `collections` (`ID`, `nom`, `type`, `inactif`) 
-VALUES 
-	(1, 'Le seigneur des anneaux', '1', 0),
-	(2, 'Indiana Jones', '3', 0);
-		
-INSERT INTO `audios_videos` (`ID`, `exID`, `collectionID`, `position_collection`, `CUP`, `realisateurs`, `nationaliteID`) 
+INSERT INTO types_support(ID, nom)
+VALUES
+	(1, 'Imprimé'),
+	(2, 'Audio'),
+	(3, 'Vidéo');
+
+INSERT INTO supports(ID, nom, description, typeID, inactif)
+VALUES
+	(1, 'CD', 'Disque compact', 2, FALSE),
+	(2, 'CS', 'Cassette audio', 2, TRUE),
+	(3, 'VHS', 'Vidéocassette VHS', 3, FALSE),
+	(4, 'Méthode', '', 1, FALSE),
+	(5, 'Recueil', '', 1, FALSE),
+	(6, 'Volume', '', 1, FALSE),
+	(7, 'Références', '', 1, FALSE),
+	(8, 'Livre roman', '', 1, FALSE);
+
+INSERT INTO nationalites (ID, nom, inactif)
+VALUES
+	(1, 'Américain', TRUE),
+	(2, 'Français', TRUE),
+	(3, 'Canadien', TRUE),
+	(4, 'Belge', FALSE),
+	(5, 'Néo-zélandais', TRUE);
+
+INSERT INTO medias(ID, titre ,annee_publication, image, quantite, reference, notes, maison_editionID, supportID, inactif)
+VALUES
+	(1, 'La communauté de l’anneau', 1972, '', 1, '1 Livre roman', '', 6, 8, FALSE),
+	(2, 'Les deux tours', 1992, '', 1, '2 Livre roman', '', 6, 8, FALSE),
+	(3, 'Le retour du Roi', 1994, '', 1, '3 Livre roman', '', 6, 8, FALSE),
+	(4, 'Indiana Jones et la Dernière Croisade', 1987, '', 1, '1 VHS', '', 6, 3, FALSE),
+	(5, 'Indiana Jones et le Temple maudit', 1990, '', 1, '2 VHS', '', 6, 3, FALSE);
+
+INSERT INTO collections (ID, nom, type, inactif)
+VALUES
+	(1, 'Le seigneur des anneaux', '1', TRUE),
+	(2, 'Indiana Jones', '3', TRUE);
+
+INSERT INTO audios_videos (ID, exID, collectionID, position_collection, CUP, realisateurs, nationaliteID)
 VALUES
 	(1, 4, 2, 3, 2131234, 'Steven Spielberg', 1),
 	(2, 5, 2, 2, 3232444, 'Steven Spielberg', 1);
-	
 
-	
-INSERT INTO `imprimes` (`ID`, `exID`, `sous_titre`, `collectionID`, `position_collection`) 
+INSERT INTO imprimes (ID, exID, sous_titre, collectionID, position_collection)
 VALUES
 	(1, 1, NULL, 1, 1),
 	(2, 2, NULL, 1, 2),
 	(3, 3, NULL, 1, 3);
-	
 
-	
-INSERT INTO `utilisateurs` (`ID`, `matricule`, `nom`, `prenom`, `telephone`, `courriel`, `inactif`) 
+INSERT INTO utilisateurs (ID, matricule, nom, prenom, telephone, courriel, inactif)
 VALUES
-	(1, 834612, 'Boudreault', 'Émile', '8192323232', 'findumonde@gmail.com', 0),
-	(2, 974364, 'Borduas', 'Paul-Émile', '8192324433', 'borduas@gmail.com', 0);
-	
-INSERT INTO `artistes` (`ID`, `nom`, `inactif`) 
+	(1, 834612, 'Boudreault', 'Émile', '8192323232', 'findumonde@gmail.com', TRUE),
+	(2, 974364, 'Borduas', 'Paul-Émile', '8192324433', 'borduas@gmail.com', TRUE);
+
+INSERT INTO artistes (ID, nom, inactif)
 VALUES
-	(1, 'Wolgang Amadeus Mozart', 0),
-	(2, 'André Mathieu', 0),
-	(3, 'Ludwig van Beethoven', 0),
-	(4, 'Frédéric Chopin', 0),
-	(5, 'Johann Sebastian Bach', 0),
-	(6, 'Antonio Salieri', 0),
-	(7, 'Lorenzo da Ponte', 0);
-	
-INSERT INTO `genres` (`ID`, `nom`, `inactif`) 
+	(1, 'Wolgang Amadeus Mozart', TRUE),
+	(2, 'André Mathieu', TRUE),
+	(3, 'Ludwig van Beethoven', TRUE),
+	(4, 'Frédéric Chopin', TRUE),
+	(5, 'Johann Sebastian Bach', TRUE),
+	(6, 'Antonio Salieri', TRUE),
+	(7, 'Lorenzo da Ponte', TRUE);
+
+INSERT INTO genres (ID, nom, inactif)
 VALUES
-	(1, 'Aventure', 0),
-	(2, 'Merveilleux', 0);
+	(1, 'Aventure', TRUE),
+	(2, 'Merveilleux', TRUE);
