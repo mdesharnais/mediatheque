@@ -1,49 +1,121 @@
-form#media label
+#media
 {
-	display: inline-block;
-	width: 12em;
-	vertical-align: top;
-	margin: 0;
+	padding: 1em;
 }
 
-form#media label:after
+#media .detailsLevel2
+{
+	margin-top: 1em;
+}
+
+#media #mediaInformations
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 20em;
+}
+
+#media .detailsLevel1
+{
+	background-color: green;
+	display: inline-block;
+	padding: 1em;
+}
+
+#media p
+{
+	margin: 0.5em;
+}
+#media label
+{
+	display: inline-block;
+	width: 13em;
+	vertical-align: top;
+}
+
+#media label:after
 {
 	content: " :";
 }
 
-form#media input
+#media input
 {
+	border: 1px gray solid;
 }
 
-form#media div
+#media.readOnly input
 {
-	overflow: auto;
+	border: none;
 }
 
-form#media table
+#media input:invalid
 {
-	width: 100em;
+	border-right: 0.5em solid red;
 }
 
-form#media table tr:nth-child(2n)
+#media input:required
 {
-	background-color: white;
+	border-right: 0.5em solid orange;
 }
 
-form#media #subform div.level3
+#media input:valid
 {
+	border-right: 0.5em solid green;
+}
+
+#media .detailsLevel2
+{
+	background-color: gray;
+}
+
+#media .detailsLevel2Summary,
+#media .detailsLevel3Summary
+{
+	cursor: pointer;
+}
+
+#media .detailsLevel2Summary > [class^="summary"]
+{
+	display: inline-block;
+	overflow: hidden;
 	background-color: red;
-	margin-left: 12em;
+	padding: 0.1em 0.25em;
+	width: 3em;
+	height: 1em;
 }
 
-form#media #subform div.level3 div.rowLevel3:last-of-type
+#media .detailsLevel2Summary > .summaryPosition
+{
+	width: 1.5em;
+}
+
+#media .detailsLevel2Summary > .summaryTitle
+{
+	background-color: orange;
+	width: 25em;
+}
+
+#media .detailsLevel2 .detailsLevel3
+{
+	display: block;
+	background-color: red;
+	margin-left: 13em;
+}
+
+#media .detailsLevel2 .detailsLevel3 .rowLevel3
+{
+	display: block;
+	background-color: red;
+}
+
+#media .detailsLevel2 .detailsLevel3 .rowLevel3:last-of-type
 {
 	background-color: orange;
 	display: inline;
 }
 
-form#media #subform div.level3 div.rowLevel3 select,
-form#media #subform div.level3 div.rowLevel3 input
+#media .detailsLevel2 .detailsLevel3 .rowLevel3 select,
+#media .detailsLevel2 .detailsLevel3 .rowLevel3 input
 {
 	margin: 0.1em;
 }

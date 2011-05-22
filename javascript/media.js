@@ -1,89 +1,79 @@
 $(document).ready(function() {
-	$('form#media table tbody tr').dblclick(openSubform);
-	//$('form#media table tbody tr:first-child').trigger('dblclick');
+	$('#media .detailsLevel2Row').hide();
+	createDetailsLevel2Summary();
+
+	createDetailsLevel3Summary();
+	$detailsLevel3.delegate('.rowLevel3 input[type="button"][value="-"]', 'click', removeElement);
+	$detailsLevel3.delegate('.rowLevel3 + input[type="button"][value="+"]', 'click', addElement);
+
+
 });
 
-function openSubform()
+function createDetailsLevel2Summary()
 {
-	$('body').append('<div id="overlay"></div>');
-	$('#overlay').hide().css({
-		'width': '100%',
-		'height': '100%',
-		'background-color': 'black',
-		'z-index': '99',
-		'position': 'fixed',
-		'top': '0',
-		'left': '0',
-		'opacity': '0.75'
-	}).fadeIn();
-
-	$('#subform').css({
-		'width': '40em',
-		'height': '35em',
-		'background-color': 'white',
-		'z-index': '100',
-		'position': 'fixed',
-		'top': '50%',
-		'left': '50%',
-		'margin-top': '-17.5em',
-		'margin-left': '-20em'
-	}).fadeIn();
-
-	$('#subform div.level3').hide();
-	$('#subform div.level3 div.rowLevel3').append('<input type="button" value="-">');
-	$('#subform div.level3 div.rowLevel3:last-child').after('<input type="button" value="+">');
-	$('#subform div.level3').before('<span class="level3">Aucun</span>');
-
-	$('#subform div.level3').each(function() {
-		updateDivDetails($(this));
+	$('#media .detailsLevel2Row').each(function() {
+		$(this).before('<div class="detailsLevel2Summary"></div>');
+		$summary = $(this).prev();
+		$summary.append('<div class="summaryPosition">' + $(this).find('input[id^="details_position_media"]').val() + '</div>');
+		$summary.append('<div class="summaryTitle">' + $(this).find('input[id^="details_titre"]').val() + '</div>');
+		$summary.append('<div class="summaryDuration">' + $(this).find('input[id^="details_duree"]').val() + '</div>');
 	});
-
-	$('#subform div.level3 div.rowLevel3 :input').change(function() {
-		updateDivDetails($(this).closest('div.level3'));
+	$('#media').delegate('.detailsLevel2Summary', 'click', function() {
+		$(this).next('.detailsLevel2Row').slideToggle();
 	});
-
-	$('#subform div.level3 div.rowLevel3 input[type=button][value=-]').click(removeElement);
-	$('#subform div.level3 div.rowLevel3 + input[type=button][value=+]').click(addElement);
-
-	$('#subform span.level3').click(function() {
-		$(this).next('div.level3').slideToggle('fast');
-	});
-
 }
 
-function closeSubform()
+function createDetailsLevel3Summary()
 {
+	$detailsLevel3 = $('#media .detailsLevel2 .detailsLevel3');
+	$detailsLevel3.hide();
+	$detailsLevel3.find('.rowLevel3').append('<input type="button" value="-">');
+	$detailsLevel3.find('.rowLevel3:last-child').after('<input type="button" value="+">');
+	$detailsLevel3.before('<span class="detailsLevel3Summary">Aucun</span>');
+
+	$detailsLevel3.each(function() {
+		updateDetailsLevel3Summary($(this));
+	});
+
+	$detailsLevel3.find('.rowLevel3 :input').change(function() {
+		updateDetailsLevel3Summary($(this).closest('.detailsLevel3'));
+	});
+
+	$('#media .detailsLevel2').delegate('.detailsLevel3Summary', 'click', function() {
+		$(this).next('.detailsLevel3').slideToggle('fast');
+	});
+
+	$('#media .detailsLevel2 .detailsLevel3').delegate(':input', 'change', function() {
+		updateDetailsLevel3Summary($(this).closest('.detailsLevel3'));
+	});
+}
+
+function updateDetailsLevel3Summary($detailsLevel3)
+{
+	var $summary = $detailsLevel3.prev('.detailsLevel3Summary');
+	$summary.text('Aucun');
+
+	$detailsLevel3.find('select').each(function() {
+		if($(this).val() != 0)
+			if($summary.text() == 'Aucun')
+				$summary.text($(this).find('option[value=' + $(this).val() + ']').text());
+			else
+				$summary.append(', ' + $(this).find('option[value=' + $(this).val() + ']').text());
+	});
 }
 
 function removeElement()
 {
-	$div = $(this).closest('div.level3');
-	$(this).closest('div.rowLevel3').remove();
-	updateDivDetails($div);
+	$detailsLevel3 = $(this).closest('.detailsLevel3');
+	$(this).closest('.rowLevel3').remove();
+	updateDivDetails($detailsLevel3);
 }
 
 function addElement()
 {
-	$newRow = $(this).prev('div.rowLevel3').clone();
+	$newRow = $(this).prev('.rowLevel3').clone();
 	$newRow.find('select').val(0);
 	$newRow.insertBefore($(this));
 	$newRow.find('input[type=button][value=-]').click(removeElement);
-	$newRow.find(':input').change(function() {
-		updateDivDetails($(this).closest('div.level3'));
-	});
-
-	updateDivDetails($(this).closest('div.level3'));
-}
-
-function updateDivDetails($div)
-{
-	var $span = $div.prev('span.level3');
-	$span.text('Aucun');
-
-	$div.find('select').each(function() {
-		if($span.text() == 'Aucun')
-			$span.text($(this).find('option[value=' + $(this).val() + ']').text());
-		else
-			$span.append(', ' + $(this).find('option[value=' + $(this).val() + ']').text());
-	});
+	updateDetailsLevel3Summary($(this).closest('.detailsLevel3'));
 }
