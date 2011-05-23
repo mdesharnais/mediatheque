@@ -55,7 +55,7 @@
 			</div>
 			<div id="search-results">
 		
-			<?php printSearchResults('select * from medias'); ?>
+			<?php printSearchResults('select * from medias where inactif=0'); ?>
 			
 			</div>
 		</div>

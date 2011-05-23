@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS instrumentations (
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDb COMMENT 'Instrumentations';
 
-CREATE TABLE IF NOT EXISTS types_support (
+CREATE TABLE IF NOT EXISTS categoriesMedia (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom'
 ) ENGINE=InnoDb COMMENT 'Types de support';
@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS supports (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	description varchar(100) NOT NULL COMMENT 'Description',
-	typeID int(11) NOT NULL COMMENT 'Type de support',
+	categorieMediaID int(11) NOT NULL COMMENT 'Type de support',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif',
-	FOREIGN KEY(typeID) REFERENCES types_support(ID)
+	FOREIGN KEY(categorieMediaID) REFERENCES categoriesMedia(ID)
 ) ENGINE=InnoDb COMMENT 'Catégories';
 
 CREATE TABLE IF NOT EXISTS nationalites (
@@ -278,13 +278,13 @@ VALUES
 	(5, 'Éditions Liber', FALSE),
 	(6, 'Paris Pocket', FALSE);
 
-INSERT INTO types_support(ID, nom)
+INSERT INTO categoriesMedia(ID, nom)
 VALUES
 	(1, 'Imprimé'),
 	(2, 'Audio'),
 	(3, 'Vidéo');
 
-INSERT INTO supports(ID, nom, description, typeID, inactif)
+INSERT INTO supports(ID, nom, description, categorieMediaID, inactif)
 VALUES
 	(1, 'CD', 'Disque compact', 2, FALSE),
 	(2, 'CS', 'Cassette audio', 2, TRUE),
@@ -303,13 +303,18 @@ VALUES
 	(4, 'Belge', FALSE),
 	(5, 'Néo-zélandais', TRUE);
 
-INSERT INTO medias(ID, titre ,annee_publication, image, quantite, reference, notes, maison_editionID, supportID, inactif)
+INSERT INTO genres (ID, nom, inactif)
 VALUES
-	(1, 'La communauté de l’anneau', 1972, '', 1, '1 Livre roman', '', 6, 8, FALSE),
-	(2, 'Les deux tours', 1992, '', 1, '2 Livre roman', '', 6, 8, FALSE),
-	(3, 'Le retour du Roi', 1994, '', 1, '3 Livre roman', '', 6, 8, FALSE),
-	(4, 'Indiana Jones et la Dernière Croisade', 1987, '', 1, '1 VHS', '', 6, 3, FALSE),
-	(5, 'Indiana Jones et le Temple maudit', 1990, '', 1, '2 VHS', '', 6, 3, FALSE);
+	(1, 'Aventure', TRUE),
+	(2, 'Merveilleux', TRUE);
+	
+INSERT INTO medias(ID, titre , genreID, annee_publication, image, quantite, reference, notes, maison_editionID, supportID, inactif)
+VALUES
+	(1, 'La communauté de l’anneau', 2, 1972, '', 1, '1 Livre roman', '', 6, 8, FALSE),
+	(2, 'Les deux tours', 2,  1992, '', 1, '2 Livre roman', '', 6, 8, FALSE),
+	(3, 'Le retour du Roi', 2, 1994, '', 1, '3 Livre roman', '', 6, 8, FALSE),
+	(4, 'Indiana Jones et la Dernière Croisade', 1, 1987, '', 1, '1 VHS', '', 6, 3, FALSE),
+	(5, 'Indiana Jones et le Temple maudit', 1, 1990, '', 1, '2 VHS', '', 6, 3, FALSE);
 
 INSERT INTO collections (ID, nom, type, inactif)
 VALUES
@@ -342,7 +347,4 @@ VALUES
 	(6, 'Antonio Salieri', TRUE),
 	(7, 'Lorenzo da Ponte', TRUE);
 
-INSERT INTO genres (ID, nom, inactif)
-VALUES
-	(1, 'Aventure', TRUE),
-	(2, 'Merveilleux', TRUE);
+
