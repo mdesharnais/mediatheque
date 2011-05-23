@@ -1,23 +1,47 @@
 <header>
-	<div id="user-bar">
-		<?php
-		if($application->currentUser->isVisitor())
-		{
-			echo '<a href="#">Inscription</a>'.' ';
-			echo '<a href="connexion.php">Connexion</a>';
-		}
-		else
-		{
-			echo 'Bonjour '.$application->currentUser->getName().' ';
-			echo '<a href="php/userLogOut.php">Déconnexion</a>';
-		}
-		?>
-	</div>
-	<h1><a href="index.php" title="Retour à l'accueil">Carcajou</a></h1>
-	<img alt="Logo du Cégep de Trois-Rivières" src="images/logo.png">
-	<form method="post" action="searchResults.php">
-		<input type="search" id="keyWords" name="keyWords" placeholder="Entrez votre recherche">
-		<button type="submit"><img src="images/icons/search32x32.png" alt="Rechercher"></button>
-		<p id="moresearches"><a href="advancedSearch.php">Recherche avancée</a></p>
+	<h1><a href="index.php">Carcajou</a></h1>
+	<nav>
+		<ul id="nav">
+			<li>
+				<h2><a href="">À propos</a></h2>
+				<ul>
+					<li><a href="aboutMusicalDepartment.php">Du département de musique</a></li>
+					<li><a href="aboutMediaLibrary.php">De la médiathèque</a></li>
+					<li><a href="">Des heures d'ouverture</a></li>
+					<li><a href="">De la règlementation</a></li>
+				</ul>
+			</li><!--
+			--><li>
+				<h2><a href="#">Médiathèque</a></h2>
+				<ul>
+					<li><a href="advancedSearch.php">Recherche avancée</a></li>
+					<li><a href="searchResults.php">Parcourir</a></li>
+					<li><a href="">Suggestions</a></li>
+				</ul>
+			</li><!--
+			--><li>
+				<h2><a href="">Zone utilisateur</a></h2>
+				<ul>
+					<?php
+					if($application->currentUser->isVisitor())
+					{
+						echo '<li><a href="connexion.php">Connexion</a></li>';
+						echo '<li><a href="inscription.php">Inscription</a></li>';
+					}
+					else
+					{
+						echo '<li><a href="">Mes réservations</a></li>';
+						echo '<li><a href="">Mes emprunts en cours</a></li>';
+						echo '<li><a href="">Mon historique d\'emprunts</a></li>';
+						echo '<li><a href="php/userLogOut.php">Déconnexion</a></li>';
+					}
+					?>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<form id="search" method="post" action="searchResults.php">
+		<input type="search" placeholder="Rechercher">
+		<button type="button">Rechercher</button>
 	</form>
 </header>
