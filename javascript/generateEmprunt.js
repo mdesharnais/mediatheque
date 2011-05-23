@@ -23,21 +23,7 @@ $(document).ready(function() {
 	
 	$('form#emprunt input#mediaID').after('<input type="button" value="+" class="add">');
 	$('form#emprunt input[type="button"].add').click(function() {
-		$.ajax({
-			type: "GET",
-			url: "xml/medias.xml",
-			dataType: "xml",
-			success: function(xml) {
-				$(xml).find('media').each(function() {
-					if ($('form#emprunt input[type="number"]#mediaID').val() == $(this).attr('reference'))
-					{
-						var $mediaInfo = $('<div id="' + $(this).attr('reference') + '"></div>');
-						$mediaInfo.append($(this).attr('reference') + ' | ' + $(this).attr('titre') + '(' + $(this).attr('annee_publication') + ')');
-						$('form#emprunt input[type="button"].add').after($mediaInfo);
-					}
-				});
-			}
-		});
+		showMedia($('form#emprunt input[type="number"]#mediaID').val());
 	});
 	
 	$('form#emprunt input#mediaID').after('<input type="button" value="-" class="suppress">');
@@ -45,3 +31,15 @@ $(document).ready(function() {
 		$('div#' + $('form#emprunt input[type="number"]#mediaID').val()).remove();
 	});
 });
+
+function showMedia(str) {
+	$.ajax({
+		type: "GET",
+		url: "php/getMedia.php",
+		data: "q="+str,
+		dataType: "html",
+		success: function(html){
+			$('form#emprunt input[type="button"].add').after(html);
+		}
+	});
+}

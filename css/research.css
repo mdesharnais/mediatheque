@@ -19,4 +19,14 @@ div.row-search:last-of-type{
 	display:inline;
 }
 
+div.row-search
+{
+
+margin-bottom:0.5em;
+}
+
+input[type=submit]
+{
+margin-top:0.5em;
+}
 

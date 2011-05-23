@@ -1,5 +1,5 @@
 <footer>
-	<p>Travail fait par Marin Desharnais, Samuel Milette-Lacombe et Marc-André Destrempe.</p>
+	<p>Travail fait par Martin Desharnais, Samuel Milette-Lacombe et Marc-André Destrempes.</p>
 	<nav>
 		<ul>
 			<li><a href="#">Lorem</a></li>

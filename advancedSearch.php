@@ -7,16 +7,10 @@
 
 		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
 
-		<link rel="stylesheet" href="css/style1.css">
-		<link rel="icon" href="images/logoCegep.svg">
-
-		<script src="javascript/jquery/jquery.js"></script>
+		<?php include('sharedFiles/style.inc.php'); ?>
+		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/research.js"></script>
-		<script src="javascript/vertical-breadcrumb.js"></script>
-
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
+		
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
@@ -58,7 +52,7 @@
 						<option value="<">(<) Est plus petit que</option>
 						<option value="<=">(<=) Est plus petit ou égal à</option>
 					</select>
-					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="" list="lstSuggestion">
+					<input type="text" size="30" name="qq" id="fd" title="Saisissez les termes de recherche" value="" list="rr">
 				</div>
 				<div class="row-search">
 					<select name="op">
@@ -66,7 +60,7 @@
 						<option value="or">ou</option>
 						<option value="not">sauf</option>
 					</select>
-					<select name="idx">
+					<select name="idx" onchange="">
 						<option value="kw">Mots-clés</option>
 						<option class="all" value="medias.titre">Titre du média</option>
 						<option class="all" value="medias.annee_publication">Année de publication</option>
@@ -100,7 +94,7 @@
 						<option value="<">(<) Est plus petit que</option>
 						<option value="<=">(<=) Est plus petit ou égal à</option>
 					</select>
-					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" list="lstSuggestion">
+					<input type="text" size="30" name="q" title="Saisissez les termes de recherche">
 				</div>
 				<div class="row-search">
 					<select name="op">
@@ -142,15 +136,14 @@
 						<option value="<">(<) Est plus petit que</option>
 						<option value="<=">(<=) Est plus petit ou égal à</option>
 					</select>
-					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="" list="lstSuggestion">
+					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="">
 				</div>
 				<br>
 				<input type="submit" value="Rechercher"> 
 				
 				<input type="reset">
 				    
-						<datalist id="lstSuggestion">  
-		 				</datalist>  
+						 
 			</form>
 		</div>
 		<?php require('sharedFiles/footer.inc.php'); ?>

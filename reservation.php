@@ -6,14 +6,9 @@
 		<meta name="author" content="Martin Desharnais">
 
 		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
-
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/generateEmprunt.js"></script>
-		<style>.tooltip{display:none;background:url(http://static.flowplayer.org/tools/img/tooltip/black_arrow_big.png);height:163px;padding:40px 30px 10px 30px;width:310px;font-size:11px;color:#fff;}#" . $row['reference'] . " img {border:0;cursor:pointer;margin:0 8px;}</style>
-
-		<script src='http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js'></script>
-
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
@@ -58,18 +53,10 @@
 				</ul>
 			</div>
 			<div id="search-results">
-				<h1>Emprunt</h1>
-				<form id="emprunt">
-					<input type="hidden" id="ID" name="ID"><br>
-					<label id="lblUtilisateurID" for="utilisateurID">Utilisateur</label>
-					<input type="number" id="utilisateurID" name="utilisateurID"><br>
+				<h1>Reservation</h1>
 					<?php
-						include("php/setDateList.php");
+						include("php/makeReservation.php");
 					?>
-					<label for="mediaID">Media</label>
-					<input type="number" id="mediaID" name="mediaID"><br>
-					<input type="submit">
-				</form>
 			</div>
 		</div>
 		<?php require('sharedFiles/footer.inc.php'); ?>

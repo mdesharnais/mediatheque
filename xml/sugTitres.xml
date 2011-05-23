@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <titres>
-	<titre>La communauté de l’anneau</titre>
-	<titre>Les deux tours</titre>
-	<titre>Le retour du Roi</titre>
-	<titre>Recueil de pièce pour piano no 1</titre>
-	<titre>Recueil de pièce pour guitare no 1</titre>
-	<titre>Les temps modernes</titre>
-	<titre>Le dictateur</titre>
-	<titre>Les feux de la rampe</titre>
-	<titre>À l'origine d'un cri</titre>
-	<titre>Titanic</titre>
-	<titre>Indiana Jones et le Temple maudit</titre>
-	<titre>Indiana Jones et la Dernière Croisade</titre>
+	<titre id="1" titre="La communauté de l’anneau" />
+	<titre id="2" titre="Les deux tours" />
+	<titre id="3" titre="Le retour du Roi" />
+	<titre id="4" titre="Recueil de pièce pour piano no 1" />
+	<titre id="5" titre="Recueil de pièce pour guitare no 1" />
+	<titre id="6" titre="Les temps modernes" />
+	<titre id="7" titre="Le dictateur" />
+	<titre id="8" titre="Les feux de la rampe" />
+	<titre id="10" titre="À l'origine d'un cri" />
+	<titre id="11" titre="Titanic" />
+	<titre id="12" titre="Indiana Jones et le Temple maudit" />
+	<titre id="13" titre="Indiana Jones et la Dernière Croisade" />
 </titres>
+
+
