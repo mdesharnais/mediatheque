@@ -18,12 +18,12 @@
 #content > form,
 #content > aside
 {
-	background-color: #e6e6e6;
+	background-color: #eee;
 	padding: 10px;
 
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
-	border-radius: 10px;
+	border-radius: 0.75em;
 }
 
 #vertical-breadcrumb,
