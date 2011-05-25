@@ -17,59 +17,30 @@
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
-			<div id="vertical-breadcrumb">
-				<h3>Affinez votre recherche</h3>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="http://www.google.com" onclick="return confirm('Voulez-vous vraiment supprimer cet enregistrement?');">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-					<li><a href="#">Consectetur</a></li>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-					<li><a href="#">Consectetur</a></li>
-				</ul>
-			</div>
-			<div id="search-results">
-				<h1>Emprunt</h1>
-				<form id="emprunt">
-					<input type="hidden" id="ID" name="ID"><br>
-					<label id="lblUtilisateurID" for="utilisateurID">Utilisateur</label>
-					<input type="number" id="utilisateurID" name="utilisateurID"><br>
-					<?php
+		<?php
+			if($application->currentUser->haveRights(__FILE__, $application->rights['read'] | $application->rights['write']))
+			{
+			echo '<div id="search-results">';
+				echo '<h1>Emprunt</h1>';
+				echo '<form id="emprunt" action="/php/do_borrow.php">';
+					echo '<input type="hidden" id="ID" name="ID"><br>';
+					echo '<label id="lblUtilisateurID" for="utilisateurID">Utilisateur</label>';
+					echo '<input type="number" id="utilisateurID" name="utilisateurID"><br>';
 						include("php/setDateList.php");
-					?>
-					<label for="mediaID">Media</label>
-					<input type="number" id="mediaID" name="mediaID"><br>
-					<input type="submit">
-				</form>
-			</div>
+					echo '<label for="mediaID">Media</label>';
+					echo '<input type="number" id="mediaID" name="mediaID"><br>';
+					echo '<input type="submit" value="Enregistrer">';
+				echo '</form>';
+			echo '</div>';
+			}
+			else
+			{
+				echo '<div class="error">';
+				echo '    <h2>Erreur</h2>';
+				echo '    Vous n\'avez pas les droits nécessaires pour accéder à cette page.';
+				echo '</div>';
+			}
+			?>
 		</div>
 		<?php require('sharedFiles/footer.inc.php'); ?>
 	</body>

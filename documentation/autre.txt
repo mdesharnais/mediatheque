@@ -1,0 +1,2 @@
+Représentation graphique de l'architecture technologique du site 
+Faire un petit schéma qui indique le type de serveur(Appache,...)la technologie logicielle(PHP,...) le type de communication (sécurisée ou non,...), le type de bd (Oracle !!!, MySql,...), la technologie du client(browser,...),etc... Diagramme d'enchaînement = Diagramme de navigation C'est l'ordre ou la structure d'appel des interfaces (ex. un genre d'organigramme) voir la pièce jointe. 

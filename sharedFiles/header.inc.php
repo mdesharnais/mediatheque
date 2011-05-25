@@ -37,7 +37,21 @@
 					}
 					?>
 				</ul>
-			</li>
+			</li><!--
+			-->
+			<?php
+			if($application->currentUser->haveRights('administration', $application->rights['read']))
+			{
+			?>
+				<li>
+					<h2><a href="">Administration</a></h2>
+					<ul>
+						<li><a href="emprunt.php">Emprunt</a></li>
+					</ul>
+				</li>
+			<?php
+			}
+			?>
 		</ul>
 	</nav>
 	<form id="search" method="post" action="searchResults.php">
