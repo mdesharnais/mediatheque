@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS instrumentations (
 
 CREATE TABLE IF NOT EXISTS categoriesMedia (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
-	nom varchar(50) NOT NULL COMMENT 'Nom'
+	nom varchar(50) NOT NULL COMMENT 'Nom',
+	image varchar(100) COMMENT 'Image'
 ) ENGINE=InnoDb COMMENT 'Types de support';
 
 CREATE TABLE IF NOT EXISTS supports (
@@ -269,20 +270,20 @@ VALUES
 	(4, 'Renaissance', TRUE),
 	(5, 'Romantique', FALSE);
 
-INSERT INTO maisons_edition(ID, nom, inactif)
-VALUES
-	(1, 'Actes Sud', FALSE),
-	(2, 'Les 400 coups', FALSE),
-	(3, 'Les Allusifs', FALSE),
-	(4, 'Éditions De Courberon', FALSE),
-	(5, 'Éditions Liber', FALSE),
-	(6, 'Paris Pocket', FALSE);
+INSERT INTO `maisons_edition` (`ID`, `nom`, `inactif`) VALUES
+(1, 'Actes Sud', 0),
+(2, 'Les 400 coups', 0),
+(3, 'Les Allusifs', 0),
+(4, 'Éditions De Courberon', 0),
+(5, 'Éditions Liber', 0),
+(6, 'Paris Pocket', 0),
+(7, 'Lucasfilm', 0);
 
-INSERT INTO categoriesMedia(ID, nom)
+INSERT INTO categoriesMedia(ID, nom, image)
 VALUES
-	(1, 'Imprimé'),
-	(2, 'Audio'),
-	(3, 'Vidéo');
+	(1, 'Imprimé', 'imprime.png'),
+	(2, 'Audio', 'audio.png'),
+	(3, 'Vidéo', 'video.png');
 
 INSERT INTO supports(ID, nom, description, categorieMediaID, inactif)
 VALUES
@@ -308,13 +309,12 @@ VALUES
 	(1, 'Aventure', TRUE),
 	(2, 'Merveilleux', TRUE);
 	
-INSERT INTO medias(ID, titre , genreID, annee_publication, image, quantite, reference, notes, maison_editionID, supportID, inactif)
-VALUES
-	(1, 'La communauté de l’anneau', 2, 1972, '', 1, '1 Livre roman', '', 6, 8, FALSE),
-	(2, 'Les deux tours', 2,  1992, '', 1, '2 Livre roman', '', 6, 8, FALSE),
-	(3, 'Le retour du Roi', 2, 1994, '', 1, '3 Livre roman', '', 6, 8, FALSE),
-	(4, 'Indiana Jones et la Dernière Croisade', 1, 1987, '', 1, '1 VHS', '', 6, 3, FALSE),
-	(5, 'Indiana Jones et le Temple maudit', 1, 1990, '', 1, '2 VHS', '', 6, 3, FALSE);
+INSERT INTO `medias` (`ID`, `titre`, `annee_publication`, `image`, `artisteID`, `genreID`, `quantite`, `reference`, `notes`, `maison_editionID`, `supportID`, `inactif`) VALUES
+(1, 'La communauté de l’anneau', 1972, '', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
+(2, 'Les deux tours', 1992, '2.jpg', NULL, 2, 1, '2 Livre roman', '', 6, 8, 0),
+(3, 'Le retour du Roi', 1994, '', NULL, 2, 1, '3 Livre roman', '', 6, 8, 0),
+(4, 'Indiana Jones et la Dernière Croisade', 1987, '', NULL, 1, 1, '1 VHS', '', 7, 3, 0),
+(5, 'Indiana Jones et le Temple maudit', 1990, '', NULL, 1, 1, '2 VHS', 'Film extraordinaire', 7, 3, 0);
 
 INSERT INTO collections (ID, nom, type, inactif)
 VALUES

@@ -6,12 +6,17 @@ margin-bottom:0.5em;
 
 
 
-tr.mediaRowResult
+td
 {
-border-bottom:solid 5px;
-border-color:red;
+border-bottom-style:solid;
+border-bottom-width:1px;
+border-collapse:collapse;
 }
 
+#resultTable
+{
+border-collapse : collapse;
+}
 
 span.label
 {
@@ -33,10 +38,13 @@ padding-top:30px;
 img.resultPicture
 {
 padding:0px;
-width:77px;
+width:100px;
 padding-bottom:10px;
 }
-
+img.mediaTypePicture
+{
+width:100px;
+}
 #mediaTableResult
 {
 
