@@ -1,5 +1,4 @@
 <?php
-$date = date("D j M Y");
 if (strlen($_SERVER['QUERY_STRING']) == 0) {
 	$utilisateur = Null;
 	$media = Null;

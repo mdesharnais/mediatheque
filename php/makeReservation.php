@@ -9,16 +9,17 @@ else {
 	$media=$_GET['media'];
 }
 
-echo "<form id='reservation'>";
-//echo date("D j M Y")."<br>";
-echo "<input type='hidden' id='ID' name='ID'><br>";
-echo "<label id='lblUtilisateurID' for='utilisateurID'>Utilisateur</label>";
-echo "<input type='number' id='utilisateurID' name='utilisateurID' value='".$utilisateur."'><br>";
-echo "<?php ";
-echo "include('php/setDateList.php');";
-echo "?>";
-echo "<label for='mediaID'>Media</label>";
-echo "<input type='number' id='mediaID' name='mediaID' value='".$media."'><br>";
-echo "<input type='submit' Action='php/submitReservation.php'>";
-echo "</form>";
+if (is_null($utilisateur)) {
+	echo "Vous devez etre connecte.";
+}
+elseif (is_null($media)) {
+	echo "Vous devez avoir selectionne un media.";
+}
+else {
+	echo "<form id='reservation' Action='php/submitReservation.php'>";
+	echo "<script src='javascript/generateReservation.js' ></script>";
+	include('php/setDateReservation.php');
+	echo "<input type='submit' Value='Enregistrer'>";
+	echo "</form>";
+}
 ?>
