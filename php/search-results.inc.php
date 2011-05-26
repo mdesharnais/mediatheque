@@ -14,7 +14,7 @@ function printSearchResults($sqlQuery)
 	{
 		echo '<tr class="mediaRowResult">';
 		
-		echo '<td class="mediaPicture">';
+		echo '<td>';
 		if (!empty($row['image']))
 		{
 			echo '<p>';
@@ -29,8 +29,8 @@ function printSearchResults($sqlQuery)
 		}
 		echo '</div>';//mediaPicture
 		
-		echo '<td class="mediaInformations">';
-		echo '<h4 class="mediaTitle"><a href="media.php">'.$row['titre'].'</a></h4>';
+		echo '<td>';
+		echo '<h4 class="mediaTitle"><a href="media.php?id='.$row['ID'].'">'.$row['titre'].'</a></h4>';
 		echo '<p>';
 		echo '<span class="label">Éditeur: </span><span class="value">'.$row['nomMaisonEdition'].', '.$row['annee_publication'].'</span>';
 		echo '</p>';
@@ -61,6 +61,9 @@ function printSearchResults($sqlQuery)
 		
 		echo '<p>';
 		echo '<span class="label">Code de référence:</span><span class="value">'.$row['reference'].'</span>';
+		echo '</p>';
+		echo '<p>';
+		echo '<span class="label">Action:</span><span class="value"><a class="reserveLink" href="php/makeReservation.php?id='.$row['ID'].'">Réserver</a></span>';
 		echo '</p>';
 		
 		

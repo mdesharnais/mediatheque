@@ -1,12 +1,17 @@
 <?php
 
 if (strlen($_SERVER['QUERY_STRING']) == 0) {
-	$utilisateur = Null;
+	$utilisateur = $application->currentUser->getID();
 	$media = Null;
 }
 else {
-	$utilisateur=$_GET['utilisateur'];
 	$media=$_GET['media'];
+	if ($application->currentUser->isVisitor()) {
+		$utilisateur = Null;
+	}
+	else {
+		$utilisateur = $application->currentUser->getID();
+	}
 }
 
 if (is_null($utilisateur)) {
