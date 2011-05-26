@@ -4,7 +4,32 @@ margin-top:0em;
 margin-bottom:0.5em;
 }
 
+a.reserveLink
+{
+	background-color:#DBD9D9;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	padding-top:0.3em;
+	padding-bottom:0.2em;
+	padding-left:0.3em;
+	padding-right:0.5em;
+	background-image:url('../images/cart.png');
+	background-repeat:no-repeat;
+	text-align:left;
+	
+	background-position : 9px;
+	background-repeat : no-repeat;
+	padding-left : 45px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C1C1C1;
 
+}
+
+a.reserveLink:hover
+{
+text-decoration:none;
+}
 
 td
 {
