@@ -16,7 +16,7 @@ a.reserveLink
 	background-image:url('../images/cart.png');
 	background-repeat:no-repeat;
 	text-align:left;
-	
+	font-size:0.8em;
 	background-position : 9px;
 	background-repeat : no-repeat;
 	padding-left : 45px;
@@ -73,4 +73,15 @@ width:100px;
 #mediaTableResult
 {
 
+}
+
+tr.mediaRowResult td p
+{
+margin-top:0.5em;
+margin-bottom:0.5em;
+}
+
+tr.mediaRowResult td p:last-child
+{
+margin-bottom:1em;
 }
