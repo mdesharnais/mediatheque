@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	var media = gup( 'media' );
+	var media = getUrlParameter( 'media' );
 	showMedia(media);
 });
 
 function showMedia(str) {
 	$.ajax({
 		type: "GET",
-		url: "php/getMedia.php",
+		url: "php/getMediaID.php",
 		data: "q="+str,
 		dataType: "html",
 		success: function(html){
@@ -15,7 +15,7 @@ function showMedia(str) {
 	});
 }
 
-function gup( name )
+function getUrlParameter( name )
 {
   name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
   var regexS = "[\\?&]"+name+"=([^&#]*)";
