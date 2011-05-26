@@ -1,0 +1,115 @@
+\documentclass[letter, 10pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel} 
+%\usepackage{url} %pour écrire des adresses cliquables
+%\usepackage{lmodern} %pour changer le pack de police
+%\usepackage[top=5cm, bottom=5cm, left=6cm, right=3cm]{geometry} %pour les marges
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{listings}
+\usepackage{hyperref} %pour un fichier PDF  interactif
+
+\pdfcompresslevel=9
+
+\hypersetup{
+	backref=true, %permet d'ajouter des liens dans...
+	pagebackref=true, %...les bibliographies
+	hyperindex=true, %ajoute des liens dans les index.
+	colorlinks=true, %colorise les liens
+	breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+	urlcolor=blue, %couleur des hyperliens
+	linkcolor=blue, %couleur des liens internes
+	bookmarks=true, %créé des signets pour Acrobat
+	bookmarksopen=true,%si les signets Acrobat sont créés,
+	%les afficher complètement.
+	%pdftitle={Mon fabuleux livre}, %informations apparaissant dans
+	%pdfauthor={Pejvan BEIGUI},%dans les informations du document
+	%pdfsubject={Mac OS X}%sous Acrobat.
+}
+
+
+\lstdefinestyle{php}{
+	language=PHP,
+	caption={PHP},
+	basicstyle= \footnotesize,
+	tabsize=4,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	breaklines=true,
+	breakautoindent=true,
+	identifierstyle=\color{RoyalBlue},
+	commentstyle=\color{LimeGreen},
+	keywordstyle=\color{Black},
+	stringstyle=\color{OrangeRed},
+	backgroundcolor=\color{white},
+	numbers=left
+}
+
+\title{Carcajou}
+\author{\textsc{Martin Desharnais} \\ \textsc{Samuel Milette-Lacombe} \\ \textsc{Marc-André Destrempe}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Ce document contient la documentation du projet de médiathèque (nom de code «~Carcajou~») concu pour le département de musique du cégep de Trois-Rivières.
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Spécifications fonctionnelles}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Caractéristiques}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Architecture du système}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Maquette et charte graphique}
+\section{Modèle des pages principales et secondaires}
+\section{Diagramme d'enchaînement}
+\section{Diagramme de classe}
+\section{Base de données et dictionnaire}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Architecture technologique}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Représentation graphique}
+\section{Spécifications techniques}
+
+\subsection{Languages}
+\subsection{Bande passante}
+\subsection{Serveurs}
+\subsection{Type de base de données}
+
+\section{Sécurité}
+
+La sécurité repose essentiellement sur la validation des droits des utilisateurs avant de générer les pages du site. C'est le PHP qui est chargé de valider que l'utilisateur courant dispose des droits suffisants avant d'ajouter une section à la page que le serveur HTTP s’apprête à retourner.
+
+En pratique cela se traduit par un appel à la fonction application->currentUser->haveRights() en lui spécifiant en premier paramètre la section dont l'on veut tester les droits et en second paramètre la liste des droits dont l'utilisateur doit disposer pour avoir accès à ce contenu. Ces droits sont définis dans le tableau application->rights. Par exemple afin de valider que l'utilisateur à bien le droit d'accéder à la zone d'administration, il suffit d'utiliser le code suivant~:
+
+\begin{lstlisting}[style=php]
+if($application->currentUser->haveRights('administration', $application->rights['read'] | $application->rights['write']))
+{
+	// We can now print administration section
+}
+else
+{
+	// Current user does not have suffisent rights to se this section
+}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Prototype fonctionnel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
