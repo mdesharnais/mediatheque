@@ -1,3 +1,4 @@
+<?php require('sharedFiles/pageStart.inc.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -6,39 +7,12 @@
 
 		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
 
-		<link rel="stylesheet" href="css/style.css">
-		<script src="javascript/jquery/jquery.js"></script>
+		<?php include('sharedFiles/style.inc.php'); ?>
+		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/media.js"></script>
 	</head>
 	<body>
-		<header>
-			<h1><a href="">Carcajou</a></h1>
-			<nav>
-				<ul id="nav">
-					<li>
-						<h2><a href="">À propos</a></h2>
-						<ul>
-							<li><a href="">Du département de musique</a></li>
-							<li><a href="">De la médiathèque</a></li>
-							<li><a href="">Des heures d'ouverture</a></li>
-							<li><a href="">De la règlementation</a></li>
-						</ul>
-					</li><!--
-					--><li>
-						<h2><a href="#">Médiathèque</a></h2>
-						<ul>
-							<li><a href="">Recherche avancée</a></li>
-							<li><a href="">Parcourir</a></li>
-							<li><a href="">Suggestions</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-			<form id="search">
-				<input type="search" placeholder="Rechercher">
-				<button type="button">Rechercher</button>
-			</form>
-		</header>
+		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
 			<h1>L'expédition</h1>
 			<form id="media">
@@ -847,9 +821,7 @@
 				<button type="reset">Annuler</button>
 			</form>
 		</div>
-		<footer>
-			<p>Lorem ipsum dolor sit amet.</p>
-		</footer>
+		<?php require('sharedFiles/footer.inc.php'); ?>
 	</body>
 </html>
 
