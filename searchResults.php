@@ -3,12 +3,13 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<meta name="author" content="Martin Desharnais">
+		<meta name="author" content="Samuel Milette Lacombe">
 
 		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
 
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
+		<link rel="stylesheet" href="css/search-result.css">
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
