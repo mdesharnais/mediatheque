@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS pieces (
 	titre varchar(50) NOT NULL COMMENT 'Titre',
 	position_media int(11) COMMENT 'Position dans le média',
 	annee_enregistrement int(11) COMMENT 'Année d''enregistrement',
-	duree decimal(4,2) COMMENT 'Durée',
+	duree TIME COMMENT 'Durée',
 	catalogueID int(11) COMMENT 'Catalogue',
 	epoqueID int(11) COMMENT 'Époque',
 	formeID int(11) COMMENT 'Forme',
@@ -262,6 +262,17 @@ CREATE TABLE IF NOT EXISTS orchestrateurs_pieces (
 	FOREIGN KEY (artisteID) REFERENCES artistes(ID)
 ) ENGINE=InnoDb COMMENT 'Orchestrateurs';
 
+INSERT INTO artistes (ID, nom, inactif)
+VALUES
+	(1, 'Wolgang Amadeus Mozart', TRUE),
+	(2, 'André Mathieu', FALSE),
+	(3, 'Ludwig van Beethoven', TRUE),
+	(4, 'Frédéric Chopin', TRUE),
+	(5, 'Johann Sebastian Bach', TRUE),
+	(6, 'Antonio Salieri', TRUE),
+	(7, 'Lorenzo da Ponte', TRUE),
+	(8, 'Les cowboys fringants', TRUE);
+
 INSERT INTO epoques(ID, nom, inactif)
 VALUES
 	(1, 'Baroque', TRUE),
@@ -308,23 +319,147 @@ INSERT INTO genres (ID, nom, inactif)
 VALUES
 	(1, 'Aventure', TRUE),
 	(2, 'Merveilleux', TRUE);
-	
-INSERT INTO `medias` (`ID`, `titre`, `annee_publication`, `image`, `artisteID`, `genreID`, `quantite`, `reference`, `notes`, `maison_editionID`, `supportID`, `inactif`) VALUES
-(1, 'La communauté de l’anneau', 1972, '', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
-(2, 'Les deux tours', 1992, '2.jpg', NULL, 2, 1, '2 Livre roman', '', 6, 8, 0),
-(3, 'Le retour du Roi', 1994, '', NULL, 2, 1, '3 Livre roman', '', 6, 8, 0),
-(4, 'Indiana Jones et la Dernière Croisade', 1987, '', NULL, 1, 1, '1 VHS', '', 7, 3, 0),
-(5, 'Indiana Jones et le Temple maudit', 1990, '', NULL, 1, 1, '2 VHS', 'Film extraordinaire', 7, 3, 0);
 
 INSERT INTO collections (ID, nom, type, inactif)
 VALUES
 	(1, 'Le seigneur des anneaux', '1', TRUE),
 	(2, 'Indiana Jones', '3', TRUE);
 
-INSERT INTO audios_videos (ID, exID, collectionID, position_collection, CUP, realisateurs, nationaliteID)
+INSERT INTO medias (ID, titre, annee_publication, image, artisteID, genreID, quantite, reference, notes, maison_editionID, supportID, inactif) VALUES
+(1, 'La communauté de l’anneau', 1972, '', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
+(2, 'Les deux tours', 1992, '2.jpg', NULL, 2, 1, '2 Livre roman', '', 6, 8, 0),
+(3, 'Le retour du Roi', 1994, '', NULL, 2, 1, '3 Livre roman', '', 6, 8, 0),
+(4, 'Indiana Jones et la Dernière Croisade', 1987, '', NULL, 1, 1, '1 VHS', '', 7, 3, 0),
+(5, 'Indiana Jones et le Temple maudit', 1990, '', NULL, 1, 1, '2 VHS', 'Film extraordinaire', 7, 3, 0);
+
+INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, titre, inactif)
 VALUES
-	(1, 4, 2, 3, 2131234, 'Steven Spielberg', 1),
-	(2, 5, 2, 2, 3232444, 'Steven Spielberg', 1);
+	(6,  2,  8, 2008, 'CD-C00001', 'L''expédition', FALSE),
+	(7,  2,  8, 2008, 'CD-C00002', 'Sur un air de déjà vu', FALSE),
+	(8,  2,  8, 2004, 'CD-C00003', 'La grand-messe', FALSE),
+	(9,  2,  8, 2002, 'CD-C00004', 'Break syndical', FALSE),
+	(10, 2,  8, 2000, 'CD-C00005', 'Motel capri', FALSE),
+	(11, 2,  8, 1998, 'CD-C00006', 'Sur mon canapé', FALSE),
+	(12, 2,  8, 1997, 'CD-C00007', 'Break syndical', FALSE);
+
+INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
+VALUES
+	(1, 4,  1, 2,    3,    2131234, 'Steven Spielberg'),
+	(2, 5,  1, 2,    2,    3232444, 'Steven Spielberg'),
+	(3, 6,  3, NULL, NULL, NULL,    NULL),
+	(4, 7,  3, NULL, NULL, NULL,    NULL),
+	(5, 8,  3, NULL, NULL, NULL,    NULL),
+	(6, 9,  3, NULL, NULL, NULL,    NULL),
+	(7, 10, 3, NULL, NULL, NULL,    NULL),
+	(8, 11, 3, NULL, NULL, NULL,    NULL),
+	(9, 12, 3, NULL, NULL, NULL,    NULL);
+
+INSERT INTO pieces(ID, exID, position_media, duree, titre)
+VALUES
+	(1 , 3,  1, '00:04:45', 'Droit devant'),
+	(2 , 3,  2, '00:02:12', 'Chêne et roseau'),
+	(3 , 3,  3, '00:03:32', 'Entre deux taxis'),
+	(4 , 3,  4, '00:03:03', 'La Catherine'),
+	(5 , 3,  5, '00:03:09', 'Histoire de pêche'),
+	(6 , 3,  6, '00:03:37', 'Bobo'),
+	(7 , 3,  7, '00:02:50', 'Rue des souvenirs'),
+	(8 , 3,  8, '00:03:54', 'Monsieur'),
+	(9 , 3,  9, '00:04:32', 'La tête haute'),
+	(10, 3, 10, '00:04:33', 'Les hirondelles'),
+	(11, 3, 11, '00:03:54', 'Tant qu''on aura de l''amour'),
+	(12, 3, 12, '00:03:29', 'La bonne pomme'),
+	(13, 3, 13, '00:02:47', 'Train de vie'),
+	(14, 3, 14, '00:05:33', 'Une autre journée qui se lève'),
+
+	(15, 4,  1, '00:04:27', 'Chanteur pop'),
+	(16, 4,  2, '00:03:06', 'Beau-frère'),
+	(17, 4,  3, '00:01:31', 'La ballade de Jipi Labrosse'),
+	(18, 4,  4, '00:01:40', 'Sur un air de déjà vu'),
+	(19, 4,  5, '00:03:23', 'Par chez nous'),
+	(20, 4,  6, '00:00:26', 'Sans tambour ni trompette'),
+	(21, 4,  7, '00:02:26', 'Normal Tremblay'),
+	(22, 4,  8, '00:03:45', '1994'),
+	(23, 4,  9, '00:02:15', 'Pittoresque!'),
+	(24, 4, 10, '00:02:50', 'Vacances 31'),
+	(25, 4, 11, '00:01:26', 'Le blues d''la vie'),
+	(26, 4, 12, '00:04:27', 'Titi Tancrède / Le reel d''la fesse'),
+	(27, 4, 13, '00:02:44', 'Rentre à pied'),
+	(28, 4, 14, '00:01:26', 'Quand tu pars'),
+	(29, 4, 15, '00:04:04', 'Döner au suivant'),
+
+	(30, 5,  1, '00:01:05', 'Intro'),
+	(31, 5,  2, '00:04:25', 'Les étoiles filantes'),
+	(32, 5,  3, '00:03:27', 'Ti-cul'),
+	(33, 5,  4, '00:04:05', '8 secondes'),
+	(34, 5,  5, '00:03:36', 'Plus rien'),
+	(35, 5,  6, '00:05:24', 'Hannah'),
+	(36, 5,  7, '00:05:36', 'Symphonie pour Caza'),
+	(37, 5,  8, '00:02:50', 'La Reine'),
+	(38, 5,  9, '00:04:48', 'En attendant (Le reel de nos gens)'),
+	(39, 5, 10, '00:03:36', 'Lettre à Lévesque'),
+	(40, 5, 11, '00:03:59', 'Ces temps-ci'),
+	(41, 5, 12, '00:03:31', 'Ma belle Sophie'),
+	(42, 5, 13, '00:01:41', 'Shish Taouk'),
+	(43, 5, 14, '00:03:34', 'Camping Ste-Germaine'),
+	(44, 5, 15, '00:05:55', 'Si la vie vous intéresse'),
+
+	(45, 6,  1, '00:04:08', 'En berne'),
+	(46, 6,  2, '00:04:30', 'La tête à Papineau'),
+	(47, 6,  3, '00:03:34', 'Toune d''automne'),
+	(48, 6,  4, '00:03:40', 'Heavy metal'),
+	(49, 6,  5, '00:03:21', 'La manifestation'),
+	(50, 6,  6, '00:02:45', 'Break syndical'),
+	(51, 6,  7, '00:05:23', 'L''hiver approche'),
+	(52, 6,  8, '00:01:12', 'À'' polyvalente'),
+	(53, 6,  9, '00:03:56', 'La noce'),
+	(54, 6, 10, '00:01:52', 'Quand je r''garde'),
+	(55, 6, 11, '00:04:00', 'Mon chum Rémi'),
+	(56, 6, 12, '00:04:05', 'Salu mon Run'),
+	(57, 6, 13, '00:03:17', 'Joyeux calvair!'),
+	(58, 6, 14, '00:04:47', 'Ruelle Laurier/Toune cachée'),
+
+	(59, 7,  1, '00:00:10', 'Su'' mon big wheel (C''tait l''fun'),
+	(60, 7,  2, '00:03:03', 'Le plombier'),
+	(61, 7,  3, '00:02:04', 'Québécois de souche'),
+	(62, 7,  4, '00:02:37', 'Awikatchikaën'),
+	(63, 7,  5, '00:03:30', 'Maurice au bistro'),
+	(64, 7,  6, '00:05:41', 'M''a vivre avec toi'),
+	(65, 7,  7, '00:04:41', 'Le shack à Hector'),
+	(66, 7,  8, '00:02:39', 'Marcel Galarneau'),
+	(67, 7,  9, '00:04:15', 'Mon pays suivi du real des aristocrates'),
+	(68, 7, 10, '00:04:25', 'Rue Chapdelaine'),
+	(69, 7, 11, '00:04:46', 'Banlieue'),
+	(70, 7, 12, '00:02:54', 'Voyou'),
+	(71, 7, 13, '00:05:22', 'Léopold'),
+	(72, 7, 14, '00:03:17', 'Le gars d''la compagnie'),
+	(73, 7, 15, '00:03:11', 'Le pouceux'),
+	(74, 7, 16, '00:03:09', 'Un p''tit tour'),
+
+	(75, 8,  1, '00:02:43', 'Marcel Galarneau'),
+	(76, 8,  2, '00:03:06', 'Le plombier'),
+	(77, 8,  3, '00:03:51', 'Spécial #6'),
+	(78, 8,  4, '00:03:48', 'Maurice au bistro'),
+	(79, 8,  5, '00:03:30', 'Goldie'),
+	(80, 8,  6, '00:03:07', 'Denise Martinez'),
+	(81, 8,  7, '00:04:49', 'Mon pays (real des aristocrates)'),
+	(82, 8,  8, '00:04:57', 'Le quai de Bertier'),
+	(83, 8,  9, '00:03:15', 'Grosse femme'),
+	(84, 8, 10, '00:05:19', 'La gosse à Comeau'),
+	(85, 8, 11, '00:02:39', 'La culbute'),
+	(86, 8, 12, '00:04:42', 'Banlieue'),
+
+	(87, 9,  1, '00:03:36', 'Les routes du bonheur'),
+	(88, 9,  2, '00:02:50', 'Awikatchikaën'),
+	(89, 9,  3, '00:03:40', 'Évangéline'),
+	(90, 9,  4, '00:03:22', 'Cass de pouëlle'),
+	(91, 9,  5, '00:03:16', 'L''agacepésie'),
+	(92, 9,  6, '00:03:52', 'Dieudonné Rastapopoulos'),
+	(93, 9,  7, '00:03:39', 'Plattsburg'),
+	(94, 9,  8, '00:02:34', 'Willie Jos Hachey'),
+	(95, 9,  9, '00:04:38', 'Gaétane'),
+	(96, 9, 10, '00:02:39', 'Repentigny-by-the-sea'),
+	(97, 9, 11, '00:03:21', 'Le hurlot'),
+	(98, 9, 12, '00:04:46', 'Impala blues');
 
 INSERT INTO imprimes (ID, exID, sous_titre, collectionID, position_collection)
 VALUES
@@ -336,15 +471,3 @@ INSERT INTO utilisateurs (ID, matricule, nom, prenom, telephone, courriel, inact
 VALUES
 	(1, 834612, 'Boudreault', 'Émile', '8192323232', 'findumonde@gmail.com', TRUE),
 	(2, 974364, 'Borduas', 'Paul-Émile', '8192324433', 'borduas@gmail.com', TRUE);
-
-INSERT INTO artistes (ID, nom, inactif)
-VALUES
-	(1, 'Wolgang Amadeus Mozart', TRUE),
-	(2, 'André Mathieu', TRUE),
-	(3, 'Ludwig van Beethoven', TRUE),
-	(4, 'Frédéric Chopin', TRUE),
-	(5, 'Johann Sebastian Bach', TRUE),
-	(6, 'Antonio Salieri', TRUE),
-	(7, 'Lorenzo da Ponte', TRUE);
-
-
