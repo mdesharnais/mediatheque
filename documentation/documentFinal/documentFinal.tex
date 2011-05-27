@@ -100,38 +100,49 @@ Lors de la conception le site à été testé sur les navigateurs suivants:
 \item Google Chrome 11.0.696.65
 \end{itemize}
 
-Le site est fonctionnel sur l'ensemble des navigateurs mais certains effets graphiques ne sont disponnibles que sur les versions récentes des navigateurs.
+Le site est fonctionnel sur l'ensemble des navigateurs mais certains effets graphiques ne sont disponnibles que sur les versions récentes de chacun.
 
 \subsection{Languages}
 \subsubsection{Client}
-Du coté client, les languages utilisés sont le HTML 5, le CSS3, le XML et le javascript.
+Du coté client, les languages utilisés sont le HTML 5, le CSS 3, le javascript et le XML.
 
-Pour le javascript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utiliser afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet cette bibliothèque a l'aventage de proposer des fonctions unifiées qui se charge pour nous de gérer les différence entre les différents navigateurs.
+Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalitées dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 "border-radius" nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et affichera des coins carrés standards.
 
-Il a été décidé de réduire au maximum la dépendance au javascript. Dans le cas de fonctionnalités javascript facultatives, comme le fait de n'afficher que les trois premier éléments des listes trop longues, le code HTML ne contient qu'une liste toute simple et c'est au chargement de la page par le navigateur que le javascript s'occupe de modifier la structure du document et d'offire un bouton permettant d'afficher les éléments excédentaires.
+Pour le javascript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utiliser afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet cette bibliothèque a l'avantage de proposer des fonctions unifiées qui se chargent pour nous de gérer les différences entre les différents navigateurs.
+
+Cependant, il a été décidé de réduire au maximum la dépendance au javascript. Dans le cas de fonctionnalités javascript facultatives, comme le fait de n'afficher que les trois premier éléments des listes trop longues, le code HTML ne contient qu'une liste toute simple et c'est au chargement de la page par le navigateur que le javascript s'occupe de modifier la structure du document et d'offire un bouton permettant d'afficher les éléments excédentaires.
 
 Bien sur, il y certains cas où le javascript est absolument obligatoire, comme la création de nouveau champs dans les formulaires devant traiter un nombre variables d'enregistrements. Heureusement, ces cas complexes ne s'appliquent que dans des sections d'administration. Un visiteur ou un utilisateur disposant de droits minimaux peut donc se passer aisément de javascript et le site reste parfaitement consultable.
 
-Javascript avec utilisation de la bibliothèque jQuery 1.6.1
+Pour le XML, celui-ci est utilisé comme moyen de transmission de l'information lors des requêtes AJAX. À l'heure actuelle, les requêtes AJAX sont faites à des fichers XML statiques mais, à terme, des scripts PHP devrons être écrits permettant de générer dynamiquement le fichier selon les critères reçus en paramètre.
+
 \subsubsection{Serveur}
-PHP 5.3.3 -- 5.3.5
+Du coté serveur, le seul language utilisé est le PHP, qui a été utilisé dans ses versions 5.3.3 et 5.3.5 dépendamment des contributeurs.
+
+Les conventions php utilisés sont les suivantes~:
+
+\begin{itemize}
+\item Les fichiers contenant la définition d'une classe PHP utilisent l'extension ".class.php".
+\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit obligatoirement être inclu par un autre script utilisent l'extension ".inc.php".
+\item Les fichiers contenant du code PHP qui se suffit à lui-même utilisent l'extension ".php".
+\item Les fichiers contenant les pages finales affichées à l'utilisateur sont situés à la racine du projet (/).
+\item Les fichiers contenant des scripts PHP qui effectuent une action avant de rediriger l'utilisateur sont situés dans le répertoire php (/php/).
+\end{itemize}
 
 \subsection{Bande passante}
 What the fuck?!?
 
 \subsection{Serveurs}
-\subsubsection{HTTP}
 Apache HTTP Server 2.2.16 -- 2.2.17
-\subsubsection{SGBD}
-MySQL 5.1.49 -- 5.5.8
 
 \subsection{Type de base de données}
+MySQL 5.1.49 -- 5.5.8
 
 \section{Sécurité}
 
 La sécurité repose essentiellement sur la validation des droits des utilisateurs avant de générer les pages du site. C'est le PHP qui est chargé de valider que l'utilisateur courant dispose des droits suffisants avant d'ajouter une section à la page que le serveur HTTP s’apprête à retourner.
 
-En pratique cela se traduit par un appel à la fonction application->currentUser->haveRights() en lui spécifiant en premier paramètre la section dont l'on veut tester les droits et en second paramètre la liste des droits dont l'utilisateur doit disposer pour avoir accès à ce contenu. Ces droits sont définis dans le tableau application->rights. Par exemple afin de valider que l'utilisateur à bien le droit d'accéder à la zone d'administration, il suffit d'utiliser le code suivant~:
+En pratique cela se traduit par un appel à la fonction application->currentUser->haveRights() en lui spécifiant en premier paramètre la section dont l'on veut tester les droits et en second paramètre la liste des droits dont l'utilisateur doit disposer pour avoir accès à ce contenu. Ces droits sont définis dans le tableau application->rights. Par exemple afin de valider que l'utilisateur a bien le droit d'accéder à la zone d'administration, il suffit d'utiliser le code suivant~:
 
 \begin{lstlisting}[style=php]
 if($application->currentUser->haveRights('administration', $application->rights['read'] | $application->rights['write']))
@@ -140,7 +151,7 @@ if($application->currentUser->haveRights('administration', $application->rights[
 }
 else
 {
-	// Current user does not have suffisent rights to se this section
+	// Current user does not have suffisent rights to see this section
 }
 \end{lstlisting}
 
