@@ -16,7 +16,7 @@
 		<div id="content">
 			<div>
 			<img src="images/reservation.png" />
-				<h1>Mes Reservations</h1><br>
+				<h1>Mes Réservations</h1><br>
 					<?php
 						include("php/myReservations.php");
 					?>
