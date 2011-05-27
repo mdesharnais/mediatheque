@@ -132,7 +132,7 @@ function printSearchResults($sqlFromWhere)
 		echo '<span class="label">Code de référence:</span><span class="value">'.$row['reference'].'</span>';
 		echo '</p>';
 		echo '<p>';
-		echo '<span class="label">Action:</span><span class="value"><a class="reserveLink" href="php/makeReservation.php?id='.$row['ID'].'">Réserver</a></span>';
+		echo '<span class="label">Action:</span><span class="value"><a class="reserveLink" href="makeReservation.php?id='.$row['ID'].'">Réserver</a></span>';
 		echo '</p>';
 		
 		
