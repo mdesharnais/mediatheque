@@ -80,7 +80,7 @@ class User
 
 	public function isVisitor()
 	{
-		return !isset($this->ID);
+		return is_null($this->ID);
 	}
 
 	//////////////////////////////////////////////////
@@ -133,7 +133,7 @@ class User
 	
 	public function haveRights($section, $rights)
 	{
-		if(is_null($this->getID()))
+		if($this->isVisitor())
 			return false;
 		else
 			return true;
