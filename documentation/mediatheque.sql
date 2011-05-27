@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS formes (
 
 CREATE TABLE IF NOT EXISTS medias (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
-	titre varchar(50) NOT NULL COMMENT 'Titre',
+	titre varchar(75) NOT NULL COMMENT 'Titre',
 	annee_publication int(11) COMMENT 'Année de publication',
 	image varchar(100) COMMENT 'Image',
 	artisteID int(11) COMMENT 'Artiste',
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS pieces (
 	titre varchar(50) NOT NULL COMMENT 'Titre',
 	position_media int(11) COMMENT 'Position dans le média',
 	annee_enregistrement int(11) COMMENT 'Année d''enregistrement',
-	duree decimal(4,2) COMMENT 'Durée',
+	duree TIME COMMENT 'Durée',
 	catalogueID int(11) COMMENT 'Catalogue',
 	epoqueID int(11) COMMENT 'Époque',
 	formeID int(11) COMMENT 'Forme',
