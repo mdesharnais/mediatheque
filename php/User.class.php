@@ -131,6 +131,13 @@ class User
 	// Methods(s)
 	//////////////////////////////////////////////////
 	
+	/**
+	 * \brief Retourne si l'utilisateur courrant dispose des droits demandés sur la section demandée.
+	 * \author Martin Desharnais
+	 * \param section Chaine de caractères représentant la section pour laquelle il faut tester les droits.
+	 * \param rights Nombre contenant les droits qu'il faut tester.
+	 * \return TRUE si l'utilisateur dispose de tous les droits sur la section, sinon FALSE.
+	 */
 	public function haveRights($section, $rights)
 	{
 		if($this->isVisitor())
