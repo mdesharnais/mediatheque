@@ -15,10 +15,10 @@ else {
 }
 
 if (is_null($utilisateur)) {
-	echo "Vous devez etre connecte.";
+	echo "Vous devez être connecté.";
 }
 elseif (is_null($media)) {
-	echo "Vous devez avoir selectionne un media.";
+	echo "Vous devez avoir sélectionné un média.";
 }
 else {
 	echo "<form id='reservation' Action='php/submitReservation.php'>";

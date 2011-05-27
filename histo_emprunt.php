@@ -15,10 +15,10 @@
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
 			<div>
-			<img src="images/reservation.png" />
-				<h1>Réservation</h1><br>
+			<img src="images/emprunt.png" />
+				<h1>Historique des emprunts</h1><br>
 					<?php
-						include("php/makeReservation.php");
+						include("php/histoEmprunt.php");
 					?>
 			</div>
 		</div>

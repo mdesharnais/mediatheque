@@ -94,6 +94,7 @@ Lors de la conception le site à été testé sur les navigateurs suivants:
 
 \begin{itemize}
 \item Mozilla Firefox 3.5.16
+\item Mozilla Firefox 3.6.10
 \item Mozilla Firefox 4.0.1
 \item Google Chrome 6.0.472.63
 \item Google Chrome 11.0.696.65
@@ -103,7 +104,14 @@ Le site est fonctionnel sur l'ensemble des navigateurs mais certains effets grap
 
 \subsection{Languages}
 \subsubsection{Client}
-Du coté client, les languages utilisés sont le HTML 5, le CSS3, le XML et le javascript. Pour ce qui est de l'utilisation du javascript, il a été décidé minimiser au maximum la dépendance du site.
+Du coté client, les languages utilisés sont le HTML 5, le CSS3, le XML et le javascript.
+
+Pour le javascript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utiliser afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet cette bibliothèque a l'aventage de proposer des fonctions unifiées qui se charge pour nous de gérer les différence entre les différents navigateurs.
+
+Il a été décidé de réduire au maximum la dépendance au javascript. Dans le cas de fonctionnalités javascript facultatives, comme le fait de n'afficher que les trois premier éléments des listes trop longues, le code HTML ne contient qu'une liste toute simple et c'est au chargement de la page par le navigateur que le javascript s'occupe de modifier la structure du document et d'offire un bouton permettant d'afficher les éléments excédentaires.
+
+Bien sur, il y certains cas où le javascript est absolument obligatoire, comme la création de nouveau champs dans les formulaires devant traiter un nombre variables d'enregistrements. Heureusement, ces cas complexes ne s'appliquent que dans des sections d'administration. Un visiteur ou un utilisateur disposant de droits minimaux peut donc se passer aisément de javascript et le site reste parfaitement consultable.
+
 Javascript avec utilisation de la bibliothèque jQuery 1.6.1
 \subsubsection{Serveur}
 PHP 5.3.3 -- 5.3.5

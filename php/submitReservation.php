@@ -1,3 +1,3 @@
 <?php
-	echo "La reservation pour le media a ete effectue avec succes.";
+	echo "La réservation pour le média à été effectué avec succès.";
 ?>
