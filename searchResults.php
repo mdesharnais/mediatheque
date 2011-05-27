@@ -56,10 +56,17 @@
 			<div id="search-results">
 		
 			<?php
-					
 			require('php/search-results.inc.php');
-			printSearchRequest(1);
-			printSearchResults(1); ?>
+			if (isset($_POST["criterias"]) || !empty($_POST["criterias"]))
+			{
+				printSearchResults($_POST["sqlFromWhere"]); 
+			
+			}
+			else
+			{
+				printSearchResults(1); 
+			}
+			?>	
 			
 			</div>
 		</div>

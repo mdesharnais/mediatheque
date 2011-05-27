@@ -56,6 +56,6 @@
 	</nav>
 	<form id="search" method="post" action="searchResults.php">
 		<input type="search" placeholder="Rechercher">
-		<button type="button">Rechercher</button>
+		<button type="submit">Rechercher</button>
 	</form>
 </header>

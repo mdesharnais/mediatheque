@@ -14,7 +14,7 @@ function printSearchResults($sqlFromWhere)
 			
 	switch ($sqlFromWhere) {
     case 1:
-        $sqlQuery = $basicQuery.' FROM medias 
+    	$sqlQuery = $basicQuery.' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
 				INNER JOIN categoriesMedia ON supports.categorieMediaID = categoriesMedia.ID
@@ -56,6 +56,7 @@ function printSearchResults($sqlFromWhere)
     else
       	$pagination->setCurrentPage(1);
       	
+    printSearchRequest($sqlFromWhere,$pagination); 	
     $pagination->show();
     
     $sqlQuery = $sqlQuery." limit ".$pagination->currentPageFirstItemNumber().", ".$pagination->itemsPerPage();
@@ -149,22 +150,22 @@ function printSearchResults($sqlFromWhere)
 /*
 fonction
 */
-function printSearchRequest($sqlQuery)
+function printSearchRequest($sqlQuery,Pagination $pagination)
 {
 
-switch ($sqlQuery) {
-    case 1:
-        $requestText= "Tous les médias";
-        break;
-    case 2:
-        $requestText= "Allo";
-        break;
-    case 3:
-        $requestText= "Allo";
-        break;
-}
+	switch ($sqlQuery) {
+		case 1:
+		    $requestText= "Tous les médias";
+		    break;
+		case 2:
+		    $requestText= "Allo";
+		    break;
+		case 3:
+		    $requestText= "Allo";
+		    break;
+	}
 
-echo '<div id=searchRequest>Recherche demandée: '.$requestText.'</div>';
+echo '<div id=searchRequest>Recherche demandée: '.$requestText.', '.$pagination->ItemsCount().' média(s) trouvé(s)</div>';
 
 
 }
