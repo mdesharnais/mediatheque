@@ -49,7 +49,7 @@ foreach(range(0,365) as $day) {
 	}
 }
 
-echo "Emprunt du <select id='date_emprunt'>";
+echo "Du <select id='date_emprunt'>";
 foreach($months_and_dates as $month => $days) {
 	//print $month . "<br>";
 	//print implode('<br>', $days);
