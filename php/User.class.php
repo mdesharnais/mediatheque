@@ -133,7 +133,7 @@ class User
 	
 	public function haveRights($section, $rights)
 	{
-		if(is_null($this->getID()))
+		if($this->isVisitor())
 			return false;
 		else
 			return true;
