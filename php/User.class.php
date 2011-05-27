@@ -80,7 +80,7 @@ class User
 
 	public function isVisitor()
 	{
-		return !isset($this->ID);
+		return is_null($this->ID);
 	}
 
 	//////////////////////////////////////////////////
