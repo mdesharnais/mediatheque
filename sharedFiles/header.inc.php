@@ -7,7 +7,7 @@
 				<ul>
 					<li><a href="aboutMusicalDepartment.php">Du département de musique</a></li>
 					<li><a href="aboutMediaLibrary.php">De la médiathèque</a></li>
-					<li><a href="">Des heures d'ouverture</a></li>
+					<li><a href="aboutOpenHours.php">Des heures d'ouverture</a></li>
 					<li><a href="">De la règlementation</a></li>
 				</ul>
 			</li><!--
