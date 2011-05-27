@@ -31,7 +31,7 @@
 					else
 					{
 						echo '<li><a href="my_reservation.php">Mes réservations</a></li>';
-						echo '<li><a href="">Mes emprunts en cours</a></li>';
+						echo '<li><a href="emprunt_cours.php">Mes emprunts en cours</a></li>';
 						echo '<li><a href="histo_emprunt.php">Mon historique d\'emprunts</a></li>';
 						echo '<li><a href="php/userLogOut.php">Déconnexion</a></li>';
 					}

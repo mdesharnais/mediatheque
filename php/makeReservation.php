@@ -23,7 +23,7 @@ elseif (is_null($media)) {
 else {
 	echo "<form id='reservation' Action='php/submitReservation.php'>";
 	echo "<script src='javascript/generateReservation.js' ></script>";
-	include('php/setDateReservation.php');
+	include('php/setDateList.php');
 	echo "<input type='submit' Value='Enregistrer'>";
 	echo "</form>";
 }

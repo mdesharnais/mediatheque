@@ -39,7 +39,7 @@ foreach(range(0,365) as $day) {
 	}
 }
 
-echo "Reserver pour le <select id='date_reservation'>";
+echo "Pour le <select id='date_reservation'>";
 foreach($months_and_dates as $month => $days) {
 	//print $month . "<br>";
 	//print implode('<br>', $days);
@@ -48,5 +48,5 @@ foreach($months_and_dates as $month => $days) {
 		echo "<option value=".$value.">".$value."</option>";
 	}
 }
-echo "</select>";
+echo "</select><br>";
 ?>
