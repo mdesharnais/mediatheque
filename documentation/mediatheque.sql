@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS formes (
 
 CREATE TABLE IF NOT EXISTS medias (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
-	titre varchar(50) NOT NULL COMMENT 'Titre',
+	titre varchar(75) NOT NULL COMMENT 'Titre',
 	annee_publication int(11) COMMENT 'Année de publication',
 	image varchar(100) COMMENT 'Image',
 	artisteID int(11) COMMENT 'Artiste',

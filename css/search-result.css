@@ -31,7 +31,7 @@ a.reserveLink:hover
 text-decoration:none;
 }
 
-td
+tr.mediaRowResult td
 {
 border-bottom-style:solid;
 border-bottom-width:1px;
