@@ -11,17 +11,25 @@ Formulaires:
 # Samuel Milette-Lacombe
 ##################################################
 
-Résultats de recherche
-	-Afficher les résultats comme suit: chaque résultat avec une image à gauche représentant
-	l'élément avec les détails à droite. Si aucune image est définie pour l'élément, on affiche
-	l'image du type de média.
+
 Parcourir
 	-Utiliser le fil d'ariane verticale
 		- La même recherche raffinée sous 3 niveaux
-		- 
+		- Les niveaux de recherche:
+			1: tout les médias
+			2: tout les médias audios
+			3: tout les médias audios de l'artiste cowboys fringuants
+			4: tout les médias audios des cowboys ayant comme annee de publication l'année 2008
+			
+		-L'exemple pour la recherche simple sera avec le mot clés "Indiana Jones"
+			
 Recherche avancée
+	-Mettre une astérisque devant les valeurs qui sont génère un datalist
+	-Donner un nom unique au input texte des trois premier critères (c1,c2,c3)
+	-Il y aura un code dans la recherche avancée qui trouvera le no de recherche statique à utiliser.
+		-Il ressemblera à ceci: si q1=cow alors recherche 1, si q2=tolkien 
 
-Traiter la priorité des opérateur or et and dans la recherche avancée
+
 ##################################################
 # Marc-André Destrampes
 ##################################################

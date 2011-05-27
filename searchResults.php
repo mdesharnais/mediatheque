@@ -13,7 +13,6 @@
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
-		<?php require('php/search-results.inc.php');?>
 		<div id="content">
 			<div id="vertical-breadcrumb">
 				<h3>Affinez votre recherche</h3>
@@ -57,23 +56,17 @@
 			<div id="search-results">
 		
 			<?php
-			$sqlQuery = '
-			SELECT medias.ID, medias.notes, medias.titre, medias.annee_publication, medias.image, medias.quantite, medias.reference, artistes.nom 
-			AS nomArtiste, categoriesMedia.nom AS nomCategorie,	categoriesMedia.image AS imageCategorie, supports.nom AS nomSupport, maisons_edition.nom
-			AS nomMaisonEdition, genres.nom AS nomGenre
-			FROM medias
-				LEFT JOIN artistes ON artistes.ID = medias.artisteID
-				INNER JOIN supports ON medias.supportID = supports.ID
-				INNER JOIN categoriesMedia ON supports.categorieMediaID = categoriesMedia.ID
-				LEFT JOIN genres ON genres.ID = medias.genreID
-				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
-			WHERE medias.inactif=FALSE
-			';
+			require('php/search-results.inc.php');
+			if (isset($_POST["criterias"]) || !empty($_POST["criterias"]))
+			{
+				printSearchResults($_POST["sqlFromWhere"]); 
 			
-			//art.nom, sup.nom, med.ID, med.titre, med.annee_publication, med.image, gen.nom, med.quantite, med.reference, mai.nom, cat.nom, cat.image 
-//			medias med, artistes art, supports sup, maisons_edition mai, genres gen, categoriesMedia cat 
-//med.inactif=0 AND med.genreID = gen.ID AND med.maison_editionID=mai.ID AND art.ID = med.artisteID AND cat.ID IN (SELECT categorieMediaID FROM supports WHERE ID=med.supportID)
-			printSearchResults($sqlQuery); ?>
+			}
+			else
+			{
+				printSearchResults(1); 
+			}
+			?>	
 			
 			</div>
 		</div>
