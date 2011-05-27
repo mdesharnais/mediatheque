@@ -30,9 +30,9 @@
 					}
 					else
 					{
-						echo '<li><a href="">Mes réservations</a></li>';
+						echo '<li><a href="my_reservation.php">Mes réservations</a></li>';
 						echo '<li><a href="">Mes emprunts en cours</a></li>';
-						echo '<li><a href="">Mon historique d\'emprunts</a></li>';
+						echo '<li><a href="histo_emprunt.php">Mon historique d\'emprunts</a></li>';
 						echo '<li><a href="php/userLogOut.php">Déconnexion</a></li>';
 					}
 					?>
@@ -47,6 +47,7 @@
 					<h2><a href="">Administration</a></h2>
 					<ul>
 						<li><a href="emprunt.php">Emprunt</a></li>
+						<li><a href="retour.php">Retour</a></li>
 					</ul>
 				</li>
 			<?php
