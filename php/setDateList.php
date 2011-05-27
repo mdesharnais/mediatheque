@@ -2,6 +2,10 @@
 define('INTERNAL_FORMAT', 'Y-m-d');
 define('DISPLAY_MONTH_FORMAT', 'M Y');
 define('DISPLAY_DAY_FORMAT', 'D d M Y');
+// to exclude some dates add them here in the
+// YYYY-MM-DD format, each on seperated by a ,
+// '2010-03-09',
+// '2010-04-13',
 $excluded_dates = array(
 	'2010-03-09',
 	'2010-04-13',
@@ -14,6 +18,10 @@ $excluded_dates = array(
 //   '4' Thursday
 //   '5' Friday
 //   '6' Saturday
+// to add a day add a function
+// function isNameOfTheDay($date) {
+//		return date('w', strtotime($date)) === 'numberOfTheDay';
+// }
 function isTuesday($date) {
 	return date('w', strtotime($date)) === '2';
 }
@@ -34,6 +42,8 @@ foreach(range(0,365) as $day) {
 	$internal_date = date(INTERNAL_FORMAT, strtotime("{$start_date} + {$day} days"));
 	$this_day = date(DISPLAY_DAY_FORMAT, strtotime($internal_date));
 	$this_month = date(DISPLAY_MONTH_FORMAT, strtotime($internal_date));
+	// when adding a day add the function here like this
+	// if (isNameOfTheDay($internal_date) || isNameOfTheOtherDay($internal_date)) && !isExcludedDate($internal_date))
 	if ((isTuesday($internal_date) || isWednesday($internal_date)) && !isExcludedDate($internal_date)) {
 		$months_and_dates[$this_month][] = $this_day;
 	}
