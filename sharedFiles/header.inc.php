@@ -3,12 +3,12 @@
 	<nav>
 		<ul id="nav">
 			<li>
-				<h2><a href="">À propos</a></h2>
+				<h2><a href="aboutMediaLibrary.php">À propos</a></h2>
 				<ul>
-					<li><a href="aboutMusicalDepartment.php">Du département de musique</a></li>
 					<li><a href="aboutMediaLibrary.php">De la médiathèque</a></li>
+					<li><a href="aboutMusicalDepartment.php">Du département de musique</a></li>
 					<li><a href="aboutOpenHours.php">Des heures d'ouverture</a></li>
-					<li><a href="">De la règlementation</a></li>
+					<li><a href="aboutRules.php">De la règlementation</a></li>
 				</ul>
 			</li><!--
 			--><li>
