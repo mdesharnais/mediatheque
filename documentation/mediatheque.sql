@@ -84,6 +84,30 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDb COMMENT 'Utilisateurs';
 
+CREATE TABLE IF NOT EXISTS groupes (
+	ID int(11) PRIMARY KEY COMMENT 'ID',
+	nom varchar(50) NOT NULL COMMENT 'Nom',
+	inactif BOOLEAN NOT NULL COMMENT 'Inactif',
+	UNIQUE(nom)
+) ENGINE=InnoDb COMMENT 'Groupes';
+
+CREATE TABLE IF NOT EXISTS groupes_utilisateurs (
+	ID int(11) PRIMARY KEY COMMENT 'ID',
+	exID int(11) COMMENT 'Utilisateur',
+	groupeID int(11) COMMENT 'Groupe',
+	FOREIGN KEY(exID) REFERENCES utilisateurs(ID) ON DELETE CASCADE,
+	FOREIGN KEY(groupeID) REFERENCES groupes(ID)
+) ENGINE=InnoDb COMMENT 'Groupes des utilisateurs';
+
+CREATE TABLE IF NOT EXISTS droits_groupes (
+	ID int(11) PRIMARY KEY COMMENT 'ID',
+	section varchar(250) NOT NULL COMMENT 'Section',
+	groupeID int(11) COMMENT 'Groupe',
+	droits BIGINT NOT NULL COMMENT 'Droits',
+	FOREIGN KEY(groupeID) REFERENCES groupes(ID),
+	UNIQUE(section, groupeID)
+) ENGINE=InnoDb COMMENT 'Droits des groupes';
+
 CREATE TABLE IF NOT EXISTS genres (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',

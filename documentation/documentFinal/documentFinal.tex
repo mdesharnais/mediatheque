@@ -139,10 +139,138 @@ Apache HTTP Server 2.2.16 -- 2.2.17
 MySQL 5.1.49 -- 5.5.8
 
 \section{Sécurité}
+\subsection{En théorie}
 
-La sécurité repose essentiellement sur la validation des droits des utilisateurs avant de générer les pages du site. C'est le PHP qui est chargé de valider que l'utilisateur courant dispose des droits suffisants avant d'ajouter une section à la page que le serveur HTTP s’apprête à retourner.
+La gestion des droits fait appel au «~bit~bashing~», une technique qui consiste à donner une représentation binaire à chacun des droits et de ne stocker que la somme de ces droits dans la base de données. Ainsi, si nous avons les droits suivants de définis~:
 
-En pratique cela se traduit par un appel à la fonction application->currentUser->haveRights() en lui spécifiant en premier paramètre la section dont l'on veut tester les droits et en second paramètre la liste des droits dont l'utilisateur doit disposer pour avoir accès à ce contenu. Ces droits sont définis dans le tableau application->rights. Par exemple afin de valider que l'utilisateur a bien le droit d'accéder à la zone d'administration, il suffit d'utiliser le code suivant~:
+\begin{itemize}
+	\item \$application->rights['read'] = 0001
+	\item \$application->rights['write'] = 0010
+	\item \$application->rights['execute'] = 0100
+\end{itemize}
+
+et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table droits\_groupes contiendrait quelque chose comme ceci~:
+
+\begin{tabular}{|c|l|l|}
+	\hline
+	\multicolumn{3}{|c|}{groupes} \\
+	\hline
+	ID & nom & inactif \\
+	\hline
+	1  & A   & FALSE \\
+	2  & B   & FALSE \\
+	\hline
+\end{tabular}
+
+\qquad
+
+\begin{tabular}{|c|l|c|l|}
+	\hline
+	\multicolumn{4}{|c|}{droits\_groupes} \\
+	\hline
+	ID & section                 & groupeID & droits \\
+	\hline
+	1  & administration          & 1        & 0011 \\
+	2  & Renouveller un document & 1        & 0100 \\
+	3  & Renouveller un document & 2        & 0100 \\
+	\hline
+\end{tabular}
+
+Dans cet exemple, nous pouvons voir que le groupe A dispose des droits de lecture et d'écriture ($ 0001 + 0010 = 0011 $) sur la section «~administration~» et qu'il a le droit de renouveler des documents puisqu'il a le droit d'exécution (0100) sur «~extendLoan~».
+
+Le groupe B, tant qu'à lui, ne dispose que du droit de renouveler des documents. En effet, si aucune entrée ne correspond à un groupe pour une section données, il est assumé que ledit groupe n'a aucun droit sur cette section. Le fait de ne créer aucun enregistrement est strictement équivalent au fait de créer un enregistrement contenant les droits (0000).
+
+\begin{tabular}{|c|l|l|l|l|}
+	\hline
+	\multicolumn{5}{|c|}{utilisateurs} \\
+	\hline
+	ID & matricule & nom         & prenom   & inactif \\
+	\hline
+	1  & 11111111  & Baggins     & Frodo    & FALSE \\
+	2  & 22222222  & Gamgee      & Samwise  & FALSE \\
+	3  & 33333333  & Brandybuck  & Meriadoc & TRUE \\
+	4  & 44444444  & Took        & Peregrin & FALSE \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{|c|l|l|}
+	\hline
+	\multicolumn{3}{|c|}{groupes} \\
+	\hline
+	ID & nom               & inactif \\
+	\hline
+	1  & Administrateurs   & FALSE \\
+	2  & Enseignants       & FALSE \\
+	3  & Commis            & FALSE \\
+	4  & Étudiants         & FALSE \\
+	5  & Prêtre            & TRUE \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{groupes\_utilisateurs} \\
+	\hline
+	ID & exID & groupeID \\
+	\hline
+	1  & 1    & 1 \\
+	2  & 2    & 4 \\
+	3  & 2    & 3 \\
+	4  & 3    & 4 \\
+	5  & 4    & 2 \\
+	\hline
+\end{tabular}
+
+\begin{tabular}{|c|l|c|c|}
+	\hline
+	\multicolumn{4}{|c|}{droits\_groupes} \\
+	\hline
+	ID & section                & groupeID & droits \\
+	\hline
+	1  & drivingTable.php       & 1        & 0011 \\
+	2  & drivingTable.php       & 2        & 0001 \\
+	3  & drivingTable.php       & 3        & 0001 \\
+	4  & drivingTable.php       & 5        & 0001 \\
+	5  & Renouveler un document & 1        & 0100 \\
+	6  & Renouveler un document & 2        & 0100 \\
+	7  & Renouveler un document & 3        & 0100 \\
+	8  & Renouveler un document & 4        & 0100 \\
+	9  & Renouveler un document & 5        & 0100 \\
+	10 & Emprunter un document  & 1        & 0100 \\
+	11 & Emprunter un document  & 2        & 0100 \\
+	12 & Emprunter un document  & 3        & 0100 \\
+	13 & Emprunter un document  & 5        & 0100 \\
+	\hline
+\end{tabular}
+
+L'exemple précédant couvre la plupart des situations qui peuvent survenir.
+
+La table «~utilisateurs~» nous informe qu'il y a quatre utilisateurs d'enregistrés dans le système mais que l'un d'entre eux est inactif. Un utilisateur inactif pert automatiquement tous ses droits.
+
+La table «~groupes~» nous informe qu'il y a cinq groupes d'enregistrés dans le système mais que l'un d'entre eux est inactif. Un groupe inactif pert automatiquement tous ses droits et ne peut plus être assigné à de nouveaux utilisateurs.
+
+La table «~groupes\_utilisateurs~» nous informe que l'utilisateur 1 (Frodo Baggins) fait partit du groupe \emph{Administrateurs}\footnote{Par convention, le groupe \emph{Administrateurs} dispose généralement de tous les droits sur le système.}, que l'utilisateur 2 (Samwise Gamgee) fait partit à la fois du groupe \emph{Étudiants} et du groupe \emph{Commis}, que l'utilisateur 3 (Meriadoc Brandybuck) fait partit du groupe \emph{Étudiants} et, finalement, que l'utilisateur 4 (Peregrin Took) fait partit du groupe \emph{Enseignants}.
+
+Enfin, la table «~droits\_groupes~» nous informe si chaque groupe peut~:
+
+\begin{itemize}
+	\item Afficher et/ou modifier les résulats de la page drivingTable.php;
+	\item Effectuer l'action de renouveler un document;
+	\item Effectuer l'action d'emprunter un document.
+\end{itemize}
+
+Nous voyons ainsi que les commis et les enseignants ont accès à la page drivingTable.php en lecture seule et que les administrateurs y ont accès en lecture-écriture. Les prêtres auraient aussi eu accès en lecture seule, mais en désignant leur groupe comme inactif, ils ont perdu tous leur droits; L'enregistrement numéro 4 doit donc être ignoré par le processur de traitement des droits. Les étudiant, quant à eux, n'ont aucun enregistrement correspondant à cette section. Il est alors assumé qu'ils n'ont aucun droit sur la page drivingTable.php.
+
+Nous voyons que tous les groupes d'utilisateurs ont le droit de renouveller un document mais, encore une fois, l'enregistrement concernant les prêtres doit être ignoré.
+
+Nous voyons enfin que tous les groupes, à l'exception des étudiants, ont le droit d'effectuer un emprunt\footnote{Veuillez noter que c'est le fait d'entrer un nouvel emprunt dans le système qui est traité ici. En effet, un simple étudiant doit demander à un commis qui, lui, se chargera d'entrer sont emprunt dans le système.}.
+
+Les utilisateurs actifs disposent de la somme des droits de chacun de groupes actifs auxquels ils appartiennent. Ainsi, Samwise Gamgee, qui est à la fois un étudiant et un commis, gagne le droit de consulter la page drivingTable.php en lecture seule et d'entrer des emprunts dans le système alors que Perigrin Took, qui est iniactif, n'a aucun droit sur le système, quels que soient les groupes auxquels il appartient.
+
+\subsection{En pratique}
+La sécurité repose essentiellement sur la validation des droits des utilisateurs lors de la génération des pages du site. C'est le PHP qui est chargé de valider que l'utilisateur courant dispose des droits suffisants avant d'ajouter une section à la page que le serveur HTTP s’apprête à retourner.
+
+En pratique cela se traduit par un appel à la fonction \$application->currentUser->haveRights() en lui spécifiant en premier paramètre la section dont l'on veut tester les droits et en second paramètre la liste des droits dont l'utilisateur doit disposer pour avoir accès à ce contenu. Ces droits sont définis dans le tableau \$application->rights. Par exemple afin de valider que l'utilisateur a bien le droit d'accéder à la zone d'administration, il suffit d'utiliser le code suivant~:
 
 \begin{lstlisting}[style=php]
 if($application->currentUser->haveRights('administration', $application->rights['read'] | $application->rights['write']))
@@ -151,12 +279,45 @@ if($application->currentUser->haveRights('administration', $application->rights[
 }
 else
 {
-	// Current user does not have suffisent rights to see this section
+	// Current user does not have suffisent rights
 }
 \end{lstlisting}
+
+Du point de vu de l'utilisateur de la fonction, c'est extrèmement simple. Pour celui qui devra l'implémanter, c'est une autre histoire. Plaçons-nous un peu à la place du programmeur. Nous sommes dans une fonction dont voici la signature~:
+
+\begin{lstlisting}[style=php]
+public function haveRights($section, $rights)
+{
+	// TODO: Implement function
+}
+\end{lstlisting}
+
+Pour atteindre son but, il dispose des informations suivantes :
+
+\begin{itemize}
+	\item \$section qui est la section dont l'on veut tester les droits;
+	\item \$rights qui sont les droits que l'on doit tester;
+	\item \$application->currentUser retourne une instance de la classe User représentant l'utilisateur actuellement connecté;
+	\item \$application->database retourne une instance de la classe PDO représentant la base de données;
+	\item \$application->rights retourne un tableau associatif contenant la représentation numérique de tous droits.
+\end{itemize}
+
+Pour pouvoir déterminer si l'utilisateur courrant a bien les droits demandés, il faudra exécuter une requête à la base de données qui nous retourne la liste de tous les droits qu'à cet utilisateur sur cette section\footnote{Il peut y en avoir plus d'un si l'utilisateur appartient à plus d'un groupe.}, additionner ces droits gràce à l'\href{http://www.php.net/manual/en/language.operators.bitwise.php}{opérateur «~ou~binaire~»} (binary or) et déterminer si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l'utilisateur gràce à l'opérateur «~et~binaire~» (binary and).
+
+\subsection{En conclusion}
+Cette façon de gérer les droits des utilisateurs offre de nombreux aventages~:
+
+\begin{itemize}
+	\item La plus grande partie de la gestion des droits est centralisée dans la base de données plutôt que de s'éparpiller dans de multiples fichiers;
+	\item La notions de groups permet de généraliser des droits semblables à de nombreux utilisateurs;
+	\item Le fait qu'un utilisateur puisse appartenir à plusieurs groupes permet un haut niveau de granularité, tout en restant facultatif;
+	\item Le fait qu'un groupe ne dispose que des droits explicitement définies assure la sécurité car tous nouveau droit n'est effectif que pour ceux qui l'on explicitement reçus.
+	\item L'utilisation du «~bit~bashing~» plutôt que des colonnes explicitement définies permet d'ajouter très façilement de nouveaux types de droits à ceux déjà définis (read, write, execute).
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Prototype fonctionnel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
+
