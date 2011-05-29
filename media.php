@@ -82,164 +82,167 @@
 								<p><?php $media->printNationalityField(); ?></p>
 								<p><?php $media->printDescriptionField(); ?></p>
 							</div>
-							<div class="detailsLevel2">
-								<div class="detailsLevel2Row">
-									<p><label for="details_titre">Titre</label><input type="text" id="details_titre" name="details_titre" value="Droit devant"></p>
-									<p><label for="details_position_media">Position</label><input type="number" id="details_position_media" name="details_position_media" value="1"></p>
-									<p><label for="details_annee_enregistrement">Année d'enregistrement</label><input type="number" id="details_annee_enregistrement" name="details_annee_enregistrement"></p>
-									<p><label for="details_duree">Durée</label><input type="text" id="details_duree" name="details_duree" value="4:45"></p>
-									<p>
-										<label for="details_arrangeurs">Arrangeurs</label><!--
-										--><span id="details_arrangeurs" class="detailsLevel3">
-											<span class="rowLevel3">
-												<select id="details_arrangeurs" name="details_arrangeurs">
-													<option value="0"></option>
-													<option value="1" selected>AAAAA</option>
-													<option value="2">BBBBB</option>
-													<option value="3">CCCCC</option>
-													<option value="4">DDDDD</option>
-													<option value="5">EEEEE</option>
-												</select>
+							<ul class="detailsLevel2">
+								<li>
+									<div class="detailsLevel2Row">
+										<p><label for="details_titre">Titre</label><input type="text" id="details_titre" name="details_titre" value="Droit devant"></p>
+										<p><label for="details_position_media">Position</label><input type="number" id="details_position_media" name="details_position_media" value="1"></p>
+										<p><label for="details_annee_enregistrement">Année d'enregistrement</label><input type="number" id="details_annee_enregistrement" name="details_annee_enregistrement"></p>
+										<p><label for="details_duree">Durée</label><input type="text" id="details_duree" name="details_duree" value="4:45"></p>
+										<p>
+											<label for="details_arrangeurs">Arrangeurs</label><!--
+											--><span id="details_arrangeurs" class="detailsLevel3">
+												<span class="rowLevel3">
+													<select id="details_arrangeurs" name="details_arrangeurs">
+														<option value="0"></option>
+														<option value="1" selected>AAAAA</option>
+														<option value="2">BBBBB</option>
+														<option value="3">CCCCC</option>
+														<option value="4">DDDDD</option>
+														<option value="5">EEEEE</option>
+													</select>
+												</span>
+												<span class="rowLevel3">
+													<select id="details_arrangeurs" name="details_arrangeurs">
+														<option value="0"></option>
+														<option value="1" selected>AAAAA</option>
+														<option value="2">BBBBB</option>
+														<option value="3">CCCCC</option>
+														<option value="4">DDDDD</option>
+														<option value="5">EEEEE</option>
+													</select>
+												</span>
 											</span>
-											<span class="rowLevel3">
-												<select id="details_arrangeurs" name="details_arrangeurs">
-													<option value="0"></option>
-													<option value="1" selected>AAAAA</option>
-													<option value="2">BBBBB</option>
-													<option value="3">CCCCC</option>
-													<option value="4">DDDDD</option>
-													<option value="5">EEEEE</option>
-												</select>
+										</p>
+										<p>
+											<label for="details_artistes">Artistes</label><!--
+											--><span id="details_artistes" class="detailsLevel3">
+												<span class="rowLevel3">
+													<select id="details_arrangeurs" name="details_artistes">
+														<option value="0"></option>
+														<option value="1" selected>AAAAA</option>
+														<option value="2">BBBBB</option>
+														<option value="3">CCCCC</option>
+														<option value="4">DDDDD</option>
+														<option value="5">EEEEE</option>
+													</select>
+												</span>
 											</span>
-										</span>
-									</p>
-									<p>
-										<label for="details_artistes">Artistes</label><!--
-										--><span id="details_artistes" class="detailsLevel3">
-											<span class="rowLevel3">
-												<select id="details_arrangeurs" name="details_artistes">
-													<option value="0"></option>
-													<option value="1" selected>AAAAA</option>
-													<option value="2">BBBBB</option>
-													<option value="3">CCCCC</option>
-													<option value="4">DDDDD</option>
-													<option value="5">EEEEE</option>
-												</select>
+										</p>
+										<p>
+											<label for="details_compositeurs">Compositeurs</label><!--
+											--><span id="details_compositeurs" class="detailsLevel3">
+												<span class="rowLevel3">
+													<select id="details_compositeurs" name="details_compositeurs">
+														<option value="0"></option>
+														<option value="1" selected>AAAAA</option>
+														<option value="2">BBBBB</option>
+														<option value="3">CCCCC</option>
+														<option value="4">DDDDD</option>
+														<option value="5">EEEEE</option>
+													</select>
+												</span>
 											</span>
-										</span>
-									</p>
-									<p>
-										<label for="details_compositeurs">Compositeurs</label><!--
-										--><span id="details_compositeurs" class="detailsLevel3">
-											<span class="rowLevel3">
-												<select id="details_compositeurs" name="details_compositeurs">
-													<option value="0"></option>
-													<option value="1" selected>AAAAA</option>
-													<option value="2">BBBBB</option>
-													<option value="3">CCCCC</option>
-													<option value="4">DDDDD</option>
-													<option value="5">EEEEE</option>
-												</select>
+										</p>
+										<p>
+										<label for="details_parolier">Parolier</label><!--
+											--><span id="details_parolier" class="detailsLevel3">
+												<span class="rowLevel3">
+													<select id="details_parolier" name="details_parolier">
+														<option value="0"></option>
+														<option value="1" selected>AAAAA</option>
+														<option value="2">BBBBB</option>
+														<option value="3">CCCCC</option>
+														<option value="4">DDDDD</option>
+														<option value="5">EEEEE</option>
+													</select>
+												</span>
 											</span>
-										</span>
-									</p>
-									<p>
-									<label for="details_parolier">Parolier</label><!--
-										--><span id="details_parolier" class="detailsLevel3">
-											<span class="rowLevel3">
-												<select id="details_parolier" name="details_parolier">
-													<option value="0"></option>
-													<option value="1" selected>AAAAA</option>
-													<option value="2">BBBBB</option>
-													<option value="3">CCCCC</option>
-													<option value="4">DDDDD</option>
-													<option value="5">EEEEE</option>
-												</select>
+										</p>
+										<p>
+											<label for="details_interpretes">Interprètes</label><!--
+											--><span id="details_interpretes" class="detailsLevel3">
+												<span class="rowLevel3">
+													<select id="details_interpretes" name="details_interpretes">
+														<option value="0"></option>
+														<option value="1" selected>AAAAA</option>
+														<option value="2">BBBBB</option>
+														<option value="3">CCCCC</option>
+														<option value="4">DDDDD</option>
+														<option value="5">EEEEE</option>
+													</select>
+												</span>
 											</span>
-										</span>
-									</p>
-									<p>
-										<label for="details_interpretes">Interprètes</label><!--
-										--><span id="details_interpretes" class="detailsLevel3">
-											<span class="rowLevel3">
-												<select id="details_interpretes" name="details_interpretes">
-													<option value="0"></option>
-													<option value="1" selected>AAAAA</option>
-													<option value="2">BBBBB</option>
-													<option value="3">CCCCC</option>
-													<option value="4">DDDDD</option>
-													<option value="5">EEEEE</option>
-												</select>
-											</span>
-										</span>
-									</p>
-									<p>
-										<label for="details_catalogueID">Catalogue</label><!--
-										--><select id="details_catalogueID" name="details_catalogueID">
-											<option value="0" selected></option>
-											<option value="1">AAAAA</option>
-											<option value="2">BBBBB</option>
-											<option value="3">CCCCC</option>
-											<option value="4">DDDDD</option>
-											<option value="5">EEEEE</option>
-										</select>
-									</p>
-									<p>
-										<label for="details_epoqueID">Époque</label><!--
-										--><select id="details_epoqueID" name="details_epoqueID">
-											<option value="0" selected></option>
-											<option value="1">AAAAA</option>
-											<option value="2">BBBBB</option>
-											<option value="3">CCCCC</option>
-											<option value="4">DDDDD</option>
-											<option value="5">EEEEE</option>
-										</select>
-									</p>
-									<p>
-										<label for="details_formeID">Forme</label><!--
-										--><select id="details_formeID" name="details_formeID">
-											<option value="0" selected></option>
-											<option value="1">AAAAA</option>
-											<option value="2">BBBBB</option>
-											<option value="3">CCCCC</option>
-											<option value="4">DDDDD</option>
-											<option value="5">EEEEE</option>
-										</select>
-									</p>
-									<p>
-										<label for="details_genreID">Genre</label><!--
-										--><select id="details_genreID" name="details_genreID">
-											<option value="0" selected></option>
-											<option value="1">AAAAA</option>
-											<option value="2">BBBBB</option>
-											<option value="3">CCCCC</option>
-											<option value="4">DDDDD</option>
-											<option value="5">EEEEE</option>
-										</select>
-									</p>
-									<p>
-										<label for="details_instrumentationID">Instrumentation</label><!--
-										--><select id="details_instrumentationID" name="details_instrumentationID">
-											<option value="0" selected></option>
-											<option value="1">AAAAA</option>
-											<option value="2">BBBBB</option>
-											<option value="3">CCCCC</option>
-											<option value="4">DDDDD</option>
-											<option value="5">EEEEE</option>
-										</select>
-									</p>
-									<p>
-										<label for="details_tonaliteID">Tonalité</label><!--
-										--><select id="details_tonaliteID" name="details_tonaliteID">
-											<option value="0" selected></option>
-											<option value="1">AAAAA</option>
-											<option value="2">BBBBB</option>
-											<option value="3">CCCCC</option>
-											<option value="4">DDDDD</option>
-											<option value="5">EEEEE</option>
-										</select>
-									</p>
-								</div>
+										</p>
+										<p>
+											<label for="details_catalogueID">Catalogue</label><!--
+											--><select id="details_catalogueID" name="details_catalogueID">
+												<option value="0" selected></option>
+												<option value="1">AAAAA</option>
+												<option value="2">BBBBB</option>
+												<option value="3">CCCCC</option>
+												<option value="4">DDDDD</option>
+												<option value="5">EEEEE</option>
+											</select>
+										</p>
+										<p>
+											<label for="details_epoqueID">Époque</label><!--
+											--><select id="details_epoqueID" name="details_epoqueID">
+												<option value="0" selected></option>
+												<option value="1">AAAAA</option>
+												<option value="2">BBBBB</option>
+												<option value="3">CCCCC</option>
+												<option value="4">DDDDD</option>
+												<option value="5">EEEEE</option>
+											</select>
+										</p>
+										<p>
+											<label for="details_formeID">Forme</label><!--
+											--><select id="details_formeID" name="details_formeID">
+												<option value="0" selected></option>
+												<option value="1">AAAAA</option>
+												<option value="2">BBBBB</option>
+												<option value="3">CCCCC</option>
+												<option value="4">DDDDD</option>
+												<option value="5">EEEEE</option>
+											</select>
+										</p>
+										<p>
+											<label for="details_genreID">Genre</label><!--
+											--><select id="details_genreID" name="details_genreID">
+												<option value="0" selected></option>
+												<option value="1">AAAAA</option>
+												<option value="2">BBBBB</option>
+												<option value="3">CCCCC</option>
+												<option value="4">DDDDD</option>
+												<option value="5">EEEEE</option>
+											</select>
+										</p>
+										<p>
+											<label for="details_instrumentationID">Instrumentation</label><!--
+											--><select id="details_instrumentationID" name="details_instrumentationID">
+												<option value="0" selected></option>
+												<option value="1">AAAAA</option>
+												<option value="2">BBBBB</option>
+												<option value="3">CCCCC</option>
+												<option value="4">DDDDD</option>
+												<option value="5">EEEEE</option>
+											</select>
+										</p>
+										<p>
+											<label for="details_tonaliteID">Tonalité</label><!--
+											--><select id="details_tonaliteID" name="details_tonaliteID">
+												<option value="0" selected></option>
+												<option value="1">AAAAA</option>
+												<option value="2">BBBBB</option>
+												<option value="3">CCCCC</option>
+												<option value="4">DDDDD</option>
+												<option value="5">EEEEE</option>
+											</select>
+										</p>
+									</div>
+								</li>
+								<li>
 								<div class="detailsLevel2Row">
 									<p><label for="details_titre">Titre</label><input type="text" id="details_titre" name="details_titre" value="Chêne et roseau"></p>
 									<p><label for="details_position_media">Position</label><input type="number" id="details_position_media" name="details_position_media" value="2"></p>
@@ -387,6 +390,8 @@
 										</select>
 									</p>
 								</div>
+								</li>
+								<li>
 								<div class="detailsLevel2Row">
 									<p><label for="details_titre">Titre</label><input type="text" id="details_titre" name="details_titre" value="Entre deux taxis"></p>
 									<p><label for="details_position_media">Position</label><input type="number" id="details_position_media" name="details_position_media" value="3"></p>
@@ -534,6 +539,8 @@
 										</select>
 									</p>
 								</div>
+								</li>
+								<li>
 								<div class="detailsLevel2Row">
 									<p><label for="details_titre">Titre</label><input type="text" id="details_titre" name="details_titre" value="La Catherine"></p>
 									<p><label for="details_position_media">Position</label><input type="number" id="details_position_media" name="details_position_media" value="4"></p>
@@ -681,6 +688,8 @@
 										</select>
 									</p>
 								</div>
+								</li>
+								<li>
 								<div class="detailsLevel2Row">
 									<p><label for="details_titre">Titre</label><input type="text" id="details_titre" name="details_titre" value="Histoire de pêche"></p>
 									<p><label for="details_position_media">Position</label><input type="number" id="details_position_media" name="details_position_media" value="5"></p>
@@ -828,7 +837,7 @@
 										</select>
 									</p>
 								</div>
-							</div>
+							</ul>
 							<button type="submit">Enregistrer</button>
 							<button type="reset">Annuler</button>
 

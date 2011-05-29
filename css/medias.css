@@ -84,9 +84,21 @@
 #media .detailsLevel2
 {
 	background-color: gray;
+	padding: 0;
 }
 
-#media .detailsLevel2Summary,
+#media .detailsLevel2 li
+{
+	list-style-type: none;
+}
+
+#media .detailsLevel2 li:last-of-type
+{
+	background-color: green;
+	display: inline-block;
+}
+
+#media .detailsLevel2Summary [class^="summary"],
 #media .detailsLevel3Summary
 {
 	cursor: pointer;
@@ -95,7 +107,6 @@
 #media .detailsLevel2Summary > [class^="summary"]
 {
 	display: inline-block;
-	overflow: hidden;
 	background-color: red;
 	padding: 0.1em 0.25em;
 	width: 3em;
