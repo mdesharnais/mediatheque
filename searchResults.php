@@ -59,7 +59,7 @@
 			require('php/search-results.inc.php');
 			if (isset($_POST["criterias"]) || !empty($_POST["criterias"]))
 			{
-				printSearchResults($_POST["sqlFromWhere"]); 
+				printSearchResults($_POST["criterias"]); 
 			
 			}
 			else
