@@ -357,39 +357,40 @@ VALUES
 	(2, 'Indiana Jones', '3', TRUE),
 	(3, 'Mozart 3 D collection', 2, 0);
 
-INSERT INTO medias (ID, titre, annee_publication, image, artisteID, genreID, quantite, reference, notes, maison_editionID, supportID, inactif) VALUES
-(1, 'La communauté de l’anneau', 1972, 'leSeigneurDesAnneaux1.png', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
-(2, 'Les deux tours', 1992, '2.jpg', NULL, 2, 1, '2 Livre roman', '', 6, 8, 0),
-(3, 'Le retour du Roi', 1994, '', NULL, 2, 1, '3 Livre roman', '', 6, 8, 0),
-(4, 'Indiana Jones et la Dernière Croisade', 1987, '', NULL, 1, 1, '1 VHS', '', 7, 3, 0),
-(5, 'Indiana Jones et le Temple maudit', 1990, '', NULL, 1, 1, '2 VHS', 'Film extraordinaire', 7, 3, 0),
-(13, '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 9, 	4, NULL, '3t3d', NULL, 10, 5, 0),
+INSERT INTO medias (ID, titre, annee_publication, image, artisteID, genreID, quantite, reference, notes, maison_editionID, supportID, inactif)
+VALUES
+	(1,  'La communauté de l’anneau', 1972, 'leSeigneurDesAnneaux1.png', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
+	(2,  'Les deux tours', 1992, '2.jpg', NULL, 2, 1, '2 Livre roman', '', 6, 8, 0),
+	(3,  'Le retour du Roi', 1994, '', NULL, 2, 1, '3 Livre roman', '', 6, 8, 0),
+	(4,  'Indiana Jones et la Dernière Croisade', 1987, '', NULL, 1, 1, '1 VHS', '', 7, 3, 0),
+	(5,  'Indiana Jones et le Temple maudit', 1990, '', NULL, 1, 1, '2 VHS', 'Film extraordinaire', 7, 3, 0),
+	(13, '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 9, 4, NULL, '3t3d', NULL, 10, 5, 0),
 	(14, 'Symphonien no. 35 KV 385 Haffner, no. 36 KV 425 Linzer', 1988, NULL, 1, 3, 1, '3f22', '1 disque son. (63 min) : numérique, stéréo ; 12 cm + ', 9, 1, 0);
 
-INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, titre, inactif)
+INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, inactif, titre, image)
 VALUES
-	(6,  2,  8, 2008, 'CD-C00001', 'L''expédition', FALSE),
-	(7,  2,  8, 2008, 'CD-C00002', 'Sur un air de déjà vu', FALSE),
-	(8,  2,  8, 2004, 'CD-C00003', 'La grand-messe', FALSE),
-	(9,  2,  8, 2002, 'CD-C00004', 'Break syndical', FALSE),
-	(10, 2,  8, 2000, 'CD-C00005', 'Motel capri', FALSE),
-	(11, 2,  8, 1998, 'CD-C00006', 'Sur mon canapé', FALSE),
-	(12, 2,  8, 1997, 'CD-C00007', 'Break syndical', FALSE);
+	(6,  1,  8, 2008, 'CD-C00001', FALSE, 'L''expédition',         'L''Expédition.jpg'),
+	(7,  1,  8, 2008, 'CD-C00002', FALSE, 'Sur un air de déjà vu', NULL),
+	(8,  1,  8, 2004, 'CD-C00003', FALSE, 'La grand-messe',        NULL),
+	(9,  1,  8, 2002, 'CD-C00004', FALSE, 'Break syndical',        NULL),
+	(10, 1,  8, 2000, 'CD-C00005', FALSE, 'Motel capri',           NULL),
+	(11, 1,  8, 1998, 'CD-C00006', FALSE, 'Sur mon canapé',        NULL),
+	(12, 1,  8, 1997, 'CD-C00007', FALSE, 'Break syndical',        NULL);
 
 INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
 VALUES
-	(1, 4,  1, 2,    3,    2131234, 'Steven Spielberg'),
-	(2, 5,  1, 2,    2,    3232444, 'Steven Spielberg'),
-	(3, 6,  3, NULL, NULL, NULL,    NULL),
-	(4, 7,  3, NULL, NULL, NULL,    NULL),
-	(5, 8,  3, NULL, NULL, NULL,    NULL),
-	(6, 9,  3, NULL, NULL, NULL,    NULL),
-	(7, 10, 3, NULL, NULL, NULL,    NULL),
-	(8, 11, 3, NULL, NULL, NULL,    NULL),
-	(9, 12, 3, NULL, NULL, NULL,    NULL),
-	(10, 13, 3, 1, 3453, 'James Levine', 6);
+	(1,  4,  1, 2,    3,    2131234, 'Steven Spielberg'),
+	(2,  5,  1, 2,    2,    3232444, 'Steven Spielberg'),
+	(3,  6,  3, NULL, NULL, NULL,    NULL),
+	(4,  7,  3, NULL, NULL, NULL,    NULL),
+	(5,  8,  3, NULL, NULL, NULL,    NULL),
+	(6,  9,  3, NULL, NULL, NULL,    NULL),
+	(7,  10, 3, NULL, NULL, NULL,    NULL),
+	(8,  11, 3, NULL, NULL, NULL,    NULL),
+	(9,  12, 3, NULL, NULL, NULL,    NULL),
+	(10, 13, 3, 1,    3453, 'James Levine', 6);
 
-	
+
 INSERT INTO pieces(ID, exID, titre, annee_enregistrement, duree, genreID)
 VALUES
 	(99, 10, 'Symphonie nº 35', 1988, '00:13:40', 3),
@@ -501,14 +502,14 @@ VALUES
 	(96, 9, 10, '00:02:39', 'Repentigny-by-the-sea'),
 	(97, 9, 11, '00:03:21', 'Le hurlot'),
 	(98, 9, 12, '00:04:46', 'Impala blues');
-	
+
 INSERT INTO imprimes (ID, exID, sous_titre, collectionID, position_collection)
 VALUES
 	(1, 1, NULL, 1, 1),
 	(2, 2, NULL, 1, 2),
 	(3, 3, NULL, 1, 3),
 	(4, 13, NULL, NULL, NULL);
-	
+
 INSERT INTO details_imprimes (ID, exID, titre, position_media, catalogueID, genreID) VALUES
 (1, 4, 'Qu''il est difficile d''aimer', 1, NULL, NULL),
 (2, 4, 'Pendant que', 2, NULL, NULL),
@@ -531,8 +532,6 @@ INSERT INTO details_imprimes (ID, exID, titre, position_media, catalogueID, genr
 (20, 4, 'L''escalier du temps', 20, NULL, NULL),
 (21, 4, 'L''hiver', 21, NULL, NULL),
 (22, 4, 'Laurelou', 22, NULL, NULL);
-
-
 
 INSERT INTO utilisateurs (ID, matricule, nom, prenom, telephone, courriel, inactif)
 VALUES
