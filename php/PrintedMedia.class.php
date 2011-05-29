@@ -23,20 +23,13 @@ class PrintedMedia extends Media
 				medias.reference, 
 				medias.notes, 
 				medias.image, 
-				audios_videos.CUP, 
-				audios_videos.position_collection, 
 				maisons_edition.nom AS maison_edition, 
 				supports.nom AS support, 
-				categories_media.image AS imageCategorieMedia, 
-				nationalites.nom AS nationalite, 
-				collections.nom AS collection 
+				categories_media.image AS imageCategorieMedia 
 			FROM medias 
-				INNER JOIN audios_videos ON audios_videos.exID = medias.ID 
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID 
 				INNER JOIN supports ON supports.ID = medias.supportID 
 				INNER JOIN categories_media ON categories_media.ID = supports.categorie_mediaID 
-				LEFT JOIN nationalites ON nationalites.ID = audios_videos.nationaliteID 
-				LEFT JOIN collections ON collections.ID = audios_videos.collectionID 
 			WHERE medias.ID = ?');
 		$query->execute(array($id));
 		$row = $query->fetch();

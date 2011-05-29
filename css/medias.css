@@ -83,7 +83,6 @@
 
 #media .detailsLevel2
 {
-	background-color: gray;
 	padding: 0;
 }
 
@@ -94,7 +93,6 @@
 
 #media .detailsLevel2 li:last-of-type
 {
-	background-color: green;
 	display: inline-block;
 }
 

@@ -13,6 +13,8 @@ class AudioMedia extends Media
 	protected $collection;
 	protected $positionInCollection;
 
+	public $tracks;
+
 	//////////////////////////////////////////////////
 	// Constructor
 	//////////////////////////////////////////////////
@@ -54,6 +56,26 @@ class AudioMedia extends Media
 			$this->universalProductCode = stripslashes($row['CUP']);
 			$this->collection = stripslashes($row['collection']);
 			$this->positionInCollection = $row['position_collection'];
+		}
+
+		$query = $application->database->prepare('
+			SELECT pieces.ID AS id, 
+				pieces.position_media, 
+				pieces.titre 
+			FROM pieces 
+				INNER JOIN audios_videos ON audios_videos.ID = pieces.exID
+			WHERE audios_videos.exID = ?');
+		$query->execute(array($id));
+
+		$this->tracks = array();
+
+		foreach($query as $row)
+		{
+			$track = new Track($row['id']);
+			$track->setPosition($row['position_media']);
+			$track->setTitle($row['titre']);
+
+			$this->tracks[] = $track;
 		}
 	}
 
