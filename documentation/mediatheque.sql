@@ -306,17 +306,19 @@ VALUES
 	(4, 'Renaissance', TRUE),
 	(5, 'Romantique', FALSE);
 
-INSERT INTO maisons_edition (ID, nom, inactif) VALUES
-(1, 'Actes Sud', 0),
-(2, 'Les 400 coups', 0),
-(3, 'Les Allusifs', 0),
-(4, 'Éditions De Courberon', 0),
-(5, 'Éditions Liber', 0),
-(6, 'Paris Pocket', 0),
-(7, 'Lucasfilm', 0),
-(8, 'Music sales', 0),
-(9, 'Deutsche Grammophon', 0),
-(10,'Éditions Reprises', 0);
+INSERT INTO maisons_edition (ID, nom, inactif)
+VALUES
+	(1, 'Actes Sud', FALSE),
+	(2, 'Les 400 coups', FALSE),
+	(3, 'Les Allusifs', FALSE),
+	(4, 'Éditions De Courberon', FALSE),
+	(5, 'Éditions Liber', FALSE),
+	(6, 'Paris Pocket', FALSE),
+	(7, 'Lucasfilm', FALSE),
+	(8, 'Music sales', FALSE),
+	(9, 'Deutsche Grammophon', FALSE),
+	(10,'Éditions Reprises', FALSE),
+	(11,'La tribune', FALSE);
 
 INSERT INTO categoriesMedia(ID, nom, image)
 VALUES
@@ -367,15 +369,15 @@ VALUES
 	(13, '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 9, 4, NULL, '3t3d', NULL, 10, 5, 0),
 	(14, 'Symphonien no. 35 KV 385 Haffner, no. 36 KV 425 Linzer', 1988, NULL, 1, 3, 1, '3f22', '1 disque son. (63 min) : numérique, stéréo ; 12 cm + ', 9, 1, 0);
 
-INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, inactif, titre, image)
+INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, inactif, maison_editionID, titre, image)
 VALUES
-	(6,  1,  8, 2008, 'CD-C00001', FALSE, 'L''expédition',         'L''Expédition.jpg'),
-	(7,  1,  8, 2008, 'CD-C00002', FALSE, 'Sur un air de déjà vu', NULL),
-	(8,  1,  8, 2004, 'CD-C00003', FALSE, 'La grand-messe',        NULL),
-	(9,  1,  8, 2002, 'CD-C00004', FALSE, 'Break syndical',        NULL),
-	(10, 1,  8, 2000, 'CD-C00005', FALSE, 'Motel capri',           NULL),
-	(11, 1,  8, 1998, 'CD-C00006', FALSE, 'Sur mon canapé',        NULL),
-	(12, 1,  8, 1997, 'CD-C00007', FALSE, 'Break syndical',        NULL);
+	(6,  1,  8, 2008, 'CD-C00001', FALSE, 11, 'L''expédition',         'L''Expédition.jpg'),
+	(7,  1,  8, 2008, 'CD-C00002', FALSE, 11, 'Sur un air de déjà vu', NULL),
+	(8,  1,  8, 2004, 'CD-C00003', FALSE, 11, 'La grand-messe',        NULL),
+	(9,  1,  8, 2002, 'CD-C00004', FALSE, 11, 'Break syndical',        NULL),
+	(10, 1,  8, 2000, 'CD-C00005', FALSE, 11, 'Motel capri',           NULL),
+	(11, 1,  8, 1998, 'CD-C00006', FALSE, 11, 'Sur mon canapé',        NULL),
+	(12, 1,  8, 1997, 'CD-C00007', FALSE, 11, 'Break syndical',        NULL);
 
 INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
 VALUES
