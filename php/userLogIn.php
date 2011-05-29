@@ -21,7 +21,10 @@ try
 
 	$_SESSION['user'] = serialize($user);
 
-	header('Location: ../index.php');
+	if(isset($_POST['page_precedente']))
+		header('Location: '.$_POST['page_precedente']);
+	else
+		header('Location: ../index.php');
 }
 catch(Exception $e)
 {

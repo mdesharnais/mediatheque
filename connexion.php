@@ -18,12 +18,15 @@
 		<div id="content">
 			<form method="post" action="php/userLogIn.php">
 				<h2>Connexion</h2>
+				<p>
 				<label for="matricule">Matricule</label>
 				<input type="text" id="matricule" name="matricule">
-				<br>
+				</p>
+				<p>
 				<label for="mot_de_passe">Mot de passe</label>
 				<input type="password" id="mot_de_passe" name="mot_de_passe">
-				<br>
+				</p>
+				<input type="hidden" id="page_precedente" name="page_precedente" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
 				<input type="submit">
 			</form>
 		</div>
