@@ -48,9 +48,9 @@
 
 						if($row == false)
 							throw new Exception("Le média demandé n'existe pas.");
-						elseif($application->currentUser->haveRights(__FILE__, $application->rights['read'] | $application->rights['write']))
+						elseif($application->currentUser->haveRights('media.php', $application->rights['read'] | $application->rights['write']))
 							$media = new Media($row, Media::READ_WRITE);
-						elseif($application->currentUser->haveRights(__FILE__, $application->rights['read']))
+						elseif($application->currentUser->haveRights('media.php', $application->rights['read']))
 							$media = new Media($row, Media::READ_ONLY);
 						else
 							throw new Exception('Vous ne disposez pas des droits suffisant pour accéder à cette page.');
@@ -59,7 +59,7 @@
 					}
 					else
 					{ // Adding a new media
-						if($application->currentUser->haveRights(__FILE__, $application->rights['read'] | $application->rights['write']))
+						if($application->currentUser->haveRights('media.php', $application->rights['read'] | $application->rights['write']))
 							$media = new Media();
 						else
 							throw new Exception('Vous ne disposez pas des droits suffisant pour créer de nouveaux médias.');

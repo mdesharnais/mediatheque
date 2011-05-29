@@ -1,4 +1,6 @@
 <?php
+require_once('Application.class.php');
+
 class User
 {
 	//////////////////////////////////////////////////
@@ -140,8 +142,15 @@ class User
 	 */
 	public function haveRights($section, $rights)
 	{
+		global $application;
+
 		if($this->isVisitor())
-			return false;
+		{
+			if($section == 'media.php' && $rights == $application->rights['read'])
+				return true;
+			else
+				return false;
+		}
 		else
 			return true;
 	}
