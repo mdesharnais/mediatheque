@@ -20,38 +20,12 @@
 				{
 					if(isset($_GET['id']))
 					{ // Modifying an existing media
-						$sqlQuery = '
-							SELECT medias.ID, 
-								medias.titre, 
-								medias.annee_publication, 
-								medias.reference, 
-								medias.notes, 
-								medias.image, 
-								audios_videos.CUP, 
-								audios_videos.position_collection, 
-								maisons_edition.nom AS maison_edition, 
-								supports.nom AS support, 
-								categoriesMedia.image AS imageCategorieMedia, 
-								nationalites.nom AS nationalite, 
-								collections.nom AS collection 
-							FROM medias 
-								LEFT JOIN audios_videos ON audios_videos.exID = medias.ID 
-								LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID 
-								LEFT JOIN supports ON supports.ID = medias.supportID 
-								LEFT JOIN categoriesMedia ON categoriesMedia.ID = supports.categorieMediaID 
-								LEFT JOIN nationalites ON nationalites.ID = audios_videos.nationaliteID 
-								LEFT JOIN collections ON collections.ID = audios_videos.collectionID 
-							WHERE medias.ID = ?';
-						$query = $application->database->prepare($sqlQuery);
-						$query->execute(array($_GET['id']));
-						$row = $query->fetch();
+						$media = Media::getInstanceOf($_GET['id']);
 
-						if($row == false)
-							throw new Exception("Le média demandé n'existe pas.");
-						elseif($application->currentUser->haveRights('media.php', $application->rights['read'] | $application->rights['write']))
-							$media = new Media($row, Media::READ_WRITE);
+						if($application->currentUser->haveRights('media.php', $application->rights['read'] | $application->rights['write']))
+							$media->setMode(Media::READ_WRITE);
 						elseif($application->currentUser->haveRights('media.php', $application->rights['read']))
-							$media = new Media($row, Media::READ_ONLY);
+							$media->setMode(Media::READ_ONLY);
 						else
 							throw new Exception('Vous ne disposez pas des droits suffisant pour accéder à cette page.');
 
@@ -60,12 +34,13 @@
 					else
 					{ // Adding a new media
 						if($application->currentUser->haveRights('media.php', $application->rights['read'] | $application->rights['write']))
-							$media = new Media();
+							$media = new AudioMedia();
 						else
 							throw new Exception('Vous ne disposez pas des droits suffisant pour créer de nouveaux médias.');
 
 						echo "<h1>Nouveau média</h1>\n";
 					}
+
 				?>
 							<aside id="mediaInformations">
 							<img src="<?php echo $media->getImage(); ?>">
@@ -76,10 +51,10 @@
 								<p><?php $media->printReferenceNumberField(); ?></p>
 								<p><?php $media->printPublishingHouseField(); ?></p>
 								<p><?php $media->printSupportField(); ?></p>
-								<p><?php $media->printCollectionField(); ?></p>
-								<p><?php $media->printPositionInCollectionField(); ?></p>
-								<p><?php $media->printUniversalProductCodeField(); ?></p>
-								<p><?php $media->printNationalityField(); ?></p>
+								<p><?php if($media instanceof AudioMedia) $media->printCollectionField(); ?></p>
+								<p><?php if($media instanceof AudioMedia) $media->printPositionInCollectionField(); ?></p>
+								<p><?php if($media instanceof AudioMedia) $media->printUniversalProductCodeField(); ?></p>
+								<p><?php if($media instanceof AudioMedia) $media->printNationalityField(); ?></p>
 								<p><?php $media->printDescriptionField(); ?></p>
 							</div>
 							<ul class="detailsLevel2">

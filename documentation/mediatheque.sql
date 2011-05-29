@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS instrumentations (
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDb COMMENT 'Instrumentations';
 
-CREATE TABLE IF NOT EXISTS categoriesMedia (
+CREATE TABLE IF NOT EXISTS categories_media (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	image varchar(100) COMMENT 'Image'
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS supports (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
 	description varchar(100) NOT NULL COMMENT 'Description',
-	categorieMediaID int(11) NOT NULL COMMENT 'Type de support',
+	categorie_mediaID int(11) NOT NULL COMMENT 'Type de support',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif',
-	FOREIGN KEY(categorieMediaID) REFERENCES categoriesMedia(ID)
+	FOREIGN KEY(categorie_mediaID) REFERENCES categories_media(ID)
 ) ENGINE=InnoDb COMMENT 'Catégories';
 
 CREATE TABLE IF NOT EXISTS nationalites (
@@ -320,13 +320,13 @@ VALUES
 	(10,'Éditions Reprises', FALSE),
 	(11,'La tribune', FALSE);
 
-INSERT INTO categoriesMedia(ID, nom, image)
+INSERT INTO categories_media(ID, nom, image)
 VALUES
 	(1, 'Imprimé', 'imprime.png'),
 	(2, 'Audio', 'audio.png'),
 	(3, 'Vidéo', 'video.png');
 
-INSERT INTO supports(ID, nom, description, categorieMediaID, inactif)
+INSERT INTO supports(ID, nom, description, categorie_mediaID, inactif)
 VALUES
 	(1, 'CD', 'Disque compact', 2, FALSE),
 	(2, 'CS', 'Cassette audio', 2, TRUE),

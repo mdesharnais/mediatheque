@@ -9,7 +9,7 @@ function printSearchResults($sqlFromWhere)
 	
 	$basicQuery = '
 			SELECT medias.ID, medias.notes, medias.titre, medias.annee_publication, medias.image, medias.quantite, medias.reference, artistes.nom 
-			AS nomArtiste, categoriesMedia.nom AS nomCategorie,	categoriesMedia.image AS imageCategorie, supports.nom AS nomSupport, maisons_edition.nom
+			AS nomArtiste, categories_media.nom AS nomCategorie,	categories_media.image AS imageCategorie, supports.nom AS nomSupport, maisons_edition.nom
 			AS nomMaisonEdition, genres.nom AS nomGenre';
 			
 	switch ($sqlFromWhere) {
@@ -17,7 +17,7 @@ function printSearchResults($sqlFromWhere)
     	$sqlQuery = $basicQuery.' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
-				INNER JOIN categoriesMedia ON supports.categorieMediaID = categoriesMedia.ID
+				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
 			WHERE medias.inactif=FALSE ORDER BY medias.titre
@@ -27,20 +27,20 @@ function printSearchResults($sqlFromWhere)
         	$sqlQuery = $basicQuery.' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
-				INNER JOIN categoriesMedia ON supports.categorieMediaID = categoriesMedia.ID
+				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
-			WHERE medias.inactif=FALSE and Upper(categoriesMedia.nom) = \'AUDIO\' ORDER BY medias.titre
+			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' ORDER BY medias.titre
 			';
         break;
     case 3: //tous les médias audio de l'artiste cowboys fringuants
          	$sqlQuery = $basicQuery.' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
-				INNER JOIN categoriesMedia ON supports.categorieMediaID = categoriesMedia.ID
+				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
-			WHERE medias.inactif=FALSE and Upper(categoriesMedia.nom) = \'AUDIO\' 
+			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' 
 			AND Upper(artistes.nom) = \'Les cowboys fringants\'  ORDER BY medias.titre
 			';
         break;
@@ -48,10 +48,10 @@ function printSearchResults($sqlFromWhere)
         	$sqlQuery = $basicQuery.' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
-				INNER JOIN categoriesMedia ON supports.categorieMediaID = categoriesMedia.ID
+				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
-			WHERE medias.inactif=FALSE and Upper(categoriesMedia.nom) = \'AUDIO\' 
+			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' 
 			AND Upper(artistes.nom) = \'Les cowboys fringants\'  AND medias.annee_publication=2008 ORDER BY medias.titre
 			';
        	break;

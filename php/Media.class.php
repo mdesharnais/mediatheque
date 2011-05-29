@@ -1,7 +1,7 @@
 <?php
 require_once('Application.class.php');
 
-class Media
+abstract class Media
 {
 	//////////////////////////////////////////////////
 	// Attribute(s)
@@ -10,33 +10,24 @@ class Media
 	const READ_ONLY = 1;
 	const READ_WRITE = 2;
 
-	private $ID;
-	private $title;
-	private $publicationYear;
-	private $referenceNumber;
-	private $publishingHouse;
-	private $support;
-	private $nationality;
-	private $universalProductCode;
-	private $collection;
-	private $positionInCollection;
-	private $description;
-	private $image;
-	private $supportImage;
+	protected $ID;
+	protected $title;
+	protected $publicationYear;
+	protected $referenceNumber;
+	protected $publishingHouse;
+	protected $support;
+	protected $description;
+	protected $image;
+	protected $supportImage;
 
-	private $readOnly;
+	protected $readOnly;
 
 	//////////////////////////////////////////////////
 	// Constructor
 	//////////////////////////////////////////////////
 
-	public function __construct($row = null, $openMode = self::READ_WRITE)
+	public function __construct($row = null)
 	{
-		if($openMode == self::READ_ONLY)
-			$this->readOnly = true;
-		else
-			$this->readOnly = false;
-
 		if($row != null)
 		{
 			$this->ID = $row['ID'];
@@ -45,13 +36,11 @@ class Media
 			$this->referenceNumber = stripslashes($row['reference']);
 			$this->publishingHouse = stripslashes($row['maison_edition']);
 			$this->support = stripslashes($row['support']);
-			$this->nationality = stripslashes($row['nationalite']);
-			$this->universalProductCode = stripslashes($row['CUP']);
-			$this->collection = stripslashes($row['collection']);
-			$this->positionInCollection = $row['position_collection'];
 			$this->description = stripslashes($row['notes']);
 			$this->image = stripslashes($row['image']);
 			$this->supportImage = stripslashes($row['imageCategorieMedia']);
+
+			$this->readOnly = true;
 		}
 	}
 
@@ -88,26 +77,6 @@ class Media
 		return $this->support;
 	}
 
-	public function getNationality()
-	{
-		return $this->nationality;
-	}
-
-	public function getUniversalProductCode()
-	{
-		return $this->universalProductCode;
-	}
-
-	public function getCollection()
-	{
-		return $this->collection;
-	}
-
-	public function getPositionInCollection()
-	{
-		return $this->positionInCollection;
-	}
-
 	public function getDescription()
 	{
 		return $this->description;
@@ -121,9 +90,56 @@ class Media
 			return 'images/typesMedia/'.$this->supportImage;
 	}
 
+	public static function getInstanceOf($id)
+	{
+		global $application;
+
+		$query = $application->database->prepare('
+			SELECT categories_media.nom AS typeMedia 
+			FROM medias 
+				INNER JOIN supports ON supports.ID = medias.supportID 
+				INNER JOIN categories_media ON categories_media.ID = supports.categorie_mediaID 
+			WHERE medias.ID = ?');
+		$query->execute(array($_GET['id']));
+		$row = $query->fetch();
+		
+		if($row == false)
+			throw new Exception("Le média demandé n'existe pas.");
+
+		switch($row['typeMedia'])
+		{
+		case 'Imprimé':
+			$media = new PrintedMedia($id);
+			break;
+
+		case 'Audio':
+			$media = new AudioMedia($id);
+			break;
+
+		case 'Vidéo':
+			$media = new VideoMedia($id);
+			break;
+		}
+
+		return $media;
+	}
+
 	//////////////////////////////////////////////////
 	// Set(s)
 	//////////////////////////////////////////////////
+
+	public function setMode($mode)
+	{
+		switch($mode)
+		{
+		case self::READ_ONLY:
+			$this->readOnly = true;
+			break;
+		case self::READ_WRITE:
+			$this->readOnly = false;
+			break;
+		}
+	}
 
 	//////////////////////////////////////////////////
 	// Methods(s)
@@ -239,99 +255,6 @@ class Media
 			echo '</select>';
 		}
 	}
-
-	public function printNationalityField()
-	{
-		global $application;
-		echo '<label for="nationaliteID">Nationalité</label>';
-
-		if($this->readOnly)
-		{
-			echo '<span>'.$this->getNationality().'</span>';
-		}
-		else
-		{
-			$query = $application->database->prepare('SELECT ID, nom FROM nationalites WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC');
-			$query->execute(array($this->getNationality()));
-
-			echo '<select id="nationaliteID" name="nationaliteID">';
-			echo '<option value="0"></option>';
-			foreach($query as $row)
-			{
-				if($row['nom'] == $this->getNationality())
-					echo '<option value="'.$row['ID'].'" selected>'.$row['nom'].'</option>';
-				else
-					echo '<option value="'.$row['ID'].'">'.$row['nom'].'</option>';
-			}
-			echo '</select>';
-		}
-	}
-
-	public function printUniversalProductCodeField()
-	{
-		echo '<label for="CUP">CUP</label>';
-
-		if($this->readOnly)
-		{
-			echo '<span>'.$this->getUniversalProductCode().'</span>';
-		}
-		else
-		{
-			echo '<input type="number" id="CUP" name="CUP"';
-
-			if(isset($this->universalProductCode))
-				echo ' value="'.$this->getUniversalProductCode().'"';
-
-			echo '>';
-		}
-	}
-
-	public function printCollectionField()
-	{
-		global $application;
-		echo '<label for="collectionID">Collection</label>';
-
-		if($this->readOnly)
-		{
-			echo '<span>'.$this->getCollection().'</span>';
-		}
-		else
-		{
-			$query = $application->database->prepare('SELECT ID, nom FROM collections WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC');
-			$query->execute(array($this->getCollection()));
-
-			echo '<select id="collectionID" name="collectionID">';
-			echo '<option value="0"></option>';
-			foreach($query as $row)
-			{
-				if($row['nom'] == $this->getCollection())
-					echo '<option value="'.$row['ID'].'" selected>'.$row['nom'].'</option>';
-				else
-					echo '<option value="'.$row['ID'].'">'.$row['nom'].'</option>';
-			}
-			echo '</select>';
-		}
-	}
-
-	public function printPositionInCollectionField()
-	{
-		echo '<label for="position_collection">Position</label>';
-
-		if($this->readOnly)
-		{
-			echo '<span>'.$this->getPositionInCollection().'</span>';
-		}
-		else
-		{
-			echo '<input type="number" id="position_collection" name="position_collection" min="0"';
-
-			if(isset($this->positionInCollection))
-				echo ' value="'.$this->getPositionInCollection().'"';
-
-			echo '>';
-		}
-	}
-
 	public function printDescriptionField()
 	{
 		echo '<label for="notes">Description</label>';
