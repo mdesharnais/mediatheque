@@ -372,7 +372,7 @@ VALUES
 INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, inactif, maison_editionID, titre, image)
 VALUES
 	(6,  1,  8, 2008, 'CD-C00001', FALSE, 11, 'L''expédition',         'L''Expédition.jpg'),
-	(7,  1,  8, 2008, 'CD-C00002', FALSE, 11, 'Sur un air de déjà vu', NULL),
+	(7,  1,  8, 2008, 'CD-C00002', FALSE, 11, 'Sur un air de déjà vu', 'surUnAirDeDéjàVu.jpg'),
 	(8,  1,  8, 2004, 'CD-C00003', FALSE, 11, 'La grand-messe',        NULL),
 	(9,  1,  8, 2002, 'CD-C00004', FALSE, 11, 'Break syndical',        NULL),
 	(10, 1,  8, 2000, 'CD-C00005', FALSE, 11, 'Motel capri',           NULL),
