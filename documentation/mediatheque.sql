@@ -377,7 +377,7 @@ VALUES
 	(9,  1,  8, 2002, 'CD-C00004', FALSE, 11, 'Break syndical',        NULL),
 	(10, 1,  8, 2000, 'CD-C00005', FALSE, 11, 'Motel capri',           NULL),
 	(11, 1,  8, 1998, 'CD-C00006', FALSE, 11, 'Sur mon canapé',        NULL),
-	(12, 1,  8, 1997, 'CD-C00007', FALSE, 11, 'Break syndical',        NULL);
+	(12, 1,  8, 1997, 'CD-C00007', FALSE, 11, '12 grandes chansons',   NULL);
 
 INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
 VALUES
