@@ -73,13 +73,13 @@ function printSearchResults($sqlFromWhere)
 		if (!empty($row['image']))
 		{
 			echo '<p>';
-			echo '<img class="resultPicture" src="images/medias/'.$row['image'].' " alt="Illustration du média: '.$row['titre'].'"/>';
+			echo '<a href="media.php?id='.$row['ID'].'"><img class="resultPicture" src="images/medias/'.$row['image'].' " alt="Illustration du média: '.$row['titre'].'"/></a>';
 			echo '</p>';
 		}
 		else
 		{
 			echo '<p>';
-			echo '<img class="mediaTypePicture" src="images/typesMedia/'.$row['imageCategorie'].'" alt="'.$row['nomCategorie'].'"/>';
+			echo '<a href="media.php?id='.$row['ID'].'"><img class="mediaTypePicture" src="images/typesMedia/'.$row['imageCategorie'].'" alt="'.$row['nomCategorie'].'"/></a>';
 			echo '</p>';
 		}
 		echo '</div>';//mediaPicture
