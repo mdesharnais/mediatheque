@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS audios_videos (
 	exID int(11) NOT NULL,
 	collectionID int(11) COMMENT 'Collection',
 	position_collection int(11) COMMENT 'Position dans la collection',
-	CUP int(11) NOT NULL COMMENT 'CUP',
+	CUP int(11) COMMENT 'CUP',
 	realisateurs varchar(200) COMMENT 'Réalisateur',
 	nationaliteID int(11) COMMENT 'Nationalité',
 	FOREIGN KEY (exID) REFERENCES medias(ID) ON DELETE CASCADE,
@@ -337,12 +337,12 @@ VALUES
 
 INSERT INTO nationalites (ID, nom, inactif)
 VALUES
-	(1, 'Américain', TRUE),
-	(2, 'Français', TRUE),
-	(3, 'Canadien', TRUE),
+	(1, 'Américain', FALSE),
+	(2, 'Français', FALSE),
+	(3, 'Canadien', FALSE),
 	(4, 'Belge', FALSE),
 	(5, 'Néo-zélandais', TRUE),
-	(6, 'Autrichienne', 0);
+	(6, 'Autrichienne', FALSE);
 
 INSERT INTO genres (ID, nom, inactif)
 VALUES

@@ -13,13 +13,12 @@
 #advanced-search,
 #search-results,
 #driving-table,
-#media,
 #content > div,
 #content > form,
 #content > aside
 {
 	background-color: #eee;
-	padding: 10px;
+	padding: 1em;
 
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -37,12 +36,7 @@
 #content > aside ul
 {
 	list-style-type: none;
-}
-
-#vertical-breadcrumb ul li,
-#content > aside ul li
-{
-	margin-left: 0.5em;
+	margin: 0;
 }
 
 #vertical-breadcrumb span.showMore
@@ -51,7 +45,7 @@
 }
 
 #search-results,
-#content aside + div
+#content > aside + div
 {
 	margin-left: 215px;
 }
