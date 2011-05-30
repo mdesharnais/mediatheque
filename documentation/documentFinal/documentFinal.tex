@@ -78,6 +78,9 @@ Ce document contient la documentation du projet de médiathèque (nom de code «
 \section{Modèle des pages principales et secondaires}
 \section{Diagramme d'enchaînement}
 \section{Diagramme de classe}
+
+Voir l'API du système fournis avec le document.
+
 \section{Base de données et dictionnaire}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,7 +93,7 @@ Ce document contient la documentation du projet de médiathèque (nom de code «
 \section{Spécifications techniques}
 
 \subsection{Navigateurs}
-Lors de la conception le site à été testé sur les navigateurs suivants:
+Lors de la conception le site à été testé sur les navigateurs suivants~:
 
 \begin{itemize}
 \item Mozilla Firefox 3.5.16
@@ -106,7 +109,7 @@ Le site est fonctionnel sur l'ensemble des navigateurs mais certains effets grap
 \subsubsection{Client}
 Du coté client, les languages utilisés sont le HTML 5, le CSS 3, le javascript et le XML.
 
-Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalitées dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 "border-radius" nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et affichera des coins carrés standards.
+Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalitées dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 «~border-radius~» nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et affichera des coins carrés standards.
 
 Pour le javascript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utiliser afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet cette bibliothèque a l'avantage de proposer des fonctions unifiées qui se chargent pour nous de gérer les différences entre les différents navigateurs.
 
@@ -122,9 +125,9 @@ Du coté serveur, le seul language utilisé est le PHP, qui a été utilisé dan
 Les conventions php utilisés sont les suivantes~:
 
 \begin{itemize}
-\item Les fichiers contenant la définition d'une classe PHP utilisent l'extension ".class.php".
-\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit obligatoirement être inclu par un autre script utilisent l'extension ".inc.php".
-\item Les fichiers contenant du code PHP qui se suffit à lui-même utilisent l'extension ".php".
+\item Les fichiers contenant la définition d'une classe PHP utilisent l'extension «~.class.php~».
+\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit obligatoirement être inclu par un autre script utilisent l'extension «~.inc.php~».
+\item Les fichiers contenant du code PHP qui se suffit à lui-même utilisent l'extension «~.php~».
 \item Les fichiers contenant les pages finales affichées à l'utilisateur sont situés à la racine du projet (/).
 \item Les fichiers contenant des scripts PHP qui effectuent une action avant de rediriger l'utilisateur sont situés dans le répertoire php (/php/).
 \end{itemize}
