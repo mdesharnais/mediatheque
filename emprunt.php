@@ -23,7 +23,7 @@
 				echo '<div>';
 				echo '<img src="images/emprunt.png" />';
 				echo '<h1>Emprunt</h1>';
-				echo '<form id="emprunt" action="/php/do_borrow.php">';
+				echo '<form id="emprunt" action="php/do_borrow.php">';
 				echo '<input type="hidden" id="ID" name="ID"><br>';
 				echo '<label id="lblUtilisateurID" for="utilisateurID">Utilisateur</label>';
 				echo '<input type="number" id="utilisateurID" name="utilisateurID"><br>';
