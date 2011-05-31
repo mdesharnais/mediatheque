@@ -13,6 +13,7 @@ abstract class Media
 	protected $ID;
 	protected $title;
 	protected $publicationYear;
+	protected $genre;
 	protected $referenceNumber;
 	protected $publishingHouse;
 	protected $support;
@@ -33,6 +34,7 @@ abstract class Media
 			$this->ID = $row['ID'];
 			$this->title = stripslashes($row['titre']);
 			$this->publicationYear = $row['annee_publication'];
+			$this->genre = $row['genre'];
 			$this->referenceNumber = stripslashes($row['reference']);
 			$this->publishingHouse = stripslashes($row['maison_edition']);
 			$this->support = stripslashes($row['support']);
@@ -60,6 +62,11 @@ abstract class Media
 	public function getPublicationYear()
 	{
 		return $this->publicationYear;
+	}
+
+	public function getGenre()
+	{
+		return $this->genre;
 	}
 
 	public function getReferenceNumber()
@@ -180,6 +187,33 @@ abstract class Media
 				echo ' value="'.$this->getPublicationYear().'"';
 
 			echo '>';
+		}
+	}
+
+	public function printGenreField()
+	{
+		global $application;
+		echo '<label for="genreID">Genre</label>';
+
+		if($this->readOnly)
+		{
+			echo '<span>'.$this->getGenre().'</span>';
+		}
+		else
+		{
+			$query = $application->database->prepare('SELECT ID, nom FROM genres WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC');
+			$query->execute(array($this->getPublishingHouse()));
+
+			echo '<select id="genreID" name="genreID">';
+			echo '<option value="0"></option>';
+			foreach($query as $row)
+			{
+				if($row['nom'] == $this->getGenre())
+					echo '<option value="'.$row['ID'].'" selected>'.$row['nom'].'</option>';
+				else
+					echo '<option value="'.$row['ID'].'">'.$row['nom'].'</option>';
+			}
+			echo '</select>';
 		}
 	}
 

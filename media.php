@@ -48,6 +48,7 @@
 								<p><?php $media->printTitleField(); ?></p>
 								<p><?php $media->printPublicationYearField(); ?></p>
 								<p><?php $media->printReferenceNumberField(); ?></p>
+								<p><?php $media->printGenreField(); ?></p>
 								<p><?php $media->printPublishingHouseField(); ?></p>
 								<p><?php $media->printSupportField(); ?></p>
 								<p><?php if($media instanceof AudioMedia) $media->printCollectionField(); ?></p>

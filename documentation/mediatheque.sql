@@ -349,10 +349,13 @@ VALUES
 
 INSERT INTO genres (ID, nom, inactif)
 VALUES
-	(1, 'Aventure', TRUE),
+	(1, 'Aventure', FALSE),
 	(2, 'Merveilleux', TRUE),
 	(3, 'Musique classique', FALSE),
-	(4, 'Traditionnel', FALSE);
+	(4, 'Traditionnel', FALSE),
+	(5, 'Folk', FALSE),
+	(6, 'Country', FALSE),
+	(7, 'Rock alternatif', FALSE);
 
 INSERT INTO collections (ID, nom, type, inactif)
 VALUES
@@ -370,15 +373,15 @@ VALUES
 	(13, '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 9, 4, NULL, '3t3d', NULL, 10, 5, 0),
 	(14, 'Symphonien no. 35 KV 385 Haffner, no. 36 KV 425 Linzer', 1988, NULL, 1, 3, 1, '3f22', '1 disque son. (63 min) : numérique, stéréo ; 12 cm + ', 9, 1, 0);
 
-INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, inactif, maison_editionID, titre, image)
+INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, genreID, inactif, maison_editionID, titre, image)
 VALUES
-	(6,  1,  8, 2008, 'CD-C00001', FALSE, 11, 'L''expédition',         'L''Expédition.jpg'),
-	(7,  1,  8, 2008, 'CD-C00002', FALSE, 11, 'Sur un air de déjà vu', 'surUnAirDeDéjàVu.jpg'),
-	(8,  1,  8, 2004, 'CD-C00003', FALSE, 11, 'La grand-messe',        NULL),
-	(9,  1,  8, 2002, 'CD-C00004', FALSE, 11, 'Break syndical',        NULL),
-	(10, 1,  8, 2000, 'CD-C00005', FALSE, 11, 'Motel capri',           NULL),
-	(11, 1,  8, 1998, 'CD-C00006', FALSE, 11, 'Sur mon canapé',        NULL),
-	(12, 1,  8, 1997, 'CD-C00007', FALSE, 11, '12 grandes chansons',   NULL);
+	(6,  1,  8, 2008, 'CD-C00001', 5, FALSE, 11, 'L''expédition',         'L''Expédition.jpg'),
+	(7,  1,  8, 2008, 'CD-C00002', 6, FALSE, 11, 'Sur un air de déjà vu', 'surUnAirDeDéjàVu.jpg'),
+	(8,  1,  8, 2004, 'CD-C00003', 7, FALSE, 11, 'La grand-messe',        NULL),
+	(9,  1,  8, 2002, 'CD-C00004', 6, FALSE, 11, 'Break syndical',        NULL),
+	(10, 1,  8, 2000, 'CD-C00005', 5, FALSE, 11, 'Motel capri',           NULL),
+	(11, 1,  8, 1998, 'CD-C00006', 6, FALSE, 11, 'Sur mon canapé',        NULL),
+	(12, 1,  8, 1997, 'CD-C00007', 7, FALSE, 11, '12 grandes chansons',   NULL);
 
 INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
 VALUES

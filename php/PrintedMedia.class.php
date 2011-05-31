@@ -25,11 +25,13 @@ class PrintedMedia extends Media
 				medias.image, 
 				maisons_edition.nom AS maison_edition, 
 				supports.nom AS support, 
-				categories_media.image AS imageCategorieMedia 
+				categories_media.image AS imageCategorieMedia, 
+				genres.nom AS genre 
 			FROM medias 
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID 
 				INNER JOIN supports ON supports.ID = medias.supportID 
 				INNER JOIN categories_media ON categories_media.ID = supports.categorie_mediaID 
+				LEFT JOIN genres ON medias.genreID = genres.ID 
 			WHERE medias.ID = ?');
 		$query->execute(array($id));
 		$row = $query->fetch();
