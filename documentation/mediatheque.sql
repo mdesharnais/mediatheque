@@ -298,7 +298,8 @@ VALUES
 	(7,  'Lorenzo da Ponte', TRUE),
 	(8,  'Les cowboys fringants', TRUE),
 	(9,  'Gilles Vigneault', TRUE),
-	(10, 'Polémil Bazar', TRUE);
+	(10, 'Polémil Bazar', TRUE),
+	(11, 'Jacques Brel', TRUE);
 
 INSERT INTO epoques(ID, nom, inactif)
 VALUES
@@ -321,7 +322,8 @@ VALUES
 	(9,  'Deutsche Grammophon', FALSE),
 	(10, 'Éditions Reprises', FALSE),
 	(11, 'La tribune', FALSE),
-	(12, 'Tacca Musique', FALSE);
+	(12, 'Tacca Musique', FALSE),
+	(13, 'Barclay', FALSE);
 
 INSERT INTO categories_media(ID, nom, image)
 VALUES
@@ -347,7 +349,8 @@ VALUES
 	(3, 'Canadien', FALSE),
 	(4, 'Belge', FALSE),
 	(5, 'Néo-zélandais', TRUE),
-	(6, 'Autrichienne', FALSE);
+	(6, 'Autrichienne', FALSE),
+	(7, 'Belge', FALSE);
 
 INSERT INTO genres (ID, nom, inactif)
 VALUES
@@ -378,14 +381,15 @@ VALUES
 
 INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, genreID, maison_editionID, inactif, titre, image)
 VALUES
-	(6,  1,  8, 2008, 'CD-C00001', 5, 11, FALSE, 'L''expédition',         'L''Expédition.jpg'),
-	(7,  1,  8, 2008, 'CD-C00002', 6, 11, FALSE, 'Sur un air de déjà vu', 'surUnAirDeDéjàVu.jpg'),
-	(8,  1,  8, 2004, 'CD-C00003', 7, 11, FALSE, 'La grand-messe',        NULL),
-	(9,  1,  8, 2002, 'CD-C00004', 6, 11, FALSE, 'Break syndical',        NULL),
-	(10, 1,  8, 2000, 'CD-C00005', 5, 11, FALSE, 'Motel capri',           NULL),
-	(11, 1,  8, 1998, 'CD-C00006', 6, 11, FALSE, 'Sur mon canapé',        NULL),
-	(12, 1,  8, 1997, 'CD-C00007', 7, 11, FALSE, '12 grandes chansons',   NULL),
-	(15, 1, 10, 2005, 'CD-C00008', 8, 12, FALSE, 'Avale ta montre',       'avaleTaMontre.jpg');
+	(6,  1,  8, 2008, 'CD-C00001', 5,    11, FALSE, 'L''expédition',               'L''Expédition.jpg'),
+	(7,  1,  8, 2008, 'CD-C00002', 6,    11, FALSE, 'Sur un air de déjà vu',       'surUnAirDeDéjàVu.jpg'),
+	(8,  1,  8, 2004, 'CD-C00003', 7,    11, FALSE, 'La grand-messe',              NULL),
+	(9,  1,  8, 2002, 'CD-C00004', 6,    11, FALSE, 'Break syndical',              NULL),
+	(10, 1,  8, 2000, 'CD-C00005', 5,    11, FALSE, 'Motel capri',                 NULL),
+	(11, 1,  8, 1998, 'CD-C00006', 6,    11, FALSE, 'Sur mon canapé',              NULL),
+	(12, 1,  8, 1997, 'CD-C00007', 7,    11, FALSE, '12 grandes chansons',         NULL),
+	(15, 1, 10, 2005, 'CD-C00008', 8,    12, FALSE, 'Avale ta montre',             'avaleTaMontre.jpg'),
+	(16, 1, 11, 1988, 'CD-C00009', NULL, 13, FALSE, 'Brel en public : Olympia 61', 'brelEnPublic-Olympia61.jpg');
 
 INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
 VALUES
@@ -399,7 +403,8 @@ VALUES
 	(8,  11, 3, NULL, NULL, NULL,    NULL),
 	(9,  12, 3, NULL, NULL, NULL,    NULL),
 	(10, 13, 3, 1,    3453, NULL,    'James Levine'),
-	(11, 15, 3, NULL, NULL, NULL,    NULL);
+	(11, 15, 3, NULL, NULL, NULL,    NULL),
+	(12, 16, 7, NULL, NULL, NULL,    NULL);
 
 
 INSERT INTO pieces(ID, exID, titre, annee_enregistrement, duree, genreID)
@@ -526,7 +531,23 @@ VALUES
 	(108, 11, 10, '00:04:10', 'Qu''à cela ne tienne'),
 	(109, 11, 11, '00:04:57', 'Aux quatres coins de la sphère'),
 	(110, 11, 12, '00:03:06', 'L''homme tonneau'),
-	(111, 11, 13, '00:00:58', 'Fantasme bulgare');
+	(111, 11, 13, '00:00:58', 'Fantasme bulgare'),
+
+	(112, 12,  1, '00:02:23', 'Les prénom de Paris'),
+	(113, 12,  2, '00:02:39', 'Les bourgeois'),
+	(114, 12,  3, '00:03:43', 'Les paumés du petit matin'),
+	(115, 12,  4, '00:02:35', 'Les Flamandes'),
+	(116, 12,  5, '00:02:47', 'La statue'),
+	(117, 12,  6, '00:03:28', 'Zangra'),
+	(118, 12,  7, '00:02:23', 'Marieke'),
+	(119, 12,  8, '00:03:29', 'Les biches'),
+	(120, 12,  9, '00:02:46', 'Madeleine'),
+	(121, 12, 10, '00:03:16', 'Les singes'),
+	(122, 12, 11, '00:03:59', 'L''ivrogne'),
+	(123, 12, 12, '00:03:40', 'La valse à mille temps'),
+	(124, 12, 13, '00:03:43', 'Ne me quitte pas'),
+	(125, 12, 14, '00:03:31', 'Le moribond'),
+	(126, 12, 15, '00:02:39', 'Quand on n''a que l''amour');
 
 INSERT INTO imprimes (ID, exID, sous_titre, collectionID, position_collection)
 VALUES
