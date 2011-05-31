@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS instrumentations (
 CREATE TABLE IF NOT EXISTS categories_media (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
-	image varchar(100) COMMENT 'Image'
+	image varchar(100) COMMENT 'Image',
+	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif'
 ) ENGINE=InnoDb COMMENT 'Types de support';
 
 CREATE TABLE IF NOT EXISTS supports (
@@ -46,7 +47,7 @@ CREATE TABLE IF NOT EXISTS supports (
 	categorie_mediaID int(11) NOT NULL COMMENT 'Type de support',
 	inactif BOOLEAN NOT NULL DEFAULT FALSE COMMENT 'Inactif',
 	FOREIGN KEY(categorie_mediaID) REFERENCES categories_media(ID)
-) ENGINE=InnoDb COMMENT 'Catégories';
+) ENGINE=InnoDb COMMENT 'Supports';
 
 CREATE TABLE IF NOT EXISTS nationalites (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
