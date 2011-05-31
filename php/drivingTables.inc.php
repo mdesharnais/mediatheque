@@ -90,7 +90,21 @@ function generateField($column, $value = null)
 	switch($type)
 	{
 		case 'select':
-			echo '';
+			echo '<select id="'.$column['column_name'].'" name="'.$column['column_name'].'">';
+			echo '	<option value="0"></option>';
+
+			$table = $column['referenced_table_name'];
+
+			global $application;
+
+			$query = $application->database->query("SELECT column_name FROM information_schema.columns WHERE table_name = '$table' AND ordinal_position = 2");
+			$data = $query->fetch();
+			$column = $data['column_name'];
+
+			foreach($application->database->query("SELECT ID, $column FROM $table WHERE inactif = FALSE") as $row)
+				echo '	<option value="'.$row['ID'].'">'.$row[$column].'</option>';
+
+			echo '</select>';
 			break;
 
 		case 'checkbox':
