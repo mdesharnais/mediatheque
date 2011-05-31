@@ -88,14 +88,13 @@ function printSearchResults($sqlQuery)
 	*/
    	$pagination = new Pagination();
 	$pagination->setDataBase($application->database);
-	$pagination->setDestinationPage('searchResults.php');
 	$pagination->setFromClause($fromClause);
 	$pagination->setWhereClause($whereClause);
 	
 	if (isset($_GET['presentation']) || !empty($_GET['presentation']))
-		$pagination->setDestinationPage('?presentation='.$_GET['presentation']);
+		$pagination->setDestinationPage('searchResults.php?presentation='.$_GET['presentation']);
 	else
-		$pagination->setDestinationPage('?presentation=1');
+		$pagination->setDestinationPage('searchResults.php?presentation=1');
 		
 	
 	if(isset($_GET['page']))

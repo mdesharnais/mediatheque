@@ -228,7 +228,12 @@ class Pagination
         if($this->currentPage() == 1)
             echo "<span>Précédent</span>\n";
         else
-            echo '<a href="'.$this->destinationPage().'?page='.($this->currentPage() - 1)."#".$this->firstPaginationShownID()."\">Précédent</a>\n";
+		{
+			if(strpos($this->destinationPage(), '?' == FALSE))
+				echo '<a href="'.$this->destinationPage().'?page='.($this->currentPage() - 1)."#".$this->firstPaginationShownID()."\">Précédent</a>\n";
+			else
+				echo '<a href="'.$this->destinationPage().'&page='.($this->currentPage() - 1)."#".$this->firstPaginationShownID()."\">Précédent</a>\n";
+		}
     }
 
     private function printNextLink()
@@ -236,7 +241,12 @@ class Pagination
         if($this->currentPage() == $this->pagesCount())
             echo "<span>Suivant</span>\n";
         else
-            echo '<a href="'.$this->destinationPage().'?page='.($this->currentPage() + 1)."#".$this->firstPaginationShownID()."\">Suivant</a>\n";
+		{
+			if(strpos($this->destinationPage(), '?' == FALSE))
+				echo '<a href="'.$this->destinationPage().'?page='.($this->currentPage() + 1)."#".$this->firstPaginationShownID()."\">Suivant</a>\n";
+			else
+				echo '<a href="'.$this->destinationPage().'&page='.($this->currentPage() + 1)."#".$this->firstPaginationShownID()."\">Suivant</a>\n";
+		}
     }
 }
 ?>
