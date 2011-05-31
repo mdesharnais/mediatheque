@@ -65,12 +65,19 @@ padding-top:30px;
 img.resultPicture
 {
 padding:0px;
-width:100px;
+width:150px;
+margin-left:auto;
+margin-right:auto;
 padding-bottom:10px;
+display:block;
 }
+
 img.mediaTypePicture
 {
 width:100px;
+margin-left:auto;
+margin-right:auto;
+display:block;
 }
 #mediaTableResult
 {
@@ -88,6 +95,10 @@ tr.mediaRowResult td p:last-child
 margin-bottom:1em;
 }
 
+tr.mediaRowResult td:first-child
+{
+width:20%;
+}
 
 tr.mediaRowResult
 {
