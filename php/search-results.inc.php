@@ -63,15 +63,14 @@ function createFromWhereClause($criterias)
 			';
 		break;
 	case 5:
-		var_dump($application);
-		$titre = $applicaton->database->quote("La communauté de l'anneau");
+		$titre = $application->database->quote("La communauté de l'anneau");
 		$sqlFromWhere = ' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
 				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
-			WHERE Upper(medias.titre) = \''.$titre.'\'
+			WHERE Upper(medias.titre) = Upper('.$titre.')
 			';
 		break;
 	}
