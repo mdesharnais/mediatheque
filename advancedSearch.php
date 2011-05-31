@@ -15,12 +15,16 @@
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
-			<form id="advanced-search" method="post" action="searchResults.php">
+			<!--- À utiliser pour la phase conception uniquement--->
+			<form id="advanced-search" method="post" action="searchResults.php?presentation=5">
+			
+			<!--- <form id="advanced-search" method="post" action="searchResults.php"> --->
+			
 				<h1>Rechercher :</h1>
 				<div class="row-search">
 					<select name="idx">
 						<option value="kw">Mots-clés</option>
-						<option class="all" value="medias.titre">Titre du média</option>
+						<option class="all" value="medias.titre">Titre du média*</option>
 						<option class="all" value="medias.annee_publication">Année de publication</option>
 						<option class="all" value="medias.reference">Code de référence</option>
 						<option class="all" value="medias.notes">Notes</option>
@@ -35,7 +39,7 @@
 						<option class="audio video" value="tonalites.nom">Tonalité</option>
 						<option class="imprime" value="details_imprimes.genreID">Genre média imprime</option>
 						<option class="audio video" value="pieces.genreID">Genre média audio/vidéo</option>
-						<option class="all" value="artistes.nom">Nom d'artiste</option>
+						<option class="all" value="artistes.nom">Nom d'artiste*</option>
 						<option class="audio video" value="Parolier_pieces.artisteID">Parolier</option>
 						<option class="audio video" value="Interpretes_pieces.artisteID">Interprète</option>
 						<option class="audio video" value="orchestrateurs_pieces.artisteID">Orchestrateur</option>
@@ -62,7 +66,7 @@
 					</select>
 					<select name="idx" onchange="">
 						<option value="kw">Mots-clés</option>
-						<option class="all" value="medias.titre">Titre du média</option>
+						<option class="all" value="medias.titre">Titre du média*</option>
 						<option class="all" value="medias.annee_publication">Année de publication</option>
 						<option class="all" value="medias.reference">Code de référence</option>
 						<option class="all" value="medias.notes">Notes</option>
@@ -77,7 +81,7 @@
 						<option class="audio video" value="tonalites.nom">Tonalité</option>
 						<option class="imprime" value="details_imprimes.genreID">Genre média imprime</option>
 						<option class="audio video" value="pieces.genreID">Genre média audio/vidéo</option>
-						<option class="all" value="artistes.nom">Nom d'artiste</option>
+						<option class="all" value="artistes.nom">Nom d'artiste*</option>
 						<option class="audio video" value="Parolier_pieces.artisteID">Parolier</option>
 						<option class="audio video" value="Interpretes_pieces.artisteID">Interprète</option>
 						<option class="audio video" value="orchestrateurs_pieces.artisteID">Orchestrateur</option>
@@ -104,7 +108,7 @@
 					</select>
 					<select name="idx">
 						<option value="kw">Mots-clés</option>
-						<option class="all" value="medias.titre">Titre du média</option>
+						<option class="all" value="medias.titre">Titre du média*</option>
 						<option class="all" value="medias.annee_publication">Année de publication</option>
 					 	<option class="all" value="medias.reference">Code de référence</option>
 					 	<option class="all" value="medias.notes">Notes</option>
@@ -119,7 +123,7 @@
 						<option class="audio video" value="tonalites.nom">Tonalité</option>
 						<option class="imprime" value="details_imprimes.genreID">Genre média imprime</option>
 						<option class="audio video" value="pieces.genreID">Genre média audio/vidéo</option>
-						<option class="all" value="artistes.nom">Nom d'artiste</option>
+						<option class="all" value="artistes.nom">Nom d'artiste*</option>
 						<option class="audio video" value="Parolier_pieces.artisteID">Parolier</option>
 						<option class="audio video" value="Interpretes_pieces.artisteID">Interprète</option>
 						<option class="audio video" value="orchestrateurs_pieces.artisteID">Orchestrateur</option>
@@ -139,6 +143,7 @@
 					<input type="text" size="30" name="q" title="Saisissez les termes de recherche" value="">
 				</div>
 				<br>
+				
 				<input type="submit" value="Rechercher"> 
 				
 				<input type="reset">

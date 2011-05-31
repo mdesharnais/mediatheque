@@ -8,6 +8,7 @@ $presentationID = 0;
 function createFromWhereClause($criterias)
 {
 	//uniquement pour la présentation de la conception
+	global $application;
 	global $presentationID;
 	$presentationID = $criterias;
 	
@@ -36,7 +37,7 @@ function createFromWhereClause($criterias)
 				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
-			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' ORDER BY medias.titre
+			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = Upper(\'audio\') ORDER BY medias.titre
 			';
 		break;
 	case 3:
@@ -47,7 +48,7 @@ function createFromWhereClause($criterias)
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
 			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' 
-			AND Upper(artistes.nom) = \'Les cowboys fringants\'  ORDER BY medias.titre
+			AND Upper(artistes.nom) = Upper(\'Les cowboys fringants\')  ORDER BY medias.titre
 			';
 		break;
 	case 4:
@@ -58,7 +59,19 @@ function createFromWhereClause($criterias)
 				LEFT JOIN genres ON genres.ID = medias.genreID
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
 			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' 
-			AND Upper(artistes.nom) = \'Les cowboys fringants\'  AND medias.annee_publication=2008 ORDER BY medias.titre
+			AND Upper(artistes.nom) = Upper(\'Les cowboys fringants\')  AND medias.annee_publication=2008 ORDER BY medias.titre
+			';
+		break;
+	case 5:
+		var_dump($application);
+		$titre = $applicaton->database->quote("La communauté de l'anneau");
+		$sqlFromWhere = ' FROM medias 
+				LEFT JOIN artistes ON artistes.ID = medias.artisteID
+				INNER JOIN supports ON medias.supportID = supports.ID
+				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
+				LEFT JOIN genres ON genres.ID = medias.genreID
+				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
+			WHERE Upper(medias.titre) = \''.$titre.'\'
 			';
 		break;
 	}
@@ -211,6 +224,9 @@ function printSearchRequest($sqlQuery,Pagination $pagination)
 		    $requestText= "Tous les médias audio de l'artiste cowboys fringuants";
 	    case 4:
 	    $requestText= "Tous les médias audio de l'artiste cowboys fringuants dont l'année de publication est 2008";
+	    	break;
+	    case 5:
+	    $requestText= "Les médias ayant pour titre: La communauté de l'anneau";
 	    	break;
 	}
 
