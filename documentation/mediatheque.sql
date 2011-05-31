@@ -368,7 +368,7 @@ VALUES
 
 INSERT INTO medias (ID, titre, annee_publication, image, artisteID, genreID, quantite, reference, notes, maison_editionID, supportID, inactif)
 VALUES
-	(1,  'La communauté de l’anneau', 1972, 'leSeigneurDesAnneaux1.png', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
+	(1,  'La communauté de l''anneau', 1972, 'leSeigneurDesAnneaux1.png', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
 	(2,  'Les deux tours', 1992, '2.jpg', NULL, 2, 1, '2 Livre roman', '', 6, 8, 0),
 	(3,  'Le retour du Roi', 1994, '', NULL, 2, 1, '3 Livre roman', '', 6, 8, 0),
 	(4,  'Indiana Jones et la Dernière Croisade', 1987, '', NULL, 1, 1, '1 VHS', '', 7, 3, 0),
