@@ -44,7 +44,7 @@
 			{
 			?>
 				<li>
-					<h2><a href="">Administration</a></h2>
+					<h2><a href="administration.php">Administration</a></h2>
 					<ul>
 						<li><a href="emprunt.php">Emprunt</a></li>
 						<li><a href="retour.php">Retour</a></li>
