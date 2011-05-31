@@ -198,3 +198,8 @@ header #search
 footer
 {
 }
+/*enlève le cadre autour des images*/
+a img
+{
+border: none;
+} 
