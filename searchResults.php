@@ -7,8 +7,12 @@
 
 		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
 
-		<?php include('sharedFiles/style.inc.php'); ?>
-		<?php include('sharedFiles/javascript.inc.php'); ?>
+		<?php
+		  include('sharedFiles/style.inc.php'); 
+		  include('sharedFiles/javascript.inc.php'); 
+		  require('php/search-results.inc.php');
+		  require('php/breadcrumb.inc.php')
+		?>
 		<link rel="stylesheet" href="css/search-result.css">
 	</head>
 	<body>
@@ -16,56 +20,37 @@
 		<div id="content">
 			<div id="vertical-breadcrumb">
 				<h3>Affinez votre recherche</h3>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="http://www.google.com" onclick="return confirm('Voulez-vous vraiment supprimer cet enregistrement?');">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-				</ul>
-				<h4>Lorem ipsum </h4>
-				<ul>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-					<li><a href="#">Consectetur</a></li>
-					<li><a href="#">Lorem</a></li>
-					<li><a href="#">Ipsum</a></li>
-					<li><a href="#">Dolor</a></li>
-					<li><a href="#">Sit</a></li>
-					<li><a href="#">Amet</a></li>
-					<li><a href="#">Consectetur</a></li>
-				</ul>
+				<?php 
+				if (isset($_GET['presentation']) || !empty($_GET['presentation']))
+				{
+					printBreadCrumb(createFromWhereClause($_GET['presentation']));
+				}
+				else 
+					printBreadCrumb(createFromWhereClause(1)); 
+				?>
 			</div>
 			<div id="search-results">
 		
 			<?php
-			require('php/search-results.inc.php');
-			if (isset($_POST["criterias"]) || !empty($_POST["criterias"]))
-			{
-				printSearchResults($_POST["criterias"]); 
+				
+				//code utilisée pour la présentation de la conception seulement
+				if (isset($_GET['presentation']) || !empty($_GET['presentation']))
+				{
+					printSearchResults(createFromWhereClause($_GET['presentation'])); 
+				
+				}
+				else 
+					printSearchResults(createFromWhereClause(1)); 
+				//fin du code utilisé pour la présentation
+				
+				/*	if (isset($_POST) || !empty($_POST))
+					{
+						printSearchResults(createFromWhereClause($_POST));
 			
-			}
-			else
-			{
-				printSearchResults(1); 
-			}
+					}
+					else
+						printSearchResults('all'); */
+						
 			?>	
 			
 			</div>

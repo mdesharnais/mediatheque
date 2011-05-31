@@ -1,20 +1,25 @@
 <?php
 require_once('Application.class.php');
 
-function printSearchResults($sqlFromWhere)
+//variable uniquement pour la présentation de la conception
+//cette variable contient le numéro de niveau de détail utilisée lors de la présentation
+$presentationID = 0;
+
+function createFromWhereClause($criterias)
 {
-	global $application;
-	//$basicQuery : requête de base (select seulement)
-	//$sqlFromWhere: deuxième partie de la requête incluant la clause where et from
+	//uniquement pour la présentation de la conception
+	global $presentationID;
+	$presentationID = $criterias;
 	
 	$basicQuery = '
 			SELECT medias.ID, medias.notes, medias.titre, medias.annee_publication, medias.image, medias.quantite, medias.reference, artistes.nom 
 			AS nomArtiste, categories_media.nom AS nomCategorie,	categories_media.image AS imageCategorie, supports.nom AS nomSupport, maisons_edition.nom
 			AS nomMaisonEdition, genres.nom AS nomGenre';
 			
-	switch ($sqlFromWhere) {
-    case 1: //tous les médias.
-    	$sqlQuery = $basicQuery.' FROM medias 
+	switch ($criterias)
+	{
+	case 1:
+		$sqlFromWhere = ' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
 				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
@@ -22,9 +27,10 @@ function printSearchResults($sqlFromWhere)
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
 			WHERE medias.inactif=FALSE ORDER BY medias.titre
 			';
-        break;
-    case 2: //tous les médias audio.
-        	$sqlQuery = $basicQuery.' FROM medias 
+	
+		break;
+	case 2:
+		$sqlFromWhere = ' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
 				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
@@ -32,9 +38,9 @@ function printSearchResults($sqlFromWhere)
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
 			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' ORDER BY medias.titre
 			';
-        break;
-    case 3: //tous les médias audio de l'artiste cowboys fringuants
-         	$sqlQuery = $basicQuery.' FROM medias 
+		break;
+	case 3:
+		$sqlFromWhere = ' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
 				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
@@ -43,9 +49,9 @@ function printSearchResults($sqlFromWhere)
 			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' 
 			AND Upper(artistes.nom) = \'Les cowboys fringants\'  ORDER BY medias.titre
 			';
-        break;
-    case 4: //tous les médias audio de l'artiste cowboys fringuants ayant l'année de publication 2008
-        	$sqlQuery = $basicQuery.' FROM medias 
+		break;
+	case 4:
+		$sqlFromWhere = ' FROM medias 
 				LEFT JOIN artistes ON artistes.ID = medias.artisteID
 				INNER JOIN supports ON medias.supportID = supports.ID
 				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
@@ -54,9 +60,18 @@ function printSearchResults($sqlFromWhere)
 			WHERE medias.inactif=FALSE and Upper(categories_media.nom) = \'AUDIO\' 
 			AND Upper(artistes.nom) = \'Les cowboys fringants\'  AND medias.annee_publication=2008 ORDER BY medias.titre
 			';
-       	break;
+		break;
+	}
+return $basicQuery.$sqlFromWhere;
 }
-	
+
+function printSearchResults($sqlQuery)
+{
+	global $application;
+	global $presentationID;
+	//$basicQuery : requête de base (select seulement)
+	//$sqlFromWhere: deuxième partie de la requête incluant la clause where et from
+ 
 	require('php/Pagination.class.php');
 	
 	$fromStartPosition = strrpos(strtoupper($sqlQuery), "FROM") + 5;
@@ -77,12 +92,18 @@ function printSearchResults($sqlFromWhere)
 	$pagination->setFromClause($fromClause);
 	$pagination->setWhereClause($whereClause);
 	
+	if (isset($_GET['presentation']) || !empty($_GET['presentation']))
+		$pagination->setDestinationPage('?presentation='.$_GET['presentation']);
+	else
+		$pagination->setDestinationPage('?presentation=1');
+		
+	
 	if(isset($_GET['page']))
     	$pagination->setCurrentPage($_GET['page']);
     else
       	$pagination->setCurrentPage(1);
       	
-    printSearchRequest($sqlFromWhere,$pagination); 	
+    printSearchRequest($presentationID,$pagination); 	
     $pagination->show();
     
     $sqlQuery = $sqlQuery." limit ".$pagination->currentPageFirstItemNumber().", ".$pagination->itemsPerPage();
@@ -170,6 +191,7 @@ function printSearchResults($sqlFromWhere)
 		
 	}
 	echo '</table>';
+	
 	$pagination->show();
 	
 }
