@@ -210,7 +210,7 @@ class Pagination
                 echo "<span class=\"currentPage\">$pageShown</span>\n";
             else
 			{
-				if(strpos($this->destinationPage(), '?' == FALSE)
+				if(strpos($this->destinationPage(), '?' == FALSE))
 					echo '<a class="page" href="'.$this->destinationPage()."?page=$pageShown#".$this->firstPaginationShownID()."\">$pageShown</a>\n";
 				else
 					echo '<a class="page" href="'.$this->destinationPage()."&page=$pageShown#".$this->firstPaginationShownID()."\">$pageShown</a>\n";
