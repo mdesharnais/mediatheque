@@ -1,12 +1,12 @@
 const SHOW_MORE_TEXT = 'Afficher plus';
 const SHOW_LESS_TEXT = 'Afficher moins';
-const MIN_ELEMENTS_COUNT = 4; 
+const MAX_ELEMENT_COUNT = 3; 
 
 $(document).ready(function() {
 	$('#vertical-breadcrumb ul').each(function() {
-		if($(this).find('> li').length >= MIN_ELEMENTS_COUNT)
+		if($(this).find('> li').length > MAX_ELEMENT_COUNT)
 		{
-			$(this).find('> li:nth-child(n+' + MIN_ELEMENTS_COUNT + ')').wrapAll('<div></div>');
+			$(this).find('> li:nth-child(n+' + (MAX_ELEMENT_COUNT + 1) + ')').wrapAll('<div></div>');
 			$(this).find('> div').hide();
 			$(this).append('<span class="showMore">' + SHOW_MORE_TEXT + '</span>');
 
