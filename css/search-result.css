@@ -34,7 +34,7 @@ text-decoration:none;
 tr.mediaRowResult td
 {
 border-bottom-style:solid;
-border-bottom-width:1px;
+border-bottom-width:2px;
 border-collapse:collapse;
 border-color:gray;
 }
@@ -88,26 +88,8 @@ tr.mediaRowResult td p:last-child
 margin-bottom:1em;
 }
 
-tr.mediaRowResult:nth-child(2n+1)
-{
-	
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.21, rgb(255,255,255)),
-		color-stop(0.61, rgb(232,235,235)),
-		color-stop(0.81, rgb(214,214,214))
-	);
-	background-image: -moz-linear-gradient(
-		center bottom,
-		rgb(255,255,255) 21%,
-		rgb(232,235,235) 61%,
-		rgb(214,214,214) 81%
-	);
-}
 
-tr.mediaRowResult:nth-child(2n+2)
+tr.mediaRowResult
 {
 	background-image: -moz-linear-gradient(
 		center bottom,
