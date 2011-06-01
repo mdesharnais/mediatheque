@@ -25,9 +25,9 @@
 				echo '<h1>Retour</h1>';
 				echo '<form id="emprunt" action="php/do_return.php">';
 				echo '<input type="hidden" id="ID" name="ID"><br>';
-				echo '<label id="lblUtilisateurID" for="utilisateurID">Utilisateur</label>';
+				echo '<label id="lblUtilisateurID" for="utilisateurID">Matricule de l\'utilisateur</label>';
 				echo '<input type="number" id="utilisateurID" name="utilisateurID"><br>';
-				echo '<label for="mediaID">Media</label>';
+				echo '<label for="mediaID">No. Référence</label>';
 				echo '<input type="number" id="mediaID" name="mediaID"><br>';
 				echo '<input type="submit" value="Enregistrer">';
 				echo '</form>';
