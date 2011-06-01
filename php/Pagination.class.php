@@ -55,9 +55,9 @@ class Pagination
     public function completQuery()
     {
         if(is_null($this->whereClause()))
-            return "SELECT COUNT(*) AS number FROM ".$this->fromClause();
+            return 'SELECT COUNT(*) AS number FROM '.$this->fromClause();
         else
-            return "SELECT COUNT(*) AS number FROM ".$this->fromClause()." WHERE ".$this->whereClause();
+            return 'SELECT COUNT(*) AS number FROM '.$this->fromClause().' WHERE '.$this->whereClause();
     }
 
     public function ItemsCount()
@@ -72,7 +72,7 @@ class Pagination
             $queryFailed = !$query->execute();
 
             if($queryFailed)
-                throw new Exception("Items count query failed.");
+                throw new Exception('Items count query failed.');
 
             $result = $query->fetch();
             return $result['number'];
@@ -124,7 +124,7 @@ class Pagination
 	
 	private function firstPaginationShownID()
 	{
-		return "pagination-".self::$paginationID."-".$this->showCount;
+		return 'pagination-'.self::$paginationID.'-1';
 	}
 
     //////////////////////////////////////////////////
@@ -134,10 +134,10 @@ class Pagination
     public function setItemsPerPage($value)
     {
         if(!is_numeric($value))
-            throw new Exception("'ItemCountPerPage' must be a numeric value.");
+            throw new Exception('"ItemCountPerPage" must be a numeric value.');
 
         if($value < 1)
-            throw new Exception("'ItemCountPerPage' must be bigger or equals to one.");
+            throw new Exception('"ItemCountPerPage" must be bigger or equals to one.');
 
         $this->itemsPerPage = intval($value);
     }
@@ -150,10 +150,10 @@ class Pagination
     public function setPagesRangeShow($value)
     {
         if(!is_numeric($value))
-            throw new Exception("'PagesRangeShow' must be a numeric value.");
+            throw new Exception('"PagesRangeShow" must be a numeric value.');
 
         if($value < 1)
-            throw new Exception("'PagesRangeShow' must be bigger or equals to one.");
+            throw new Exception('"PagesRangeShow" must be bigger or equals to one.');
 
         $this->pagesRangeShow = intval($value);
     }
@@ -197,7 +197,7 @@ class Pagination
 		$this->showCount++;
 
 		if($this->showCount == 1)
-			echo "<div id=\"".$this->firstPaginationShownID()."\" class=\"pagination\">\n";
+			echo '<div id="'.$this->firstPaginationShownID()."\" class=\"pagination\">\n";
 		else
 			echo "<div class=\"pagination\">\n";
 			
