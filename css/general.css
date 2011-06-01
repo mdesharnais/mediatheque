@@ -105,3 +105,19 @@ img.right
 {
 	float: right;
 }
+
+table,
+tr,
+td,
+th
+{
+	border-style: solid;
+	border-width: 0.1em;
+	border-collapse: collapse;
+}
+
+td,
+th
+{
+	padding: 0.25em;
+}

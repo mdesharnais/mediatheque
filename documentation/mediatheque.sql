@@ -252,8 +252,8 @@ CREATE TABLE IF NOT EXISTS compositeurs_pieces (
 CREATE TABLE IF NOT EXISTS emprunts (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	utilisateurID int(11) NOT NULL COMMENT 'Utilisateur',
-	date_reservation date NOT NULL COMMENT 'Date de réservation',
-	date_voulue date NOT NULL COMMENT 'Date voulue',
+	date_reservation date COMMENT 'Date de réservation',
+	date_voulue date COMMENT 'Date voulue',
 	date_emprunt date COMMENT 'Date d''emprunt',
 	duree int(11) NOT NULL COMMENT 'Durée',
 	date_retour date COMMENT 'Date de retour',
@@ -586,10 +586,10 @@ VALUES
 	(1, 834612, 'Boudreault', 'Émile', '8192323232', 'findumonde@gmail.com', TRUE),
 	(2, 974364, 'Borduas', 'Paul-Émile', '8192324433', 'borduas@gmail.com', TRUE);
 
-INSERT INTO emprunts (ID, utilisateurID, date_reservation, date_voulue, date_emprunt, duree, date_retour, mediaID)
+INSERT INTO emprunts (ID, utilisateurID, mediaID, date_reservation, date_voulue, date_emprunt, duree, date_retour)
 VALUES
-	(1, 1, '2010-01-01', '2010-02-01', '', '15', '', 1),
-	(2, 1, '2010-01-01', '2010-05-05', '', '15', '', 2),
-	(3, 1, '', '', '2010-01-05', '15', '', 3),
-	(4, 1, '', '', '2010-01-06', '15', '', 4),
-	(5, 1, '', '', '2010-01-04', '15', '2010-10-05', 5);
+	(1, 1, 1, '2010-01-01', '2010-02-01', NULL,         '15', NULL),
+	(2, 1, 2, '2010-01-01', '2010-05-05', NULL,         '15', NULL),
+	(3, 1, 3, NULL,         NULL,         '2010-01-05', '15', NULL),
+	(4, 1, 4, NULL,         NULL,         '2010-01-06', '15', NULL),
+	(5, 1, 5, NULL,         NULL,         '2010-01-04', '15', '2010-10-05');
