@@ -289,17 +289,18 @@ CREATE TABLE IF NOT EXISTS orchestrateurs_pieces (
 
 INSERT INTO artistes (ID, nom, inactif)
 VALUES
-	(1,  'Wolgang Amadeus Mozart', TRUE),
+	(1,  'Wolgang Amadeus Mozart', FALSE),
 	(2,  'André Mathieu', FALSE),
-	(3,  'Ludwig van Beethoven', TRUE),
+	(3,  'Ludwig van Beethoven', FALSE),
 	(4,  'Frédéric Chopin', TRUE),
-	(5,  'Johann Sebastian Bach', TRUE),
+	(5,  'Johann Sebastian Bach', FALSE),
 	(6,  'Antonio Salieri', TRUE),
 	(7,  'Lorenzo da Ponte', TRUE),
-	(8,  'Les cowboys fringants', TRUE),
-	(9,  'Gilles Vigneault', TRUE),
-	(10, 'Polémil Bazar', TRUE),
-	(11, 'Jacques Brel', TRUE);
+	(8,  'Les cowboys fringants', FALSE),
+	(9,  'Gilles Vigneault', FALSE),
+	(10, 'Polémil Bazar', FALSE),
+	(11, 'Jacques Brel', FALSE),
+	(12, 'John Ronald Reuel Tolkien', FALSE);
 
 INSERT INTO epoques(ID, nom, inactif)
 VALUES
@@ -370,15 +371,15 @@ VALUES
 	(2, 'Indiana Jones', '3', TRUE),
 	(3, 'Mozart 3 D collection', 2, 0);
 
-INSERT INTO medias (ID, titre, annee_publication, image, artisteID, genreID, quantite, reference, notes, maison_editionID, supportID, inactif)
+INSERT INTO medias (ID, supportID, artisteID, titre, annee_publication, image, genreID, quantite, reference, notes, maison_editionID, inactif)
 VALUES
-	(1,  'La communauté de l''anneau', 1972, 'leSeigneurDesAnneaux1.png', NULL, 2, 1, '1 Livre roman', '', 6, 8, 0),
-	(2,  'Les deux tours', 1992, '2.jpg', NULL, 2, 1, '2 Livre roman', '', 6, 8, 0),
-	(3,  'Le retour du Roi', 1994, '', NULL, 2, 1, '3 Livre roman', '', 6, 8, 0),
-	(4,  'Indiana Jones et la Dernière Croisade', 1987, '', NULL, 1, 1, '1 VHS', '', 7, 3, 0),
-	(5,  'Indiana Jones et le Temple maudit', 1990, '', NULL, 1, 1, '2 VHS', 'Film extraordinaire', 7, 3, 0),
-	(13, '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 9, 4, NULL, '3t3d', NULL, 10, 5, 0),
-	(14, 'Symphonien no. 35 KV 385 Haffner, no. 36 KV 425 Linzer', 1988, NULL, 1, 3, 1, '3f22', '1 disque son. (63 min) : numérique, stéréo ; 12 cm + ', 9, 1, 0);
+	( 1, 8, 12,   'La communauté de l''anneau', 1972, 'leSeigneurDesAnneaux1.png', 2, 1, '1 Livre roman', '', 6, 0),
+	( 2, 8, 12,   'Les deux tours', 1992, '2.jpg', 2, 1, '2 Livre roman', '', 6, 0),
+	( 3, 8, 12,   'Le retour du Roi', 1994, '', 2, 1, '3 Livre roman', '', 6, 0),
+	( 4, 3, NULL, 'Indiana Jones et la Dernière Croisade', 1987, '', 1, 1, '1 VHS', '', 7, 0),
+	( 5, 3, NULL, 'Indiana Jones et le Temple maudit', 1990, '', 1, 1, '2 VHS', 'Film extraordinaire', 7, 0),
+	(13, 5, 9,    '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 4, NULL, '3t3d', NULL, 10, 0),
+	(14, 1, 1,    'Symphonien no. 35 KV 385 Haffner, no. 36 KV 425 Linzer', 1988, NULL, 3, 1, '3f22', '1 disque son. (63 min) : numérique, stéréo ; 12 cm + ', 9, 0);
 
 INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, genreID, maison_editionID, inactif, titre, image)
 VALUES
@@ -415,15 +416,15 @@ VALUES
 
 INSERT INTO pieces(ID, exID, position_media, duree, titre)
 VALUES
-	( 1 ,  3,  1, '00:04:45', 'Droit devant'),
-	( 2 ,  3,  2, '00:02:12', 'Chêne et roseau'),
-	( 3 ,  3,  3, '00:03:32', 'Entre deux taxis'),
-	( 4 ,  3,  4, '00:03:03', 'La Catherine'),
-	( 5 ,  3,  5, '00:03:09', 'Histoire de pêche'),
-	( 6 ,  3,  6, '00:03:37', 'Bobo'),
-	( 7 ,  3,  7, '00:02:50', 'Rue des souvenirs'),
-	( 8 ,  3,  8, '00:03:54', 'Monsieur'),
-	( 9 ,  3,  9, '00:04:32', 'La tête haute'),
+	(  1,  3,  1, '00:04:45', 'Droit devant'),
+	(  2,  3,  2, '00:02:12', 'Chêne et roseau'),
+	(  3,  3,  3, '00:03:32', 'Entre deux taxis'),
+	(  4,  3,  4, '00:03:03', 'La Catherine'),
+	(  5,  3,  5, '00:03:09', 'Histoire de pêche'),
+	(  6,  3,  6, '00:03:37', 'Bobo'),
+	(  7,  3,  7, '00:02:50', 'Rue des souvenirs'),
+	(  8,  3,  8, '00:03:54', 'Monsieur'),
+	(  9,  3,  9, '00:04:32', 'La tête haute'),
 	( 10,  3, 10, '00:04:33', 'Les hirondelles'),
 	( 11,  3, 11, '00:03:54', 'Tant qu''on aura de l''amour'),
 	( 12,  3, 12, '00:03:29', 'La bonne pomme'),
@@ -558,35 +559,35 @@ VALUES
 	(4, 13, NULL, NULL, NULL);
 
 INSERT INTO details_imprimes (ID, exID, titre, position_media, catalogueID, genreID) VALUES
-(1, 4, 'Qu''il est difficile d''aimer', 1, NULL, NULL),
-(2, 4, 'Pendant que', 2, NULL, NULL),
-(3, 4, 'Quand les bateaux s''en vont', 3, NULL, NULL),
-(5, 4, 'J''ai pour toi un lac', 4, NULL, NULL),
-(6, 4, 'Quand vous mourrez de nos amours', 5, NULL, NULL),
-(7, 4, 'J''ai planté un chêne', 7, NULL, NULL),
-(8, 4, 'Ma jeunesse', 8, NULL, NULL),
-(9, 4, 'Tombée la nuit', 9, NULL, NULL),
-(10, 4, 'Il n''y a pas de bout du monde', 10, NULL, NULL),
-(11, 4, 'Le grand cerf-volant', 11, NULL, NULL),
-(12, 4, 'L''horloge', 12, NULL, NULL),
-(13, 4, 'La vieille école', 13, NULL, NULL),
-(14, 4, 'Si les bateaux', 14, NULL, NULL),
-(15, 4, 'Mon pays', 15, NULL, NULL),
-(16, 4, 'Printemps vient de vous', 16, NULL, NULL),
-(17, 4, 'Avec nos yeux', 17, NULL, NULL),
-(18, 4, 'Tante Irène', 18, NULL, NULL),
-(19, 4, 'Le rendez-vous', 19, NULL, NULL),
-(20, 4, 'L''escalier du temps', 20, NULL, NULL),
-(21, 4, 'L''hiver', 21, NULL, NULL),
-(22, 4, 'Laurelou', 22, NULL, NULL);
+	(1, 4, 'Qu''il est difficile d''aimer', 1, NULL, NULL),
+	(2, 4, 'Pendant que', 2, NULL, NULL),
+	(3, 4, 'Quand les bateaux s''en vont', 3, NULL, NULL),
+	(5, 4, 'J''ai pour toi un lac', 4, NULL, NULL),
+	(6, 4, 'Quand vous mourrez de nos amours', 5, NULL, NULL),
+	(7, 4, 'J''ai planté un chêne', 7, NULL, NULL),
+	(8, 4, 'Ma jeunesse', 8, NULL, NULL),
+	(9, 4, 'Tombée la nuit', 9, NULL, NULL),
+	(10, 4, 'Il n''y a pas de bout du monde', 10, NULL, NULL),
+	(11, 4, 'Le grand cerf-volant', 11, NULL, NULL),
+	(12, 4, 'L''horloge', 12, NULL, NULL),
+	(13, 4, 'La vieille école', 13, NULL, NULL),
+	(14, 4, 'Si les bateaux', 14, NULL, NULL),
+	(15, 4, 'Mon pays', 15, NULL, NULL),
+	(16, 4, 'Printemps vient de vous', 16, NULL, NULL),
+	(17, 4, 'Avec nos yeux', 17, NULL, NULL),
+	(18, 4, 'Tante Irène', 18, NULL, NULL),
+	(19, 4, 'Le rendez-vous', 19, NULL, NULL),
+	(20, 4, 'L''escalier du temps', 20, NULL, NULL),
+	(21, 4, 'L''hiver', 21, NULL, NULL),
+	(22, 4, 'Laurelou', 22, NULL, NULL);
 
 INSERT INTO utilisateurs (ID, matricule, nom, prenom, telephone, courriel, inactif)
 VALUES
 	(1, 834612, 'Boudreault', 'Émile', '8192323232', 'findumonde@gmail.com', TRUE),
 	(2, 974364, 'Borduas', 'Paul-Émile', '8192324433', 'borduas@gmail.com', TRUE);
-	
-INSERT INTO emprunts (ID, utilisteurID, date_reservation, date_voulue, date_emprunt, duree, date_retour, mediaID) 
-VALUES 
+
+INSERT INTO emprunts (ID, utilisateurID, date_reservation, date_voulue, date_emprunt, duree, date_retour, mediaID)
+VALUES
 	(1, 1, '2010-01-01', '2010-02-01', '', '15', '', 1),
 	(2, 1, '2010-01-01', '2010-05-05', '', '15', '', 2),
 	(3, 1, '', '', '2010-01-05', '15', '', 3),

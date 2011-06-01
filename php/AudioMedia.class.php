@@ -37,7 +37,8 @@ class AudioMedia extends Media
 				categories_media.image AS imageCategorieMedia, 
 				nationalites.nom AS nationalite, 
 				collections.nom AS collection, 
-				genres.nom AS genre 
+				genres.nom AS genre, 
+				artistes.nom AS artiste 
 			FROM medias 
 				INNER JOIN audios_videos ON audios_videos.exID = medias.ID 
 				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID 
@@ -46,6 +47,7 @@ class AudioMedia extends Media
 				LEFT JOIN nationalites ON nationalites.ID = audios_videos.nationaliteID 
 				LEFT JOIN collections ON collections.ID = audios_videos.collectionID 
 				LEFT JOIN genres ON medias.genreID = genres.ID 
+				LEFT JOIN artistes ON medias.artisteID = artistes.ID 
 			WHERE medias.ID = ?');
 		$query->execute(array($id));
 		$row = $query->fetch();

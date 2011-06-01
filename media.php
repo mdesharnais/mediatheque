@@ -45,6 +45,7 @@
 							<img src="<?php echo $media->getImage(); ?>">
 							</aside>
 							<div class="detailsLevel1">
+								<p><?php $media->printArtistField(); ?></p>
 								<p><?php $media->printTitleField(); ?></p>
 								<p><?php $media->printPublicationYearField(); ?></p>
 								<p><?php $media->printReferenceNumberField(); ?></p>

@@ -11,6 +11,7 @@ abstract class Media
 	const READ_WRITE = 2;
 
 	protected $ID;
+	protected $artist;
 	protected $title;
 	protected $publicationYear;
 	protected $genre;
@@ -32,6 +33,7 @@ abstract class Media
 		if($row != null)
 		{
 			$this->ID = $row['ID'];
+			$this->artist = stripslashes($row['artiste']);
 			$this->title = stripslashes($row['titre']);
 			$this->publicationYear = $row['annee_publication'];
 			$this->genre = $row['genre'];
@@ -55,7 +57,13 @@ abstract class Media
 		return $this->ID;
 	}
 
-	public function getTitle() {
+	public function getArtist()
+	{
+		return $this->artist;
+	}
+
+	public function getTitle()
+	{
 		return $this->title;
 	}
 
@@ -151,6 +159,33 @@ abstract class Media
 	//////////////////////////////////////////////////
 	// Methods(s)
 	//////////////////////////////////////////////////
+
+	public function printArtistField()
+	{
+		global $application;
+		echo '<label for="artiste">Artiste</label>';
+
+		if($this->readOnly)
+		{
+			echo '<span>'.$this->getArtist().'</span>';
+		}
+		else
+		{
+			$query = $application->database->prepare('SELECT ID, nom FROM artistes WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC');
+			$query->execute(array($this->getArtist()));
+
+			echo '<select id="artisteID" name="artisteID">';
+			echo '<option value="0"></option>';
+			foreach($query as $row)
+			{
+				if($row['nom'] == $this->getArtist())
+					echo '<option value="'.$row['ID'].'" selected>'.$row['nom'].'</option>';
+				else
+					echo '<option value="'.$row['ID'].'">'.$row['nom'].'</option>';
+			}
+			echo '</select>';
+		}
+	}
 
 	public function printTitleField()
 	{
