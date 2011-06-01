@@ -37,6 +37,7 @@ border-bottom-style:solid;
 border-bottom-width:2px;
 border-collapse:collapse;
 border-color:gray;
+padding-bottom:1em;
 }
 
 #resultTable
@@ -52,25 +53,23 @@ margin-right: 10px;
 float:left;
 }
 
-td.mediaPicture
-{
-width:100px;
-}
-td.mediaInformations
-{
-padding-top:30px;
-
-}
 
 img.resultPicture
 {
 padding:0px;
-width:100px;
+width:150px;
+margin-left:auto;
+margin-right:auto;
 padding-bottom:10px;
+display:block;
 }
+
 img.mediaTypePicture
 {
 width:100px;
+margin-left:auto;
+margin-right:auto;
+display:block;
 }
 #mediaTableResult
 {
@@ -88,6 +87,10 @@ tr.mediaRowResult td p:last-child
 margin-bottom:1em;
 }
 
+tr.mediaRowResult td:first-child
+{
+width:20%;
+}
 
 tr.mediaRowResult
 {

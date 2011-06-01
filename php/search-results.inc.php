@@ -73,6 +73,17 @@ function createFromWhereClause($criterias)
 			WHERE Upper(medias.titre) = Upper('.$titre.')
 			';
 		break;
+	case 6:
+		$titre = $application->database->quote("%Indiana Jones%");
+		$sqlFromWhere = ' FROM medias 
+				LEFT JOIN artistes ON artistes.ID = medias.artisteID
+				INNER JOIN supports ON medias.supportID = supports.ID
+				INNER JOIN categories_media ON supports.categorie_mediaID = categories_media.ID
+				LEFT JOIN genres ON genres.ID = medias.genreID
+				LEFT JOIN maisons_edition ON maisons_edition.ID = medias.maison_editionID
+			WHERE Upper(medias.titre) like Upper('.$titre.')
+			';
+		break;
 	}
 return $basicQuery.$sqlFromWhere;
 }
@@ -217,15 +228,18 @@ function printSearchRequest($sqlQuery,Pagination $pagination)
 		    $requestText= "Tous les médias";
 		    break;
 		case 2:
-		    $requestText= "Tous les médias audio";
+		    $requestText= "Tous les médias de catégorie «audio»";
 		    break;
 		case 3:
-		    $requestText= "Tous les médias audio de l'artiste cowboys fringuants";
+		    $requestText= "Tous les médias audio de l'artiste «Les cowboys fringuants»";
 	    case 4:
-	    $requestText= "Tous les médias audio de l'artiste cowboys fringuants dont l'année de publication est 2008";
+	    $requestText= "Tous les médias audio de l'artiste «Les cowboys fringuants» dont l'année de publication est «2008»";
 	    	break;
 	    case 5:
-	    $requestText= "Les médias ayant pour titre: La communauté de l'anneau";
+	    $requestText= "Les médias ayant pour titre: «La communauté de l'anneau»";
+	    	break;
+	    case 6:
+	    $requestText= "Les médias ayant le mot clé: «Indiana Jones»";
 	    	break;
 	}
 

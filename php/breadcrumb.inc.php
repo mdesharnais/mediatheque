@@ -5,82 +5,209 @@ function printBreadCrumb($sqlQuery)
 {
 	//pour la présentation seulement
 	global $presentationID;
+	global $application;
 	$sqlQuery = $presentationID;
 	//fin de pour la présentation seulement
 	
+
+	$vraiRequete = createFromWhereClause($sqlQuery);
+		
+	$posFrom = strpos($vraiRequete,'FROM');
+	$clauseFromWhere = substr($vraiRequete, $posFrom ,strlen($vraiRequete)-$posWhere);
+
+	//supprime la clause order by
+	$posOrderBy = strpos($clauseFromWhere,'ORDER BY');
+	if ($posOrderBy)
+		$clauseFromWhere = substr($clauseFromWhere, 0,$posOrderBy);
+		
 	switch ($sqlQuery)
 	{
 	case 1:
-		echo '
-				<h4>Catégorie</h4>
-				<ul>
-					<li><a href="?presentation=2">Médias audios*</a></li>
-					<li><a href="#">Médias vidéos</a></li>
-					<li><a href="#">Médias imprimés</a></li>
-				</ul>
-				<h4>Artiste</h4>
-				<ul>
-					<li><a href="#">Les cowboys fringuants</a></li>
-					<li><a href="#">Wolgang Amadeus Mozart</a></li>
-				</ul>
-				<h4>Genres</h4>
-				<ul>
-					<li><a href="#">Folk</a></li>
-					<li><a href="#">Musique Classique</a></li>
-					<li><a href="#">Traditionnel</a></li>
-			
-				</ul>
-				<h4>Éditeur</h4>
-				<ul>
-					<li><a href="#">Éditions Reprises</a></li>
-					<li><a href="#">Lucasfilm</a></li>
-					<li><a href="#">La tribune</a></li>
-					<li><a href="#">Paris Pocket</a></li>
-					<li><a href="#">Deutsche Grammophon</a></li>
-				</ul>';
 	
+		echo '<h4>Catégorie</h4>';
+		echo '<ul>';
+		
+		$query = $application->database->prepare("SELECT Distinct categories_media.nom AS nomCategorie ".$clauseFromWhere.' ORDER BY categories_media.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			if ($row['nomCategorie'] == 'Audio')
+				echo '<li><a href="?presentation=2">'.$row['nomCategorie'].'*</a></li>';
+			else
+				echo '<li><a href="#">'.$row['nomCategorie'].'</a></li>';
+		
+		}
+		echo '</ul>';	
+		
+		echo '<h4>Support</h4>';
+		echo '<ul>';
+		
+		$query = $application->database->prepare("SELECT Distinct supports.nom AS nomSupport ".$clauseFromWhere.' ORDER BY supports.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomSupport'].'</a></li>';
+		
+		}
+		echo '</ul>';
+		
+		echo '<h4>Artiste</h4>';
+		echo '<ul>';
+		
+		$query = $application->database->prepare("SELECT Distinct artistes.nom AS nomArtiste ".$clauseFromWhere.' ORDER BY artistes.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomArtiste'].'</a></li>';
+		
+		}
+		echo '</ul>';	
+		
+		echo '<h4>Genre</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' ORDER BY genres.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomGenre'].'</a></li>';
+		
+		}
+		echo '</ul>';	
+						
+		echo '<h4>Année de publication</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['annee_publication'].'</a></li>';
+		
+		}
+		echo '</ul>';
+		
+		echo '<h4>Éditeur</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' ORDER BY maisons_edition.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomMaisonEdition'].'</a></li>';
+		
+		}
+		echo '</ul>';
+		
 		break;
 	case 2:
-		echo '
-				
-				<h4>Artiste</h4>
-				<ul>
-					<li><a href="?presentation=3">Les cowboys fringuants*</a></li>
-					<li><a href="#">Wolgang Amadeus Mozart</a></li>
-				</ul>
-				<h4>Genres</h4>
-				<ul>
-					<li><a href="#">Country</a></li>
-					<li><a href="#">Folk</a></li>
-					<li><a href="#">Rock alternatif</a></li>
-				</ul>
-				<h4>Année de publication</h4>
-				<ul>
-					<li><a href="#">2008</a></li>
-				</ul>';
+			
+		echo '<h4>Artiste</h4>';
+		echo '<ul>';
+		
+		$query = $application->database->prepare("SELECT Distinct artistes.nom AS nomArtiste ".$clauseFromWhere.' ORDER BY artistes.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			if ($row['nomArtiste'] == 'Les cowboys fringants')
+				echo '<li><a href="?presentation=3">'.$row['nomArtiste'].'*</a></li>';
+			else
+				echo '<li><a href="#">'.$row['nomArtiste'].'</a></li>';
+		
+		}
+		echo '</ul>';	
+		
+		echo '<h4>Genre</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' ORDER BY genres.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomGenre'].'</a></li>';
+		
+		}
+		echo '</ul>';	
+						
+		echo '<h4>Année de publication</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['annee_publication'].'</a></li>';
+		
+		}
+		echo '</ul>';
+		
+		echo '<h4>Éditeur</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' ORDER BY maisons_edition.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomMaisonEdition'].'</a></li>';
+		
+		}
+		echo '</ul>';
 				
 	
 		break;
 	case 3:
-		echo '
 			
-				<h4>Genres</h4>
-				<ul>
-					<li><a href="#">Country</a></li>
-					<li><a href="#">Folk</a></li>
-					<li><a href="#">Rock alternatif</a></li>
-				</ul>
-				<h4>Année de publication</h4>
-				<ul>
-					<li><a href="?presentation=4">2008*</a></li>
-				</ul>';
-				
+		echo '<h4>Genre</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' ORDER BY genres.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomGenre'].'</a></li>';
+		
+		}
+		echo '</ul>';	
+						
+		echo '<h4>Année de publication</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query->execute();
+		foreach($query as $row)
+		{
+			if ($row['annee_publication'] == 2008)
+				echo '<li><a href="?presentation=4">'.$row['annee_publication'].'*</a></li>';
+			else
+				echo '<li><a href="#">'.$row['annee_publication'].'</a></li>';
+		
+		}
+		echo '</ul>';
+		
+		echo '<h4>Éditeur</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' ORDER BY maisons_edition.nom');
+		$query->execute();
+		foreach($query as $row)
+		{
+			echo '<li><a href="#">'.$row['nomMaisonEdition'].'</a></li>';
+		
+		}
+		echo '</ul>';
 				
 		break;
 	case 4:
+	case 5:
 		echo '<p>Recherche raffinée au maximum</p>';
 		break;
-	
+	case 6:
+		echo '<h4>Année de publication</h4>';
+		echo '<ul>';
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query->execute();
+		foreach($query as $row)
+		{
+			if ($row['annee_publication'] == 2008)
+				echo '<li><a href="?presentation=4">'.$row['annee_publication'].'*</a></li>';
+			else
+				echo '<li><a href="#">'.$row['annee_publication'].'</a></li>';
+		
+		}
+		echo '</ul>';
+		
+		break;
 	
 	}
 	
