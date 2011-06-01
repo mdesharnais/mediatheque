@@ -37,6 +37,7 @@ border-bottom-style:solid;
 border-bottom-width:2px;
 border-collapse:collapse;
 border-color:gray;
+padding-bottom:1em;
 }
 
 #resultTable
@@ -52,15 +53,6 @@ margin-right: 10px;
 float:left;
 }
 
-td.mediaPicture
-{
-width:100px;
-}
-td.mediaInformations
-{
-padding-top:30px;
-
-}
 
 img.resultPicture
 {
