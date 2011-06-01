@@ -584,3 +584,11 @@ INSERT INTO utilisateurs (ID, matricule, nom, prenom, telephone, courriel, inact
 VALUES
 	(1, 834612, 'Boudreault', 'Émile', '8192323232', 'findumonde@gmail.com', TRUE),
 	(2, 974364, 'Borduas', 'Paul-Émile', '8192324433', 'borduas@gmail.com', TRUE);
+	
+INSERT INTO emprunts (ID, utilisteurID, date_reservation, date_voulue, date_emprunt, duree, date_retour, mediaID) 
+VALUES 
+	(1, 1, '2010-01-01', '2010-02-01', '', '15', '', 1),
+	(2, 1, '2010-01-01', '2010-05-05', '', '15', '', 2),
+	(3, 1, '', '', '2010-01-05', '15', '', 3),
+	(4, 1, '', '', '2010-01-06', '15', '', 4),
+	(5, 1, '', '', '2010-01-04', '15', '2010-10-05', 5);
