@@ -21,7 +21,7 @@
 				}
 				else
 				{
-					echo '<h1>Emprunts en cours</h1>';
+					echo '<h1>Mes emprunts en cours</h1>';
 					$query = $application->database->prepare('
 						SELECT medias.ID, 
 							medias.titre, 
@@ -29,8 +29,7 @@
 							emprunts.duree 
 						FROM medias 
 							INNER JOIN emprunts ON medias.ID = emprunts.mediaID 
-							INNER JOIN utilisateurs ON emprunts.utilisateurID = utilisateurs.ID 
-						WHERE utilisateurs.ID = ? AND emprunts.date_retour IS NULL AND emprunts.date_emprunt IS NOT NULL');
+						WHERE emprunts.utilisateurID = ? AND emprunts.date_retour IS NULL AND emprunts.date_emprunt IS NOT NULL');
 
 					$query->execute(array($application->currentUser->getID()));
 

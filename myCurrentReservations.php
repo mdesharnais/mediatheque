@@ -17,7 +17,7 @@
 				if($application->currentUser->isVisitor())
 				{
 					echo '<h1>Erreur</h1>';
-					echo '<p>Vous devez être connectés pour consulter vos emprunts en cours.<p>';
+					echo '<p>Vous devez être connectés pour consulter vos réservations.<p>';
 				}
 				else
 				{
