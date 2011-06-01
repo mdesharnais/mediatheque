@@ -323,7 +323,8 @@ VALUES
 	(10, 'Éditions Reprises', FALSE),
 	(11, 'La tribune', FALSE),
 	(12, 'Tacca Musique', FALSE),
-	(13, 'Barclay', FALSE);
+	(13, 'Barclay', FALSE),
+	(14, 'Éditeur indépendant', FALSE);
 
 INSERT INTO categories_media(ID, nom, image)
 VALUES
@@ -387,7 +388,7 @@ VALUES
 	(9,  1,  8, 2002, 'CD-C00004', 6,    11, FALSE, 'Break syndical',              NULL),
 	(10, 1,  8, 2000, 'CD-C00005', 5,    11, FALSE, 'Motel capri',                 NULL),
 	(11, 1,  8, 1998, 'CD-C00006', 6,    11, FALSE, 'Sur mon canapé',              NULL),
-	(12, 1,  8, 1997, 'CD-C00007', 7,    11, FALSE, '12 grandes chansons',         NULL),
+	(12, 1,  8, 1997, 'CD-C00007', 7,    14, FALSE, '12 grandes chansons',         NULL),
 	(15, 1, 10, 2005, 'CD-C00008', 8,    12, FALSE, 'Avale ta montre',             'avaleTaMontre.jpg'),
 	(16, 1, 11, 1988, 'CD-C00009', NULL, 13, FALSE, 'Brel en public : Olympia 61', 'brelEnPublic-Olympia61.jpg');
 
