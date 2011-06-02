@@ -1,5 +1,6 @@
-\documentclass[letter, 10pt]{report}
+\documentclass[letter, 10pt, draft]{report}
 
+\usepackage{fullpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel} 
@@ -10,6 +11,7 @@
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{listings}
 \usepackage{hyperref} %pour un fichier PDF  interactif
+\usepackage[final]{pdfpages}
 
 \pdfcompresslevel=9
 
@@ -114,30 +116,30 @@ Vert : Contenu
 \begin{center}
 	\begin{tabular}{|l|l|l|}
 	\hline
-	Element & Code & Apercu \\ \hline
-	Header & --- & --- \\ \hline
-	background & #000000 & Image ici \\ \hline
-	h1 & #FFFFFF & Image ici \\ \hline
-	nav & #FFFFFF & Image ici \\ \hline
-	ul & #FFFFFF & Image ici \\ \hline
-	li & #FFFFFF & Image ici \\ \hline
-	a & #FFFFFF & Image ici \\ \hline
-	h1:hover & #FFFFFF & Image ici \\ \hline
-	nav:hover & #FFFFFF & Image ici \\ \hline
-	ul:hover & #FFFFFF & Image ici \\ \hline
-	li:hover & #FFFFFF & Image ici \\ \hline
-	a:hover & #FFFFFF & Image ici \\ \hline
-	h1:focus & #FFFFFF & Image ici \\ \hline
-	nav:focus & #FFFFFF & Image ici \\ \hline
-	ul:focus & #FFFFFF & Image ici \\ \hline
-	li:focus & #FFFFFF & Image ici \\ \hline
-	a:focus & #FFFFFF & Image ici \\ \hline
-	Footer & --- & --- \\ \hline
-	background & #000000 & Image ici \\ \hline
-	nav & #FFFFFF & Image ici \\ \hline
-	ul & #FFFFFF & Image ici \\ \hline
-	li & #FFFFFF & Image ici \\ \hline
-	a & #FFFFFF & Image ici \\ \hline
+	Element    & Code     & Apercu \\ \hline
+	Header     & ---      & --- \\ \hline
+	background & \#000000 & Image ici \\ \hline
+	h1         & \#FFFFFF & Image ici \\ \hline
+	nav        & \#FFFFFF & Image ici \\ \hline
+	ul         & \#FFFFFF & Image ici \\ \hline
+	li         & \#FFFFFF & Image ici \\ \hline
+	a          & \#FFFFFF & Image ici \\ \hline
+	h1:hover   & \#FFFFFF & Image ici \\ \hline
+	nav:hover  & \#FFFFFF & Image ici \\ \hline
+	ul:hover   & \#FFFFFF & Image ici \\ \hline
+	li:hover   & \#FFFFFF & Image ici \\ \hline
+	a:hover    & \#FFFFFF & Image ici \\ \hline
+	h1:focus   & \#FFFFFF & Image ici \\ \hline
+	nav:focus  & \#FFFFFF & Image ici \\ \hline
+	ul:focus   & \#FFFFFF & Image ici \\ \hline
+	li:focus   & \#FFFFFF & Image ici \\ \hline
+	a:focus    & \#FFFFFF & Image ici \\ \hline
+	Footer     & --- & --- \\ \hline
+	background & \#000000 & Image ici \\ \hline
+	nav        & \#FFFFFF & Image ici \\ \hline
+	ul         & \#FFFFFF & Image ici \\ \hline
+	li         & \#FFFFFF & Image ici \\ \hline
+	a          & \#FFFFFF & Image ici \\ \hline
 	\hline
 	\end{tabular}
 \end{center}
@@ -192,7 +194,7 @@ A generer a l'aide de visio ou a la main
 
 \section{Modèle des pages principales et secondaires}
 \section{Diagramme d'enchaînement}
-\includegraphics[scale=0.5]{diagrammeEnchainement.png}
+\includegraphics[scale=0.3]{diagrammeEnchainement.png}
 
 \section{Diagramme de classe}
 
@@ -200,7 +202,7 @@ Voir l'API du système fournis avec le document.
 
 \section{Base de données et dictionnaire}
 
-Voir tableau en annexe
+Voir le tableau en annexe.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Architecture technologique}
@@ -274,97 +276,113 @@ La gestion des droits fait appel au «~bit~bashing~», une technique qui consist
 
 et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table droits\_groupes contiendrait quelque chose comme ceci~:
 
-\begin{tabular}{|c|l|l|}
-	\hline
-	\multicolumn{3}{|c|}{groupes} \\
-	\hline
-	ID & nom & inactif \\
-	\hline
-	1  & A   & FALSE \\
-	2  & B   & FALSE \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\caption{groupes}
+	\begin{center}
+		\begin{tabular}{|c|l|l|}
+			\hline
+			ID & nom & inactif \\
+			\hline
+			1  & A   & FALSE \\
+			2  & B   & FALSE \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
-\qquad
-
-\begin{tabular}{|c|l|c|l|}
-	\hline
-	\multicolumn{4}{|c|}{droits\_groupes} \\
-	\hline
-	ID & section                 & groupeID & droits \\
-	\hline
-	1  & administration          & 1        & 0011 \\
-	2  & Renouveller un document & 1        & 0100 \\
-	3  & Renouveller un document & 2        & 0100 \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\caption{droits\_groupes}
+	\begin{center}
+		\begin{tabular}{|c|l|c|l|}
+			\hline
+			ID & section                 & groupeID & droits \\
+			\hline
+			1  & administration          & 1        & 0011 \\
+			2  & Renouveller un document & 1        & 0100 \\
+			3  & Renouveller un document & 2        & 0100 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 Dans cet exemple, nous pouvons voir que le groupe A dispose des droits de lecture et d'écriture ($ 0001 + 0010 = 0011 $) sur la section «~administration~» et qu'il a le droit de renouveler des documents puisqu'il a le droit d'exécution (0100) sur «~extendLoan~».
 
 Le groupe B, tant qu'à lui, ne dispose que du droit de renouveler des documents. En effet, si aucune entrée ne correspond à un groupe pour une section données, il est assumé que ledit groupe n'a aucun droit sur cette section. Le fait de ne créer aucun enregistrement est strictement équivalent au fait de créer un enregistrement contenant les droits (0000).
 
-\begin{tabular}{|c|l|l|l|l|}
-	\hline
-	\multicolumn{5}{|c|}{utilisateurs} \\
-	\hline
-	ID & matricule & nom         & prenom   & inactif \\
-	\hline
-	1  & 11111111  & Baggins     & Frodo    & FALSE \\
-	2  & 22222222  & Gamgee      & Samwise  & FALSE \\
-	3  & 33333333  & Brandybuck  & Meriadoc & TRUE \\
-	4  & 44444444  & Took        & Peregrin & FALSE \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\caption{utilisateurs}
+	\begin{center}
+		\begin{tabular}{|c|l|l|l|l|}
+			\hline
+			ID & matricule & nom         & prenom   & inactif \\
+			\hline
+			1  & 11111111  & Baggins     & Frodo    & FALSE \\
+			2  & 22222222  & Gamgee      & Samwise  & FALSE \\
+			3  & 33333333  & Brandybuck  & Meriadoc & TRUE \\
+			4  & 44444444  & Took        & Peregrin & FALSE \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
-\begin{tabular}{|c|l|l|}
-	\hline
-	\multicolumn{3}{|c|}{groupes} \\
-	\hline
-	ID & nom               & inactif \\
-	\hline
-	1  & Administrateurs   & FALSE \\
-	2  & Enseignants       & FALSE \\
-	3  & Commis            & FALSE \\
-	4  & Étudiants         & FALSE \\
-	5  & Prêtre            & TRUE \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\caption{groupes}
+	\begin{center}
+		\begin{tabular}{|c|l|l|}
+			\hline
+			ID & nom               & inactif \\
+			\hline
+			1  & Administrateurs   & FALSE \\
+			2  & Enseignants       & FALSE \\
+			3  & Commis            & FALSE \\
+			4  & Étudiants         & FALSE \\
+			5  & Prêtre            & TRUE \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
-\begin{tabular}{|c|c|c|}
-	\hline
-	\multicolumn{3}{|c|}{groupes\_utilisateurs} \\
-	\hline
-	ID & exID & groupeID \\
-	\hline
-	1  & 1    & 1 \\
-	2  & 2    & 4 \\
-	3  & 2    & 3 \\
-	4  & 3    & 4 \\
-	5  & 4    & 2 \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\caption{groupes\_utilisateurs}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			ID & exID & groupeID \\
+			\hline
+			1  & 1    & 1 \\
+			2  & 2    & 4 \\
+			3  & 2    & 3 \\
+			4  & 3    & 4 \\
+			5  & 4    & 2 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
-\begin{tabular}{|c|l|c|c|}
-	\hline
-	\multicolumn{4}{|c|}{droits\_groupes} \\
-	\hline
-	ID & section                & groupeID & droits \\
-	\hline
-	1  & drivingTable.php       & 1        & 0011 \\
-	2  & drivingTable.php       & 2        & 0001 \\
-	3  & drivingTable.php       & 3        & 0001 \\
-	4  & drivingTable.php       & 5        & 0001 \\
-	5  & Renouveler un document & 1        & 0100 \\
-	6  & Renouveler un document & 2        & 0100 \\
-	7  & Renouveler un document & 3        & 0100 \\
-	8  & Renouveler un document & 4        & 0100 \\
-	9  & Renouveler un document & 5        & 0100 \\
-	10 & Emprunter un document  & 1        & 0100 \\
-	11 & Emprunter un document  & 2        & 0100 \\
-	12 & Emprunter un document  & 3        & 0100 \\
-	13 & Emprunter un document  & 5        & 0100 \\
-	\hline
-\end{tabular}
+\begin{table}[h!]
+	\caption{droits\_groupes}
+	\begin{center}
+		\begin{tabular}{|c|l|c|c|}
+			\hline
+			ID & section                & groupeID & droits \\
+			\hline
+			1  & drivingTable.php       & 1        & 0011 \\
+			2  & drivingTable.php       & 2        & 0001 \\
+			3  & drivingTable.php       & 3        & 0001 \\
+			4  & drivingTable.php       & 5        & 0001 \\
+			5  & Renouveler un document & 1        & 0100 \\
+			6  & Renouveler un document & 2        & 0100 \\
+			7  & Renouveler un document & 3        & 0100 \\
+			8  & Renouveler un document & 4        & 0100 \\
+			9  & Renouveler un document & 5        & 0100 \\
+			10 & Emprunter un document  & 1        & 0100 \\
+			11 & Emprunter un document  & 2        & 0100 \\
+			12 & Emprunter un document  & 3        & 0100 \\
+			13 & Emprunter un document  & 5        & 0100 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 L'exemple précédant couvre la plupart des situations qui peuvent survenir.
 
@@ -442,5 +460,11 @@ Cette façon de gérer les droits des utilisateurs offre de nombreux aventages~:
 \chapter{Prototype fonctionnel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{document}
+\appendix
 
+\chapter{Dictionnaire de données}
+\includepdf[pages=-]{dataDictionary.pdf}
+
+\listoftables
+
+\end{document}
