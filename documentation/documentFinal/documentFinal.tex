@@ -1,4 +1,4 @@
-\documentclass[letter, 10pt, draft]{report}
+\documentclass[letter, 10pt]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -101,15 +101,28 @@ Dans la recherche avancée, il est aussi possible d'ajouter autant de critères 
 
 \subsection{Maquette}
 
-\includegraphics[scale=0.5]{primaryWindow.png}
-\includegraphics[scale=0.5]{secondaryWindow.png}
+Toutes les pages sont construites sur la base du modèle suivant :
+\newline
+\includegraphics[scale=0.6]{maquetteImage.png}
+\newline
+1 : Bandeau\newline
+2: Fil d'Ariane verticale (n'apparait cependant que dans l'affichage des résultats de recherche)\newline
+3: Contenu de la page\newline
+4: Pied de page\newline
+\includegraphics[scale=0.3]{pageType.png}
 
-Rouge : En-tête
-Orange : Pied de page
-Bleu : Fil d'Arianne
-Vert : Contenu
+\subsubsection{Bandeau}
+
+Le bandeau est constitué des éléments suivant:
+\begin{description}
+	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site. Par contre, ce n'est pas une image mais bien un mot mise en forme en css. Ce sigle permet de revenir sur la page d'accueil (en haut à gauche).
+	\item[Menus déroulants]À la droite du sigle se retrouve le menu principal incluant des menus déroulants permettant de se déplacer dans les sections du site
+	\item[Champ de recherche simple] Le champ texte accompagné du bouton «~Rechercher~» permet d'effectuer une recherche simple avec un mot clé.
+\end{description}
+
 
 \subsection{Charte graphique}
+
 
 \subsubsection{Couleurs}
 
@@ -206,6 +219,8 @@ A generer a l'aide de visio ou a la main
 \end{table}
 
 \section{Modèle des pages principales et secondaires}
+
+
 \section{Diagramme d'enchaînement}
 \includegraphics[scale=0.3]{diagrammeEnchainement.png}
 
