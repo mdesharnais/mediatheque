@@ -12,6 +12,7 @@
 \usepackage{listings}
 \usepackage{hyperref} %pour un fichier PDF  interactif
 \usepackage[final]{pdfpages}
+\usepackage[table]{xcolor}
 
 \pdfcompresslevel=9
 
@@ -118,39 +119,52 @@ Vert : Contenu
 	\begin{center}
 		\begin{tabular}{|l|l|l|}
 		\hline
-		Element    & Code     & Apercu \\ \hline
-		Header     & ---      & --- \\ \hline
-		background & \#000000 & Image ici \\ \hline
-		h1         & \#FFFFFF & Image ici \\ \hline
-		nav        & \#FFFFFF & Image ici \\ \hline
-		ul         & \#FFFFFF & Image ici \\ \hline
-		li         & \#FFFFFF & Image ici \\ \hline
-		a          & \#FFFFFF & Image ici \\ \hline
-		h1:hover   & \#FFFFFF & Image ici \\ \hline
-		nav:hover  & \#FFFFFF & Image ici \\ \hline
-		ul:hover   & \#FFFFFF & Image ici \\ \hline
-		li:hover   & \#FFFFFF & Image ici \\ \hline
-		a:hover    & \#FFFFFF & Image ici \\ \hline
-		h1:focus   & \#FFFFFF & Image ici \\ \hline
-		nav:focus  & \#FFFFFF & Image ici \\ \hline
-		ul:focus   & \#FFFFFF & Image ici \\ \hline
-		li:focus   & \#FFFFFF & Image ici \\ \hline
-		a:focus    & \#FFFFFF & Image ici \\ \hline
-		Footer     & --- & --- \\ \hline
-		background & \#000000 & Image ici \\ \hline
-		nav        & \#FFFFFF & Image ici \\ \hline
-		ul         & \#FFFFFF & Image ici \\ \hline
-		li         & \#FFFFFF & Image ici \\ \hline
-		a          & \#FFFFFF & Image ici \\ \hline
-		Content	   & --- & --- \\ \hline
-		background & \#FFFFFF & Image ici \\ \hline
-		pagination & & \\ \hline
-		background & \#DBD9D9 & Image ici \\ \hline
-		border & \#C1C1C1 & Image ici \\ \hline
-		recherche & & \\ \hline
-		a & \#007fae & Image ici \\ \hline
-		resultat recherche & & \\ \hline
-		a & \#DBD9D9 & Image ici \\ \hline
+		Element    					& Code     & Apercu \\ \hline
+		\multicolumn{3}{|c|}{Header} \\ \hline
+		background 					& \#000000 & \cellcolor[HTML]{000000} \\ \hline
+		h1         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav        					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a          					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		h1:hover   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav:hover  					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul:hover   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li:hover   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a:hover    					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		h1:focus   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav:focus  					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul:focus   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li:focus   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a:focus    					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		\multicolumn{3}{|c|}{Footer} \\ \hline
+		background 					& \#000000 & \cellcolor[HTML]{000000} \\ \hline
+		nav        					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a          					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		\multicolumn{3}{|c|}{Content} \\ \hline
+		background 					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a							& \#C52100 & \cellcolor[HTML]{C52100} \\ \hline
+		\multicolumn{3}{|l|}{Pagination} \\ \hline
+		background 					& \#DBD9D9 & \cellcolor[HTML]{DBD9D9} \\ \hline
+		border 	   					& \#C1C1C1 & \cellcolor[HTML]{C1C1C1} \\ \hline
+		\multicolumn{3}{|l|}{Résultat recherche} \\ \hline
+		a:background 				& \#DBD9D9 & \cellcolor[HTML]{DBD9D9} \\ \hline
+		a:border   					& \#C1C1C1 & \cellcolor[HTML]{C1C1C1} \\ \hline
+		tr:border  					& \#C0C0C0 & \cellcolor[HTML]{C0C0C0} \\ \hline
+		\multicolumn{3}{|l|}{Médias} \\ \hline
+		textarea:border 			& \#C0C0C0 & \cellcolor[HTML]{C0C0C0} \\ \hline
+		\multicolumn{3}{|l|}{Style} \\ \hline
+		background 					& \#E3E3E3 & \cellcolor[HTML]{E3E3E3} \\ \hline
+		h1 							& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a:focus 					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav > ul a:focus 			& \#EEEEEE & \cellcolor[HTML]{EEEEEE} \\ \hline
+		nav > ul a:hover 			& \#EEEEEE & \cellcolor[HTML]{EEEEEE} \\ \hline
+		nav > ul > li 				& \#CCCCCC & \cellcolor[HTML]{CCCCCC} \\ \hline
+		nav > ul > li:first-child 	& \#CCCCCC & \cellcolor[HTML]{CCCCCC} \\ \hline
+		nav > ul > li ul:border-top & \#CCCCCC & \cellcolor[HTML]{CCCCCC} \\ \hline
+		nav > ul > li ul:border 	& \#EEEEEE & \cellcolor[HTML]{EEEEEE} \\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}
