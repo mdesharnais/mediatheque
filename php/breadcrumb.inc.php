@@ -13,7 +13,7 @@ function printBreadCrumb($sqlQuery)
 	$vraiRequete = createFromWhereClause($sqlQuery);
 		
 	$posFrom = strpos($vraiRequete,'FROM');
-	$clauseFromWhere = substr($vraiRequete, $posFrom ,strlen($vraiRequete)-$posWhere);
+	$clauseFromWhere = substr($vraiRequete, $posFrom ,strlen($vraiRequete)-$posFrom);
 
 	//supprime la clause order by
 	$posOrderBy = strpos($clauseFromWhere,'ORDER BY');
@@ -27,7 +27,7 @@ function printBreadCrumb($sqlQuery)
 		echo '<h4>Catégorie</h4>';
 		echo '<ul>';
 		
-		$query = $application->database->prepare("SELECT Distinct categories_media.nom AS nomCategorie ".$clauseFromWhere.' ORDER BY categories_media.nom');
+		$query = $application->database->prepare("SELECT Distinct categories_media.nom AS nomCategorie ".$clauseFromWhere.' AND categories_media.nom IS NOT NULL ORDER BY categories_media.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -42,7 +42,7 @@ function printBreadCrumb($sqlQuery)
 		echo '<h4>Support</h4>';
 		echo '<ul>';
 		
-		$query = $application->database->prepare("SELECT Distinct supports.nom AS nomSupport ".$clauseFromWhere.' ORDER BY supports.nom');
+		$query = $application->database->prepare("SELECT Distinct supports.nom AS nomSupport ".$clauseFromWhere.' AND supports.nom IS NOT NULL ORDER BY supports.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -54,7 +54,7 @@ function printBreadCrumb($sqlQuery)
 		echo '<h4>Artiste</h4>';
 		echo '<ul>';
 		
-		$query = $application->database->prepare("SELECT Distinct artistes.nom AS nomArtiste ".$clauseFromWhere.' ORDER BY artistes.nom');
+		$query = $application->database->prepare("SELECT Distinct artistes.nom AS nomArtiste ".$clauseFromWhere.' AND artistes.nom IS NOT NULL ORDER BY artistes.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -65,7 +65,7 @@ function printBreadCrumb($sqlQuery)
 		
 		echo '<h4>Genre</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' ORDER BY genres.nom');
+		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' AND genres.nom IS NOT NULL ORDER BY genres.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -76,7 +76,7 @@ function printBreadCrumb($sqlQuery)
 						
 		echo '<h4>Année de publication</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' AND medias.annee_publication IS NOT NULL ORDER BY medias.annee_publication');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -87,7 +87,7 @@ function printBreadCrumb($sqlQuery)
 		
 		echo '<h4>Éditeur</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' ORDER BY maisons_edition.nom');
+		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' AND maisons_edition.nom IS NOT NULL ORDER BY maisons_edition.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -102,7 +102,7 @@ function printBreadCrumb($sqlQuery)
 		echo '<h4>Artiste</h4>';
 		echo '<ul>';
 		
-		$query = $application->database->prepare("SELECT Distinct artistes.nom AS nomArtiste ".$clauseFromWhere.' ORDER BY artistes.nom');
+		$query = $application->database->prepare("SELECT Distinct artistes.nom AS nomArtiste ".$clauseFromWhere.' AND artistes.nom IS NOT NULL ORDER BY artistes.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -116,7 +116,7 @@ function printBreadCrumb($sqlQuery)
 		
 		echo '<h4>Genre</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' ORDER BY genres.nom');
+		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' and genres.nom IS NOT NULL ORDER BY genres.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -127,7 +127,7 @@ function printBreadCrumb($sqlQuery)
 						
 		echo '<h4>Année de publication</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' AND medias.annee_publication IS NOT NULL ORDER BY medias.annee_publication');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -138,7 +138,7 @@ function printBreadCrumb($sqlQuery)
 		
 		echo '<h4>Éditeur</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' ORDER BY maisons_edition.nom');
+		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' AND maisons_edition.nom IS NOT NULL ORDER BY maisons_edition.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -153,7 +153,7 @@ function printBreadCrumb($sqlQuery)
 			
 		echo '<h4>Genre</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' ORDER BY genres.nom');
+		$query = $application->database->prepare("SELECT Distinct genres.nom AS nomGenre ".$clauseFromWhere.' AND genres.nom IS NOT NULL ORDER BY genres.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -164,7 +164,7 @@ function printBreadCrumb($sqlQuery)
 						
 		echo '<h4>Année de publication</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' AND medias.annee_publication IS NOT NULL ORDER BY medias.annee_publication');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -178,7 +178,7 @@ function printBreadCrumb($sqlQuery)
 		
 		echo '<h4>Éditeur</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' ORDER BY maisons_edition.nom');
+		$query = $application->database->prepare("SELECT Distinct maisons_edition.nom AS nomMaisonEdition ".$clauseFromWhere.' AND maisons_edition.nom IS NOT NULL  ORDER BY maisons_edition.nom');
 		$query->execute();
 		foreach($query as $row)
 		{
@@ -195,7 +195,7 @@ function printBreadCrumb($sqlQuery)
 	case 6:
 		echo '<h4>Année de publication</h4>';
 		echo '<ul>';
-		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' ORDER BY medias.annee_publication');
+		$query = $application->database->prepare("SELECT Distinct medias.annee_publication ".$clauseFromWhere.' AND medias.annee_publication IS NOT NULL ORDER BY medias.annee_publication');
 		$query->execute();
 		foreach($query as $row)
 		{
