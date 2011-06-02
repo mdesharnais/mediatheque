@@ -3,9 +3,9 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<meta name="author" content="Martin Desharnais">
+		<meta name="author" content="Marc-Andre Destrempes">
 
-		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
+		<title>Retour - Médiatech du département de musique du cégep de Trois-Rivières</title>
 
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
