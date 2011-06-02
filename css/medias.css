@@ -55,7 +55,6 @@
 
 #media textarea
 {
-	width: 35em;
 	height: 10em;
 }
 
@@ -144,4 +143,14 @@
 #media .detailsLevel2 .detailsLevel3 .rowLevel3 input
 {
 	margin: 0.1em;
+}
+
+@media (max-width:1280px)
+{
+	/*
+	#media textarea
+	{
+		width: 15em;
+	}
+	*/
 }
