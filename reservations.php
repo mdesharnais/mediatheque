@@ -8,6 +8,12 @@
 		<title><?php echo Application::APPLICATION_NAME; ?> - Réservations en cours</title>
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
+		<script src="javascript/jquery/jquery.tablesorter.min.js"></script>
+		<script>
+		$(document).ready(function() {
+			$('table').tablesorter();
+		});
+		</script>
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
@@ -47,6 +53,7 @@
 					echo '			<th>Utilisateur</th>';
 					echo '		</tr>';
 					echo '	</thead>';
+					echo '	<tbody>';
 					foreach($query as $row)
 					{
 						$dateReservation = DateTime::createFromFormat('Y-m-d', $row['date_reservation']);
@@ -60,6 +67,7 @@
 						echo '		<td><a href="#" onclick="return confirm(\'Voulez-vous vraiment supprimer cet enregistrement?\');">Supprimer</a></td>';
 						echo '	</tr>';
 					}
+					echo '	</tbody>';
 					echo '</table>';
 				}
 				?>
