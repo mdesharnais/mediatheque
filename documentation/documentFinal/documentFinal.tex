@@ -98,7 +98,11 @@ Dans la recherche avancée, il est aussi possible d'ajouter autant de critères 
 \chapter{Architecture du système}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Maquette et charte graphique}
+\section{Charte graphique}
+
+\subsection{Introduction}
+
+Le site internet se veut d'abord sobre et pratique.
 
 \subsection{Maquette}
 
@@ -116,7 +120,7 @@ Toutes les pages sont construites sur la base du modèle suivant :
 
 Le bandeau est constitué des éléments suivant:
 \begin{description}
-	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site. Par contre, ce n'est pas une image mais bien un mot mise en forme en css. Ce sigle permet de revenir sur la page d'accueil (en haut à gauche).
+	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site. Par contre, ce n'est pas une image mais bien un mot mise en forme en css. Ce sigle permet de revenir sur la page d'accueil (en haut à gauche). Le sigle du site utilise la police MegalopolisExtra-Webfont.
 	\item[Menus déroulants]À la droite du sigle se retrouve le menu principal incluant des menus déroulants permettant de se déplacer dans les sections du site. Les entrées de menu sont les suivantes:
 		\begin{itemize}
 			\item À propos
@@ -176,7 +180,7 @@ Les noms des auteurs sont affichés dans cette partie. Le pied de page contient 
 
 \subsubsection{Couleurs}
 
-\begin{table}[h!]
+\begin{table}[h]
 	\caption{couleurs}
 	\begin{center}
 		\begin{tabular}{|l|l|l|}
@@ -231,22 +235,32 @@ Les noms des auteurs sont affichés dans cette partie. Le pied de page contient 
 	\end{center}
 \end{table}
 
-\subsubsection{Typographie}
+\subsection{Typographie}
 
 \subsubsection{Police d’écriture}
 
-La police de caractère du site est Optima, Trebuchet MS, Lucida, Arial, Geneva, Verdana, Lucida Grande, Tahoma, Helvetica, sans-serif. Elle aura une grosseur de 1em. Pour le titre du site nous utiliserons la police MegalopolisExtra-Webfont.
+La police de caractère du site est Optima, Trebuchet MS, Lucida, Arial, Geneva, Verdana, Lucida Grande, Tahoma, Helvetica, sans-serif. Elle aura une grosseur de 1em.
 
 \subsubsection{Titres}
+Les titres sont de la même police de caractère que le reste du site. 
 
-Les titres sont de la même police de caractère que le reste du site.
-
-h1 : font-size : 1.9em
-h2 : font-size : 1.75em
-h3 : font-size : 1.4em
-h4 : font-size : 1.2em
-h5 : font-size : 1.15em
-h6 : font-size : 1.1em
+\begin{table}
+	\caption{Taille des polices}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			Titre & Taille \\
+			\hline
+			h1  & 1.9em\\
+			h2  & 1.75em\\
+			h3  & 1.4em\\
+			h4  & 1.2em\\
+			h5  & 1.15em\\
+			h5  & 1.1em\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \subsubsection{Majuscules-minuscules}
 
