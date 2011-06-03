@@ -146,8 +146,9 @@ CREATE TABLE IF NOT EXISTS medias (
 
 CREATE TABLE IF NOT EXISTS exemplaires_medias (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
-	mediaID int(11) COMMENT 'Média',
-	reference varchar(50) NOT NULL COMMENT 'Numéro de référence'
+	exID int(11) COMMENT 'Média',
+	reference varchar(50) NOT NULL COMMENT 'Numéro de référence',
+	FOREIGN KEY(exID) REFERENCES medias(ID) ON DELETE CASCADE,
 ) ENGINE=InnoDb COMMENT 'Médias';
 
 CREATE TABLE IF NOT EXISTS imprimes (
@@ -405,7 +406,7 @@ VALUES
 	(15, 1, 10, 2005, 8,    12, FALSE, 'Avale ta montre',             'avaleTaMontre.jpg'),
 	(16, 1, 11, 1988, NULL, 13, FALSE, 'Brel en public : Olympia 61', 'brelEnPublic-Olympia61.jpg');
 
-INSERT INTO exemplaires_medias(ID, mediaID, reference)
+INSERT INTO exemplaires_medias(ID, exID, reference)
 VALUES
 	( 1,  1, 'RO-T00009'),
 	( 2,  2, 'RO-T00010'),
