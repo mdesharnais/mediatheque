@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS exemplaires_medias (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) COMMENT 'Média',
 	reference varchar(50) NOT NULL COMMENT 'Numéro de référence',
-	FOREIGN KEY(exID) REFERENCES medias(ID) ON DELETE CASCADE,
+	FOREIGN KEY(exID) REFERENCES medias(ID) ON DELETE CASCADE
 ) ENGINE=InnoDb COMMENT 'Médias';
 
 CREATE TABLE IF NOT EXISTS imprimes (
