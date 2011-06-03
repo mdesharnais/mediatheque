@@ -63,4 +63,5 @@ Ajouter un attribut décrivant l'état d'un média
 *Possibilité de rechercher la partition correspondant à un média audio
 *Rapport de la musique classique
 *Rapport de la musique jazz
+Il y a deux rapports d'impression définis sous forme de liste qui donne une impression du catalogue des œuvres classées de la manière suivante pour la musique classique : compositeur, titre de l'oeuvre, catalogue, no de catalogue, interprètes, référence; et la manière suivante pour la musique de jazz : titre, compositeur, interprète, titre de l'album/notes, référence.
 Ajouter la table exemplaires_medias et modifier toutes les requêtes SQL qui nécessitent les informations modifiées.

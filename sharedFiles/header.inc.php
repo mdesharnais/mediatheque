@@ -48,6 +48,7 @@
 					<ul>
 						<li><a href="emprunt.php">Emprunt</a></li>
 						<li><a href="retour.php">Retour</a></li>
+						<li><a href="audioMediaReport.php">Rapports</a></li>
 						<li><a href="generateQR.php">Générer code QR</a></li>
 					</ul>
 				</li>
