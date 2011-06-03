@@ -13,9 +13,17 @@ function createFromWhereClause($criterias)
 	$presentationID = $criterias;
 	
 	$basicQuery = '
-			SELECT medias.ID, medias.notes, medias.titre, medias.annee_publication, medias.image, medias.quantite, medias.reference, artistes.nom 
-			AS nomArtiste, categories_media.nom AS nomCategorie,	categories_media.image AS imageCategorie, supports.nom AS nomSupport, maisons_edition.nom
-			AS nomMaisonEdition, genres.nom AS nomGenre';
+		SELECT medias.ID, 
+			medias.notes, 
+			medias.titre, 
+			medias.annee_publication, 
+			medias.image,
+			artistes.nom AS nomArtiste, 
+			categories_media.nom AS nomCategorie, 
+			categories_media.image AS imageCategorie, 
+			supports.nom AS nomSupport, 
+			maisons_edition.nom AS nomMaisonEdition, 
+			genres.nom AS nomGenre';
 			
 	switch ($criterias)
 	{
@@ -198,9 +206,6 @@ function printSearchResults($sqlQuery)
 			echo '</p>';
 		}
 		
-		echo '<p>';
-		echo '<span class="label">Code de référence:</span><span class="value">'.$row['reference'].'</span>';
-		echo '</p>';
 		echo '<p>';
 		echo '<span class="label">Action:</span><span class="value"><a class="reserveLink" href="makeReservation.php?id='.$row['ID'].'">Réserver</a></span>';
 		echo '</p>';

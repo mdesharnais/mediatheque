@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="author" content="Samuel Milette-Lacombe">
 
-		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
+		<title>Carcajou - Recherche avancée</title>
 
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>

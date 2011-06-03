@@ -134,8 +134,6 @@ CREATE TABLE IF NOT EXISTS medias (
 	image varchar(100) COMMENT 'Image',
 	artisteID int(11) COMMENT 'Artiste',
 	genreID int(11) COMMENT 'Genre',
-	quantite int(11) COMMENT 'Quantité',
-	reference varchar(50) NOT NULL COMMENT 'Numéro de référence',
 	notes varchar(150) COMMENT 'Notes',
 	maison_editionID int(11) COMMENT 'Maison d''édition',
 	supportID int(11) NOT NULL COMMENT 'Catégorie',
@@ -146,7 +144,12 @@ CREATE TABLE IF NOT EXISTS medias (
 	FOREIGN KEY(artisteID) REFERENCES artistes(ID)
 ) ENGINE=InnoDb COMMENT 'Médias';
 
--- INSERT INTO imprimes(ID, exID, sous_titre, collectionID, position_collection)
+CREATE TABLE IF NOT EXISTS exemplaires_medias (
+	ID int(11) PRIMARY KEY COMMENT 'ID',
+	mediaID int(11) COMMENT 'Média',
+	reference varchar(50) NOT NULL COMMENT 'Numéro de référence'
+) ENGINE=InnoDb COMMENT 'Médias';
+
 CREATE TABLE IF NOT EXISTS imprimes (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	exID int(11) NOT NULL,
@@ -287,6 +290,15 @@ CREATE TABLE IF NOT EXISTS orchestrateurs_pieces (
 	FOREIGN KEY (artisteID) REFERENCES artistes(ID)
 ) ENGINE=InnoDb COMMENT 'Orchestrateurs';
 
+CREATE TABLE IF NOT EXISTS medias_groupes (
+	ID int(11) PRIMARY KEY COMMENT 'ID',
+	exID int(11) COMMENT 'Media',
+	groupeID int(11) COMMENT 'Groupe',
+	FOREIGN KEY(exID) REFERENCES medias(ID),
+	FOREIGN KEY(groupeID) REFERENCES groupes(ID),
+	UNIQUE(exID, groupeID)
+) ENGINE=InnoDb COMMENT 'Groupes habilités à emprunter un média';
+
 INSERT INTO artistes (ID, nom, inactif)
 VALUES
 	(1,  'Wolgang Amadeus Mozart', FALSE),
@@ -339,7 +351,7 @@ VALUES
 	(2, 'CS', 'Cassette audio', 2, TRUE),
 	(3, 'VHS', 'Vidéocassette VHS', 3, FALSE),
 	(4, 'Méthode', '', 1, FALSE),
-	(5, 'Recueil', '', 1, FALSE),
+	(5, 'Recueil de partitions', '', 1, FALSE),
 	(6, 'Volume', '', 1, FALSE),
 	(7, 'Références', '', 1, FALSE),
 	(8, 'Livre roman', '', 1, FALSE);
@@ -371,27 +383,46 @@ VALUES
 	(2, 'Indiana Jones', '3', TRUE),
 	(3, 'Mozart 3 D collection', 2, 0);
 
-INSERT INTO medias (ID, supportID, artisteID, titre, annee_publication, image, genreID, quantite, reference, notes, maison_editionID, inactif)
+INSERT INTO medias (ID, supportID, artisteID, titre, annee_publication, image, genreID, notes, maison_editionID, inactif)
 VALUES
-	( 1, 8, 12,   'La communauté de l''anneau', 1972, 'leSeigneurDesAnneaux1.png', 2, 1, '1 Livre roman', '', 6, 0),
-	( 2, 8, 12,   'Les deux tours', 1992, '2.jpg', 2, 1, '2 Livre roman', '', 6, 0),
-	( 3, 8, 12,   'Le retour du Roi', 1994, '', 2, 1, '3 Livre roman', '', 6, 0),
-	( 4, 3, NULL, 'Indiana Jones et la Dernière Croisade', 1987, '', 1, 1, '1 VHS', '', 7, 0),
-	( 5, 3, NULL, 'Indiana Jones et le Temple maudit', 1990, '', 1, 1, '2 VHS', 'Film extraordinaire', 7, 0),
-	(13, 5, 9,    '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 4, NULL, '3t3d', NULL, 10, 0),
-	(14, 1, 1,    'Symphonien no. 35 KV 385 Haffner, no. 36 KV 425 Linzer', 1988, NULL, 3, 1, '3f22', '1 disque son. (63 min) : numérique, stéréo ; 12 cm + ', 9, 0);
+	( 1, 8, 12,   'La communauté de l''anneau', 1972, 'leSeigneurDesAnneaux1.png', 2, NULL, 6, 0),
+	( 2, 8, 12,   'Les deux tours', 1992, '2.jpg', 2, NULL, 6, 0),
+	( 3, 8, 12,   'Le retour du Roi', 1994, NULL, 2, NULL, 6, 0),
+	( 4, 3, NULL, 'Indiana Jones et la Dernière Croisade', 1987, '', 1, NULL, 7, 0),
+	( 5, 3, NULL, 'Indiana Jones et le Temple maudit', 1990, '', 1, 'Film extraordinaire', 7, 0),
+	(13, 5, 9,    '20 chansons faciles de Gilles Vigneault', 1997, '20chansons.jpeg', 4, NULL, 10, 0),
+	(14, 1, 1,    'Symphonien no. 35 KV 385 Haffner, no. 36 KV 425 Linzer', 1988, NULL, 3, '1 disque son. (63 min) : numérique, stéréo ; 12 cm + ', 9, 0);
 
-INSERT INTO medias(ID, supportID, artisteID, annee_publication, reference, genreID, maison_editionID, inactif, titre, image)
+INSERT INTO medias(ID, supportID, artisteID, annee_publication, genreID, maison_editionID, inactif, titre, image)
 VALUES
-	(6,  1,  8, 2008, 'CD-C00001', 5,    11, FALSE, 'L''expédition',               'L''Expédition.jpg'),
-	(7,  1,  8, 2008, 'CD-C00002', 6,    11, FALSE, 'Sur un air de déjà vu',       'surUnAirDeDéjàVu.jpg'),
-	(8,  1,  8, 2004, 'CD-C00003', 7,    11, FALSE, 'La grand-messe',              NULL),
-	(9,  1,  8, 2002, 'CD-C00004', 6,    11, FALSE, 'Break syndical',              NULL),
-	(10, 1,  8, 2000, 'CD-C00005', 5,    11, FALSE, 'Motel capri',                 NULL),
-	(11, 1,  8, 1998, 'CD-C00006', 6,    11, FALSE, 'Sur mon canapé',              NULL),
-	(12, 1,  8, 1997, 'CD-C00007', 7,    14, FALSE, '12 grandes chansons',         NULL),
-	(15, 1, 10, 2005, 'CD-C00008', 8,    12, FALSE, 'Avale ta montre',             'avaleTaMontre.jpg'),
-	(16, 1, 11, 1988, 'CD-C00009', NULL, 13, FALSE, 'Brel en public : Olympia 61', 'brelEnPublic-Olympia61.jpg');
+	(6,  1,  8, 2008, 5,    11, FALSE, 'L''expédition',               'L''Expédition.jpg'),
+	(7,  1,  8, 2008, 6,    11, FALSE, 'Sur un air de déjà vu',       'surUnAirDeDéjàVu.jpg'),
+	(8,  1,  8, 2004, 7,    11, FALSE, 'La grand-messe',              NULL),
+	(9,  1,  8, 2002, 6,    11, FALSE, 'Break syndical',              NULL),
+	(10, 1,  8, 2000, 5,    11, FALSE, 'Motel capri',                 NULL),
+	(11, 1,  8, 1998, 6,    11, FALSE, 'Sur mon canapé',              NULL),
+	(12, 1,  8, 1997, 7,    14, FALSE, '12 grandes chansons',         NULL),
+	(15, 1, 10, 2005, 8,    12, FALSE, 'Avale ta montre',             'avaleTaMontre.jpg'),
+	(16, 1, 11, 1988, NULL, 13, FALSE, 'Brel en public : Olympia 61', 'brelEnPublic-Olympia61.jpg');
+
+INSERT INTO exemplaires_medias(ID, mediaID, reference)
+VALUES
+	( 1,  1, 'RO-T00009'),
+	( 2,  1, 'RO-T00010'),
+	( 3,  1, 'RO-T00011'),
+	( 4,  1, 'VHS-00012'),
+	( 5,  1, 'VHS-00013'),
+	( 6,  1, 'CD-C00001'),
+	( 7,  1, 'CD-C00002'),
+	( 8,  1, 'CD-C00003'),
+	( 9,  1, 'CD-C00004'),
+	(10, 10, 'CD-C00005'),
+	(11, 10, 'CD-C00006'),
+	(12, 10, 'CD-C00007'),
+	(13, 10, 'RE-000014'),
+	(14, 10, 'CD-000015'),
+	(15, 10, 'CD-C00008'),
+	(16, 10, 'CD-C00016');
 
 INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
 VALUES

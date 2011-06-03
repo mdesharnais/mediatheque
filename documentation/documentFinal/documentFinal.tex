@@ -1,4 +1,4 @@
-\documentclass[letter, 10pt]{report}
+\documentclass[letter, 11pt]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -6,7 +6,7 @@
 \usepackage[french]{babel} 
 \usepackage{graphicx}
 %\usepackage{url} %pour écrire des adresses cliquables
-%\usepackage{lmodern} %pour changer le pack de police
+\usepackage{lmodern} %pour changer le pack de police
 %\usepackage[top=5cm, bottom=5cm, left=6cm, right=3cm]{geometry} %pour les marges
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{listings}
@@ -51,11 +51,11 @@
 	numbers=left
 }
 
+\begin{document}
+
 \title{Carcajou}
 \author{\textsc{Martin Desharnais} \\ \textsc{Samuel Milette-Lacombe} \\ \textsc{Marc-André Destrempes}}
 \date{\today}
-
-\begin{document}
 
 \maketitle
 
@@ -79,20 +79,22 @@ Les fonctions offertes par notre système de médiathèque sont les suivantes:
 
 Système de recherche et de parcours des médias
 \begin{itemize}
-\item Recherche simple de médias
-\item Recherche avancée de médias
-\item Fil d'ariane vertical permettant de naviguer parmi les médias
-\item Système de pagination avancée permettant de naviguer dans les résultats
+	\item Recherche simple de médias
+	\item Recherche avancée de médias
+	\item Fil d'Ariane vertical permettant de naviguer parmi les médias
+	\item Système de pagination avancée permettant de naviguer dans les résultats
+\end{itemize}
 
-\subsection{Options}
+\subsection{Recherche avancée}
 
 Dans la recherche avancée, lors de la sélection d'un critère d'un recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape la première lettre du mot clés, une liste de valeurs ayant cette lettre s'affichera. Cette ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise « DATALIST » qui disponible uniquement sur des navigateurs supportant cette balise Html 5.
 
 Dans la recherche avancée, il est aussi possible d'ajouter autant de critères de recherches que l'on désire. Pour cela, le javascript a été utilisé pour interragir dinanymiquement avec le DOM de la page. Des effets visuels de disparation et d'apparition ont même été ajouté pour une ergonomie plus dynamique.
 
+\subsection{Médias}
+Le client nous a expliquer que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponnibles uniquements pour consultation sur place.
 
-\end{itemize}
-
+Pour représenter cette situation, nous avons décidés que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponnible en consultation sur place seulement.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Architecture du système}
@@ -326,11 +328,11 @@ Voir le tableau en annexe.
 Lors de la conception le site à été testé sur les navigateurs suivants~:
 
 \begin{itemize}
-\item Mozilla Firefox 3.5.16
-\item Mozilla Firefox 3.6.10
-\item Mozilla Firefox 4.0.1
-\item Google Chrome 6.0.472.63
-\item Google Chrome 11.0.696.65
+	\item Mozilla Firefox 3.5.16
+	\item Mozilla Firefox 3.6.10
+	\item Mozilla Firefox 4.0.1
+	\item Google Chrome 6.0.472.63
+	\item Google Chrome 11.0.696.65
 \end{itemize}
 
 Le site est fonctionnel sur l'ensemble des navigateurs mais certains effets graphiques ne sont disponnibles que sur les versions récentes de chacun.
@@ -355,11 +357,11 @@ Du coté serveur, le seul language utilisé est le PHP, qui a été utilisé dan
 Les conventions php utilisés sont les suivantes~:
 
 \begin{itemize}
-\item Les fichiers contenant la définition d'une classe PHP utilisent l'extension «~.class.php~».
-\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit obligatoirement être inclu par un autre script utilisent l'extension «~.inc.php~».
-\item Les fichiers contenant du code PHP qui se suffit à lui-même utilisent l'extension «~.php~».
-\item Les fichiers contenant les pages finales affichées à l'utilisateur sont situés à la racine du projet (/).
-\item Les fichiers contenant des scripts PHP qui effectuent une action avant de rediriger l'utilisateur sont situés dans le répertoire php (/php/).
+	\item Les fichiers contenant la définition d'une classe PHP utilisent l'extension «~.class.php~».
+	\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit obligatoirement être inclu par un autre script utilisent l'extension «~.inc.php~».
+	\item Les fichiers contenant du code PHP qui se suffit à lui-même utilisent l'extension «~.php~».
+	\item Les fichiers contenant les pages finales affichées à l'utilisateur sont situés à la racine du projet (/).
+	\item Les fichiers contenant des scripts PHP qui effectuent une action avant de rediriger l'utilisateur sont situés dans le répertoire php (/php/).
 \end{itemize}
 
 \subsection{Bande passante}
@@ -573,6 +575,7 @@ Cette façon de gérer les droits des utilisateurs offre de nombreux aventages~:
 \chapter{Dictionnaire de données}
 \includepdf[pages=-]{dataDictionary.pdf}
 
+\listoffigures
 \listoftables
 
 \end{document}
