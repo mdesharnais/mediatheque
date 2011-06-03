@@ -60,6 +60,6 @@
 	<!--- <form id="search" method="post" action="searchResults.php"> --->
 		<form id="search" method="post" action="searchResults.php?presentation=6">
 		<input type="search" placeholder="Rechercher">
-		<button type="submit">Rechercher</button>
+		<button type="submit"><img src="images/icons/search16x16.png" alt="Rechercher"/></button>
 	</form>
 </header>
