@@ -272,25 +272,25 @@ A generer a l'aide de visio ou a la main
 
 \subsubsection{Images}
 
-\begin{table}[h!]
+\begin{table}[ht]
 	\caption{images}
 	\begin{center}
 		\begin{tabular}{|l|l|p{5cm}|}
 		\hline
 		Image 		& Taille 			& Description \\ \hline
-		Image ici 	& 370x216, 209x122 	& Cette image servira a afficher les détails d'un média. \\ \hline
-		Image ici 	& 20x20 			& Panier signifiant l'ajout dans le panier pour une réservation. \\ \hline
-		Image ici 	& 87x87 			& Logo signifiant un emprunt. \\ \hline
-		Image ici 	& 87x87 			& Logo signifiant une réservation. \\ \hline
-		Image ici 	& 128x105 			& Logo signifiant de la musique. \\ \hline
-		Image ici 	& 128x128 			& Logo signifiant la présence d'un média sous le format audio. \\ \hline
-		Image ici 	& 128x128 			& Logo signifiant la présence d'un média sous le format imprimé. \\ \hline
-		Image ici 	& 128x128 			& Logo signifiant la présence d'un média sous le format imprimé. \\ \hline
-		Image ici 	& 128x128, 32x32 	& Icone signifiant l'exécution d'une recherche. \\ \hline
-		Image ici 	& 21x4 				& Flèche pointant vers le haut. \\ \hline
-		Image ici 	& 21x4 				& Flèche pointant vers le bas. \\ \hline
-		Image ici 	& 21x9 				& Flèches pointant vers le haut et vers le bas. \\ \hline
-		Image ici 	& 8x12 				& Flèche pointant vers la droite. \\ \hline
+		\includegraphics[scale=0.2]{black_arrow_big.png} 	& 370x216, 209x122 	& Cette image servira a afficher les détails d'un média. \\ \hline
+		\includegraphics{cart.png} 							& 20x20 			& Panier signifiant l'ajout dans le panier pour une réservation. \\ \hline
+		\includegraphics[scale=1.15]{emprunt.png} 			& 87x87 			& Logo signifiant un emprunt. \\ \hline
+		\includegraphics[scale=0.3]{reservation.png} 		& 87x87 			& Logo signifiant une réservation. \\ \hline
+		\includegraphics[scale=0.3]{musique.png} 			& 128x105 			& Logo signifiant de la musique. \\ \hline
+		\includegraphics[scale=0.3]{audio.png} 				& 128x128 			& Logo signifiant la présence d'un média sous le format audio. \\ \hline
+		\includegraphics[scale=0.3]{imprime.png} 			& 128x128 			& Logo signifiant la présence d'un média sous le format imprimé. \\ \hline
+		\includegraphics[scale=0.3]{video.png} 				& 128x128 			& Logo signifiant la présence d'un média sous le format vidéo. \\ \hline
+		\includegraphics[scale=0.3]{search.png} 			& 128x128, 32x32 	& Icone signifiant l'exécution d'une recherche. \\ \hline
+		\includegraphics{down.png} 							& 21x4 				& Flèche pointant vers le haut. \\ \hline
+		\includegraphics{up.png} 							& 21x4 				& Flèche pointant vers le bas. \\ \hline
+		\includegraphics{upAndDown.png} 					& 21x9 				& Flèches pointant vers le haut et vers le bas. \\ \hline
+		\includegraphics{img_puce_search.png} 				& 8x12 				& Flèche pointant vers la droite. \\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -299,7 +299,10 @@ A generer a l'aide de visio ou a la main
 
 
 \section{Diagramme d'enchaînement}
-\includegraphics[scale=0.3]{diagrammeEnchainement.png}
+\includegraphics[scale=0.145]{diagrammeEnchainement.png}
+
+Pour accéder au niveau 2 du diagramme, nous devons emprunter exactement le chemin indiqué dans le schéma. Le niveau inférieur peut, en tout temps, accéder aux pages du niveau supérieur.
+Lors d'une connexion, si l'utilisateur n'est pas un administrateur nous ne lui affichons pas les pages emprunt et retour. Sinon, nous lui rajoutons ces options dans le menu.
 
 \section{Diagramme de classe}
 
@@ -381,7 +384,7 @@ La gestion des droits fait appel au «~bit~bashing~», une technique qui consist
 
 et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table droits\_groupes contiendrait quelque chose comme ceci~:
 
-\begin{table}[h!]
+\begin{table}[ht]
 	\caption{groupes}
 	\begin{center}
 		\begin{tabular}{|c|l|l|}
