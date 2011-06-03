@@ -146,8 +146,9 @@ CREATE TABLE IF NOT EXISTS medias (
 
 CREATE TABLE IF NOT EXISTS exemplaires_medias (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
-	mediaID int(11) COMMENT 'Média',
-	reference varchar(50) NOT NULL COMMENT 'Numéro de référence'
+	exID int(11) COMMENT 'Média',
+	reference varchar(50) NOT NULL COMMENT 'Numéro de référence',
+	FOREIGN KEY(exID) REFERENCES medias(ID) ON DELETE CASCADE,
 ) ENGINE=InnoDb COMMENT 'Médias';
 
 CREATE TABLE IF NOT EXISTS imprimes (
@@ -405,24 +406,24 @@ VALUES
 	(15, 1, 10, 2005, 8,    12, FALSE, 'Avale ta montre',             'avaleTaMontre.jpg'),
 	(16, 1, 11, 1988, NULL, 13, FALSE, 'Brel en public : Olympia 61', 'brelEnPublic-Olympia61.jpg');
 
-INSERT INTO exemplaires_medias(ID, mediaID, reference)
+INSERT INTO exemplaires_medias(ID, exID, reference)
 VALUES
 	( 1,  1, 'RO-T00009'),
-	( 2,  1, 'RO-T00010'),
-	( 3,  1, 'RO-T00011'),
-	( 4,  1, 'VHS-00012'),
-	( 5,  1, 'VHS-00013'),
-	( 6,  1, 'CD-C00001'),
-	( 7,  1, 'CD-C00002'),
-	( 8,  1, 'CD-C00003'),
-	( 9,  1, 'CD-C00004'),
+	( 2,  2, 'RO-T00010'),
+	( 3,  3, 'RO-T00011'),
+	( 4,  4, 'VHS-00012'),
+	( 5,  5, 'VHS-00013'),
+	( 6,  6, 'CD-C00001'),
+	( 7,  7, 'CD-C00002'),
+	( 8,  8, 'CD-C00003'),
+	( 9,  9, 'CD-C00004'),
 	(10, 10, 'CD-C00005'),
-	(11, 10, 'CD-C00006'),
-	(12, 10, 'CD-C00007'),
-	(13, 10, 'RE-000014'),
-	(14, 10, 'CD-000015'),
-	(15, 10, 'CD-C00008'),
-	(16, 10, 'CD-C00016');
+	(11, 11, 'CD-C00006'),
+	(12, 12, 'CD-C00007'),
+	(13, 13, 'RE-000014'),
+	(14, 14, 'CD-000015'),
+	(15, 15, 'CD-C00008'),
+	(16, 16, 'CD-C00016');
 
 INSERT INTO audios_videos (ID, exID, nationaliteID, collectionID, position_collection, CUP, realisateurs)
 VALUES
