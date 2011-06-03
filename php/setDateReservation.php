@@ -32,7 +32,7 @@ $months_and_dates = array();
 
 foreach(range(0,365) as $day) {
 	$internal_date = date(INTERNAL_FORMAT, strtotime("{$start_date} + {$day} days"));
-	$this_day = date(DISPLAY_DAY_FORMAT, strtotime($internal_date));
+	$this_day = date('Y-m-d', strtotime($internal_date));
 	$this_month = date(DISPLAY_MONTH_FORMAT, strtotime($internal_date));
 	if ((isTuesday($internal_date) || isWednesday($internal_date)) && !isExcludedDate($internal_date)) {
 		$months_and_dates[$this_month][] = $this_day;

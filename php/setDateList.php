@@ -41,7 +41,7 @@ $months_and_dates = array();
 
 foreach(range(0,365) as $day) {
 	$internal_date = date(INTERNAL_FORMAT, strtotime("{$start_date} + {$day} days"));
-	$this_day = date(DISPLAY_DAY_FORMAT, strtotime($internal_date));
+	$this_day = date('Y-m-d', strtotime($internal_date));
 	$this_month = date(DISPLAY_MONTH_FORMAT, strtotime($internal_date));
 	// when adding a day add the function here like this
 	// if (isNameOfTheDay($internal_date) || isNameOfTheOtherDay($internal_date)) && !isExcludedDate($internal_date))

@@ -12,24 +12,26 @@
 				</ul>
 			</li><!--
 			--><li>
-				<h2><a href="#">Médiathèque</a></h2>
+				<h2><a href="searchResults.php">Médiathèque</a></h2>
 				<ul>
 					<li><a href="advancedSearch.php">Recherche avancée</a></li>
 					<li><a href="searchResults.php">Parcourir</a></li>
-					<li><a href="">Suggestions</a></li>
+					<li><a href="suggestions.php">Suggestions</a></li>
 				</ul>
 			</li><!--
 			--><li>
-				<h2><a href="">Zone utilisateur</a></h2>
-				<ul>
 					<?php
 					if($application->currentUser->isVisitor())
-					{
+					{	
+						echo '<h2><a href="connexion.php">Zone utilisateur</a></h2>';
+						echo '<ul>';
 						echo '<li><a href="connexion.php">Connexion</a></li>';
 						echo '<li><a href="inscription.php">Inscription</a></li>';
 					}
 					else
 					{
+						echo '<h2><a href="myCurrentReservations.php">Zone utilisateur</a></h2>';
+						echo '<ul>';
 						echo '<li><a href="myCurrentReservations.php">Mes réservations</a></li>';
 						echo '<li><a href="myCurrentBorrows.php">Mes emprunts en cours</a></li>';
 						echo '<li><a href="myBorrowsHistory.php">Mon historique d\'emprunts</a></li>';
@@ -48,6 +50,7 @@
 					<ul>
 						<li><a href="emprunt.php">Emprunt</a></li>
 						<li><a href="retour.php">Retour</a></li>
+						<li><a href="audioMediaReport.php">Rapports</a></li>
 						<li><a href="generateQR.php">Générer code QR</a></li>
 					</ul>
 				</li>
@@ -60,6 +63,6 @@
 	<!-- <form id="search" method="post" action="searchResults.php"> -->
 		<form id="search" method="post" action="searchResults.php?presentation=6">
 		<input type="search" placeholder="Rechercher">
-		<button type="submit">Rechercher</button>
+		<button type="submit"><img src="images/icons/search16x16.png" alt="Rechercher"/></button>
 	</form>
 </header>
