@@ -14,7 +14,7 @@ function createFromWhereClause($criterias)
 	$presentationID = $criterias;
 	
 	$basicQuery = '
-			SELECT medias.ID, medias.notes, medias.titre, medias.annee_publication, medias.image, medias.quantite, medias.reference, artistes.nom 
+			SELECT medias.ID, medias.notes, medias.titre, medias.annee_publication, medias.image, artistes.nom 
 			AS nomArtiste, categories_media.nom AS nomCategorie,	categories_media.image AS imageCategorie, supports.nom AS nomSupport, maisons_edition.nom
 			AS nomMaisonEdition, genres.nom AS nomGenre';
 			
@@ -119,10 +119,6 @@ function printSearchResults($sqlQuery)
 			echo '<span class="label">Artiste:</span><span class="value">'.$row['nomArtiste'].'</span>';
 			echo '</p>';
 		}
-		
-		echo '<p>';
-		echo '<span class="label">Code de référence:</span><span class="value">'.$row['reference'].'</span>';
-		echo '</p>';
 		
 		echo '</td>';//fin de mediaInformations
 		echo '</tr>';//
