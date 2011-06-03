@@ -3,11 +3,17 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<meta name="author" content="Marc-Andre Destrempes">
+		<meta name="author" content="Martin Desharnais">
 
-		<title>Emprunts en cours - Médiatech du département de musique du cégep de Trois-Rivières</title>
+		<title><?php echo Application::APPLICATION_NAME; ?> - Mes emprunts en cours</title>
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
+		<script src="javascript/jquery/jquery.tablesorter.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('table').tablesorter();
+			});
+		</script>
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
@@ -41,6 +47,7 @@
 					echo '			<th>Date de retour</th>';
 					echo '		</tr>';
 					echo '	</thead>';
+					echo '	<tbody>';
 					foreach($query as $row)
 					{
 						$dateEmprunt = DateTime::createFromFormat('Y-m-d', $row['date_emprunt']);
@@ -53,6 +60,7 @@
 						echo '		<td><a href="#">Renouveler</a></td>';
 						echo '	</tr>';
 					}
+					echo '	</tbody>';
 					echo '</table>';
 				}
 				?>

@@ -10,9 +10,9 @@
 		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/jquery/jquery.tablesorter.min.js"></script>
 		<script>
-		$(document).ready(function() {
-			$('table').tablesorter();
-		});
+			$(document).ready(function() {
+				$('table').tablesorter();
+			});
 		</script>
 	</head>
 	<body>
