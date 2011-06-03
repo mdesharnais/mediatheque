@@ -73,6 +73,7 @@ header h1 a:focus
 	color: white;
 }
 
+
 /* -------------------------
  * = nav
  * ------------------------- */
@@ -189,6 +190,11 @@ header nav > ul > li:focus ul li
 header #search
 {
 	padding-right: 0.4em;
+}
+
+header #search [type=submit]
+{
+	padding: 0;
 }
 
 /* -------------------------
