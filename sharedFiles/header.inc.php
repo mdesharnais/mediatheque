@@ -12,24 +12,26 @@
 				</ul>
 			</li><!--
 			--><li>
-				<h2><a href="#">Médiathèque</a></h2>
+				<h2><a href="searchResults.php">Médiathèque</a></h2>
 				<ul>
 					<li><a href="advancedSearch.php">Recherche avancée</a></li>
 					<li><a href="searchResults.php">Parcourir</a></li>
-					<li><a href="">Suggestions</a></li>
+					<li><a href="suggestions.php">Suggestions</a></li>
 				</ul>
 			</li><!--
 			--><li>
-				<h2><a href="">Zone utilisateur</a></h2>
-				<ul>
 					<?php
 					if($application->currentUser->isVisitor())
-					{
+					{	
+						echo '<h2><a href="connexion.php">Zone utilisateur</a></h2>';
+						echo '<ul>';
 						echo '<li><a href="connexion.php">Connexion</a></li>';
 						echo '<li><a href="inscription.php">Inscription</a></li>';
 					}
 					else
 					{
+						echo '<h2><a href="myCurrentReservations.php">Zone utilisateur</a></h2>';
+						echo '<ul>';
 						echo '<li><a href="myCurrentReservations.php">Mes réservations</a></li>';
 						echo '<li><a href="myCurrentBorrows.php">Mes emprunts en cours</a></li>';
 						echo '<li><a href="myBorrowsHistory.php">Mon historique d\'emprunts</a></li>';

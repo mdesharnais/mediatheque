@@ -120,3 +120,40 @@ th
 {
 	padding: 0.25em;
 }
+
+label
+{
+	display: inline-block;
+	width: 8em;
+	vertical-align: top;
+}
+
+label:after
+{
+	content: " :";
+}
+
+input,
+textarea
+{
+	font-family: inherit;
+	font-size: inherit;
+	border: 1px gray solid;
+	width: 20em;
+}
+
+input:invalid
+{
+	border-right: 0.5em solid red;
+}
+
+input:required
+{
+	border-right: 0.5em solid orange;
+}
+
+input:valid
+{
+	border: 1px gray solid;
+}
+

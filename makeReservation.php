@@ -17,8 +17,8 @@
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
 			<div>
-			<img src="images/reservation.png" />
-				<h1>Réservation</h1><br>
+			<p><img src="images/reservation.png" /></p>
+				<h2>Réservation</h2>
 					<?php
 						try
 						{

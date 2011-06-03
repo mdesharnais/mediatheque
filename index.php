@@ -14,7 +14,7 @@
 		<?php require('sharedFiles/header.inc.php'); ?>
 		<div id="content">
 			<div>
-			<img class="left" src="images/logoCegep.png" alt="Logo du Cégep de Trois-Rivières"/>
+			<p><img class="left" src="images/logoCegep.png" alt="Logo du Cégep de Trois-Rivières"/></p>
 				<h2>Médiathèque du département de musique du Cégep de Trois-Rivières</h2>
 				
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit lectus ac nulla dictum commodo. Curabitur nisl tellus, volutpat pellentesque ultricies id, tincidunt in nisl. In in nisi vitae nibh porttitor scelerisque eu ut tortor. Vivamus commodo, mi ac convallis imperdiet, magna erat convallis mauris, nec auctor ante augue non urna. Ut quis enim quis mauris congue semper sed ac elit. Sed porta tellus eget ante facilisis et feugiat sapien placerat. Nunc posuere ante quis orci vulputate volutpat. Nulla eu ipsum enim, id gravida nibh. Donec imperdiet tristique pellentesque. Vivamus fringilla euismod felis vel varius.</p>
