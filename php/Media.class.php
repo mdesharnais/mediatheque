@@ -239,7 +239,7 @@ abstract class Media
 		else
 		{
 			$query = $application->database->prepare('SELECT ID, nom FROM genres WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC');
-			$query->execute(array($this->getPublishingHouse()));
+			$query->execute(array($this->getGenre()));
 
 			echo '<select id="genreID" name="genreID">';
 			echo '<option value="0"></option>';
