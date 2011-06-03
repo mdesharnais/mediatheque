@@ -10,8 +10,8 @@
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/generateEmprunt.js"></script>
-		<style>.tooltip{display:none;background:url(http://static.flowplayer.org/tools/img/tooltip/black_arrow_big.png);height:163px;padding:40px 30px 10px 30px;width:310px;font-size:11px;color:#fff;}#outerDiv{min-width: 200px;}div.autosize{display:table;height:1px;}div.autosize>div{display:table-cell;}</style>
-		<script src='http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js'></script>
+		<style>.tooltip{display:none;background:url(images/black_arrow_big.png);height:163px;padding:40px 30px 10px 30px;width:310px;font-size:11px;color:#fff;}#outerDiv{min-width: 200px;}div.autosize{display:table;height:1px;}div.autosize>div{display:table-cell;}</style>
+		<script src='javascript/jquery/jquery.tools.min.js'></script>
 
 	</head>
 	<body>
