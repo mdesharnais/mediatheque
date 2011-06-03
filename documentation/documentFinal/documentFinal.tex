@@ -104,54 +104,140 @@ Pour représenter cette situation, nous avons décidés que chaque média contie
 
 \subsection{Maquette}
 
-\includegraphics[scale=0.5]{primaryWindow.png}
-\includegraphics[scale=0.5]{secondaryWindow.png}
+Toutes les pages sont construites sur la base du modèle suivant :
+\newline
+\includegraphics[scale=0.6]{maquetteImage.png}
+\newline
+1 : Bandeau\newline
+2: Fil d'Ariane verticale (n'apparait cependant que dans l'affichage des résultats de recherche)\newline
+3: Contenu de la page\newline
+4: Pied de page\newline
+\includegraphics[scale=0.3]{pageType.png}
 
-Rouge : En-tête
-Orange : Pied de page
-Bleu : Fil d'Arianne
-Vert : Contenu
+\subsubsection{Bandeau (1)}
+
+Le bandeau est constitué des éléments suivant:
+\begin{description}
+	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site. Par contre, ce n'est pas une image mais bien un mot mise en forme en css. Ce sigle permet de revenir sur la page d'accueil (en haut à gauche).
+	\item[Menus déroulants]À la droite du sigle se retrouve le menu principal incluant des menus déroulants permettant de se déplacer dans les sections du site. Les entrées de menu sont les suivantes:
+		\begin{itemize}
+			\item À propos
+				\begin{itemize}
+					\item De la médiathèque
+					\item Du département de musique
+					\item Des heures d'ouverture
+					\item De la règlementation					
+				\end{itemize}
+		\end{itemize}
+		\begin{itemize}
+			\item Médiathèque
+			\begin{itemize}
+				\item Recherche avancée
+				\item Parcourir
+				\item Suggestions				
+			\end{itemize}
+		\end{itemize}
+		\begin{itemize}
+			\item Zone utilisateur (lorsque non connecté)
+			\begin{itemize}
+				\item Connexion
+				\item Inscription			
+			\end{itemize}
+		\end{itemize}
+		\begin{itemize}
+			\item Zone utilisateur (lorsque connecté)
+			\begin{itemize}
+				\item Mes réservations
+				\item Mes emprunts en cours
+				\item Mon historique d'emprunts
+				\item Déconnexion
+			\end{itemize}
+		\end{itemize}
+			\begin{itemize}
+			\item Administration (lorsque connecté)
+			\begin{itemize}
+				\item Emprunt
+				\item Retour
+				\item Générer code QR
+			\end{itemize}
+		\end{itemize}
+	\item[Champ de recherche simple] Le champ texte accompagné du bouton «~Rechercher~» permet d'effectuer une recherche simple avec un mot clé.
+\end{description}
+
+\subsubsection{Fil d'Ariane vertical (2)}
+Le fil d'Ariane vertical permet d'afficher des critères permettant d'avatange la recherche. Il contient des éléments liste contenant des liens pour raffiner la recherche.
+
+\subsubsection{Contenu (3)}
+Le contenu des pages est affiché dans cette partie. Son contenu varie énormément selon la page affichée. Dans la capture d'écran présente ci-haut, on y voit les résultats d'une recherche.
+
+\subsubsection{Pied de page (4)}
+Les noms des auteurs sont affichés dans cette partie. Le pied de page contient aussi, sous forme de listes, des liens vers différentes sections du site comme on le voit si souvent dans les tendances actuelles du web. Le principe d'afficher plusieurs liens divers dans le pied de page offre la possibilité d'offrir une navigation alternative au menu conventionnel. À la phase conception, le pied ne contient pas encore de véritables liens. Seuls des liens d'exemple «~Lorem Ipsum~» sont affichés.
 
 \subsection{Charte graphique}
 
+
 \subsubsection{Couleurs}
 
-\begin{center}
-	\begin{tabular}{|l|l|l|}
-	\hline
-	Element    & Code     & Apercu \\ \hline
-	Header     & ---      & --- \\ \hline
-	background & \#000000 & Image ici \\ \hline
-	h1         & \#FFFFFF & Image ici \\ \hline
-	nav        & \#FFFFFF & Image ici \\ \hline
-	ul         & \#FFFFFF & Image ici \\ \hline
-	li         & \#FFFFFF & Image ici \\ \hline
-	a          & \#FFFFFF & Image ici \\ \hline
-	h1:hover   & \#FFFFFF & Image ici \\ \hline
-	nav:hover  & \#FFFFFF & Image ici \\ \hline
-	ul:hover   & \#FFFFFF & Image ici \\ \hline
-	li:hover   & \#FFFFFF & Image ici \\ \hline
-	a:hover    & \#FFFFFF & Image ici \\ \hline
-	h1:focus   & \#FFFFFF & Image ici \\ \hline
-	nav:focus  & \#FFFFFF & Image ici \\ \hline
-	ul:focus   & \#FFFFFF & Image ici \\ \hline
-	li:focus   & \#FFFFFF & Image ici \\ \hline
-	a:focus    & \#FFFFFF & Image ici \\ \hline
-	Footer     & --- & --- \\ \hline
-	background & \#000000 & Image ici \\ \hline
-	nav        & \#FFFFFF & Image ici \\ \hline
-	ul         & \#FFFFFF & Image ici \\ \hline
-	li         & \#FFFFFF & Image ici \\ \hline
-	a          & \#FFFFFF & Image ici \\ \hline
-	\hline
-	\end{tabular}
-\end{center}
+\begin{table}[h!]
+	\caption{couleurs}
+	\begin{center}
+		\begin{tabular}{|l|l|l|}
+		\hline
+		Element    					& Code     & Apercu \\ \hline
+		\multicolumn{3}{|c|}{Header} \\ \hline
+		background 					& \#000000 & \cellcolor[HTML]{000000} \\ \hline
+		h1         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav        					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a          					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		h1:hover   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav:hover  					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul:hover   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li:hover   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a:hover    					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		h1:focus   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav:focus  					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul:focus   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li:focus   					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a:focus    					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		\multicolumn{3}{|c|}{Footer} \\ \hline
+		background 					& \#000000 & \cellcolor[HTML]{000000} \\ \hline
+		nav        					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		ul         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		li         					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a          					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		\multicolumn{3}{|c|}{Content} \\ \hline
+		background 					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a							& \#C52100 & \cellcolor[HTML]{C52100} \\ \hline
+		\multicolumn{3}{|l|}{Pagination} \\ \hline
+		background 					& \#DBD9D9 & \cellcolor[HTML]{DBD9D9} \\ \hline
+		border 	   					& \#C1C1C1 & \cellcolor[HTML]{C1C1C1} \\ \hline
+		\multicolumn{3}{|l|}{Résultat recherche} \\ \hline
+		a:background 				& \#DBD9D9 & \cellcolor[HTML]{DBD9D9} \\ \hline
+		a:border   					& \#C1C1C1 & \cellcolor[HTML]{C1C1C1} \\ \hline
+		tr:border  					& \#C0C0C0 & \cellcolor[HTML]{C0C0C0} \\ \hline
+		\multicolumn{3}{|l|}{Médias} \\ \hline
+		textarea:border 			& \#C0C0C0 & \cellcolor[HTML]{C0C0C0} \\ \hline
+		\multicolumn{3}{|l|}{Style} \\ \hline
+		background 					& \#E3E3E3 & \cellcolor[HTML]{E3E3E3} \\ \hline
+		h1 							& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		a:focus 					& \#FFFFFF & \cellcolor[HTML]{FFFFFF} \\ \hline
+		nav > ul a:focus 			& \#EEEEEE & \cellcolor[HTML]{EEEEEE} \\ \hline
+		nav > ul a:hover 			& \#EEEEEE & \cellcolor[HTML]{EEEEEE} \\ \hline
+		nav > ul > li 				& \#CCCCCC & \cellcolor[HTML]{CCCCCC} \\ \hline
+		nav > ul > li:first-child 	& \#CCCCCC & \cellcolor[HTML]{CCCCCC} \\ \hline
+		nav > ul > li ul:border-top & \#CCCCCC & \cellcolor[HTML]{CCCCCC} \\ \hline
+		nav > ul > li ul:border 	& \#EEEEEE & \cellcolor[HTML]{EEEEEE} \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \subsubsection{Typographie}
 
 \subsubsection{Police d’écriture}
 
-La police de caractère du site est Arial, Helvetica, sans-serif. Elle aura une grosseur de 1em. Pour le titre du site nous utiliserons la police MegalopolisExtra-Webfont.
+La police de caractère du site est Optima, Trebuchet MS, Lucida, Arial, Geneva, Verdana, Lucida Grande, Tahoma, Helvetica, sans-serif. Elle aura une grosseur de 1em. Pour le titre du site nous utiliserons la police MegalopolisExtra-Webfont.
 
 \subsubsection{Titres}
 
@@ -174,30 +260,37 @@ A generer a l'aide de visio ou a la main
 
 \subsubsection{Images}
 
-\begin{center}
-	\begin{tabular}{|l|l|p{5cm}|}
-	\hline
-	Image 		& Taille 			& Description \\ \hline
-	Image ici 	& 370x216, 209x122 	& Cette image servira a afficher les détails d'un média. \\ \hline
-	Image ici 	& 20x20 			& Panier signifiant l'ajout dans le panier pour une réservation. \\ \hline
-	Image ici 	& 87x87 			& Logo signifiant un emprunt. \\ \hline
-	Image ici 	& 87x87 			& Logo signifiant une réservation. \\ \hline
-	Image ici 	& 128x105 			& Logo signifiant de la musique. \\ \hline
-	Image ici 	& 128x128 			& Logo signifiant la présence d'un média sous le format audio. \\ \hline
-	Image ici 	& 128x128 			& Logo signifiant la présence d'un média sous le format imprimé. \\ \hline
-	Image ici 	& 128x128 			& Logo signifiant la présence d'un média sous le format imprimé. \\ \hline
-	Image ici 	& 128x128, 32x32 	& Icone signifiant l'exécution d'une recherche. \\ \hline
-	Image ici 	& 21x4 				& Flèche pointant vers le haut. \\ \hline
-	Image ici 	& 21x4 				& Flèche pointant vers le bas. \\ \hline
-	Image ici 	& 21x9 				& Flèches pointant vers le haut et vers le bas. \\ \hline
-	Image ici 	& 8x12 				& Flèche pointant vers la droite. \\ \hline
-	\hline
-	\end{tabular}
-\end{center}
+\begin{table}[ht]
+	\caption{images}
+	\begin{center}
+		\begin{tabular}{|l|l|p{5cm}|}
+		\hline
+		Image 		& Taille 			& Description \\ \hline
+		\includegraphics[scale=0.2]{black_arrow_big.png} 	& 370x216, 209x122 	& Cette image servira a afficher les détails d'un média. \\ \hline
+		\includegraphics{cart.png} 							& 20x20 			& Panier signifiant l'ajout dans le panier pour une réservation. \\ \hline
+		\includegraphics[scale=1.15]{emprunt.png} 			& 87x87 			& Logo signifiant un emprunt. \\ \hline
+		\includegraphics[scale=0.3]{reservation.png} 		& 87x87 			& Logo signifiant une réservation. \\ \hline
+		\includegraphics[scale=0.3]{musique.png} 			& 128x105 			& Logo signifiant de la musique. \\ \hline
+		\includegraphics[scale=0.3]{audio.png} 				& 128x128 			& Logo signifiant la présence d'un média sous le format audio. \\ \hline
+		\includegraphics[scale=0.3]{imprime.png} 			& 128x128 			& Logo signifiant la présence d'un média sous le format imprimé. \\ \hline
+		\includegraphics[scale=0.3]{video.png} 				& 128x128 			& Logo signifiant la présence d'un média sous le format vidéo. \\ \hline
+		\includegraphics[scale=0.3]{search.png} 			& 128x128, 32x32 	& Icone signifiant l'exécution d'une recherche. \\ \hline
+		\includegraphics{down.png} 							& 21x4 				& Flèche pointant vers le haut. \\ \hline
+		\includegraphics{up.png} 							& 21x4 				& Flèche pointant vers le bas. \\ \hline
+		\includegraphics{upAndDown.png} 					& 21x9 				& Flèches pointant vers le haut et vers le bas. \\ \hline
+		\includegraphics{img_puce_search.png} 				& 8x12 				& Flèche pointant vers la droite. \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 \section{Modèle des pages principales et secondaires}
+
+
 \section{Diagramme d'enchaînement}
-\includegraphics[scale=0.3]{diagrammeEnchainement.png}
+\includegraphics[scale=0.145]{diagrammeEnchainement.png}
+
+Pour accéder au niveau 2 du diagramme, nous devons emprunter exactement le chemin indiqué dans le schéma. Le niveau inférieur peut, en tout temps, accéder aux pages du niveau supérieur.
+Lors d'une connexion, si l'utilisateur n'est pas un administrateur nous ne lui affichons pas les pages emprunt et retour. Sinon, nous lui rajoutons ces options dans le menu.
 
 \section{Diagramme de classe}
 
@@ -279,7 +372,7 @@ La gestion des droits fait appel au «~bit~bashing~», une technique qui consist
 
 et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table droits\_groupes contiendrait quelque chose comme ceci~:
 
-\begin{table}[h!]
+\begin{table}[ht]
 	\caption{groupes}
 	\begin{center}
 		\begin{tabular}{|c|l|l|}

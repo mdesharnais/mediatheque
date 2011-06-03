@@ -1,4 +1,5 @@
 <?php
+// set your internal clock to the YYY-MM-DD first
 define('INTERNAL_FORMAT', 'Y-m-d');
 define('DISPLAY_MONTH_FORMAT', 'M Y');
 define('DISPLAY_DAY_FORMAT', 'D d M Y');
