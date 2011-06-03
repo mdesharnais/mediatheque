@@ -48,7 +48,7 @@
 								<p><?php $media->printArtistField(); ?></p>
 								<p><?php $media->printTitleField(); ?></p>
 								<p><?php $media->printPublicationYearField(); ?></p>
-								<p><?php $media->printReferenceNumberField(); ?></p>
+								<!--<p><?php /* $media->printReferenceNumberField(); */ ?></p>-->
 								<p><?php $media->printGenreField(); ?></p>
 								<p><?php $media->printPublishingHouseField(); ?></p>
 								<p><?php $media->printSupportField(); ?></p>
@@ -220,6 +220,10 @@
 												<option value="4">DDDDD</option>
 												<option value="5">EEEEE</option>
 											</select>
+										</p>
+										<p>
+											<label for="details_notes">Notes</label><!--
+											--><textarea id="details_notes" name="details_notes"></textarea>
 										</p>
 									</div>
 								</li>

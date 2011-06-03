@@ -20,7 +20,6 @@ class PrintedMedia extends Media
 			SELECT medias.ID, 
 				medias.titre, 
 				medias.annee_publication, 
-				medias.reference, 
 				medias.notes, 
 				medias.image, 
 				maisons_edition.nom AS maison_edition, 

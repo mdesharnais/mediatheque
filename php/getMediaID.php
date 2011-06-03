@@ -7,13 +7,22 @@ if ((strlen($q) == 0) || ($q == Null)) {
 
 if ($q != Null) {
 	
-	$sql="SELECT medias.reference as reference, medias.titre as titre, medias.annee_publication as annee_publication, medias.notes as notes, medias.image as image, maisons_edition.nom as menom, supports.nom as cnom FROM medias 
-		INNER JOIN maisons_edition ON medias.maison_editionID = maisons_edition.ID 
-		INNER JOIN supports ON medias.supportID = supports.ID 
-		WHERE medias.ID = '".$q."'";
+	$query = $application->database->prepare('
+		SELECT
+			medias.reference, 
+			medias.titre, 
+			medias.annee_publication, 
+			medias.notes, 
+			medias.image, 
+			maisons_edition.nom as menom, 
+			supports.nom as cnom 
+		FROM medias 
+			INNER JOIN exemplaires_medias ON exemplaires_medias.mediaID = medias.ID 
+			INNER JOIN maisons_edition ON medias.maison_editionID = maisons_edition.ID 
+			INNER JOIN supports ON medias.supportID = supports.ID 
+		WHERE medias.ID = ?');
 	
-	$query = $application->database->prepare($sql);
-	$query->execute();
+	$query->execute(array($q));
 
 	foreach($query as $row)
 	{

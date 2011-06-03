@@ -22,9 +22,7 @@
 				<h3>Affinez votre recherche</h3>
 				<?php 
 				if (isset($_GET['presentation']) || !empty($_GET['presentation']))
-				{
 					printBreadCrumb(createFromWhereClause($_GET['presentation']));
-				}
 				else 
 					printBreadCrumb(createFromWhereClause(1)); 
 				?>

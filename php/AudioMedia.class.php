@@ -27,7 +27,6 @@ class AudioMedia extends Media
 			SELECT medias.ID, 
 				medias.titre, 
 				medias.annee_publication, 
-				medias.reference, 
 				medias.notes, 
 				medias.image, 
 				audios_videos.CUP, 

@@ -15,7 +15,7 @@ abstract class Media
 	protected $title;
 	protected $publicationYear;
 	protected $genre;
-	protected $referenceNumber;
+	//protected $referenceNumber;
 	protected $publishingHouse;
 	protected $support;
 	protected $description;
@@ -37,7 +37,7 @@ abstract class Media
 			$this->title = stripslashes($row['titre']);
 			$this->publicationYear = $row['annee_publication'];
 			$this->genre = $row['genre'];
-			$this->referenceNumber = stripslashes($row['reference']);
+			//$this->referenceNumber = stripslashes($row['reference']);
 			$this->publishingHouse = stripslashes($row['maison_edition']);
 			$this->support = stripslashes($row['support']);
 			$this->description = stripslashes($row['notes']);
@@ -77,10 +77,12 @@ abstract class Media
 		return $this->genre;
 	}
 
+	/*
 	public function getReferenceNumber()
 	{
 		return $this->referenceNumber;
 	}
+	*/
 
 	public function getPublishingHouse()
 	{
@@ -252,6 +254,7 @@ abstract class Media
 		}
 	}
 
+	/*
 	public function printReferenceNumberField()
 	{
 		echo '<label for="reference">Numéro de référence</label>';
@@ -270,6 +273,7 @@ abstract class Media
 			echo ' required>';
 		}
 	}
+	*/
 
 	public function printPublishingHouseField()
 	{
