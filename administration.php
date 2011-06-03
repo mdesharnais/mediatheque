@@ -33,6 +33,10 @@
 						<li><a href="drivingTable.php?table=artistes">Artistes</a></li>
 						<li><a href="drivingTable.php?table=formes">Formes</a></li>
 					</ul>
+					<h4>Réservations en cours</h4>
+					<ul>
+						<li><a href="reservations.php">Réservations en cours</a></li>
+					</ul>
 				</aside>
 			<?php
 			}
