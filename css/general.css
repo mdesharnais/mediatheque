@@ -90,18 +90,18 @@ h6
 	font-size: 1.1em;
 }
 
-img.left,
-img.right
+.left,
+.right
 {
 	margin: 1em;
 }
 
-img.left
+.left
 {
 	float: left;
 }
 
-img.right
+.right
 {
 	float: right;
 }

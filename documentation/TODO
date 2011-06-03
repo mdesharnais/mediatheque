@@ -56,9 +56,6 @@ Formulaires
 # Petites pensées de Martin
 ##################################################
 
-Ajouter une page d'administration permettant d'afficher la totalité des emprunts en cours avec possibilité de trier selon le critère que l'on souhaite.
-Ajouter une page d'administration permettant d'afficher la totalité de l'historique des emprunts en cours avec possibilité de trier selon le critère que l'on souhaite.
-Ajouter une page d'administration permettant d'afficher la totalité des réservations avec possibilité de trier selon le critère que l'on souhaite.
 Ajouter un attribut décrivant l'état d'un média
 *Possibilité de rechercher la partition correspondant à un média audio
 *Rapport de la musique classique
