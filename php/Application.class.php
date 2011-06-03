@@ -11,6 +11,8 @@ class Application
 	const DATABASE_USERNAME = 'website';
 	const DATABASE_PASSWORD = '1234';
 
+	const APPLICATION_NAME = 'Carcajou';
+
 	public $rights = array(
 		'read' => 1,
 		'write' => 2,
