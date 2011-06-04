@@ -1,4 +1,4 @@
-\documentclass[letter, 11pt, draft]{report}
+\documentclass[letter, 11pt]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -111,9 +111,28 @@ Dans la recherche avancée, il est aussi possible d'ajouter autant de critères 
 
 \subsection{Gestion des utilisateurs}
 
+Suite à l'analyse du projet, nous avons relevé qu'il y a, principalement, quatre groupes d'utilisateurs à gérer~:
+\begin{itemize}
+	\item Les \emph{administrateurs} du systèmes qui ont tous les droits;
+	\item Les \emph{Commis} qui sont chager d'entrer les emprunts, les réservations et les nouvelles acquisitions;
+	\item Les \emph{Étudiants} qui ont le droit d'effectuer des réservations mais dépendent d'un commis pour emprunter et retourner un média;
+	\item Les \emph{Enseignants} du département qui n'ont pas à passer par le commis pour effectuer un emprunt ou un retour à leur nom.
+\end{itemize}
+
 \subsubsection{Utilisateurs}
+Chaque personne souhaitant bénéficier des services de la médiathèque doit obligatoirement avoir un compte utilisateur identifié par nom d'utilisateur\footnote{Actuellement, nous utilisons le matricule comme nom d'utilisateur.} ainsi qu'un mot de passe. À moins que, lors de la programmation, les informations nécessaires soient disponnibles, ces identifiants sont dissociés des nom d'utilisateurs et mot de passe utilisés pour accéder aux service LÉA et aux ordinateurs du cégep de Trois-Rivières. Cependant, rien n'empêche les utilisateur de choisir le même mot de passe pour les deux systèmes.
+
+Toutes les informations sur un utilisateur sont stockés dans la table \texttt{utilisateurs}. Il est important de noter que les informations personelles de l'utilisateur doivent en tout temps rester accessible au moins de personnes possible\footnote{Ceci est un exemple évident de l'application du «~\href{http://en.wikipedia.org/wiki/Principle_of_least_privilege}{Principle of least privilege}~».}. Ceci est possible gràce au système de gestion des droits qui permet de donner le droit en lecture à ces information uniquement à certains groupes (e.g.\ \emph{Administrateurs} et \emph{Commis}).
+
+Pour plus d'informations sur la gestion des droits et la sécurité, voir la section \ref{sec:sécurité} sur la sécurité à la page \pageref{sec:sécurité}.
+
+Certaines informations, comme le mot de passe de l'utilisateur, doivent rester totalement inconnus de tous, excepté de l'utilisateur lui-même. Pour ce faire, ces informations devrons êtres cryptées avant d'être enregistrées dans la base de données. Advenant le cas ou un utilisateur perde sont mot de passe, la seule solution consite à le réinitialiser à une valeur par défaut et à demander à l'utilisateur d'en définir un nouveau.
 
 \subsubsection{Groupes}
+
+Les groupes servent à effectuer une distinction entre les différents utilisateurs et à leur attribuer des droits correspondant à leur statut dans le département. Plutôt que de tenter de prédire tous les besoins de hiérarchisation des utilisateurs dont le département de musique aura besoin dans le futur, nous avons fait la décision de rendre la gestion des groupes accessible aux utilisateurs. Ainsi, dans cinq ans, un administrateur pourrait créer un nouveau groupe avec des droits spécifiques pour représenter une nouvelle situation, comme l'arrivé d'enseignants stagiaires.
+
+Pour plus d'informations sur la gestion des groupes et la sécurité, voir la section \ref{sec:sécurité} sur la sécurité à la page \pageref{sec:sécurité}.
 
 \subsection{Rapports}
 
@@ -416,6 +435,8 @@ Apache HTTP Server 2.2.16 -- 2.2.17
 MySQL 5.1.49 -- 5.5.8
 
 \section{Sécurité}
+\label{sec:sécurité}
+
 \subsection{En théorie}
 
 La gestion des droits fait appel au «~bit~bashing~», une technique qui consiste à donner une représentation binaire à chacun des droits et de ne stocker que la somme de ces droits dans la base de données. Ainsi, si nous avons les droits suivants de définis~:
