@@ -71,9 +71,8 @@ Ce document contient la documentation du projet de médiathèque (nom de code «
 \chapter{Spécifications fonctionnelles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Caractéristiques}
 
-\subsection{Médias}
+\section{Médias}
 
 Nous avons décider de centraliser un certain nombre d'informations communes à tous les articles pouvant faire partie de la médiathèque, comme le titre ou le numéro de référence, sous l'identité de média. Ainsi, tous les articles de la médiathèque sont des médias et partagent un certain nombre de propriétées. Par la suite ceux-ci sont subdivisé en médias audios, vidéos et imprimés où chaque subdivision contient un certain nombre d'informations unique à sa catégorie.
 
@@ -158,46 +157,54 @@ Nous pouvons aussi constater qu'il y a deux médias portant le même titre mais 
 
 Il peut aussi arriver que nous disposions de plusieurs copies identiques d'un même média. Dans ce cas, nous pouvons simplement ajouter un exemplaire à un média déjà présent dans la base de données. Dans le tableau \ref{tab:sf-exemplaires-medias}, nous pouvons voir que nous possédons deux exemplaires de l'album \emph{l'expédition} alors que nous ne possédons qu'un seul exemplaire des autres médias. Puisque ce sont des objets distincts, les deux albums ont un numéro de référence différent afin de permettre de les différencier.
 
-Le client nous a expliquer que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponnibles uniquements pour consultation sur place.
+L'analyse nous a révélé que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponnibles uniquements pour consultation sur place.
 
 Pour représenter cette situation, nous avons décidés que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponnible en consultation sur place seulement.
 
-\subsubsection{Média audios}
+\subsection{Média audios}
 
-\subsubsection{Média vidéo}
+\subsection{Média vidéo}
 
-\subsubsection{Média imprimés}
+\subsection{Média imprimés}
 
-\subsection{Recherche}
+\subsection{Suggestions}
+Les utilisateurs du site ont la possibilité d'émettre une suggestion d'achat de nouveau médias. Un formulaire les invite à entrer le titre, l'artiste ainsi que le type de support du média qu'ils comptent suggérer. Ils ont aussi la possibilité d'ajouter un commentaire si des informations supplémentaires sont nécessaires.
+
+Le champ permettant d'entrer l'artiste devra être lier à une liste de suggestions permettant à l'utilisateur de sélectionner un artiste déjà présent dans le système. Pour plus d'informations sur les listes de suggestions, voir la section \ref{sec:recherche-avancée} sur la recherche avancée. Le champ contenant l'artiste ne peut être une simple liste déroulante statique puisque nous désirons laisser à l'utilisateur la possibilité de suggérer un média appartenant à un nouvel artiste.
+
+\section{Recherche}
 
 Les fonctions offertes par notre système de médiathèque sont les suivantes:
 
 Système de recherche et de parcours des médias
 \begin{itemize}
-	\item Recherche simple de médias
-	\item Recherche avancée de médias
-	\item Fil d'Ariane vertical permettant de naviguer parmi les médias
-	\item Système de pagination avancée permettant de naviguer dans les résultats
+	\item Fil d'Ariane vertical permettant de naviguer parmi les médias;
+	\item Parcourir toute la collection de médias;
+	\item Recherche simple de médias;
+	\item Recherche avancée de médias;
+	\item Système de pagination avancée permettant de naviguer dans les résultats.
 \end{itemize}
 
-\subsubsection{Fil d'Ariane vertical}
+\subsection{Fil d'Ariane vertical}
 Un fil d'Ariane est un composant web d'aide à la navigation dans les pages d'un site web. Un fil d'Ariane horizontal standard est sous la forme de signalisation de la localisation du lecteur dans un document. Il permet d'indiquer à l'utilisateur où il se situe dans une page web et offre des possibilité de revenir à la section qu'il désire.  Dans le cas de Carcajou, c'est un fil d'Ariane vertical qui est utilisé. Au lieu de nous afficher notre position dans un site web sous forme d'arborescence, il nous permet de naviguer par critères dans les résultats de recherche. On pourra donc l'utiliser pour raffinez une recherche de médias. Pour une recherche données, une liste de valeurs regroupé par critères sera affiché et on pourra donc cliquer sur ces valeurs pour raffiner sa recherche. Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la recherche devient plus spécifique et de moins en moins de valeurs d'attribut seront applicable à la recherche. Par exemple, si le niveau de raffinement de la recherche retourne uniquement deux résultats et que ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas affiché dans le fil d'Ariane.
 
 Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établis que s'il y avait plus de trois suggestions de valeurs pour un critère, un entrée de liste "Afficher plus" serait afficher pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à notez que cette fonction n'est disponible uniquement que sur un navigateur ayant le Javascript activé. La désactivation du Javascript n'amène pas de problématiques en tant que telles. Les valeurs des critères seront tout simplement afficher dans leur ensemble sans possibilité de cacher X résultats.
-\subsubsection{Parcourir}
-Le mode « Parcourir » est tout simplement la reqûete d'une recherche n'ayant aucun critères spécifiques. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination
-affichant 5 résultats par page. Pour parcourir les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
-\subsubsection{Recherche simple}
-Accessible à partir de la barre de navigation principale, la recherche simple permet à partir d'un mot clé d'effectuer une recherche sur tous les médias. Seul les médias satisfaisants le mot clé évoqué seront affichés. Pour cela, tous les champs sont parcourus pour rechercher une correspondance à ce mot clé. Par exemple, une recherche avec le mot « cowboy » pourrait autant retourné un média de l'artiste « Les cowboys fringuants » qu'un média ayant le mot cowboys dans son titre. 
-\subsubsection{Recherche avancée}
 
+\subsection{Parcourir}
+Le mode « Parcourir » est tout simplement la reqûete d'une recherche n'ayant aucun critères spécifiques. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination affichant 5 résultats par page. Pour parcourir les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
+
+\subsection{Recherche simple}
+Accessible à partir de la barre de navigation principale, la recherche simple permet à partir d'un mot clé d'effectuer une recherche sur tous les médias. Seul les médias satisfaisants le mot clé évoqué seront affichés. Pour cela, tous les champs sont parcourus pour rechercher une correspondance à ce mot clé. Par exemple, une recherche avec le mot « cowboy » pourrait autant retourné un média de l'artiste « Les cowboys fringuants » qu'un média ayant le mot cowboys dans son titre. 
+
+\subsection{Recherche avancée}
+\label{sec:recherche-avancée}
 La recherche avancée permet de faire une recherche très spécifique. On peut y sélectionner tous les critères de recherche possible et sans limite de nombre. On peut sélectionner les opérateurs logiques (et, ou, etc) et les opérateurs de comparaison (contient, égale, etc). On pourrait donc effectuée une recherche comme celle-ci: Titre du média contenant « Indiana Jones» et année de publication plus grande que 1988.
 
 Lors de la sélection d'un critère d'un recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape la première lettre du mot clés, une liste de valeurs ayant cette lettre s'affichera. Cette ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise « DATALIST » qui disponible uniquement sur des navigateurs supportant cette balise Html 5.
 
 Il est aussi possible d'ajouter autant de critères de recherches que l'on désire. Pour cela, le javascript a été utilisé pour interragir dinanymiquement avec le DOM de la page. Des effets visuels de disparation et d'apparition ont même été ajouté pour une ergonomie plus dynamique.
 
-\subsection{Gestion des utilisateurs}
+\section{Gestion des utilisateurs}
 
 Suite à l'analyse du projet, nous avons relevé qu'il y a, principalement, quatre groupes d'utilisateurs à gérer~:
 \begin{itemize}
@@ -207,7 +214,7 @@ Suite à l'analyse du projet, nous avons relevé qu'il y a, principalement, quat
 	\item Les \emph{Enseignants} du département qui n'ont pas à passer par le commis pour effectuer un emprunt ou un retour à leur nom.
 \end{itemize}
 
-\subsubsection{Utilisateurs}
+\subsection{Utilisateurs}
 Chaque personne souhaitant bénéficier des services de la médiathèque doit obligatoirement avoir un compte utilisateur identifié par nom d'utilisateur\footnote{Actuellement, nous utilisons le matricule comme nom d'utilisateur.} ainsi qu'un mot de passe. À moins que, lors de la programmation, les informations nécessaires soient disponnibles, ces identifiants sont dissociés des nom d'utilisateurs et mot de passe utilisés pour accéder aux service LÉA et aux ordinateurs du cégep de Trois-Rivières. Cependant, rien n'empêche les utilisateur de choisir le même mot de passe pour les deux systèmes.
 
 Toutes les informations sur un utilisateur sont stockés dans la table \texttt{utilisateurs}. Il est important de noter que les informations personelles de l'utilisateur doivent en tout temps rester accessible au moins de personnes possible\footnote{Ceci est un exemple évident de l'application du «~\href{http://en.wikipedia.org/wiki/Principle_of_least_privilege}{Principle of least privilege}~».}. Ceci est possible gràce au système de gestion des droits qui permet de donner le droit en lecture à ces information uniquement à certains groupes (e.g.\ \emph{Administrateurs} et \emph{Commis}).
@@ -216,15 +223,52 @@ Pour plus d'informations sur la gestion des droits et la sécurité, voir la sec
 
 Certaines informations, comme le mot de passe de l'utilisateur, doivent rester totalement inconnus de tous, excepté de l'utilisateur lui-même. Pour ce faire, ces informations devrons êtres cryptées avant d'être enregistrées dans la base de données. Advenant le cas ou un utilisateur perde sont mot de passe, la seule solution consite à le réinitialiser à une valeur par défaut et à demander à l'utilisateur d'en définir un nouveau.
 
-\subsubsection{Groupes}
-
+\subsection{Groupes}
 Les groupes servent à effectuer une distinction entre les différents utilisateurs et à leur attribuer des droits correspondant à leur statut dans le département. Plutôt que de tenter de prédire tous les besoins de hiérarchisation des utilisateurs dont le département de musique aura besoin dans le futur, nous avons fait la décision de rendre la gestion des groupes accessible aux utilisateurs. Ainsi, dans cinq ans, un administrateur pourrait créer un nouveau groupe avec des droits spécifiques pour représenter une nouvelle situation, comme l'arrivé d'enseignants stagiaires.
 
 Pour plus d'informations sur la gestion des groupes et la sécurité, voir la section \ref{sec:sécurité} sur la sécurité à la page \pageref{sec:sécurité}.
 
-\subsection{Rapports}
+\section{Zone utilisateur}
 
-\subsubsection{Rapport sur les médias audios}
+\subsection{Mes réservations}
+
+\subsection{Mes emprunts en cours}
+
+\subsection{Mon historique d'emprunts}
+
+\section{Administration}
+
+\subsection{Emprunt}
+
+\subsection{Retour}
+
+\subsection{Tables de pilotages}
+
+\subsection{Réservations en cours}
+
+\subsection{Emprunts en cours}
+
+\subsection{Historique des emprunts}
+
+\subsection{Gestion des utilisateurs}
+
+\subsection{Gestion des groupes}
+
+\section{Rapports}
+
+\subsection{Rapport sur les médias audios}
+
+\section{Pages d'information}
+
+Nous avons intégrés une section «~À propos~» qui les sections suivantes~:
+\begin{itemize}
+	\item À propos de la médiathèque;
+	\item À propos du département de musique;
+	\item À propos des heures d'ouverture;
+	\item À propos de la règrementation.
+\end{itemize}
+
+Ces pages permettrons de publier des informations concernant la médiathèque et le département de musique comme. Ce sera l'endroit idéal pour parler de l'évolution du département de musique et de leur médiathèque ainsi que pour expliquer le fonctionnement du site.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Architecture du système}
