@@ -29,8 +29,8 @@
 				{
 					echo '<form method="GET" class="right">';
 					echo '	<select id="t" name="t">';
-					echo '		<option value="1"'.(isset($_GET['t']) && $_GET['t'] == 1 ? 'selected' : '').'>Emprunts en cours</option>';
-					echo '		<option value="2"'.(isset($_GET['t']) && $_GET['t'] == 2 ? 'selected' : '').'>Historique des emprunts</option>';
+					echo '		<option value="1"'.(isset($_GET['t']) && $_GET['t'] == 1 ? ' selected' : '').'>Emprunts en cours</option>';
+					echo '		<option value="2"'.(isset($_GET['t']) && $_GET['t'] == 2 ? ' selected' : '').'>Historique des emprunts</option>';
 					echo '	</select>';
 					echo '	<button type="submit">Envoyer</button>';
 					echo '</form>';
