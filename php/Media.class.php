@@ -117,7 +117,7 @@ abstract class Media
 				INNER JOIN supports ON supports.ID = medias.supportID 
 				INNER JOIN categories_media ON categories_media.ID = supports.categorie_mediaID 
 			WHERE medias.ID = ?');
-		$query->execute(array($_GET['id']));
+		$query->execute(array($id));
 		$row = $query->fetch();
 		
 		if($row == false)

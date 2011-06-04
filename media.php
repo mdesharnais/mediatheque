@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="author" content="Martin Desharnais">
 
-		<title>Médiatech du département de musique du cégep de Trois-Rivières</title>
+		<title><?php echo Application::APPLICATION_NAME; ?> - Détails du média</title>
 
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>

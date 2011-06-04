@@ -74,7 +74,10 @@
 						echo '		<td>'.$row['nom'].'</td>';
 						echo '		<td>'.$row['prenom'].'</td>';
 						if($application->currentUser->haveRights('users.php', $application->rights['write']))
+						{
+							echo '		<td><a href="user.php?id='.$row['ID'].'">Modifier</a></td>';
 							echo '		<td><a href="#" onclick="return confirm(\'Voulez-vous vraiment supprimer cet enregistrement?\');">Supprimer</a></td>';
+						}
 						echo '	</tr>';
 					}
 					echo '	</tbody>';
