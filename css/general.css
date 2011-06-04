@@ -134,7 +134,7 @@ label:after
 	content: " :";
 }
 
-input,
+input[type="text"],
 textarea
 {
 	font-family: inherit;
