@@ -75,6 +75,89 @@ Ce document contient la documentation du projet de médiathèque (nom de code «
 
 \subsection{Médias}
 
+Nous avons décider de centraliser un certain nombre d'informations communes à tous les articles pouvant faire partie de la médiathèque, comme le titre ou le numéro de référence, sous l'identité de média. Ainsi, tous les articles de la médiathèque sont des médias et partagent un certain nombre de propriétées. Par la suite ceux-ci sont subdivisé en médias audios, vidéos et imprimés où chaque subdivision contient un certain nombre d'informations unique à sa catégorie.
+
+Dans la base de donneés, cette situation se traduit par une table \texttt{medias} qui contient un enregistrement correspondant à tous les médias de la médiathèque ainsi que des tables enfants contenant les informations plus précises de chaque type.
+
+Les informations propres aux médias imprimées se trouvent dans la table \texttt{imprimes}.
+
+Les médias audio et vidéos sont un cas à part car nous nous sommes apperçu que ceux-ci étaient extrèmement semblables. Les quelques propriétées qui les distinguaient pouvaient très bien s'appliquer l'un à l'autre. Nous avons donc décidé des les regrouper, à l'interne, dans la table \texttt{audios\_videos}.
+
+\begin{table}[htbp]
+	\caption{medias}
+	\label{tab:sf-medias}
+	\begin{center}
+		\begin{tabular}{|c|l|c|}
+			\hline
+			ID & titre                                 & annee\_publication \\
+			\hline
+			1  & L'expédition                          & 2008 \\
+			2  & La communauté de l'anneau             & 1972 \\
+			3  & La communauté de l'anneau             & 2005 \\
+			4  & Indiana Jones et la dernière croisade & 1987 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[h!tbp]
+	\caption{audios\_videos}
+	\label{tab:sf-audios-videos}
+	\begin{center}
+		\begin{tabular}{|c|c|l|}
+			\hline
+			ID & exID & nationalite \\
+			\hline
+			1  & 1    & Canadienne \\
+			2  & 4    & Américaine \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[htbp]
+	\caption{imprimes}
+	\label{tab:sf-imprimes}
+	\begin{center}
+		\begin{tabular}{|c|c|l|}
+			\hline
+			ID & exID & collection \\
+			\hline
+			1  & 2    & Le seigneur des anneaux \\
+			2  & 3    & Le seigneur des anneaux \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Ainsi, pour effectuer une interrogation à la base de données concernant l'ensemble des médias, il suffit d'interroger la table \texttt{medias} qui contient les informations communes à tous les médias. Si nous voulons des informations plus précises sur un médias audio, il suffit de joindre les table \texttt{medias} et \texttt{audios\_videos} selon l'\texttt{ID} du premier et l'\texttt{exID} du second.
+
+Nous ponvons toujours être sur que, pour chaque enregistrement de la table \texttt{media}, il y aura toujours, selon le type, un enregistrement correspondant dans la table \texttt{audios\_videos} ou bien dans la table \texttt{imprimes}.
+
+Dans l'exemple des tableaux \ref{tab:sf-medias}, \ref{tab:sf-audios-videos} et \ref{tab:sf-imprimes}, nous voyons que le CD \emph{l'expédition}, parru en 2008, est de nationalité canadienne alors que le livre \emph{La communauté de l'anneau}, parru en 1972, appartient à la collection \emph{Le seigneur des anneaux}. Ce sont tous deux des médias, mais les informations supplémentaires de chacun sont dans la table correspondant à leur type.
+
+Nous pouvons aussi constater qu'il y a deux médias portant le même titre mais ayant une date de publication différente. il s'agit là d'une réédition et puisque certaines informations changent d'une édition à l'autre, un nouveau média a été créé pour la représenter.
+
+\begin{table}[htbp]
+	\caption{exemplaires\_medias}
+	\label{tab:sf-exemplaires-medias}
+	\begin{center}
+		\begin{tabular}{|c|c|l|}
+			\hline
+			ID & exID & reference \\
+			\hline
+			1  & 1 & CD-00001 \\
+			2  & 1 & CD-00002 \\
+			3  & 2 & ROM-00003 \\
+			4  & 3 & ROM-00004 \\
+			5  & 4 & VHS-00005 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Il peut aussi arriver que nous disposions de plusieurs copies identiques d'un même média. Dans ce cas, nous pouvons simplement ajouter un exemplaire à un média déjà présent dans la base de données. Dans le tableau \ref{tab:sf-exemplaires-medias}, nous pouvons voir que nous possédons deux exemplaires de l'album \emph{l'expédition} alors que nous ne possédons qu'un seul exemplaire des autres médias. Puisque ce sont des objets distincts, les deux albums ont un numéro de référence différent afin de permettre de les différencier.
+
 Le client nous a expliquer que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponnibles uniquements pour consultation sur place.
 
 Pour représenter cette situation, nous avons décidés que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponnible en consultation sur place seulement.
@@ -118,7 +201,7 @@ Il est aussi possible d'ajouter autant de critères de recherches que l'on dési
 
 Suite à l'analyse du projet, nous avons relevé qu'il y a, principalement, quatre groupes d'utilisateurs à gérer~:
 \begin{itemize}
-	\item Les \emph{administrateurs} du systèmes qui ont tous les droits;
+	\item Les \emph{Administrateurs} du systèmes qui ont tous les droits;
 	\item Les \emph{Commis} qui sont chager d'entrer les emprunts, les réservations et les nouvelles acquisitions;
 	\item Les \emph{Étudiants} qui ont le droit d'effectuer des réservations mais dépendent d'un commis pour emprunter et retourner un média;
 	\item Les \emph{Enseignants} du département qui n'ont pas à passer par le commis pour effectuer un emprunt ou un retour à leur nom.
