@@ -1,4 +1,4 @@
-\documentclass[letter, 11pt]{report}
+\documentclass[letter, 11pt, draft]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -73,7 +73,19 @@ Ce document contient la documentation du projet de médiathèque (nom de code «
 
 \section{Caractéristiques}
 
-\subsection{Fonctions du système}
+\subsection{Médias}
+
+Le client nous a expliquer que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponnibles uniquements pour consultation sur place.
+
+Pour représenter cette situation, nous avons décidés que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponnible en consultation sur place seulement.
+
+\subsubsection{Média audios}
+
+\subsubsection{Média vidéo}
+
+\subsubsection{Média imprimés}
+
+\subsection{Recherche}
 
 Les fonctions offertes par notre système de médiathèque sont les suivantes:
 
@@ -85,16 +97,27 @@ Système de recherche et de parcours des médias
 	\item Système de pagination avancée permettant de naviguer dans les résultats
 \end{itemize}
 
-\subsection{Recherche avancée}
+\subsubsection{Fil d'Ariane vertical}
+
+\subsubsection{Parcourir}
+
+\subsubsection{Recherche simple}
+
+\subsubsection{Recherche avancée}
 
 Dans la recherche avancée, lors de la sélection d'un critère d'un recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape la première lettre du mot clés, une liste de valeurs ayant cette lettre s'affichera. Cette ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise « DATALIST » qui disponible uniquement sur des navigateurs supportant cette balise Html 5.
 
 Dans la recherche avancée, il est aussi possible d'ajouter autant de critères de recherches que l'on désire. Pour cela, le javascript a été utilisé pour interragir dinanymiquement avec le DOM de la page. Des effets visuels de disparation et d'apparition ont même été ajouté pour une ergonomie plus dynamique.
 
-\subsection{Médias}
-Le client nous a expliquer que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponnibles uniquements pour consultation sur place.
+\subsection{Gestion des utilisateurs}
 
-Pour représenter cette situation, nous avons décidés que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponnible en consultation sur place seulement.
+\subsubsection{Utilisateurs}
+
+\subsubsection{Groupes}
+
+\subsection{Rapports}
+
+\subsubsection{Rapport sur les médias audios}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Architecture du système}
@@ -109,20 +132,33 @@ Le site internet se veut d'abord sobre et pratique.
 \subsection{Maquette}
 
 Toutes les pages sont construites sur la base du modèle suivant :
-\newline
-\includegraphics[scale=0.6]{maquetteImage.png}
-\newline
-1 : Bandeau\newline
-2: Fil d'Ariane verticale (n'apparait cependant que dans l'affichage des résultats de recherche)\newline
-3: Contenu de la page\newline
-4: Pied de page\newline
-\includegraphics[scale=0.3]{pageType.png}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.6]{maquetteImage.png}
+	\end{center}
+	\caption{Maquette générale du site}
+\end{figure}
+
+\begin{enumerate}
+	\item Bandeau
+	\item Fil d'Ariane verticale (n'apparait cependant que dans certaines pages)
+	\item Contenu de la page
+	\item Pied de page
+\end{enumerate}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.3]{pageType.png}
+	\end{center}
+	\caption{Exemple de page comprenant tous les éléments de la maquette}
+\end{figure}
 
 \subsubsection{Bandeau (1)}
 
 Le bandeau est constitué des éléments suivant:
 \begin{description}
-	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site. Par contre, ce n'est pas une image mais bien un mot mise en forme en css. Ce sigle permet de revenir sur la page d'accueil (en haut à gauche). Le sigle du site utilise la police MegalopolisExtra-Webfont.
+	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site et est toujours situé dans le coin suppérieur gauche. Par contre, ce n'est pas une image mais bien un mot mise en forme en CSS. Ce sigle permet, en tout temps, de revenir sur la page d'accueil. Le sigle du site utilise la police MegalopolisExtra-Webfont.
 	\item[Menus déroulants]À la droite du sigle se retrouve le menu principal incluant des menus déroulants permettant de se déplacer dans les sections du site. Les entrées de menu sont les suivantes:
 		\begin{itemize}
 			\item À propos
@@ -249,7 +285,7 @@ Les titres sont de la même police de caractère que le reste du site.
 \begin{table}
 	\caption{Taille des polices}
 	\begin{center}
-		\begin{tabular}{|c|c|}
+		\begin{tabular}{|c|r|}
 			\hline
 			Titre & Taille \\
 			\hline
@@ -277,7 +313,7 @@ A generer a l'aide de visio ou a la main
 \begin{table}[ht]
 	\caption{images}
 	\begin{center}
-		\begin{tabular}{|c|l|p{5cm}|}
+		\begin{tabular}{|c|l|l|}
 		\hline
 		Image 		& Taille 			& Description \\ \hline
 		\includegraphics[scale=0.2]{black_arrow_big.png} 	& 370x216, 209x122 	& Cette image servira a afficher les détails d'un média. \\ \hline
@@ -319,7 +355,13 @@ Voir le tableau en annexe.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Représentation graphique}
-\includegraphics[scale=0.7]{architectureTechnologique.png}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.75]{architectureTechnologique.png}
+	\end{center}
+	\caption{Architecture technologique}
+\end{figure}
 
 \section{Spécifications techniques}
 
