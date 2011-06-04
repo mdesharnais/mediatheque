@@ -8,6 +8,12 @@
 		<title>Rapports Média Audio - Médiatech du département de musique du cégep de Trois-Rivières</title>
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
+		<style>
+			form label
+			{
+				width: 4.5em;
+			}
+		</style>
 	</head>
 	<body>
 		<?php require('sharedFiles/header.inc.php'); ?>
@@ -19,14 +25,16 @@
 				$query = $application->database->prepare($sql);
 				$query->execute();
 
-				echo "<form name='input' method='get'>";
-				echo "Genres : <select id='genres'>";
+				echo '<form name="input" method="get">';
+				echo '<label for="genreID">Genre</label>';
+				echo '<select id="genreID" name="genreID">';
 				foreach($query as $row)
 				{
-					echo "<option value=".$row['ID'].">".$row['nom']."</option>";
+					echo '<option value='.$row['ID'].'>'.$row['nom'].'</option>';
 				}
-				echo "</select>";
-				echo "<input type='submit' value='Submit' />";
+				echo '</select>';
+				echo '<button type="submit">Envoyer</button>';
+				echo '</form>';
 				
 				// if param exist generate report else do nothing
 			?>
