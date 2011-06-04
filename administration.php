@@ -42,6 +42,7 @@
 					<h4>Utilisateurs</h4>
 					<ul>
 						<li><a href="users.php">Gestion des utilisateurs</a></li>
+						<li><a href="drivingTable.php?table=groupes">Gestion des groupes</a></li>
 					</ul>
 				</aside>
 			<?php

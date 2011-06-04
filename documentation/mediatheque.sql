@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
 CREATE TABLE IF NOT EXISTS groupes (
 	ID int(11) PRIMARY KEY COMMENT 'ID',
 	nom varchar(50) NOT NULL COMMENT 'Nom',
+	description VARCHAR(250) COMMENT 'Description',
 	inactif BOOLEAN NOT NULL COMMENT 'Inactif',
 	UNIQUE(nom)
 ) ENGINE=InnoDb COMMENT 'Groupes';
