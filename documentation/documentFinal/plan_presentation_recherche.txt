@@ -1,0 +1,28 @@
+Voici les étapes de la présentations des parties de Samuel, soit la recherche avancée, les résultats de recherche et le fil d'Ariane vertical.
+
+1. Montrer l'utilisation de la recherche simple: 
+Tapez "Indiana Jones" dans le champ texte de recherche simple et appuyer sur le bouton "Rechercher"
+On tombe sur la page des résultats avec les deux films Indiana Jones
+
+2. Montrer l'utilisation de la recherche avancée
+
+Montrer les différents critères de recherche (Titre du média, genre, etc)
+Montrer les différents choix des opérateurs (et, ou, etc)
+Montrer les différents choix des opérateurs (Contient, =, etc)
+
+Montrer l'utilisation du bouton + et du bouton -
+
+Prendre le critère "Titre du média", tapez dans le champ un "L". Montrer la suggestion de valeurs.
+Prendre le critère "Nom d'artiste", double-cliquez dans le champ pour montrer la suggestion de valeurs.
+
+Tapez "La communauté de l'anneau" dans la recherche et appuyer sur rechercher.
+
+3. Montrer l'utilisation du mode "Parcourir"
+
+Allez dans Médiathèque/parcourir
+Montrer le système de pagination permettant de se déplacer dans les pages.
+
+4. Montrer l'utilisation du fil d'Ariane vertical.
+Aller dans Parcourir, cliquez sur Audio* dans le fil d'Ariane
+Cliquez ensuite sur l'artiste "Les cowboys fringuants"
+Cliquez ensuite sur l'année de publication "2008"
