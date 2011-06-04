@@ -13,6 +13,11 @@
 			{
 				width: 5em;
 			}
+
+			p a:first-child
+			{
+				margin-right: 1em;
+			}
 		</style>
 	</head>
 	<body>
@@ -57,6 +62,11 @@
 						$query->execute(array($_GET['groupeID']));
 					else
 						$query->execute();
+
+					echo '<p>';
+					echo '<a href="user.php">Ajouter</a>';
+					echo '<a href="#">Importer</a>';
+					echo '</p>';
 
 					echo '<table>';
 					echo '	<thead>';
