@@ -39,6 +39,10 @@
 						<li><a href="borrows.php?t=1">Emprunts en cours</a></li>
 						<li><a href="borrows.php?t=2">Historique des emprunts</a></li>
 					</ul>
+					<h4>Utilisateurs</h4>
+					<ul>
+						<li><a href="users.php">Gestion des utilisateurs</a></li>
+					</ul>
 				</aside>
 			<?php
 			}

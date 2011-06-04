@@ -615,14 +615,34 @@ INSERT INTO details_imprimes (ID, exID, titre, position_media, catalogueID, genr
 
 INSERT INTO utilisateurs (ID, matricule, nom, prenom, telephone, courriel, inactif)
 VALUES
-	(1, 834612, 'Boudreault', 'Émile', '8192323232', 'findumonde@gmail.com', TRUE),
-	(2, 974364, 'Borduas', 'Paul-Émile', '8192324433', 'borduas@gmail.com', TRUE);
+	(1, 11111111, 'Baggins',    'Frodo',      NULL, NULL, FALSE),
+	(2, 22222222, 'Gamgee',     'Samwise',    NULL, NULL, FALSE),
+	(3, 33333333, 'Brandybuck', 'Meriadoc',   NULL, NULL, TRUE),
+	(4, 44444444, 'Took',       'Peregrin',   NULL, NULL, FALSE),
+	(5, 834612,   'Boudreault', 'Émile',      '8192323232', 'findumonde@gmail.com', TRUE),
+	(6, 974364,   'Borduas',    'Paul-Émile', '8192324433', 'borduas@gmail.com', TRUE);
+
+INSERT INTO groupes(ID, nom, inactif)
+VALUES
+	(1, 'Administrateurs', FALSE),
+	(2, 'Enseignants', FALSE),
+	(3, 'Commis', FALSE),
+	(4, 'Étudiants', FALSE);
+
+INSERT INTO groupes_utilisateurs(ID, exID, groupeID)
+VALUES
+	(1, 1, 1),
+	(2, 2, 4),
+	(3, 2, 3),
+	(4, 3, 4),
+	(5, 4, 2);
+
 
 INSERT INTO emprunts (ID, utilisateurID, mediaID, date_reservation, date_voulue, date_emprunt, duree, date_retour)
 VALUES
-	(1, 1, 1, '2010-01-01', '2010-02-01', NULL,         '15', NULL),
-	(2, 1, 2, '2010-01-01', '2010-05-05', NULL,         '15', NULL),
-	(3, 1, 3, NULL,         NULL,         '2010-01-05', '15', NULL),
-	(4, 1, 4, NULL,         NULL,         '2010-01-06', '15', NULL),
-	(5, 1, 5, NULL,         NULL,         '2010-01-04', '15', '2010-10-05'),
-	(6, 2, 2, '2009-10-01', NULL,         NULL,         '15', NULL);
+	(1, 5, 1, '2010-01-01', '2010-02-01', NULL,         '15', NULL),
+	(2, 5, 2, '2010-01-01', '2010-05-05', NULL,         '15', NULL),
+	(3, 5, 3, NULL,         NULL,         '2010-01-05', '15', NULL),
+	(4, 5, 4, NULL,         NULL,         '2010-01-06', '15', NULL),
+	(5, 5, 5, NULL,         NULL,         '2010-01-04', '15', '2010-10-05'),
+	(6, 6, 2, '2009-10-01', NULL,         NULL,         '15', NULL);
