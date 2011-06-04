@@ -85,6 +85,47 @@ class User
 		return is_null($this->ID);
 	}
 
+	/**
+	 * \brief Retourne, si celui-ci existe, l'utilisateur correspondant à la clé primaire reçue en paramètre.
+	 * \author Martin Desharnais
+	 * \param id Clé primaire de l'utilisateur que l'on souhaite récupérer.
+	 * \exception InvalidArgumentException Aucun utilisateur ne correspond à la clé primaire reçue.
+	 * \return Une instance de l'a classe User correspondant à la clé primaire reçue en paramètre.
+	 */
+	public static function getInstanceOf($id)
+	{
+		global $application;
+
+		$query = $application->database->prepare('
+			SELECT utilisateurs.matricule,
+				utilisateurs.nom,
+				utilisateurs.prenom,
+				utilisateurs.telephone,
+				utilisateurs.courriel,
+				utilisateurs.inactif
+			FROM utilisateurs
+			WHERE utilisateurs.ID = ?');
+		$query->execute(array($id));
+		$row = $query->fetch();
+
+		if($row == false)
+			throw new InvalidArgumentException('L\'utilisateur demandé n\'existe pas.');
+
+		$user = new User($id);
+		$user->setStudentNumber($row['matricule']);
+		$user->setPassword('12345');
+		$user->setFirstName($row['prenom']);
+		$user->setLastName($row['nom']);
+		$user->setTelephoneNumber($row['telephone']);
+		$user->setEmailAddress($row['courriel']);
+		if($row['inactif'])
+			$user->setInactive();
+		else
+			$user->setActive();
+
+		return $user;
+	}
+
 	//////////////////////////////////////////////////
 	// Set(s)
 	//////////////////////////////////////////////////
