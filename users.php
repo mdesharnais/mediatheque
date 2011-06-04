@@ -20,7 +20,7 @@
 		<div id="content">
 			<div>
 				<?php
-				if(!$application->currentUser->haveRights('users.php', $application->rights['read'] | $application->rights['write']))
+				if(!$application->currentUser->haveRights('users.php', $application->rights['read']))
 				{
 					echo '<h1>Erreur</h1>';
 					echo '<p>Vous vous n\'avez pas les droits nécessaires pour accéder à cette page.<p>';
@@ -73,7 +73,8 @@
 						echo '		<td>'.$row['matricule'].'</td>';
 						echo '		<td>'.$row['nom'].'</td>';
 						echo '		<td>'.$row['prenom'].'</td>';
-						echo '		<td><a href="#" onclick="return confirm(\'Voulez-vous vraiment supprimer cet enregistrement?\');">Supprimer</a></td>';
+						if($application->currentUser->haveRights('users.php', $application->rights['write']))
+							echo '		<td><a href="#" onclick="return confirm(\'Voulez-vous vraiment supprimer cet enregistrement?\');">Supprimer</a></td>';
 						echo '	</tr>';
 					}
 					echo '	</tbody>';
