@@ -22,13 +22,8 @@
 			{
 			echo '
 			<form id="suggestion" method="post" action="php/sendSuggestion.php">
-			<p><label for="titre">Titre</label>
-			<input type="text" id="titre" name="titre" maxlength="75" REQUIRED>
-			</p>
-			<p><label for="artiste">Artiste</label>
-			<input type="text" id="artiste" name="artiste" maxlength="75">
-			
-			</p>
+			<p><label for="titre">Titre</label><input type="text" id="titre" name="titre" maxlength="75" required></p>
+			<p><label for="artiste">Artiste</label><input type="text" id="artiste" name="artiste" maxlength="75"></p>
 			<p><label for="typeSupport">Type de support</label>';
 			$query = $application->database->prepare('SELECT nom FROM supports WHERE inactif = FALSE ORDER BY nom ASC');
 			$query->execute();
@@ -45,9 +40,7 @@
 			echo '
 			</p>
 			
-			<p><label for="commentaire">Commentaire</label>
-			<input type="text" id="commentaire" name="commentaire" maxlength="75">
-			</p>
+			<p><label for="commentaire">Commentaire</label><input type="text" id="commentaire" name="commentaire" maxlength="75"></p>
 			<button type="submit">Envoyer</button> 
 			</form>
 			';
