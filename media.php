@@ -57,6 +57,16 @@
 								<p><?php if($media instanceof AudioMedia) $media->printUniversalProductCodeField(); ?></p>
 								<p><?php if($media instanceof AudioMedia) $media->printNationalityField(); ?></p>
 								<p><?php $media->printDescriptionField(); ?></p>
+								<p><label for="groupes">Groupes autorisés à emprunter</label><!--
+								--><select id="courriel" name="courriel" multiple>
+								<?php
+								$query = $application->database->prepare('
+									SELECT ID, nom FROM groupes WHERE inactif = FALSE');
+								$query->execute();
+								foreach($query as $row)
+									echo '<option value="'.$row['ID'].'">'.$row['nom'].'</option>';
+								?>
+								</select></p>
 							</div>
 							<ul class="detailsLevel2">
 								<?php
