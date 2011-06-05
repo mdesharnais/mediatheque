@@ -602,7 +602,14 @@ En tout, 7 modèles de pages ont été développés.
 
 Ce modèle est utilisé pour des pages d'information statiques. La page « À propos de la médiathèque » est un exemple de ce type de page. Les éléments que l'on retrouve dans ce modèle sont assez élémentaires. On y retrouve habituellement un titre de niveau 2, des paragraphes et une ou plusieurs images.
 
-\subsection{Le modèle d'affichage des résultats de recherche}
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/modele_descriptif.png}
+	\end{center}
+	\caption{Modèle descriptif}
+\end{figure}
+
+\subsection{Le modèle de page d'affichage des résultats de recherche}
 
 Ce modèle est utilisé pour l'affichage des résultats de recherche. Il est considéré comme le type de page le plus fourni en terme de contenu. Il se compose des éléments suivants:
 
@@ -613,27 +620,55 @@ Ce modèle est utilisé pour l'affichage des résultats de recherche. Il est con
 	\item Les résultats de recherche sous forme d'élément de tableau contenant, les valeur des champs standards à tous les médias, accompagné d'une image.
 \end{itemize}
 
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/modele_resultats_recherche.png}
+	\end{center}
+	\caption{Modèle d'affichage des résultats de recherche}
+\end{figure}
+
 \subsection{Le modèle de page des réservations et des emprunts}
 
 Ce modèle est utilisé pour les pages de réservations et d'emprunts. Marc-André doit remplir cette section.
 
-\subsection{Le modèle table de pilotage}
+\subsection{Le modèle de page table de pilotage}
 
 Ce modèle est utilisé pour gérer le contenu des tables de pilotage\footnote{Voir la section \ref{sec:tables_de_pilotage} sur les tables de pilotage, à la page \pageref{sec:tables_de_pilotage}, pour plus de détails.}.
 
-\subsection{Le modèle formulaire simple}
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/modele_tables_de_pilotage.png}
+	\end{center}
+	\caption{Modèle table de pilotage}
+\end{figure}
+
+\subsection{Le modèle de page formulaire simple}
 
 Ce modèle est utilisé pour afficher des formulaire simples ayant un seul niveau de détail. Les éléments se retrouvant dans ce modèle sont consitué de quelques champ avec un bouton "Submit" permettant d'effecuter une action particulière sur les données. La page «~Suggestions~» en est un exemple.
 
-\subsection{Le modèle de détails avancé d'un média}
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/modele_formulaire_simple.png}
+	\end{center}
+	\caption{Modèle formulaire simple}
+\end{figure}
+
+\subsection{Le modèle de page de détails avancé d'un média}
 
 Ce modèle est utilisé pour visionner ou modifier les détails d'un média. Lorsque l'utilisateur est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe plusieurs niveaux de détails pour un média. Des boutons plus et moins sont utilisés pour naviguer entre ces différents niveaux de détail.
 
 Lorsque l'utilisateur n'est pas un admistrateur, tous les champs éditables deviennent des éléments affichés.
 
-\subsection{Le modèle rapport}
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/modele_details_medias.png}
+	\end{center}
+	\caption{Modèle formulaire simple}
+\end{figure}
 
-Ce modèle de page est utilisé pour des données sous forme de rapports. Les rapports sont toute simplement constitué d'un tableau.
+\subsection{Le modèle de page rapport}
+
+Ce modèle de page est utilisé pour des données sous forme de rapports. Les rapports sont tout simplement constitués d'un tableau présentant les valeurs des différentes colonnes de la table dans la base de données.
 
 \section{Diagramme d'enchaînement}
 
