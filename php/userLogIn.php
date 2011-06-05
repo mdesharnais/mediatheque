@@ -10,7 +10,7 @@ try
 
 	require_once('User.class.php');
 
-	$user = new User(1);
+	$user = new User(5);
 	$user->setStudentNumber($_POST['matricule']);
 	$user->setPassword($_POST['mot_de_passe']);
 	$user->setFirstName('Paul');
