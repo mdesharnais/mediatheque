@@ -49,6 +49,8 @@ function loadDataList()
 {
 var selectActuel = $(this);
 var value =  selectActuel.val();
+delierDataList(selectActuel);
+
 	switch(value)
 		{
 		case 'artistes.nom':
@@ -115,9 +117,6 @@ var value =  selectActuel.val();
 	            lierDataList(selectActuel,'lstSuggestionTitresMedia');
 		  
 		  break;
-		case 'kw':
-		delierDataList(selectActuel);
-		break;
 		default:
 		 // alert('fin');
 		}
