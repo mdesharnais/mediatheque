@@ -13,6 +13,9 @@
 \usepackage{hyperref} %pour un fichier PDF  interactif
 \usepackage[final]{pdfpages}
 \usepackage[table]{xcolor}
+\usepackage{acronym}
+
+\acrodef{SGBD}{système de gestion de base de données}
 
 \pdfcompresslevel=9
 
@@ -200,7 +203,14 @@ Accessible à partir de la barre de navigation principale, la recherche simple p
 \label{sec:recherche-avancée}
 La recherche avancée permet de faire une recherche très spécifique. On peut y sélectionner tous les critères de recherche possible et sans limite de nombre. On peut sélectionner les opérateurs logiques (et, ou, etc) et les opérateurs de comparaison (contient, égale, etc). On pourrait donc effectuée une recherche comme celle-ci: Titre du média contenant « Indiana Jones» et année de publication plus grande que 1988.
 
-Lors de la sélection d'un critère d'un recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape la première lettre du mot clés, une liste de valeurs ayant cette lettre s'affichera. Cette ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise « DATALIST » qui disponible uniquement sur des navigateurs supportant cette balise Html 5.
+Lors de la sélection d'un critère d'un recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape la première lettre du mot clés, une liste de valeurs ayant cette lettre s'affichera. Cette ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise «~\href{http://www.w3schools.com/html5/tag_datalist.asp}{datalist}~» qui disponible uniquement sur des navigateurs supportant cette balise Html 5.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{exempleDatalist.png}
+	\end{center}
+	\caption{Exemple de suggestions à partir d'une datalist}
+\end{figure}
 
 Il est aussi possible d'ajouter autant de critères de recherches que l'on désire. Pour cela, le javascript a été utilisé pour interragir dinanymiquement avec le DOM de la page. Des effets visuels de disparation et d'apparition ont même été ajouté pour une ergonomie plus dynamique.
 
@@ -256,6 +266,58 @@ L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son
 \subsection{Retour}
 
 \subsection{Tables de pilotages}
+De nombreuses tables de la base de données sont basées sur le concept de table de pilotage. Celles-ci sont des tables qui servent à définir une liste de valeurs possibles pour une colonne d'une ou plusieurs autres tables. Par exemple, la table \texttt{medias} offre le champ \texttt{maison\_edition} qui permet d'identifier la maison d'édition d'un média donné. Plutôt que de fournir un champ texte de 50 à 75 caractères de long et de devoir ré-écrire le nom de la maison d'édition pour chaque enregistrement, nous avons créés la table \texttt{maisons\_edition} qui contient la liste de toutes les maisons d'édition utilisables par le système. La colonne \texttt{medias.maison\_edition} ne contient donc qu'une clé étrangère pointant sur l'enregistrement correspondant de sa table de pilotage.
+
+De plus, nous avons ajouté une colonne \texttt{inactif} à toutes les tables de pilotage afin que l'utilisateur puisse définir une valeur comme n'étant plus utilisable dans le futur. D'aucun pourrais suggérer de simplement supprimer cette valeur, mais un bon \ac{SGBD} appliquant l'intégrité référentielle refusera une telle opération si ne serais-ce qu'une clé étrangère pointe sur l'enregistrement. Nous pourrions très bien supprimer toutes les clé étrangères avant d'effecturer la suppresion mais, en y réfléchissant bien, nous ne souhaitons pas faire disparaitre toute trace de la valeurs, nous souhaitons simplement qu'elle ne puisse plus être utilisée dans l'avenir. En définissant un champ inactif, nous permettons à l'utilisateur de bloquer l'utilisation d'une valeur pour le futur tout en laissant laissant les enregistrements l'utilisant déjà intacts.
+
+Dans le context d'un formulaire permettant d'entrer des médias, cette relation se traduit par une liste déroulante, remplie de toutes les valeures non inactive, où il suffit de choisir une valeur parmi celles proposées.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{exempleListeDeroulante.png}
+	\end{center}
+	\caption{Exemple de liste déroulante}
+\end{figure}
+
+Cette technique offre de nombreux avantages dont voici une liste non-exaustive~:
+\begin{itemize}
+	\item Possibilité de filter les valeurs acceptables pour un champ;
+	\item Possibilité de définir une valeur comme n'étant plus disponnible pour utilisation futur, mais restant valide pour les utilisations passées;
+	\item Possibilité d'éviter tous risque de dédoublement de valeurs suite à des fautes d'orthographes\footnote{La seule possibilité de dédoublement des valeurs est si la personne chargée de gérer les tables de pilotages écrit deux fois la même valeur avec une orthographe différente (e.g.\ Trois-Rivières et trois-rivieres).}.
+	\item Possibilité de mettre à jour instannément la valeur d'une option pour tous les enregistrements l'utilisant en modifiant simplement sa valeur dans la table de pilotage.
+	\item Poid de la base de données réduit puisqu'il est moins lourd de définir de nombreuses clé étrangère que de répéter de nombreuses fois la même chaine de caractères.
+	\item Possibilité de ne donner les droits de modification à la table de pilotage qu'à certains groupes d'utilisateurs.
+\end{itemize}
+
+La zone d'administration permet à l'utilisateur d'ajouter, modifier et supprimer des données de nombreuses tables de pilotages. La page de modification se présente sour forme de tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne correspondante et où la première ligne sert à entrer une nouvelle valeur. Un bouton permet de supprimer une valeur mais, comme dit précédement, la suppression ne doit être acceptée que si aucune clé étrangère n'est définie sur cet enregistrement.
+
+C'est l'une des rares pages du site qui est totalement dépendante du javascript et requiert donc qu'il soit activé sur le navigateurs des utilisateurs souhaitant modifier les tables de pilotages.
+
+Comme la taille d'une table de pilotage peut devenir assez grande, et que tous les enregistrements apparaissent dans le formulaire, nous avons développés un système permettant aux futurs programmeurs de mettre façilement à jour la table. Sans cette technique, il aurait toujours fallu mettre à jour tous les enregistrement, ajouter tous ceux ne figurant pas dans la nouvelle liste et supprimer tous ceux n'y figurant plus. Toutes ces opérations auraient étés très couteuses en ressources et très difficiles à mettre en place.
+
+Pour palier à ce problème, nous avons ajouté une colonne invisible dans le formulaire qui a pour nom \texttt{row\_state}. Celle-ci contient un nombre qui ne peut avoir que quatres valeurs~:
+
+\begin{table}[htbp]
+	\caption{Valeurs possible de la colonne \texttt{row\_state}}
+	\begin{center}
+		\begin{tabular}{|c|l|}
+			\hline
+			Valeur & Significaton \\
+			\hline
+			1      & Unchanged \\
+			2      & Added \\
+			3      & Deleted \\
+			4      & Modified \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+La valeur de la colonne est modifiée en javascript selon les modifications faites à chaque enregistrement. Lorsque le formulaire est envoyé au serveur, le programmeur sait qu'il n'a rien à faire avec les enregistrements dont la \texttt{row\_state} est à 1, qu'il doit faire une requête \texttt{INSERT} lorsqu'elle est à 2, qu'il doit faire une requête \texttt{DELETE} lorsqu'elle est à 3 et une requête \texttt{UPDATE} lorsqu'elle est à 4.
+
+Comme les tables de pilotages sont nombreuses et que leur formulaire de modification est très semblable, nous avons décidé que, plutôt que de faire une page séparée par table de pilotage, une seule page se permettrait de toutes les modifier. Tous les hyperliens pointent donc vers la même page et se contentent de passer en paramètre la table qui doit être modifiée. La page se connecte alors à la base de données afin de l'intrroger sur la structure de la table en question et génère alors dynamiquement un formulaire contenant toutes les colonnes celle-ci.
+
+Cette façon de faire permet de s'assurer que le formulaire sera toujours parfaitement à jour avec la structure de la table dans la base de données et permet aussi d'ajouter de nouvelles table de pilotages très façilement et rapidement puisqu'il n'y a pas de nouveau formulaire à créer.
 
 \subsection{Réservations en cours}
 La page «~Réservations en cours~» permet à l'utilisateur de consulter la liste de toutes les réservations du système. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. L'utilisateur à aussi la possibilité de supprimer une réservation. Une invite de confirmation lui est alors affiché et un courriel est envoyé à l'utilisateur à l'origine de la réservation pour lui indiquer que celle-ci a été supprimée.
