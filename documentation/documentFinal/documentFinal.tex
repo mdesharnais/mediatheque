@@ -266,6 +266,7 @@ L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son
 \subsection{Retour}
 
 \subsection{Tables de pilotages}
+\label{sec:tables_de_pilotage}
 De nombreuses tables de la base de données sont basées sur le concept de table de pilotage. Celles-ci sont des tables qui servent à définir une liste de valeurs possibles pour une colonne d'une ou plusieurs autres tables. Par exemple, la table \texttt{medias} offre le champ \texttt{maison\_edition} qui permet d'identifier la maison d'édition d'un média donné. Plutôt que de fournir un champ texte de 50 à 75 caractères de long et de devoir ré-écrire le nom de la maison d'édition pour chaque enregistrement, nous avons créés la table \texttt{maisons\_edition} qui contient la liste de toutes les maisons d'édition utilisables par le système. La colonne \texttt{medias.maison\_edition} ne contient donc qu'une clé étrangère pointant sur l'enregistrement correspondant de sa table de pilotage.
 
 De plus, nous avons ajouté une colonne \texttt{inactif} à toutes les tables de pilotage afin que l'utilisateur puisse définir une valeur comme n'étant plus utilisable dans le futur. D'aucun pourrais suggérer de simplement supprimer cette valeur, mais un bon \ac{SGBD} appliquant l'intégrité référentielle refusera une telle opération si ne serais-ce qu'une clé étrangère pointe sur l'enregistrement. Nous pourrions très bien supprimer toutes les clé étrangères avant d'effecturer la suppresion mais, en y réfléchissant bien, nous ne souhaitons pas faire disparaitre toute trace de la valeurs, nous souhaitons simplement qu'elle ne puisse plus être utilisée dans l'avenir. En définissant un champ inactif, nous permettons à l'utilisateur de bloquer l'utilisation d'une valeur pour le futur tout en laissant laissant les enregistrements l'utilisant déjà intacts.
@@ -378,7 +379,7 @@ Ces pages permettrons de publier des informations concernant la médiathèque et
 
 \subsection{Introduction}
 
-Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisie un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentif de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institions de musique, telle un orchestre symphonique constitué de musiciens vêtus de vestons cravates. Les modèles de page ont donc été crée en cohésion avec ce thème.
+Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisie un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentif de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institions de musique, tel un orchestre symphonique constitué de musiciens vêtus de vestons cravates.
 
 \subsection{Maquette}
 
@@ -580,18 +581,54 @@ A generer a l'aide de visio ou a la main
 
 Dans l'idée de garantir une identité visuelle, toutes les pages du site sont construites sur une structure identique.
 
-En tout, 6 modèles de pages ont été développés.
+En tout, 7 modèles de pages ont été développés.
 
 \begin{itemize}
 	\item Le modèle de page descriptif;
 	\item Le modèle d'affichage des résultats de recherche;
-	\item Le modèle de page de réservations et emprunts.
-	\item Le modèle formulaire / tables de pilotage.
-	\item Le modèle de détails avancé d'un média.
+	\item Le modèle de page de réservations et emprunts;
+	\item Le modèle tables de pilotage;
+	\item Le modèle formulaire simple;
+	\item Le modèle de détails avancé d'un média;
 	\item Le modèle rapport.
 \end{itemize}
 
-\subsection Le modèle de page descriptif
+\subsection{Le modèle de page descriptif}
+
+Ce modèle est utilisé pour des pages d'information statiques. La page « À propos de la médiathèque » est un exemple de ce type de page. Les éléments que l'on retrouve dans ce modèle sont assez élémentaires. On y retrouve habituellement un titre de niveau 2, des paragraphes et une ou plusieurs images.
+
+\subsection{Le modèle d'affichage des résultats de recherche}
+
+Ce modèle est utilisé pour l'affichage des résultats de recherche. Il est considéré comme le type de page le plus fourni en terme de contenu. Il se compose des éléments suivants:
+
+\begin{itemize}
+	\item Un fil d'Ariane vertical disposé sur le côté gauche;
+	\item Une description de la recherche en cours en haut de page;
+	\item Le système de pagination en haut et en bas de la page;
+	\item Les résultats de recherche sous forme d'élément de tableau contenant, les valeur des champs standards à tous les médias, accompagné d'une image.
+\end{itemize}
+
+\subsection{Le modèle de page des réservations et des emprunts}
+
+Ce modèle est utilisé pour les pages de réservations et d'emprunts. Marc-André doit remplir cette section.
+
+\subsection{Le modèle table de pilotage}
+
+Ce modèle est utilisé pour gérer le contenu des tables de pilotage\footnote{Voir la section \ref{sec:tables_de_pilotage} sur les tables de pilotage, à la page \pageref{sec:tables_de_pilotage}, pour plus de détails.}.
+
+\subsection{Le modèle formulaire simple}
+
+Ce modèle est utilisé pour afficher des formulaire simples ayant un seul niveau de détail. Les éléments se retrouvant dans ce modèle sont consitué de quelques champ avec un bouton "Submit" permettant d'effecuter une action particulière sur les données. La page «~Suggestions~» en est un exemple.
+
+\subsection{Le modèle de détails avancé d'un média}
+
+Ce modèle est utilisé pour visionner ou modifier les détails d'un média. Lorsque l'utilisateur est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe plusieurs niveaux de détails pour un média. Des boutons plus et moins sont utilisés pour naviguer entre ces différents niveaux de détail.
+
+Lorsque l'utilisateur n'est pas un admistrateur, tous les champs éditables deviennent des éléments affichés.
+
+\subsection{Le modèle rapport}
+
+Ce modèle de page est utilisé pour des données sous forme de rapports. Les rapports sont toute simplement constitué d'un tableau.
 
 \section{Diagramme d'enchaînement}
 
