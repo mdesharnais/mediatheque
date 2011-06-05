@@ -1,25 +1,35 @@
 <?php
 require_once('Application.class.php');
 
+/**
+ * \brief Fonction qui imprime sur la page les balises nécessaire pour le Fil d'Ariane vertical
+ * \author Samuel Milette Lacombe
+ * \param sqlQuery Requête sql pour la recherche en cours
+ */
 function printBreadCrumb($sqlQuery)
 {
 	//pour la présentation seulement
 	global $presentationID;
 	global $application;
 	$sqlQuery = $presentationID;
+	$vraiRequete = createSqlQuery($sqlQuery);
 	//fin de pour la présentation seulement
 	
 
-	$vraiRequete = createFromWhereClause($sqlQuery);
-		
+	//suppression de la clause From dans la requête.		
 	$posFrom = strpos($vraiRequete,'FROM');
 	$clauseFromWhere = substr($vraiRequete, $posFrom ,strlen($vraiRequete)-$posFrom);
 
-	//supprime la clause order by
+	//supprime la clause order by dans la requête si elle est présente.
 	$posOrderBy = strpos($clauseFromWhere,'ORDER BY');
 	if ($posOrderBy)
 		$clauseFromWhere = substr($clauseFromWhere, 0,$posOrderBy);
 		
+	/*
+	Dans le cadre de la présentation et de la conception, la génération du fil d'Ariane n'est que semi automatique.
+	Il faut déterminer dans quelle recherche on est ($presentationID) pour faire afficher convenablement le fil d'Ariane.
+	Pour chaque cas, c'est le même code qui est répété excepté que dans certains cas, il y a des suggestion de critères (ie. Catégorie) en moins ou en plus.
+	*/	
 	switch ($sqlQuery)
 	{
 	case 1:
@@ -210,7 +220,5 @@ function printBreadCrumb($sqlQuery)
 		break;
 	
 	}
-	
-	
 }
 ?>

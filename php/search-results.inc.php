@@ -5,13 +5,21 @@ require_once('Application.class.php');
 //cette variable contient le numéro de niveau de détail utilisée lors de la présentation
 $presentationID = 0;
 
-function createFromWhereClause($criterias)
+/**
+ * \brief Fonction qui créer la requête sql à partir du tableau $_POST fournit en paramètre.
+ * \author Samuel Milette Lacombe
+ * \param criterias Tableau $_POST contenant les critères de recherche et leurs valeurs
+ * \return La requête SQl complète pour afficher les résultats de la recherche
+ */
+function createSqlQuery($criterias)
 {
-	//uniquement pour la présentation de la conception
 	global $application;
+	
+	//uniquement pour la présentation de la conception
 	global $presentationID;
 	$presentationID = $criterias;
 	
+	//Requête sql de base (clause select)
 	$basicQuery = '
 		SELECT medias.ID, 
 			medias.notes, 
@@ -25,6 +33,12 @@ function createFromWhereClause($criterias)
 			maisons_edition.nom AS nomMaisonEdition, 
 			genres.nom AS nomGenre';
 			
+	/*
+	Dans le cadre de la phase conception, un "switch" est utilisé pour pouvoir déterminer quelle requête sql utilisé pour le niveau de détail en cours.
+	La variable $criterias devrait contenir normalement un tableau $_POST mais pour les besoins de la présentation devant le client, cette variable va
+	contenir le numéro de la recherche voulue. Par exemple, le no 1 affiche tous les médias, le no 2 affiche seulement les médias audio. Dans la phase technique,
+	les programmeurs devront créer la requête sql à partir des critères et valeur de recherche contenue dans le tableau $_POST envoyé à partir de la recherche simple ou avancée.
+	*/
 	switch ($criterias)
 	{
 	case 1:
@@ -96,6 +110,11 @@ function createFromWhereClause($criterias)
 return $basicQuery.$sqlFromWhere;
 }
 
+/**
+ * \brief Fonction qui écrit les résultats de la recherche dans la page avec le balise html.
+ * \author Samuel Milette Lacombe
+ * \param sqlQuery Requête sql de la recherche
+ */
 function printSearchResults($sqlQuery)
 {
 	global $application;
@@ -110,13 +129,7 @@ function printSearchResults($sqlQuery)
 	$fromClause = substr ($sqlQuery, $fromStartPosition, $fromEndPosition-$fromStartPosition);
 	$whereStartPosition = $fromEndPosition + 6;
 	$whereClause =  substr ($sqlQuery, $whereStartPosition, strlen($sqlQuery)-$whereStartPosition);
-	
-	/*echo $sqlQuery;
-	echo '<br><br>';
-	echo $fromClause;
-	echo '<br><br>';
-	echo $whereClause;
-	*/
+		
    	$pagination = new Pagination();
 	$pagination->setDataBase($application->database);
 	$pagination->setFromClause($fromClause);
@@ -206,25 +219,24 @@ function printSearchResults($sqlQuery)
 			echo '</p>';
 		}
 		
-		echo '<p>';
-		echo '<span class="label">Action:</span><span class="value"><a class="reserveLink" href="makeReservation.php?id='.$row['ID'].'">Réserver</a></span>';
-		echo '</p>';
-		
-		
-		
-		
+	echo '<p>';
+	echo '<span class="label">Action:</span><span class="value"><a class="reserveLink" href="makeReservation.php?id='.$row['ID'].'">Réserver</a></span>';
+	echo '</p>';			
 	echo '</td>';//fin de mediaInformations
 	echo '</tr>';//
 		
 	}
+	
 	echo '</table>';
-	
 	$pagination->show();
-	
 }
-/*
-fonction
-*/
+/**
+ * \brief Fonction qui écrit dans la page la requête de recherche en mots compréhensibles pour l'utilisateur 
+ * \author Samuel Milette Lacombe
+ * \param sqlQuery Requête sql de la recherche
+ * \param pagination Objet de pagination utilisé pour afficher le nombre de médias contenu dans la recherche.
+ * \return Une chaine de caractère contenant une balise div contenant la description de la recherche demandée.
+ */
 function printSearchRequest($sqlQuery,Pagination $pagination)
 {
 
@@ -249,7 +261,6 @@ function printSearchRequest($sqlQuery,Pagination $pagination)
 	}
 
 echo '<div id=searchRequest>Recherche demandée: '.$requestText.', '.$pagination->ItemsCount().' média(s) trouvé(s)</div>';
-
 
 }
 

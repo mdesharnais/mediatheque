@@ -22,9 +22,9 @@
 				<h3>Affinez votre recherche</h3>
 				<?php 
 				if (isset($_GET['presentation']) || !empty($_GET['presentation']))
-					printBreadCrumb(createFromWhereClause($_GET['presentation']));
+					printBreadCrumb(createSqlQuery($_GET['presentation']));
 				else 
-					printBreadCrumb(createFromWhereClause(1)); 
+					printBreadCrumb(createSqlQuery(1)); 
 				?>
 			</div>
 			<div id="search-results">
@@ -34,16 +34,16 @@
 				//code utilisée pour la présentation de la conception seulement
 				if (isset($_GET['presentation']) || !empty($_GET['presentation']))
 				{
-					printSearchResults(createFromWhereClause($_GET['presentation'])); 
+					printSearchResults(createSqlQuery($_GET['presentation'])); 
 				
 				}
 				else 
-					printSearchResults(createFromWhereClause(1)); 
+					printSearchResults(createSqlQuery(1)); 
 				//fin du code utilisé pour la présentation
 				
 				/*	if (isset($_POST) || !empty($_POST))
 					{
-						printSearchResults(createFromWhereClause($_POST));
+						printSearchResults(createSqlQuery($_POST));
 			
 					}
 					else
