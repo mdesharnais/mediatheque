@@ -232,18 +232,20 @@ Pour plus d'informations sur la gestion des groupes et la sécurité, voir la se
 La zone utilisateur permet à l'utilisateur actuellement connecté d'accéder à des informations concernant sont utilisation de la médiathèque.
 
 \subsection{Mes réservations}
-La page «~Mes réservations~» permet à l'utilisateur de consulter la liste des réservations qu'il a actuellement. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simpliment en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de supprimer une réservation. Si le javascript est activé, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer la réservation. Dans le cas où le javascript est désactivé, la réservation est supprimée sans demande de confirmation.
+La page «~Mes réservations~» permet à l'utilisateur de consulter la liste des réservations qu'il a actuellement. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de supprimer une réservation. Si le javascript est activé, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer la réservation. Dans le cas où le javascript est désactivé, la réservation est supprimée sans demande de confirmation.
+
+Une fois celle-ci supprimée, un courriel doit être envoyé à l'utilisateur afin de lui confirmer la suppression de sa réservation.
 
 L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau.
 
 \subsection{Mes emprunts en cours}
-La page «~Mes emprunts en cours~» permet à l'utilisateur de consulter la liste des médias qu'il a actuellement en sa posession. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simpliment en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de demander un renouvellement d'un emprunt.
+La page «~Mes emprunts en cours~» permet à l'utilisateur de consulter la liste des médias qu'il a actuellement en sa posession. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de demander un renouvellement d'un emprunt.
 
 L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau.
 
 \subsection{Mon historique d'emprunts}
 
-La page «~Mon historique d'emprunts~» permet à l'utilisateur de consulter la liste des emprunts qu'il a effectué par le passé. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simpliment en cliquant sur l'en-tête de la colonne.
+La page «~Mon historique d'emprunts~» permet à l'utilisateur de consulter la liste des emprunts qu'il a effectué par le passé. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne.
 
 L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau.
 
@@ -256,12 +258,37 @@ L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son
 \subsection{Tables de pilotages}
 
 \subsection{Réservations en cours}
+La page «~Réservations en cours~» permet à l'utilisateur de consulter la liste de toutes les réservations du système. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. L'utilisateur à aussi la possibilité de supprimer une réservation. Une invite de confirmation lui est alors affiché et un courriel est envoyé à l'utilisateur à l'origine de la réservation pour lui indiquer que celle-ci a été supprimée.
+
+L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
 
 \subsection{Emprunts en cours}
+La page «~Emprunts en cours~» permet à l'utilisateur de consulter la liste de tous les médias qui sont actuellement empruntés. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne.
+
+L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
 
 \subsection{Historique des emprunts}
+La page «~Historique des emprunts~» permet à l'utilisateur de consulter l'historique de tous les emprunts du système. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne.
+
+L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
 
 \subsection{Gestion des utilisateurs}
+La page de gestion des utilisateurs permet~:
+\begin{enumerate}
+	\item De visualiser tous les utilisateurs ou bien seulement ceux d'un groupe donné;
+	\item D'ajouter un nouvel utilisateur;
+	\item D'importer plusieurs nouveaux utilisateurs;
+	\item De modifier un utilisateur;
+	\item De supprimer un utilisateur.
+\end{enumerate}
+
+Les utilisateurs sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. Par défaut, tous les utilisateurs sont affichés. Si l'on souhaite afficher uniquement les utilisateurs appartenant à un groupe donné, il suffit de sélectionner ce groupe dans la liste déroulante situé dans le coin supérieur droit de la page.
+
+L'ajout d'un utilisateur nous apporte dans un formulaire permettant de saisir les informations de celui-ci alors que la modification nous amène au même formulaire mais avec les informations pré-remplies de l'utilisateur à modifier. C'est à partir de ce formulaire qu'une liste de sélection multiple nous permet de sélection tous les groupes auxquels appartient l'utilisateur\footnote{Voir la section \ref{sec:sécurité} sur la sécurité, à la page \pageref{sec:sécurité}, pour plus de détails sur les groupes.}.
+
+Pour ce qui est de la suppression, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer l'utilisateur.
+
+L'importation, quant à elle, se résume actuellement à un hyperlien qui ne mêne null part puisqu'il ne nous a pas été dit comment allait se passer la synchronisation des utilisateurs avec les élèves du département de musique. Nous avons fait comme hypothèse que l'importation se fera à partir d'un fichier XML qui contiendra la liste des nouveaux utilisateurs. Ceux qui programmeront le système devrons donc se charger de mettre en place un système d'importation qui se mettra en action lors du clique sur ledit hyperlien.
 
 \subsection{Gestion des groupes}
 

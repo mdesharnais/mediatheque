@@ -8,6 +8,12 @@
 		<title><?php echo Application::APPLICATION_NAME; ?> - Gestion des utilisateurs</title>
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
+		<script src="javascript/jquery/jquery.tablesorter.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('table').tablesorter();
+			});
+		</script>
 		<style>
 			form label
 			{

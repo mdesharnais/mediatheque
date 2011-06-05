@@ -34,6 +34,7 @@
 							emprunts.date_reservation, 
 							emprunts.date_voulue, 
 							emprunts.duree, 
+							utilisateurs.ID AS userID, 
 							utilisateurs.nom, 
 							utilisateurs.prenom 
 						FROM medias 
@@ -46,11 +47,11 @@
 					echo '<table>';
 					echo '	<thead>';
 					echo '		<tr>';
+					echo '			<th>Utilisateur</th>';
 					echo '			<th>Média</th>';
 					echo '			<th>Date de réservation</th>';
 					echo '			<th>Date voulue</th>';
 					echo '			<th>Durée (jours)</th>';
-					echo '			<th>Utilisateur</th>';
 					echo '		</tr>';
 					echo '	</thead>';
 					echo '	<tbody>';
@@ -60,10 +61,10 @@
 
 						echo '	<tr>';
 						echo '		<td><a href="media.php?id='.$row['ID'].'">'.$row['titre'].'</a></td>';
+						echo '		<td><a href="user.php?id='.$row['userID'].'">'.$row['prenom'].' '.$row['nom'].'</a></td>';
 						echo '		<td>'.$dateReservation->format('Y-m-d').'</td>';
 						echo '		<td>'.$row['date_voulue'].'</td>';
 						echo '		<td>'.$row['duree'].'</td>';
-						echo '		<td>'.$row['prenom'].' '.$row['nom'].'</td>';
 						echo '		<td><a href="#" onclick="return confirm(\'Voulez-vous vraiment supprimer cet enregistrement?\');">Supprimer</a></td>';
 						echo '	</tr>';
 					}

@@ -43,6 +43,7 @@
 							emprunts.duree,
 							emprunts.date_emprunt, 
 							emprunts.date_retour, 
+							utilisateurs.ID AS userID, 
 							utilisateurs.nom, 
 							utilisateurs.prenom 
 						FROM medias 
@@ -52,12 +53,12 @@
 					if(isset($_GET['t']) && $_GET['t'] == 1)
 					{
 						echo '<h1>Emprunts en cours</h1>';
-						$sql .= ' WHERE emprunts.date_retour IS NOT NULL AND emprunts.date_emprunt IS NOT NULL';
+						$sql .= ' WHERE emprunts.date_retour IS NULL AND emprunts.date_emprunt IS NOT NULL';
 					}
 					else
 					{
 						echo '<h1>Historique des emprunts</h1>';
-						$sql .= ' WHERE emprunts.date_retour IS NULL AND emprunts.date_emprunt IS NOT NULL';
+						$sql .= ' WHERE emprunts.date_retour IS NOT NULL AND emprunts.date_emprunt IS NOT NULL';
 					}
 
 					$query = $application->database->prepare($sql);
@@ -67,12 +68,12 @@
 					echo '	<thead>';
 					echo '		<tr>';
 					echo '			<th>Média</th>';
+					echo '			<th>Utilisateur</th>';
 					echo '			<th>Date de réservation</th>';
 					echo '			<th>Date voulue</th>';
 					echo '			<th>Durée voulue (jours)</th>';
 					echo '			<th>Date d\'emprunt</th>';
 					echo '			<th>Date de retour</th>';
-					echo '			<th>Utilisateur</th>';
 					echo '		</tr>';
 					echo '	</thead>';
 					echo '	<tbody>';
@@ -80,12 +81,12 @@
 					{
 						echo '	<tr>';
 						echo '		<td><a href="media.php?id='.$row['ID'].'">'.$row['titre'].'</a></td>';
+						echo '		<td><a href="user.php?id='.$row['userID'].'">'.$row['prenom'].' '.$row['nom'].'</a></td>';
 						echo '		<td>'.$row['date_reservation'].'</td>';
 						echo '		<td>'.$row['date_voulue'].'</td>';
 						echo '		<td>'.$row['duree'].'</td>';
 						echo '		<td>'.$row['date_emprunt'].'</td>';
 						echo '		<td>'.$row['date_retour'].'</td>';
-						echo '		<td>'.$row['prenom'].' '.$row['nom'].'</td>';
 						echo '	</tr>';
 					}
 					echo '	</tbody>';
