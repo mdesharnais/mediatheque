@@ -10,7 +10,7 @@
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
 		<script src="javascript/generateEmprunt.js"></script>
-		<style>.tooltip{display:none;background:url(images/black_arrow_big.png);height:163px;padding:40px 30px 10px 30px;width:310px;font-size:11px;color:#fff;}#outerDiv{min-width: 200px;}div.autosize{display:table;height:1px;}div.autosize>div{display:table-cell;}</style>
+		<style>.tooltip{display:none;background:url(images/black_arrow_big.png);height:163px;padding:40px 30px 10px 30px;width:310px;font-size:11px;color:#fff;}#outerDiv{min-width: 200px;}div.autosize{display:table;height:1px;}div.autosize>div{display:table-cell;}table, tr, th, td{border: 0px solid black;}</style>
 		<script src='javascript/jquery/jquery.tools.min.js'></script>
 
 	</head>
