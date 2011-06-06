@@ -11,7 +11,7 @@ if ($q != Null) {
 	$sql="SELECT exemplaires_medias.reference as reference, medias.titre as titre, medias.annee_publication as annee_publication, medias.notes as notes, medias.image as image, maisons_edition.nom as menom, supports.nom as cnom FROM medias 
 		INNER JOIN maisons_edition ON medias.maison_editionID = maisons_edition.ID 
 		INNER JOIN supports ON medias.supportID = supports.ID 
-		INNER JOIN exemplaires_medias ON medias.ID = exemplaires_medias.mediaID
+		INNER JOIN exemplaires_medias ON medias.ID = exemplaires_medias.exID
 		WHERE reference = '".$q."'";
 	
 	$query = $application->database->prepare($sql);
