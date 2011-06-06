@@ -177,31 +177,60 @@ Le champ permettant d'entrer l'artiste devra être lier à une liste de suggesti
 
 \section{Recherche}
 
-Les fonctions offertes par notre système de médiathèque sont les suivantes:
+Des fonctions de recherche simple et avancées est un élément essentiel pour un système de médiathèque. Le nôtre n'en fait pas exception puisqu'il un module de recherche évolué et des possiblités de raffinement sans limite. Nous avons voulu créer un système nécessitant un système de recherche nécessitant un temps d'apprentissage quasi-nul. Pour cela, nous avons joint quelques particularités aux fonctions de recherche de base. Voici la liste des éléments assurant une facilité de recherche et une bonne naviguabilité des résultats correspondants à cette recherche.
 
-Système de recherche et de parcours des médias
 \begin{itemize}
-	\item Fil d'Ariane vertical permettant de naviguer parmi les médias;
-	\item Parcourir toute la collection de médias;
+	\item Fil d'Ariane vertical permettant de raffiner les résultats de recheche;
+	\item Mode «~Parcourir~» permettant de parcourir tous les médias;
 	\item Recherche simple de médias;
 	\item Recherche avancée de médias;
 	\item Système de pagination avancée permettant de naviguer dans les résultats.
 \end{itemize}
 
 \subsection{Fil d'Ariane vertical}
-Un fil d'Ariane est un composant web d'aide à la navigation dans les pages d'un site web. Un fil d'Ariane horizontal standard est sous la forme de signalisation de la localisation du lecteur dans un document. Il permet d'indiquer à l'utilisateur où il se situe dans une page web et offre des possibilité de revenir à la section qu'il désire.  Dans le cas de Carcajou, c'est un fil d'Ariane vertical qui est utilisé. Au lieu de nous afficher notre position dans un site web sous forme d'arborescence, il nous permet de naviguer par critères dans les résultats de recherche. On pourra donc l'utiliser pour raffinez une recherche de médias. Pour une recherche données, une liste de valeurs regroupé par critères sera affiché et on pourra donc cliquer sur ces valeurs pour raffiner sa recherche. Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la recherche devient plus spécifique et de moins en moins de valeurs d'attribut seront applicable à la recherche. Par exemple, si le niveau de raffinement de la recherche retourne uniquement deux résultats et que ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas affiché dans le fil d'Ariane.
+Un fil d'Ariane est un composant web d'aide à la navigation dans les pages d'un site web. Un fil d'Ariane horizontal standard est sous la forme de signalisation de la localisation du lecteur dans un document. Il permet d'indiquer à l'utilisateur où il se situe dans une page web et offre des possibilité de revenir à la section qu'il désire.  Dans le cas de Carcajou, c'est un fil d'Ariane vertical qui est utilisé. Au lieu de nous afficher notre position dans un site web sous forme d'arborescence, il nous permet de naviguer par critères dans les résultats de recherche. On pourra donc l'utiliser pour raffinez une recherche de médias. Pour une recherche données, une liste de valeurs regroupées par critères sera affiché et on pourra donc cliquer sur ces valeurs pour raffiner sa recherche. 
+
+Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la recherche devient plus spécifique et de moins en moins de valeurs d'attribut seront applicable à la recherche. Par exemple, si le niveau de raffinement de la recherche retourne uniquement deux résultats et que ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas affiché dans le fil d'Ariane. Lorsque aucune possibilité de rafinement supplémentaire est disponible pour les résultats affichés. 
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.4]{captures_ecran/exemple_fil_darianne.png}
+	\end{center}
+	\caption{Exemple de fil d'Ariane vertical}
+\end{figure}
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/recherche_rafinnee_au_max.png}
+	\end{center}
+	\caption{Fil d'Ariane lorsque raffiné au maximum}
+\end{figure}
 
 Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établis que s'il y avait plus de trois suggestions de valeurs pour un critère, un entrée de liste "Afficher plus" serait afficher pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à notez que cette fonction n'est disponible uniquement que sur un navigateur ayant le Javascript activé. La désactivation du Javascript n'amène pas de problématiques en tant que telles. Les valeurs des critères seront tout simplement afficher dans leur ensemble sans possibilité de cacher X résultats.
 
 \subsection{Parcourir}
-Le mode « Parcourir » est tout simplement la reqûete d'une recherche n'ayant aucun critères spécifiques. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination affichant 5 résultats par page. Pour parcourir les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
+Le mode « Parcourir » est tout simplement l'exécution d'une recherche n'ayant aucun critères spécifiques. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination affichant 5 résultats par page. Pour raffiner les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
 
 \subsection{Recherche simple}
-Accessible à partir de la barre de navigation principale, la recherche simple permet à partir d'un mot clé d'effectuer une recherche sur tous les médias. Seul les médias satisfaisants le mot clé évoqué seront affichés. Pour cela, tous les champs sont parcourus pour rechercher une correspondance à ce mot clé. Par exemple, une recherche avec le mot « cowboy » pourrait autant retourné un média de l'artiste « Les cowboys fringuants » qu'un média ayant le mot cowboys dans son titre. 
+Accessible à partir de la barre de navigation principale, la recherche simple permet à partir d'un mot clé d'effectuer une recherche sur tous les médias. Seul les médias satisfaisants le mot clé évoqué seront affichés. Pour cela, tous les champs sont parcourus pour rechercher une correspondance à ce mot clé en ignorant la casse. Par exemple, une recherche avec le mot « cowboy » pourrait autant retourné un média de l'artiste « Les cowboys fringuants » qu'un média contenant la chansons «~Bye Bye Mon Cowboy~».
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/barre_recherche_simple.png}
+	\end{center}
+	\caption{Barre de recherche simple}
+\end{figure}
 
 \subsection{Recherche avancée}
 \label{sec:recherche-avancée}
 La recherche avancée permet de faire une recherche très spécifique. On peut y sélectionner tous les critères de recherche possible et sans limite de nombre. On peut sélectionner les opérateurs logiques (et, ou, etc) et les opérateurs de comparaison (contient, égale, etc). On pourrait donc effectuée une recherche comme celle-ci: Titre du média contenant « Indiana Jones» et année de publication plus grande que 1988.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/exemple_recherche_avancee.png}
+	\end{center}
+	\caption{Exemple de recheche avancée}
+\end{figure}
 
 Lors de la sélection d'un critère d'un recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape une série de lettres, une liste de valeurs contenant ce groupe de lettres s'affichera.  Cette ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise «~\href{http://www.w3schools.com/html5/tag_datalist.asp}{datalist}~» qui disponible uniquement sur des navigateurs supportant cette balise Html 5.
 
@@ -213,6 +242,13 @@ Lors de la sélection d'un critère d'un recherche, une liste de suggestions est
 \end{figure}
 
 Il est aussi possible d'ajouter autant de critères de recherches que l'on désire. Pour cela, le javascript a été utilisé pour interragir dinanymiquement avec le DOM de la page. Des effets visuels de disparation et d'apparition ont même été ajouté pour une ergonomie plus dynamique.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{captures_ecran/exemple_recherche_avancee2.png}
+	\end{center}
+	\caption{Ajout d'un nombre personnalisé de critères}
+\end{figure}
 
 \section{Gestion des utilisateurs}
 
