@@ -29,7 +29,17 @@ Recherche avancée
 	-Il y aura un code dans la recherche avancée qui trouvera le no de recherche statique à utiliser.
 		-Il ressemblera à ceci: si q1=cow alors recherche 1, si q2=tolkien 
 
+Refaire le screenshot du détails d'un média. (Dérouler une chanson)
+Graver les 3 cds contenant:
+	- le contenu de l'archive zip téléchargeable sur github à la racine du cd.
+	- /documentation/documentationFinale/commits* à la racine
+	- fichier pdf final à la racine
+	- /documentation/doxygen/html/
+	- /documentation/mediatheque.sql
+	- fichier texte avec nos identifications 
 
+Impression de la documentation: couleur, recto verso, boudiné. (3 exemplaires)
+Remise entre 15h et 17h
 ##################################################
 # Marc-André Destrampes
 ##################################################
