@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	var media = getUrlParameter( 'media' );
 	showMedia(media);
+	$('#datelist').hide();
 });
 
 function showMedia(str) {
@@ -25,4 +26,12 @@ function getUrlParameter( name )
     return "";
   else
     return results[1];
+}
+
+function radioButtonToggle(value)
+{
+	if ($('input[name=group1]:checked').val() == 'ASAP')
+		$('#datelist').hide('fast');
+	else
+		$('#datelist').show('fast');
 }
