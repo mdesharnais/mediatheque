@@ -65,7 +65,7 @@
 \maketitle
 
 \begin{abstract}
-Ce document contient la documentation du projet de médiathèque (nom de code «~Carcajou~») conçu pour le département de musique du cégep de Trois-Rivières.
+Ce document contient la documentation du projet de médiathèque (nom de code «~Carcajou~») conçu pour le département de musique du CEGEP de Trois-Rivières.
 \end{abstract}
 
 \newpage
@@ -176,7 +176,7 @@ Le champ permettant d'entrer l'artiste devra être lié à une liste de suggesti
 Des fonctions de recherche simple et avancée sont un élément essentiel pour un système de médiathèque. Le nôtre n'en fait pas exception puisqu'il offre un module de recherche évolué et des possibilités de raffinement sans limites. Nous avons voulu créer un système de recherche nécessitant un temps d'apprentissage quasi nul. Pour cela, nous avons joint quelques particularités aux fonctions de recherche de base. Voici la liste des éléments assurant une facilité de recherche et une bonne navigabilité des résultats correspondants à cette recherche.
 
 \begin{itemize}
-	\item Fil d'Ariane vertical permettant de raffiner les résultats de recheche;
+	\item Fil d'Ariane vertical permettant de raffiner les résultats de recherche;
 	\item Mode «~Parcourir~» permettant de parcourir tous les médias;
 	\item Recherche simple de médias;
 	\item Recherche avancée de médias;
@@ -224,7 +224,7 @@ La recherche avancée permet de faire une recherche très spécifique. On peut y
 	\begin{center}
 		\includegraphics[scale=0.5]{captures_ecran/exemple_recherche_avancee.png}
 	\end{center}
-	\caption{Exemple de recheche avancée}
+	\caption{Exemple de recherche avancée}
 \end{figure}
 
 Lors de la sélection d'un critère d'une recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape une série de lettres, une liste de valeurs contenant ce groupe de lettres s'affichera.  Cet ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise «~\href{http://www.w3schools.com/html5/tag_datalist.asp}{datalist}~» qui est disponible uniquement sur des navigateurs supportant cette balise Html 5.
@@ -250,13 +250,13 @@ Il est aussi possible d'ajouter autant de critères de recherches que l'on dési
 Suite à l'analyse du projet, nous avons relevé qu'il y a, principalement, quatre groupes d'utilisateurs à gérer~:
 \begin{itemize}
 	\item Les \emph{administrateurs} du système qui ont tous les droits;
-	\item Les \emph{commis} qui sont charger d'entrer les emprunts, les réservations et les nouvelles acquisitions;
+	\item Les \emph{commis} qui sont chargé d'entrer les emprunts, les réservations et les nouvelles acquisitions;
 	\item Les \emph{étudiants} qui ont le droit d'effectuer des réservations, mais dépendent d'un commis pour emprunter et retourner un média;
 	\item Les \emph{enseignants} du département qui n'ont pas à passer par le commis pour effectuer un emprunt ou un retour à leur nom.
 \end{itemize}
 
 \subsection{Utilisateurs}
-Chaque personne souhaitant bénéficier des services de la médiathèque doit avoir un compte utilisateur identifié par nom d'utilisateur\footnote{Actuellement, nous utilisons le matricule comme nom d'utilisateur.} ainsi qu'un mot de passe. À moins que, lors de la programmation, les informations nécessaires soient disponibles, ces identifiants sont dissociés des noms d'utilisateurs et mot de passe utilisés pour accéder aux services LÉA et aux ordinateurs du cégep de Trois-Rivières. Cependant, rien n'empêche les utilisateurs de choisir le même mot de passe pour les deux systèmes.
+Chaque personne souhaitant bénéficier des services de la médiathèque doit avoir un compte utilisateur identifié par nom d'utilisateur\footnote{Actuellement, nous utilisons le matricule comme nom d'utilisateur.} ainsi qu'un mot de passe. À moins que, lors de la programmation, les informations nécessaires soient disponibles, ces identifiants sont dissociés des noms d'utilisateurs et mots de passe utilisés pour accéder aux services LÉA et aux ordinateurs du cégep de Trois-Rivières. Cependant, rien n'empêche les utilisateurs de choisir le même mot de passe pour les deux systèmes.
 
 Toutes les informations sur un utilisateur sont stockées dans la table \texttt{utilisateurs}. Il est important de noter que les informations personnelles de l'utilisateur doivent en tout temps rester accessibles au moins de personnes possible\footnote{Ceci est un exemple évident de l'application du «~\href{http://en.wikipedia.org/wiki/Principle_of_least_privilege}{Principle of least privilege}~».}. Ceci est possible grâce au système de gestion des droits qui permet de donner le droit en lecture à ces informations uniquement à certains groupes (e.g.\ \emph{Administrateurs} et \emph{Commis}).
 
@@ -291,16 +291,16 @@ La page «~Mon historique d'emprunts~» permet à l'utilisateur de consulter la 
 L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau.
 
 \section{Administration}
-La zone adminsitration permet aux utilisateurs possédant les droits requis d'effectuer des emprunts, des retours, des rapports, de générer des codes QR, de faire la gestion des groupes, des utilisateurs et des tables de pilotages.
+La zone d'administration permet aux utilisateurs possédant les droits requis d'effectuer des emprunts, des retours, des rapports, de générer des codes QR, de faire la gestion des groupes, des utilisateurs et des tables de pilotages.
 
 \subsection{Emprunt}
-La page «~Emprunt~» permet, aux personnes qui ont les droits requis, d'entrer des emprunts dans la base de données. Pour effectuer un emprunt, la personne qui veut emprunter présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui remplis automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuées à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le +. Les dates disponibles vont changer selon les réservations et les disponibilitées du commis.
+La page «~Emprunt~» permet, aux personnes qui ont les droits requis, d'entrer des emprunts dans la base de données. Pour effectuer un emprunt, la personne qui veut emprunter présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le +. Les dates disponibles vont changer selon les réservations et les disponibilités du commis.
 
 \subsection{Retour}
-La page «~Retour~» permet, aux personnes qui ont les droits requis, d'entrer des retours dans la base de données. Pour effectuer un retour, la personne qui veut faire un retour présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui remplis automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuées à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le -.
+La page «~Retour~» permet, aux personnes qui ont les droits requis, d'entrer des retours dans la base de données. Pour effectuer un retour, la personne qui veut faire un retour présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le -.
 
 \subsection{Générer code QR}
-À partir du générateur de code QR, l'usagé n'a qu'à entrer le texte qu'il veut et le code QR correspondant sera généré. Dans le contexte présent, l'utilité de ces codes est de permettre l'identification des médias sans commettre d'erreurs. Ces codes peuvent contenir le texte désiré. Ainsi, le code de référencement maison peut toujours être utilisé. Si nous voulons pousser plus loin encore, les codes QR pourront être utilisés pour la fabrication de cartes qui seront remis aux usagés pour assurer un meilleur contrôle de ce qui entre et sort.
+À partir du générateur de code QR, l'usagé n'a qu'à entrer le texte qu'il veut et le code QR correspondant sera généré. Dans le contexte présent, l'utilité de ces codes est de permettre l'identification des médias sans commettre d'erreurs. Ces codes peuvent contenir le texte désiré. Ainsi, le code de référencement maison peut toujours être utilisé. Si nous voulons pousser plus loin encore, les codes QR pourront être utilisés pour la fabrication de cartes qui seront remises aux usagés pour assurer un meilleur contrôle de ce qui entre et sort.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -330,7 +330,7 @@ Cette technique offre de nombreux avantages dont voici une liste non exhaustive~
 	\item Possibilité de définir une valeur comme n'étant plus disponible pour utilisation future, mais restant valide pour les utilisations passées;
 	\item Possibilité d'éviter tout risque de dédoublement de valeurs suite à des fautes d'orthographes\footnote{La seule possibilité de dédoublement des valeurs est si la personne chargée de gérer les tables de pilotages écrit deux fois la même valeur avec une orthographe différente (e.g.\ Trois-Rivières et trois-rivieres).}.
 	\item Possibilité de mettre à jour instantanément la valeur d'une option pour tous les enregistrements l'utilisant en modifiant simplement sa valeur dans la table de pilotage.
-	\item Poid de la base de données réduit puisqu'il est moins lourd de définir de nombreuse clés étrangères que de répéter de nombreuses fois la même chaine de caractères.
+	\item Poid de la base de données réduit puisqu'il est moins lourd de définir de nombreuses clés étrangères que de répéter de nombreuses fois la même chaine de caractères.
 	\item Possibilité de ne donner les droits de modification à la table de pilotage qu'à certains groupes d'utilisateurs.
 \end{itemize}
 
@@ -343,7 +343,7 @@ Comme la taille d'une table de pilotage peut devenir assez grande, et que tous l
 Pour palier à ces problèmes, nous avons ajouté une colonne invisible dans le formulaire qui a pour nom \texttt{row\_state}. Celle-ci contient un nombre qui ne peut avoir que quatre valeurs~:
 
 \begin{table}[htbp]
-	\caption{Valeurs possible de la colonne \texttt{row\_state}}
+	\caption{Valeurs possibles de la colonne \texttt{row\_state}}
 	\begin{center}
 		\begin{tabular}{|c|l|}
 			\hline
@@ -365,7 +365,7 @@ Comme les tables de pilotages sont nombreuses et que leur formulaire de modifica
 Cette façon de faire permet de s'assurer que le formulaire sera toujours parfaitement à jour avec la structure de la table dans la base de données et permet aussi d'ajouter de nouvelles tables de pilotage très facilement et très rapidement puisqu'il n'y a pas de nouveau formulaire à créer.
 
 \subsection{Réservations en cours}
-La page «~Réservations en cours~» permet à l'utilisateur de consulter la liste de toutes les réservations du système. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. L'utilisateur à aussi la possibilité de supprimer une réservation. Une invite de confirmation lui est alors affichée et un courriel est envoyé à l'utilisateur à l'origine de la réservation pour lui indiquer que celle-ci a été supprimée.
+La page «~Réservations en cours~» permet à l'utilisateur de consulter la liste de toutes les réservations du système. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. L'utilisateur a aussi la possibilité de supprimer une réservation. Une invite de confirmation lui est alors affichée et un courriel est envoyé à l'utilisateur à l'origine de la réservation pour lui indiquer que celle-ci a été supprimée.
 
 L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
 
@@ -395,26 +395,26 @@ L'ajout d'un utilisateur nous apporte dans un formulaire permettant d'entrer les
 
 Pour ce qui est de la suppression, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer l'utilisateur.
 
-L'importation, quant à elle, se résume actuellement à un hyperlien qui ne mène nul part puisqu'il ne nous a pas été dit comment allait se passer la synchronisation des utilisateurs avec les élèves du département de musique. Nous avons fait comme hypothèse que l'importation se fera à partir d'un fichier XML qui contiendra la liste des nouveaux utilisateurs. Ceux qui programmeront le système devront donc se charger de mettre en place un système d'importation qui se mettra en action lors du clique sur ledit hyperlien.
+L'importation, quant à elle, se résume actuellement à un hyperlien qui ne mène nulle part puisqu'il ne nous a pas été dit comment allait se passer la synchronisation des utilisateurs avec les élèves du département de musique. Nous avons fait comme hypothèse que l'importation se fera à partir d'un fichier XML qui contiendra la liste des nouveaux utilisateurs. Ceux qui programmeront le système devront donc se charger de mettre en place un système d'importation qui se mettra en action lors du clique sur ledit hyperlien.
 
 \subsection{Gestion des groupes}
 À l'heure actuelle, la gestion des groupes se présente de la même façon que la gestion d'une table de pilotage\footnote{Voir la section \ref{sec:tables_de_pilotage}, à la page \pageref{sec:tables_de_pilotage}, pour plus d'informations sur les tables de pilotages.}.
 
-Lorsque le système sera implémenté, les programmeurs auront le choix d'offrir ou non au client la possibilité de modifier les droits de groupes. Puisque des droits de groupes mal configurés risquent d'ammener des failles de sécurités, le client préférera peut-être demander au département d'informatique chaque fois que de telles manipulations seront nécessaires.
+Lorsque le système sera implémenté, les programmeurs auront le choix d'offrir ou non au client la possibilité de modifier les droits de groupes. Puisque des droits de groupes mal configurés risquent d'amener des failles de sécurités, le client préférera peut-être demander au département d'informatique chaque fois que de telles manipulations seront nécessaires.
 
 \section{Rapports}
 
 \subsection{Rapport sur les médias audios}
-La page «~Rapport~» permet, aux personnes qui ont les droits requis, de générer un rapport sur les médias selon le genre sélectionné. Le résultat du rapport est présenté dans un tableau simple et efficace qui est trié par ordre de code de référence, par titre et par année de publication. Le but de pouvoir faire des rapports est de générer une liste de ce que l'on cherche rapidement et efficacement, le tout sans erreurs, pour accélérer le travail par la suite. D'autres rapports du genre pourront être ajouté sur demande.
+La page «~Rapport~» permet, aux personnes qui ont les droits requis, de générer un rapport sur les médias selon le genre sélectionné. Le résultat du rapport est présenté dans un tableau simple et efficace qui est trié par ordre de code de référence, par titre et par année de publication. Le but de pouvoir faire des rapports est de générer une liste de ce que l'on cherche rapidement et efficacement, le tout sans erreurs, pour accélérer le travail par la suite. D'autres rapports du genre pourront être ajoutés sur demande.
 
 \section{Pages d'information}
 
-Nous avons intégrés une section «~À propos~» qui les sections suivantes~:
+Nous avons intégré une section «~À propos~» qui les sections suivantes~:
 \begin{itemize}
 	\item À propos de la médiathèque;
 	\item À propos du département de musique;
 	\item À propos des heures d'ouverture;
-	\item À propos de la règrementation.
+	\item À propos de la règlementation.
 \end{itemize}
 
 Ces pages permettront de publier des informations concernant la médiathèque et le département de musique comme. Ce sera l'endroit idéal pour parler de l'évolution du département de musique et de leur médiathèque ainsi que pour expliquer le fonctionnement du site.
@@ -449,7 +449,7 @@ Toutes les pages sont construites sur la base du modèle suivant :
 
 \subsubsection{Bandeau (1)}
 
-Le bandeau est constitué des éléments suivant:
+Le bandeau est constitué des éléments suivants:
 \begin{description}
 	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site et est toujours situé dans le coin supérieur gauche. Par contre, ce n'est pas une image, mais bien un mot mise en forme en CSS. Ce sigle permet, en tout temps, de revenir sur la page d'accueil. Le sigle du site utilise la police MegalopolisExtra-Webfont.
 	\item[Menus déroulants]À la droite du sigle se retrouve le menu principal incluant des menus déroulants permettant de se déplacer dans les sections du site. Les entrées de menu sont les suivantes:
@@ -572,7 +572,7 @@ La charte de couleur choisie est composée principalement de noir, de blanc et d
 
 \subsubsection{Police d’écriture}
 
-La police de caractère que nous avons choisi pour le site est Optima. Conformément à la convention, nous avons défini une liste de polices alternatives qui seront utilisées si Optima n'est pas disponnible. La liste est, par ordre de priorité~: Trebuchet MS, Lucida, Arial, Geneva, Verdana, Lucida Grande, Tahoma, Helvetica, sans-serif.
+La police de caractère que nous avons choisi pour le site est Optima. Conformément à la convention, nous avons défini une liste de polices alternatives qui seront utilisées si la police Optima n'est pas disponible. La liste est, par ordre de priorité~: Trebuchet MS, Lucida, Arial, Geneva, Verdana, Lucida Grande, Tahoma, Helvetica, sans-serif.
 
 Nous avons décidé de ne pas donner une taille fixe à la police de caractère, mais plutôt d'utiliser la taille désirée par l'utilisateur, définie dans les propriétés de son navigateur. Par exemple, pour configurer la taille de police par défaut sous Mozilla Firefox, il suffit d'aller dans \texttt{Préférences > Contenu > Polices et couleurs > Taille} et de définir la taille souhaitée. Nous sommes partis du principe que, si l'utilisateur a choisi d'afficher ses sites Internet avec une certaine taille, ce n'est pas à nous de contrevenir à sa volonté.
 
@@ -625,7 +625,7 @@ Voir le diagramme en annexe.
 		\includegraphics[scale=0.15]{search.png}         & 16x16            & Icone indiquant une recherche. \\ \hline
 		\includegraphics{down.png}                       & 21x4             & Indique que la colonne est triée par ordre croissant. \\ \hline
 		\includegraphics{up.png}                         & 21x4             & Indique que la colonne est triée par ordre décroissant. \\ \hline
-		\includegraphics{upAndDown.png}                  & 21x9             & Indique que la colonne n'est pas utilisé pour le tri. \\ \hline
+		\includegraphics{upAndDown.png}                  & 21x9             & Indique que la colonne n'est pas utilisée pour le tri. \\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -665,7 +665,7 @@ Ce modèle est utilisé pour l'affichage des résultats de recherche. Il est con
 	\item Un fil d'Ariane vertical disposé sur le côté gauche;
 	\item Une description de la recherche en cours en haut de page;
 	\item Le système de pagination en haut et en bas de la page;
-	\item Les résultats de recherche sous forme d'élément de tableau contenant, les valeur des champs standards à tous les médias, accompagné d'une image.
+	\item Les résultats de recherche sous forme d'élément de tableau contenant, les valeurs des champs standards à tous les médias, accompagnés d'une image.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -679,7 +679,7 @@ Ce modèle est utilisé pour l'affichage des résultats de recherche. Il est con
 
 Ces modèles sont utilisés pour les pages de réservations, retours et d'emprunts. 
 
-Pour la page de réservations, le média sélectionné est affiché avec ces détails, comme dans la recherche. Juste en dessous du média, l'utilisateur choisi s'il veut obtenir le média lorsqu'il sera disponible ou bien il choisi la plage de dates sur laquelle il veut réserver le média. Le bouton enregistrer envoie la réservation au serveur.
+Pour la page de réservations, le média sélectionné est affiché avec ces détails, comme dans la recherche. Juste en dessous du média, l'utilisateur choisit s'il veut obtenir le média lorsqu'il sera disponible ou bien il choisit la plage de dates sur laquelle il veut réserver le média. Le bouton enregistrer envoie la réservation au serveur.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -697,7 +697,7 @@ Pour la page de retours, le matricule de l'utilisateur est entré à la main ou 
 	\caption{Modèle de retours}
 \end{figure}
 
-Pour la page d'emprunts, le modèle est exactement le même que celui des retours excepté le choix d'une plage de date sur laquelle le média sera emprunter.
+Pour la page d'emprunts, le modèle est exactement le même que celui des retours excepté le choix d'une plage de date sur laquelle le média sera emprunté.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -719,7 +719,7 @@ Ce modèle est utilisé pour gérer le contenu des tables de pilotage\footnote{V
 
 \subsection{Le modèle de page formulaire simple}
 
-Ce modèle est utilisé pour afficher des formulaire simples ayant un seul niveau de détail. Les éléments se retrouvant dans ce modèle sont consitué de quelques champ avec un bouton "Submit" permettant d'effecuter une action particulière sur les données. La page «~Suggestions~» en est un exemple.
+Ce modèle est utilisé pour afficher des formulaires simples ayant un seul niveau de détail. Les éléments se retrouvant dans ce modèle sont constitués de quelques champs avec un bouton "Submit" permettant d'effectuer une action particulière sur les données. La page «~Suggestions~» en est un exemple.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -732,7 +732,7 @@ Ce modèle est utilisé pour afficher des formulaire simples ayant un seul nivea
 
 Ce modèle est utilisé pour visionner ou modifier les détails d'un média. Lorsque l'utilisateur est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe plusieurs niveaux de détails pour un média. Des boutons plus et moins sont utilisés pour naviguer entre ces différents niveaux de détail.
 
-Lorsque l'utilisateur n'est pas un admistrateur, tous les champs éditables deviennent des éléments affichés.
+Lorsque l'utilisateur n'est pas un administrateur, tous les champs éditables deviennent des éléments affichés.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -753,7 +753,7 @@ Pour accéder au niveau 2 du diagramme, nous devons emprunter exactement le chem
 
 \section{Diagramme de classe}
 
-Voir l'API du système fournis avec le document.
+Voir l'API du système fourni avec le document.
 
 \section{Base de données et dictionnaire}
 
@@ -776,7 +776,7 @@ Voir le tableau en annexe.
 
 
 \subsection{Navigateurs}
-Lors de la conception le site à été testé sur les navigateurs suivants~:
+Lors de la conception, le site a été testé sur les navigateurs suivants~:
 
 \begin{itemize}
 	\item Mozilla Firefox 3.5.16
@@ -809,7 +809,7 @@ Les conventions php utilisés sont les suivantes~:
 
 \begin{itemize}
 	\item Les fichiers contenant la définition d'une classe PHP utilisent l'extension «~.class.php~».
-	\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit être inclu par un autre script utilisent l'extension «~.inc.php~».
+	\item Les fichiers contenant du code PHP qui doit obligatoirement être inclus dans un autre script utilisent l'extension «~.inc.php~».
 	\item Les fichiers contenant du code PHP qui se suffit à lui-même utilisent l'extension «~.php~».
 	\item Les fichiers contenant les pages finales affichées à l'utilisateur sont situés à la racine du projet (/).
 	\item Les fichiers contenant des scripts PHP qui effectuent une action avant de rediriger l'utilisateur sont situés dans le répertoire php (/php/).
@@ -987,7 +987,7 @@ else
 }
 \end{lstlisting}
 
-Du point de vu de l'utilisateur de la fonction, c'est extrêmement simple. Pour celui qui devra l'implémenter, c'est une autre histoire. Plaçons-nous un peu à la place du programmeur. Nous sommes dans une fonction dont voici la signature~:
+Du point de vue de l'utilisateur de la fonction, c'est extrêmement simple. Pour celui qui devra l'implémenter, c'est une autre histoire. Plaçons-nous un peu à la place du programmeur. Nous sommes dans une fonction dont voici la signature~:
 
 \begin{lstlisting}[style=php]
 public function haveRights($section, $rights)
