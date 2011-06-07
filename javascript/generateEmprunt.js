@@ -30,7 +30,7 @@ $(document).ready(function() {
 	$('form#emprunt input[type="button"].suppress').click(function() {
 		if ($('form#emprunt input[type="number"]#mediaID').val().length != 0) {
 			$('div#' + $('form#emprunt input[type="number"]#mediaID').val()).remove();
-			$('div#outerDiv').remove();
+			//$('div#outerDiv').remove();
 		}
 	});
 });

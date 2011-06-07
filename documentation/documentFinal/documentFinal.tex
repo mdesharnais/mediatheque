@@ -296,10 +296,26 @@ La page «~Mon historique d'emprunts~» permet à l'utilisateur de consulter la 
 L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau.
 
 \section{Administration}
+La zone adminsitration permet aux utilisateurs possédant les droits requis d'effectuer des emprunts, des retours, des rapports, de générer des codes QR, de faire la gestion des groupes, des utilisateurs et des tables de pilotages.
 
 \subsection{Emprunt}
+La page «~Emprunt~» permet, aux personnes qui ont les droits requis, d'entrer des emprunts dans la base de données. Pour effectuer un emprunt, la personne qui veut emprunter présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui remplis automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le +. Les dates disponibles vont changer selon les réservations et les disponibilitées du commis.
 
 \subsection{Retour}
+La page «~Retour~» permet, aux personnes qui ont les droits requis, d'entrer des retours dans la base de données. Pour effectuer un retour, la personne qui veut faire un retour présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui remplis automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le -.
+
+\subsection{Rapports}
+La page «~Retour~» permet, aux personnes qui ont les droits requis, de générer un rapport sur les médias selon le genre sélectionné. Le résultat du rapport est présenté dans un tableau simple et efficace qui est trié par ordre de code de référence, par titre et par année de publication. D'autres rapports du genre pourront etre ajouté sur demande.
+
+\subsection{Générer code QR}
+À partir du générateur de code QR, l'usagé n'a qu'à entrer le texte qu'il veut et le code QR correspondant sera généré. Dans le contexte présent, l'utilité de ces codes est de permettre l'identification des médias sans commettre d'erreurs. Ces codes peuvent contenir le texte désiré. Ainsi, le code de référencement maison peut toujours être utilisé.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.5]{qr.png}
+	\end{center}
+	\caption{Exemple de code QR}
+\end{figure}
 
 \subsection{Tables de pilotages}
 \label{sec:tables_de_pilotage}
@@ -479,6 +495,7 @@ Le bandeau est constitué des éléments suivant:
 			\begin{itemize}
 				\item Emprunt
 				\item Retour
+				\item Rapports
 				\item Générer code QR
 			\end{itemize}
 		\end{itemize}
@@ -663,9 +680,36 @@ Ce modèle est utilisé pour l'affichage des résultats de recherche. Il est con
 	\caption{Modèle d'affichage des résultats de recherche}
 \end{figure}
 
-\subsection{Le modèle de page des réservations et des emprunts}
+\subsection{Le modèle de page des réservations, des retours et des emprunts}
 
-Ce modèle est utilisé pour les pages de réservations et d'emprunts. Marc-André doit remplir cette section.
+Ces modèles sont utilisés pour les pages de réservations, retours et d'emprunts. 
+
+Pour la page de réservations, le média sélectionné est affiché avec ces détails, comme dans la recherche. Juste en dessous du média, l'utilisateur choisi la plage de dates sur laquelle il veut réserver le média. Le bouton enregistrer envoie la réservation au serveur.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.25]{captures_ecran/reservation.png}
+	\end{center}
+	\caption{Modèle de réservations}
+\end{figure}
+
+Pour la page de retours, le matricule de l'utilisateur est entré à la main ou à l'aide du code QR. Le champ no. référence permet, soit à la main ou à l'aide du code QR d'ajouter ou bien de supprimer les médias. Le bouton enregistrer envoie le retour au serveur.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.25]{captures_ecran/retour.png}
+	\end{center}
+	\caption{Modèle de retours}
+\end{figure}
+
+Pour la page d'emprunts, le modèle est exactement le même que celui des retours excepté le choix d'une plage de date sur laquelle le média sera emprunter.
+
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[scale=0.25]{captures_ecran/emprunt.png}
+	\end{center}
+	\caption{Modèle d'emprunts}
+\end{figure}
 
 \subsection{Le modèle de page table de pilotage}
 
