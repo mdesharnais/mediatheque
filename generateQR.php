@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="author" content="Marc-Andre Destrempes">
 
-		<title>Générateur de QR Code - Médiatech du département de musique du cégep de Trois-Rivières</title>
+		<title><?php echo Application::APPLICATION_NAME; ?> - Générateur de code QR</title>
 
 		<?php include('sharedFiles/style.inc.php'); ?>
 		<?php include('sharedFiles/javascript.inc.php'); ?>
