@@ -15,6 +15,8 @@
 \usepackage[table]{xcolor}
 \usepackage{acronym}
 
+\graphicspath{{images/}}
+
 \acrodef{SGBD}{système de gestion de base de données}
 
 \pdfcompresslevel=9
@@ -618,17 +620,16 @@ Tous les titres commencent par une majuscule suivie par des minuscules. Il en es
 		\hline
 		Image                                            & Taille           & Description \\ \hline
 		\includegraphics[scale=0.2]{black_arrow_big.png} & 370x216, 209x122 & Cette image servira a afficher les détails d'un média sous forme d'infobulle.\\ \hline
-		\includegraphics{cart.png}                       & 20x20            & Panier signifiant la réservation d'un média. \\ \hline
-		\includegraphics[scale=1.15]{emprunt.png}        & 87x87            & Logo signifiant un emprunt. \\ \hline
-		\includegraphics[scale=0.3]{reservation.png}     & 87x87            & Logo signifiant une réservation. \\ \hline
-		\includegraphics[scale=0.3]{musique.png}         & 128x105          & Logo signifiant de la musique. \\ \hline
+		\includegraphics{cart.png}                       & 20x20            & Icone représentant la réservation d'un média. \\ \hline
+		\includegraphics[scale=1.15]{emprunt.png}        & 87x87            & Icone représentant un emprunt. \\ \hline
+		\includegraphics[scale=0.3]{reservation.png}     & 87x87            & Icone représentant une réservation. \\ \hline
 		\includegraphics[scale=0.3]{audio.png}           & 128x128          & Logo signifiant la présence d'un média sous le format audio. \\ \hline
 		\includegraphics[scale=0.3]{imprime.png}         & 128x128          & Logo signifiant la présence d'un média sous le format imprimé. \\ \hline
 		\includegraphics[scale=0.3]{video.png}           & 128x128          & Logo signifiant la présence d'un média sous le format vidéo. \\ \hline
-		\includegraphics[scale=0.3]{search.png}          & 128x128, 32x32   & Icone signifiant l'exécution d'une recherche. \\ \hline
-		\includegraphics{down.png}                       & 21x4             & Flèche pointant vers le haut. \\ \hline
-		\includegraphics{up.png}                         & 21x4             & Flèche pointant vers le bas. \\ \hline
-		\includegraphics{upAndDown.png}                  & 21x9             & Flèches pointant vers le haut et vers le bas. \\ \hline
+		\includegraphics[scale=0.15]{search.png}         & 16x16            & Icone indiquant une recherche. \\ \hline
+		\includegraphics{down.png}                       & 21x4             & Indique que la colonne est triée par ordre croissant. \\ \hline
+		\includegraphics{up.png}                         & 21x4             & Indique que la colonne est triée par ordre décroissant. \\ \hline
+		\includegraphics{upAndDown.png}                  & 21x9             & Indique que la colonne n'est pas utilisé pour le tri. \\ \hline
 		\end{tabular}
 	\end{center}
 \end{table}
@@ -655,7 +656,7 @@ Ce modèle est utilisé pour des pages d'information statiques. La page « À pr
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.5]{captures_ecran/modele_descriptif.png}
+		\includegraphics[scale=0.4]{captures_ecran/modele_descriptif.png}
 	\end{center}
 	\caption{Modèle descriptif}
 \end{figure}
@@ -673,7 +674,7 @@ Ce modèle est utilisé pour l'affichage des résultats de recherche. Il est con
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.5]{captures_ecran/modele_resultats_recherche.png}
+		\includegraphics[scale=0.4]{captures_ecran/modele_resultats_recherche.png}
 	\end{center}
 	\caption{Modèle d'affichage des résultats de recherche}
 \end{figure}
@@ -715,7 +716,7 @@ Ce modèle est utilisé pour gérer le contenu des tables de pilotage\footnote{V
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.5]{captures_ecran/modele_tables_de_pilotage.png}
+		\includegraphics[scale=0.4]{captures_ecran/modele_tables_de_pilotage.png}
 	\end{center}
 	\caption{Modèle table de pilotage}
 \end{figure}
@@ -726,7 +727,7 @@ Ce modèle est utilisé pour afficher des formulaire simples ayant un seul nivea
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.5]{captures_ecran/modele_formulaire_simple.png}
+		\includegraphics[scale=0.4]{captures_ecran/modele_formulaire_simple.png}
 	\end{center}
 	\caption{Modèle formulaire simple}
 \end{figure}
@@ -739,7 +740,7 @@ Lorsque l'utilisateur n'est pas un admistrateur, tous les champs éditables devi
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.5]{captures_ecran/modele_details_medias.png}
+		\includegraphics[scale=0.4]{captures_ecran/modele_details_medias.png}
 	\end{center}
 	\caption{Modèle formulaire simple}
 \end{figure}
@@ -752,13 +753,12 @@ Ce modèle de page est utilisé pour des données sous forme de rapports. Les ra
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.135]{diagrammeEnchainement.png}
+		\includegraphics[scale=0.13]{diagrammeEnchainement.png}
 	\end{center}
 	\caption{Diagramme d'enchaînement}
 \end{figure}
 
-Pour accéder au niveau 2 du diagramme, nous devons emprunter exactement le chemin indiqué dans le schéma. Le niveau inférieur peut, en tout temps, accéder aux pages du niveau supérieur.
-Lors d'une connexion, si l'utilisateur n'est pas un administrateur nous ne lui affichons pas les pages emprunt et retour. Sinon, nous lui rajoutons ces options dans le menu.
+Pour accéder au niveau 2 du diagramme, nous devons emprunter exactement le chemin indiqué dans le schéma. Le niveau inférieur peut, en tout temps, accéder aux pages du niveau supérieur. Lors d'une connexion, si l'utilisateur n'est pas un administrateur nous ne lui affichons pas les pages emprunt et retour. Sinon, nous lui rajoutons ces options dans le menu.
 
 \section{Diagramme de classe}
 
