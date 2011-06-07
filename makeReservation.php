@@ -23,7 +23,7 @@
 						try
 						{
 							if(!isset($_GET['id']) || is_null($_GET['id']))
-								throw new Exception('Le parametre ID est obligatoire.');
+								throw new Exception('Le paramètre ID est obligatoire.');
 
 							if($application->currentUser->isVisitor())
 								throw new Exception('Vous devez être connecté.');
@@ -35,7 +35,12 @@
 							echo "<form id='reservation' Action='php/submitReservation.php'>";
 							echo "<script src='javascript/generateReservation.js' ></script>";
 							echo "<br>";
+							echo "<h4>Réserver</h4>";
+							echo "<input type='radio' name='group1' value='ASAP' onclick='radioButtonToggle()' checked='checked'>Dès que possible<br>";
+							echo "<input type='radio' name='group1' value='Intervalle' onclick='radioButtonToggle()'>Période déterminée<br>";
+							echo "<div id='datelist'>";
 							include('php/setDateList.php');
+							echo "</div>";
 							echo "<input type='submit' Value='Enregistrer'>";
 							echo "</form>";
 						}
