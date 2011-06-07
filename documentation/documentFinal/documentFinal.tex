@@ -1,4 +1,4 @@
-\documentclass[letter, 11pt]{report}
+\documentclass[letter, 11pt, draft]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -77,13 +77,13 @@ Ce document contient la documentation du projet de médiathèque (nom de code «
 
 \section{Médias}
 
-Nous avons décider de centraliser un certain nombre d'informations communes à tous les articles pouvant faire partie de la médiathèque, comme le titre ou le numéro de référence, sous l'identité de média. Ainsi, tous les articles de la médiathèque sont des médias et partagent un certain nombre de propriétées. Par la suite ceux-ci sont subdivisé en médias audios, vidéos et imprimés où chaque subdivision contient un certain nombre d'informations unique à sa catégorie.
+Nous avons décidé de centraliser un certain nombre d'informations communes à tous les articles pouvant faire partie de la médiathèque, comme le titre ou le numéro de référence, sous l'identité de média. Ainsi, tous les articles de la médiathèque sont des médias et partagent un certain nombre de propriétés. Par la suite, ceux-ci sont subdivisés en médias audios, vidéos et imprimés où chaque subdivision contient un certain nombre d'informations unique à sa catégorie.
 
-Dans la base de donneés, cette situation se traduit par une table \texttt{medias} qui contient un enregistrement correspondant à tous les médias de la médiathèque ainsi que des tables enfants contenant les informations plus précises de chaque type.
+Au niveau de la base de données, cette situation se traduit par une table \texttt{medias} qui contient un enregistrement correspondant à tous les médias de la médiathèque ainsi que des tables enfants contenant les informations plus précises de chaque type.
 
-Les informations propres aux médias imprimées se trouvent dans la table \texttt{imprimes}.
+Les informations propres aux médias imprimés se trouvent dans la table \texttt{imprimes}.
 
-Les médias audio et vidéos sont un cas à part car nous nous sommes apperçu que ceux-ci étaient extrèmement semblables. Les quelques propriétées qui les distinguaient pouvaient très bien s'appliquer l'un à l'autre. Nous avons donc décidé des les regrouper, à l'interne, dans la table \texttt{audios\_videos}.
+Les médias audio et vidéos sont un cas à part, car nous nous sommes aperçus que ceux-ci étaient extrêmement semblables. Les quelques propriétés qui les distinguaient pouvaient très bien s'appliquer l'un à l'autre. Nous avons donc décidé, à l'interne, de les regrouper dans la table \texttt{audios\_videos}.
 
 \begin{table}[htbp]
 	\caption{medias}
@@ -132,13 +132,13 @@ Les médias audio et vidéos sont un cas à part car nous nous sommes apperçu q
 	\end{center}
 \end{table}
 
-Ainsi, pour effectuer une interrogation à la base de données concernant l'ensemble des médias, il suffit d'interroger la table \texttt{medias} qui contient les informations communes à tous les médias. Si nous voulons des informations plus précises sur un médias audio, il suffit de joindre les table \texttt{medias} et \texttt{audios\_videos} selon l'\texttt{ID} du premier et l'\texttt{exID} du second.
+Ainsi, pour effectuer une interrogation à la base de données concernant l'ensemble des médias, il suffit d'interroger la table \texttt{medias} qui contient les informations communes à tous les médias. Si nous voulons des informations plus précises sur un média audio, il suffit de joindre les tables \texttt{medias} et \texttt{audios\_videos} selon l'\texttt{ID} du premier et l'\texttt{exID} du second.
 
-Nous ponvons toujours être sur que, pour chaque enregistrement de la table \texttt{media}, il y aura toujours, selon le type, un enregistrement correspondant dans la table \texttt{audios\_videos} ou bien dans la table \texttt{imprimes}.
+Nous pouvons toujours être surs que, pour chaque enregistrement de la table \texttt{media}, il y aura toujours, selon le type, un enregistrement correspondant dans la table \texttt{audios\_videos} ou bien dans la table \texttt{imprimes}.
 
-Dans l'exemple des tableaux \ref{tab:sf-medias}, \ref{tab:sf-audios-videos} et \ref{tab:sf-imprimes}, nous voyons que le CD \emph{l'expédition}, parru en 2008, est de nationalité canadienne alors que le livre \emph{La communauté de l'anneau}, parru en 1972, appartient à la collection \emph{Le seigneur des anneaux}. Ce sont tous deux des médias, mais les informations supplémentaires de chacun sont dans la table correspondant à leur type.
+Dans l'exemple des tableaux \ref{tab:sf-medias}, \ref{tab:sf-audios-videos} et \ref{tab:sf-imprimes}, nous voyons que le CD \emph{l'expédition}, paru en 2008, est de nationalité canadienne alors que le livre \emph{La communauté de l'anneau}, paru en 1972, appartient à la collection \emph{Le seigneur des anneaux}. Ce sont tous deux des médias, mais les informations supplémentaires de chacun sont dans la table correspondant à leur type.
 
-Nous pouvons aussi constater qu'il y a deux médias portant le même titre mais ayant une date de publication différente. il s'agit là d'une réédition et puisque certaines informations changent d'une édition à l'autre, un nouveau média a été créé pour la représenter.
+Nous pouvons aussi constater qu'il y a deux médias portant le même titre, mais ayant une date de publication différente. Il s'agit là d'une réédition et puisque certaines informations changent d'une édition à l'autre, un nouveau média a été créé pour la représenter.
 
 \begin{table}[htbp]
 	\caption{exemplaires\_medias}
@@ -160,9 +160,9 @@ Nous pouvons aussi constater qu'il y a deux médias portant le même titre mais 
 
 Il peut aussi arriver que nous disposions de plusieurs copies identiques d'un même média. Dans ce cas, nous pouvons simplement ajouter un exemplaire à un média déjà présent dans la base de données. Dans le tableau \ref{tab:sf-exemplaires-medias}, nous pouvons voir que nous possédons deux exemplaires de l'album \emph{l'expédition} alors que nous ne possédons qu'un seul exemplaire des autres médias. Puisque ce sont des objets distincts, les deux albums ont un numéro de référence différent afin de permettre de les différencier.
 
-L'analyse nous a révélé que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponnibles uniquements pour consultation sur place.
+L'analyse nous a révélé que certains médias ne peuvent être empruntés que par certains groupes d'utilisateurs alors que d'autres sont disponibles uniquement pour consultation sur place.
 
-Pour représenter cette situation, nous avons décidés que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponnible en consultation sur place seulement.
+Pour représenter cette situation, nous avons décidé que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponible en consultation sur place seulement.
 
 \subsection{Média audios}
 
@@ -171,13 +171,13 @@ Pour représenter cette situation, nous avons décidés que chaque média contie
 \subsection{Média imprimés}
 
 \subsection{Suggestions}
-Les utilisateurs du site ont la possibilité d'émettre une suggestion d'achat de nouveau médias. Un formulaire les invite à entrer le titre, l'artiste ainsi que le type de support du média qu'ils comptent suggérer. Ils ont aussi la possibilité d'ajouter un commentaire si des informations supplémentaires sont nécessaires.
+Les utilisateurs du site ont la possibilité d'émettre une suggestion d'achat de nouveaux médias. Un formulaire les invite à entrer le titre, l'artiste ainsi que le type de support du média qu'ils comptent suggérer. Ils ont aussi la possibilité d'ajouter un commentaire si des informations supplémentaires sont nécessaires.
 
-Le champ permettant d'entrer l'artiste devra être lier à une liste de suggestions permettant à l'utilisateur de sélectionner un artiste déjà présent dans le système. Pour plus d'informations sur les listes de suggestions, voir la section \ref{sec:recherche-avancée} sur la recherche avancée. Le champ contenant l'artiste ne peut être une simple liste déroulante statique puisque nous désirons laisser à l'utilisateur la possibilité de suggérer un média appartenant à un nouvel artiste.
+Le champ permettant d'entrer l'artiste devra être lié à une liste de suggestions permettant à l'utilisateur de sélectionner un artiste déjà présent dans le système. Pour plus d'informations sur les listes de suggestions, voir la section \ref{sec:recherche-avancée} sur la recherche avancée. Le champ contenant l'artiste ne peut être une simple liste déroulante statique puisque nous désirons laisser à l'utilisateur la possibilité de suggérer un média appartenant à un nouvel artiste.
 
 \section{Recherche}
 
-Des fonctions de recherche simple et avancées est un élément essentiel pour un système de médiathèque. Le nôtre n'en fait pas exception puisqu'il un module de recherche évolué et des possiblités de raffinement sans limite. Nous avons voulu créer un système nécessitant un système de recherche nécessitant un temps d'apprentissage quasi-nul. Pour cela, nous avons joint quelques particularités aux fonctions de recherche de base. Voici la liste des éléments assurant une facilité de recherche et une bonne naviguabilité des résultats correspondants à cette recherche.
+Des fonctions de recherche simple et avancée sont un élément essentiel pour un système de médiathèque. Le nôtre n'en fait pas exception puisqu'il offre un module de recherche évolué et des possibilités de raffinement sans limites. Nous avons voulu créer un système de recherche nécessitant un temps d'apprentissage quasi nul. Pour cela, nous avons joint quelques particularités aux fonctions de recherche de base. Voici la liste des éléments assurant une facilité de recherche et une bonne navigabilité des résultats correspondants à cette recherche.
 
 \begin{itemize}
 	\item Fil d'Ariane vertical permettant de raffiner les résultats de recheche;
@@ -188,9 +188,9 @@ Des fonctions de recherche simple et avancées est un élément essentiel pour u
 \end{itemize}
 
 \subsection{Fil d'Ariane vertical}
-Un fil d'Ariane est un composant web d'aide à la navigation dans les pages d'un site web. Un fil d'Ariane horizontal standard est sous la forme de signalisation de la localisation du lecteur dans un document. Il permet d'indiquer à l'utilisateur où il se situe dans une page web et offre des possibilité de revenir à la section qu'il désire.  Dans le cas de Carcajou, c'est un fil d'Ariane vertical qui est utilisé. Au lieu de nous afficher notre position dans un site web sous forme d'arborescence, il nous permet de naviguer par critères dans les résultats de recherche. On pourra donc l'utiliser pour raffinez une recherche de médias. Pour une recherche données, une liste de valeurs regroupées par critères sera affiché et on pourra donc cliquer sur ces valeurs pour raffiner sa recherche. 
+Un fil d'Ariane est un composant web d'aide à la navigation dans les pages d'un site web. Un fil d'Ariane horizontal standard est sous la forme de signalisation de la localisation du lecteur dans un document. Il permet d'indiquer à l'utilisateur où il se situe dans une page web et offre la possibilité de revenir à la section qu'il désire.  Dans le cas de Carcajou, c'est un fil d'Ariane vertical qui est utilisé. Au lieu de nous afficher notre position dans un site web sous forme d'arborescence, il nous permet de naviguer par critères dans les résultats de recherche. On pourra donc l'utiliser pour raffiner une recherche de médias. Pour une recherche donnée, une liste de valeurs regroupées par critères sera affichée et l'on pourra donc cliquer sur ces valeurs pour raffiner sa recherche. 
 
-Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la recherche devient plus spécifique et de moins en moins de valeurs d'attribut seront applicable à la recherche. Par exemple, si le niveau de raffinement de la recherche retourne uniquement deux résultats et que ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas affiché dans le fil d'Ariane. Lorsque aucune possibilité de rafinement supplémentaire est disponible pour les résultats affichés. 
+Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la recherche devient plus spécifique et de moins en moins de valeurs d'attribut seront applicables à la recherche. Par exemple, si le niveau de raffinement de la recherche retourne uniquement deux résultats et que ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas affiché dans le fil d'Ariane. Lorsqu’aucune possibilité de raffinement supplémentaire n’est disponible pour les résultats affichés. 
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -206,13 +206,13 @@ Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la r
 	\caption{Fil d'Ariane lorsque raffiné au maximum}
 \end{figure}
 
-Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établis que s'il y avait plus de trois suggestions de valeurs pour un critère, un entrée de liste "Afficher plus" serait afficher pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à notez que cette fonction n'est disponible uniquement que sur un navigateur ayant le Javascript activé. La désactivation du Javascript n'amène pas de problématiques en tant que telles. Les valeurs des critères seront tout simplement afficher dans leur ensemble sans possibilité de cacher X résultats.
+Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établi que s'il y avait plus de trois suggestions de valeurs pour un critère, une entrée de liste "Afficher plus" serait affichée pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à noter que cette fonction n'est disponible que sur un navigateur ayant le JavaScript activé. La désactivation du JavaScript n'amène pas de problèmes en tant que tels. Les valeurs des critères seront tout simplement affichées dans leur ensemble sans possibilité de cacher X résultats.
 
 \subsection{Parcourir}
-Le mode « Parcourir » est tout simplement l'exécution d'une recherche n'ayant aucun critères spécifiques. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination affichant 5 résultats par page. Pour raffiner les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
+Le mode « Parcourir » est tout simplement l'exécution d'une recherche n'ayant aucun critère spécifique. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination affichant 5 résultats par page. Pour raffiner les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
 
 \subsection{Recherche simple}
-Accessible à partir de la barre de navigation principale, la recherche simple permet à partir d'un mot clé d'effectuer une recherche sur tous les médias. Seul les médias satisfaisants le mot clé évoqué seront affichés. Pour cela, tous les champs sont parcourus pour rechercher une correspondance à ce mot clé en ignorant la casse. Par exemple, une recherche avec le mot « cowboy » pourrait autant retourné un média de l'artiste « Les cowboys fringuants » qu'un média contenant la chansons «~Bye Bye Mon Cowboy~».
+Accessible à partir de la barre de navigation principale, la recherche simple permet à partir d'un mot clé d'effectuer une recherche sur tous les médias. Seuls les médias satisfaisant le mot clé évoqué seront affichés. Pour cela, tous les champs sont parcourus pour rechercher une correspondance à ce mot clé en ignorant la casse. Par exemple, une recherche avec le mot « cowboy » pourrait autant retourner un média de l'artiste « Les cowboys fringants » qu'un média contenant la chanson «~Bye Bye Mon Cowboy~».
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -223,7 +223,7 @@ Accessible à partir de la barre de navigation principale, la recherche simple p
 
 \subsection{Recherche avancée}
 \label{sec:recherche-avancée}
-La recherche avancée permet de faire une recherche très spécifique. On peut y sélectionner tous les critères de recherche possible et sans limite de nombre. On peut sélectionner les opérateurs logiques (et, ou, etc) et les opérateurs de comparaison (contient, égale, etc). On pourrait donc effectuée une recherche comme celle-ci: Titre du média contenant « Indiana Jones» et année de publication plus grande que 1988.
+La recherche avancée permet de faire une recherche très spécifique. On peut y sélectionner tous les critères de recherche possible et sans limites de nombre. On peut sélectionner les opérateurs logiques (et, ou, etc.) et les opérateurs de comparaison (contient, égale, etc.). On pourrait donc effectuer une recherche comme celle-ci: Titre du média contenant « Indiana Jones» et année de publication plus grande que 1988.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -232,7 +232,7 @@ La recherche avancée permet de faire une recherche très spécifique. On peut y
 	\caption{Exemple de recheche avancée}
 \end{figure}
 
-Lors de la sélection d'un critère d'un recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape une série de lettres, une liste de valeurs contenant ce groupe de lettres s'affichera.  Cette ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise «~\href{http://www.w3schools.com/html5/tag_datalist.asp}{datalist}~» qui disponible uniquement sur des navigateurs supportant cette balise Html 5.
+Lors de la sélection d'un critère d'une recherche, une liste de suggestions est automatiquement liée au champ texte. Dès que l'on tape une série de lettres, une liste de valeurs contenant ce groupe de lettres s'affichera.  Cet ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité utilise la balise «~\href{http://www.w3schools.com/html5/tag_datalist.asp}{datalist}~» qui est disponible uniquement sur des navigateurs supportant cette balise Html 5.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -241,7 +241,7 @@ Lors de la sélection d'un critère d'un recherche, une liste de suggestions est
 	\caption{Exemple de suggestions à partir d'une datalist}
 \end{figure}
 
-Il est aussi possible d'ajouter autant de critères de recherches que l'on désire. Pour cela, le javascript a été utilisé pour interragir dinanymiquement avec le DOM de la page. Des effets visuels de disparation et d'apparition ont même été ajouté pour une ergonomie plus dynamique.
+Il est aussi possible d'ajouter autant de critères de recherches que l'on désire. Pour cela, le JavaScript a été utilisé pour interagir dynamiquement avec le DOM de la page. Des effets visuels de disparation et d'apparition ont même été ajoutés pour une ergonomie plus dynamique.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -254,46 +254,46 @@ Il est aussi possible d'ajouter autant de critères de recherches que l'on dési
 
 Suite à l'analyse du projet, nous avons relevé qu'il y a, principalement, quatre groupes d'utilisateurs à gérer~:
 \begin{itemize}
-	\item Les \emph{Administrateurs} du systèmes qui ont tous les droits;
-	\item Les \emph{Commis} qui sont chager d'entrer les emprunts, les réservations et les nouvelles acquisitions;
-	\item Les \emph{Étudiants} qui ont le droit d'effectuer des réservations mais dépendent d'un commis pour emprunter et retourner un média;
-	\item Les \emph{Enseignants} du département qui n'ont pas à passer par le commis pour effectuer un emprunt ou un retour à leur nom.
+	\item Les \emph{administrateurs} du système qui ont tous les droits;
+	\item Les \emph{commis} qui sont charger d'entrer les emprunts, les réservations et les nouvelles acquisitions;
+	\item Les \emph{étudiants} qui ont le droit d'effectuer des réservations, mais dépendent d'un commis pour emprunter et retourner un média;
+	\item Les \emph{enseignants} du département qui n'ont pas à passer par le commis pour effectuer un emprunt ou un retour à leur nom.
 \end{itemize}
 
 \subsection{Utilisateurs}
-Chaque personne souhaitant bénéficier des services de la médiathèque doit obligatoirement avoir un compte utilisateur identifié par nom d'utilisateur\footnote{Actuellement, nous utilisons le matricule comme nom d'utilisateur.} ainsi qu'un mot de passe. À moins que, lors de la programmation, les informations nécessaires soient disponnibles, ces identifiants sont dissociés des nom d'utilisateurs et mot de passe utilisés pour accéder aux service LÉA et aux ordinateurs du cégep de Trois-Rivières. Cependant, rien n'empêche les utilisateur de choisir le même mot de passe pour les deux systèmes.
+Chaque personne souhaitant bénéficier des services de la médiathèque doit avoir un compte utilisateur identifié par nom d'utilisateur\footnote{Actuellement, nous utilisons le matricule comme nom d'utilisateur.} ainsi qu'un mot de passe. À moins que, lors de la programmation, les informations nécessaires soient disponibles, ces identifiants sont dissociés des noms d'utilisateurs et mot de passe utilisés pour accéder aux services LÉA et aux ordinateurs du cégep de Trois-Rivières. Cependant, rien n'empêche les utilisateurs de choisir le même mot de passe pour les deux systèmes.
 
-Toutes les informations sur un utilisateur sont stockés dans la table \texttt{utilisateurs}. Il est important de noter que les informations personelles de l'utilisateur doivent en tout temps rester accessible au moins de personnes possible\footnote{Ceci est un exemple évident de l'application du «~\href{http://en.wikipedia.org/wiki/Principle_of_least_privilege}{Principle of least privilege}~».}. Ceci est possible gràce au système de gestion des droits qui permet de donner le droit en lecture à ces information uniquement à certains groupes (e.g.\ \emph{Administrateurs} et \emph{Commis}).
+Toutes les informations sur un utilisateur sont stockées dans la table \texttt{utilisateurs}. Il est important de noter que les informations personnelles de l'utilisateur doivent en tout temps rester accessibles au moins de personnes possible\footnote{Ceci est un exemple évident de l'application du «~\href{http://en.wikipedia.org/wiki/Principle_of_least_privilege}{Principle of least privilege}~».}. Ceci est possible grâce au système de gestion des droits qui permet de donner le droit en lecture à ces informations uniquement à certains groupes (e.g.\ \emph{Administrateurs} et \emph{Commis}).
 
 Pour plus d'informations sur la gestion des droits et la sécurité, voir la section \ref{sec:sécurité} sur la sécurité à la page \pageref{sec:sécurité}.
 
-Certaines informations, comme le mot de passe de l'utilisateur, doivent rester totalement inconnus de tous, excepté de l'utilisateur lui-même. Pour ce faire, ces informations devrons êtres cryptées avant d'être enregistrées dans la base de données. Advenant le cas ou un utilisateur perde sont mot de passe, la seule solution consite à le réinitialiser à une valeur par défaut et à demander à l'utilisateur d'en définir un nouveau.
+Certaines informations, comme le mot de passe de l'utilisateur, doivent rester totalement inconnues de tous, excepté de l'utilisateur lui-même. Pour ce faire, ces informations devront être cryptées avant d'être enregistrées dans la base de données. Dans le cas où un utilisateur perde sont mot de passe, la seule solution consiste à le réinitialiser à une valeur par défaut et à demander à l'utilisateur d'en définir un nouveau.
 
 \subsection{Groupes}
-Les groupes servent à effectuer une distinction entre les différents utilisateurs et à leur attribuer des droits correspondant à leur statut dans le département. Plutôt que de tenter de prédire tous les besoins de hiérarchisation des utilisateurs dont le département de musique aura besoin dans le futur, nous avons fait la décision de rendre la gestion des groupes accessible aux utilisateurs. Ainsi, dans cinq ans, un administrateur pourrait créer un nouveau groupe avec des droits spécifiques pour représenter une nouvelle situation, comme l'arrivé d'enseignants stagiaires.
+Les groupes servent à effectuer une distinction entre les différents utilisateurs et à leur attribuer des droits correspondant à leur statut dans le département. Plutôt que de tenter de prédire tous les besoins de hiérarchisation des utilisateurs dont le département de musique aura besoin dans le futur, nous avons pris la décision de rendre la gestion des groupes accessible aux utilisateurs. Ainsi, dans cinq ans, un administrateur pourrait créer un nouveau groupe avec des droits spécifiques pour représenter une nouvelle situation, comme l'arrivée d'enseignants stagiaires.
 
 Pour plus d'informations sur la gestion des groupes et la sécurité, voir la section \ref{sec:sécurité} sur la sécurité à la page \pageref{sec:sécurité}.
 
 \section{Zone utilisateur}
-La zone utilisateur permet à l'utilisateur actuellement connecté d'accéder à des informations concernant sont utilisation de la médiathèque.
+La zone utilisateur permet à l'utilisateur actuellement connecté d'accéder à des informations concernant son utilisation de la médiathèque.
 
 \subsection{Mes réservations}
-La page «~Mes réservations~» permet à l'utilisateur de consulter la liste des réservations qu'il a actuellement. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de supprimer une réservation. Si le javascript est activé, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer la réservation. Dans le cas où le javascript est désactivé, la réservation est supprimée sans demande de confirmation.
+La page «~Mes réservations~» permet à l'utilisateur de consulter la liste des réservations qu'il a actuellement. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de supprimer une réservation. Si le JavaScript est activé, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer la réservation. Dans le cas où le JavaScript est désactivé, la réservation est supprimée sans demander de confirmation.
 
 Une fois celle-ci supprimée, un courriel doit être envoyé à l'utilisateur afin de lui confirmer la suppression de sa réservation.
 
-L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau.
+L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau.
 
 \subsection{Mes emprunts en cours}
-La page «~Mes emprunts en cours~» permet à l'utilisateur de consulter la liste des médias qu'il a actuellement en sa posession. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de demander un renouvellement d'un emprunt.
+La page «~Mes emprunts en cours~» permet à l'utilisateur de consulter la liste des médias qu'il a actuellement en sa possession. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. De plus, un lien offre à l'utilisateur la possibilité de demander un renouvellement d'un emprunt.
 
-L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau.
+L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau.
 
 \subsection{Mon historique d'emprunts}
 
-La page «~Mon historique d'emprunts~» permet à l'utilisateur de consulter la liste des emprunts qu'il a effectué par le passé. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne.
+La page «~Mon historique d'emprunts~» permet à l'utilisateur de consulter la liste des emprunts qu'il a effectués par le passé. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne.
 
-L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau.
+L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau.
 
 \section{Administration}
 
@@ -303,11 +303,11 @@ L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son
 
 \subsection{Tables de pilotages}
 \label{sec:tables_de_pilotage}
-De nombreuses tables de la base de données sont basées sur le concept de table de pilotage. Celles-ci sont des tables qui servent à définir une liste de valeurs possibles pour une colonne d'une ou plusieurs autres tables. Par exemple, la table \texttt{medias} offre le champ \texttt{maison\_edition} qui permet d'identifier la maison d'édition d'un média donné. Plutôt que de fournir un champ texte de 50 à 75 caractères de long et de devoir ré-écrire le nom de la maison d'édition pour chaque enregistrement, nous avons créés la table \texttt{maisons\_edition} qui contient la liste de toutes les maisons d'édition utilisables par le système. La colonne \texttt{medias.maison\_edition} ne contient donc qu'une clé étrangère pointant sur l'enregistrement correspondant de sa table de pilotage.
+De nombreuses tables de la base de données sont basées sur le concept de table de pilotage. Celles-ci sont des tables qui servent à définir une liste de valeurs possibles pour une colonne d'une ou plusieurs autres tables. Par exemple, la table \texttt{medias} offre le champ \texttt{maison\_edition} qui permet d'identifier la maison d'édition d'un média donné. Plutôt que de fournir un champ texte de 50 à 75 caractères de long et de devoir réécrire le nom de la maison d'édition pour chaque enregistrement, nous avons créé la table \texttt{maisons\_edition} qui contient la liste de toutes les maisons d'édition utilisables par le système. La colonne \texttt{medias.maison\_edition} ne contient donc qu'une clé étrangère pointant sur l'enregistrement correspondant de sa table de pilotage.
 
-De plus, nous avons ajouté une colonne \texttt{inactif} à toutes les tables de pilotage afin que l'utilisateur puisse définir une valeur comme n'étant plus utilisable dans le futur. D'aucun pourrais suggérer de simplement supprimer cette valeur, mais un bon \ac{SGBD} appliquant l'intégrité référentielle refusera une telle opération si ne serais-ce qu'une clé étrangère pointe sur l'enregistrement. Nous pourrions très bien supprimer toutes les clé étrangères avant d'effecturer la suppresion mais, en y réfléchissant bien, nous ne souhaitons pas faire disparaitre toute trace de la valeurs, nous souhaitons simplement qu'elle ne puisse plus être utilisée dans l'avenir. En définissant un champ inactif, nous permettons à l'utilisateur de bloquer l'utilisation d'une valeur pour le futur tout en laissant laissant les enregistrements l'utilisant déjà intacts.
+De plus, nous avons ajouté une colonne \texttt{inactif} à toutes les tables de pilotage afin que l'utilisateur puisse définir une valeur comme n'étant plus utilisable dans le futur. D'aucun pourrais suggérer de simplement supprimer cette valeur, mais un bon \ac{SGBD} appliquant l'intégrité référentielle refusera une telle opération si ne serait-ce qu'une clé étrangère pointe sur l'enregistrement. Nous pourrions très bien supprimer toutes les clés étrangères avant d'effectuer la suppression, mais, en y réfléchissant bien, nous ne souhaitons pas faire disparaitre toute trace de la valeur, nous souhaitons simplement qu'elle ne puisse plus être utilisée à l'avenir. En définissant un champ inactif, nous permettons à l'utilisateur de bloquer l'utilisation d'une valeur pour le futur tout en laissant les enregistrements l'utilisant déjà intacts.
 
-Dans le context d'un formulaire permettant d'entrer des médias, cette relation se traduit par une liste déroulante, remplie de toutes les valeures non inactive, où il suffit de choisir une valeur parmi celles proposées.
+Dans le contexte d'un formulaire permettant d'entrer des médias, cette relation se traduit par une liste déroulante, remplie de toutes les valeurs non inactives, où il suffit de choisir une valeur parmi celles proposées.
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -316,23 +316,23 @@ Dans le context d'un formulaire permettant d'entrer des médias, cette relation 
 	\caption{Exemple de liste déroulante}
 \end{figure}
 
-Cette technique offre de nombreux avantages dont voici une liste non-exaustive~:
+Cette technique offre de nombreux avantages dont voici une liste non exhaustive~:
 \begin{itemize}
-	\item Possibilité de filter les valeurs acceptables pour un champ;
-	\item Possibilité de définir une valeur comme n'étant plus disponnible pour utilisation futur, mais restant valide pour les utilisations passées;
-	\item Possibilité d'éviter tous risque de dédoublement de valeurs suite à des fautes d'orthographes\footnote{La seule possibilité de dédoublement des valeurs est si la personne chargée de gérer les tables de pilotages écrit deux fois la même valeur avec une orthographe différente (e.g.\ Trois-Rivières et trois-rivieres).}.
-	\item Possibilité de mettre à jour instannément la valeur d'une option pour tous les enregistrements l'utilisant en modifiant simplement sa valeur dans la table de pilotage.
-	\item Poid de la base de données réduit puisqu'il est moins lourd de définir de nombreuses clé étrangère que de répéter de nombreuses fois la même chaine de caractères.
+	\item Possibilité de filtrer les valeurs acceptables pour un champ;
+	\item Possibilité de définir une valeur comme n'étant plus disponible pour utilisation future, mais restant valide pour les utilisations passées;
+	\item Possibilité d'éviter tout risque de dédoublement de valeurs suite à des fautes d'orthographes\footnote{La seule possibilité de dédoublement des valeurs est si la personne chargée de gérer les tables de pilotages écrit deux fois la même valeur avec une orthographe différente (e.g.\ Trois-Rivières et trois-rivieres).}.
+	\item Possibilité de mettre à jour instantanément la valeur d'une option pour tous les enregistrements l'utilisant en modifiant simplement sa valeur dans la table de pilotage.
+	\item Poid de la base de données réduit puisqu'il est moins lourd de définir de nombreuse clés étrangères que de répéter de nombreuses fois la même chaine de caractères.
 	\item Possibilité de ne donner les droits de modification à la table de pilotage qu'à certains groupes d'utilisateurs.
 \end{itemize}
 
-La zone d'administration permet à l'utilisateur d'ajouter, modifier et supprimer des données de nombreuses tables de pilotages. La page de modification se présente sour forme de tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne correspondante et où la première ligne sert à entrer une nouvelle valeur. Un bouton permet de supprimer une valeur mais, comme dit précédement, la suppression ne doit être acceptée que si aucune clé étrangère n'est définie sur cet enregistrement.
+La zone d'administration permet à l'utilisateur d'ajouter, modifier et supprimer des données de nombreuses tables de pilotages. La page de modification se présente sous forme de tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne correspondante et où la première ligne sert à entrer une nouvelle valeur. Un bouton permet de supprimer une valeur, mais, comme dit précédemment, la suppression ne doit être acceptée que si aucune clé étrangère n'est définie sur cet enregistrement.
 
-C'est l'une des rares pages du site qui est totalement dépendante du javascript et requiert donc qu'il soit activé sur le navigateurs des utilisateurs souhaitant modifier les tables de pilotages.
+C'est l'une des rares pages du site qui est totalement dépendante du JavaScript et requiert donc qu'il soit activé sur le navigateur des utilisateurs souhaitant modifier les tables de pilotages.
 
-Comme la taille d'une table de pilotage peut devenir assez grande, et que tous les enregistrements apparaissent dans le formulaire, nous avons développés un système permettant aux futurs programmeurs de mettre façilement à jour la table. Sans cette technique, il aurait toujours fallu mettre à jour tous les enregistrement, ajouter tous ceux ne figurant pas dans la nouvelle liste et supprimer tous ceux n'y figurant plus. Toutes ces opérations auraient étés très couteuses en ressources et très difficiles à mettre en place.
+Comme la taille d'une table de pilotage peut devenir assez grande, et que tous les enregistrements apparaissent dans le formulaire, nous avons développé un système permettant aux futurs programmeurs de mettre facilement à jour la table. Sans cette technique, il aurait toujours fallu mettre à jour tous les enregistrements, ajouter tous ceux ne figurant pas dans la nouvelle liste et supprimer tous ceux n'y figurant plus. Toutes ces opérations auraient été très couteuses en ressources et très difficiles à mettre en place.
 
-Pour palier à ce problème, nous avons ajouté une colonne invisible dans le formulaire qui a pour nom \texttt{row\_state}. Celle-ci contient un nombre qui ne peut avoir que quatres valeurs~:
+Pour palier à ces problèmes, nous avons ajouté une colonne invisible dans le formulaire qui a pour nom \texttt{row\_state}. Celle-ci contient un nombre qui ne peut avoir que quatre valeurs~:
 
 \begin{table}[htbp]
 	\caption{Valeurs possible de la colonne \texttt{row\_state}}
@@ -350,26 +350,26 @@ Pour palier à ce problème, nous avons ajouté une colonne invisible dans le fo
 	\end{center}
 \end{table}
 
-La valeur de la colonne est modifiée en javascript selon les modifications faites à chaque enregistrement. Lorsque le formulaire est envoyé au serveur, le programmeur sait qu'il n'a rien à faire avec les enregistrements dont la \texttt{row\_state} est à 1, qu'il doit faire une requête \texttt{INSERT} lorsqu'elle est à 2, qu'il doit faire une requête \texttt{DELETE} lorsqu'elle est à 3 et une requête \texttt{UPDATE} lorsqu'elle est à 4.
+La valeur de la colonne est modifiée en JavaScript selon les modifications faites à chaque enregistrement. Lorsque le formulaire est envoyé au serveur, le programmeur sait qu'il n'a rien à faire avec les enregistrements dont la \texttt{row\_state} est à 1, qu'il doit faire une requête \texttt{INSERT} lorsqu'elle est à 2, qu'il doit faire une requête \texttt{DELETE} lorsqu'elle est à 3 et une requête \texttt{UPDATE} lorsqu'elle est à 4.
 
-Comme les tables de pilotages sont nombreuses et que leur formulaire de modification est très semblable, nous avons décidé que, plutôt que de faire une page séparée par table de pilotage, une seule page se permettrait de toutes les modifier. Tous les hyperliens pointent donc vers la même page et se contentent de passer en paramètre la table qui doit être modifiée. La page se connecte alors à la base de données afin de l'intrroger sur la structure de la table en question et génère alors dynamiquement un formulaire contenant toutes les colonnes celle-ci.
+Comme les tables de pilotages sont nombreuses et que leur formulaire de modification est très semblable, nous avons décidé que, plutôt que de faire une page séparée par table de pilotage, une seule page se permettrait de toutes les modifier. Tous les hyperliens pointent donc vers la même page et se contentent de passer en paramètre la table qui doit être modifiée. La page se connecte alors à la base de données afin de l'interroger sur la structure de la table en question et génère alors dynamiquement un formulaire contenant toutes les colonnes celle-ci.
 
-Cette façon de faire permet de s'assurer que le formulaire sera toujours parfaitement à jour avec la structure de la table dans la base de données et permet aussi d'ajouter de nouvelles table de pilotages très façilement et rapidement puisqu'il n'y a pas de nouveau formulaire à créer.
+Cette façon de faire permet de s'assurer que le formulaire sera toujours parfaitement à jour avec la structure de la table dans la base de données et permet aussi d'ajouter de nouvelles tables de pilotage très facilement et très rapidement puisqu'il n'y a pas de nouveau formulaire à créer.
 
 \subsection{Réservations en cours}
-La page «~Réservations en cours~» permet à l'utilisateur de consulter la liste de toutes les réservations du système. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. L'utilisateur à aussi la possibilité de supprimer une réservation. Une invite de confirmation lui est alors affiché et un courriel est envoyé à l'utilisateur à l'origine de la réservation pour lui indiquer que celle-ci a été supprimée.
+La page «~Réservations en cours~» permet à l'utilisateur de consulter la liste de toutes les réservations du système. Celles-ci sont affichées dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. L'utilisateur à aussi la possibilité de supprimer une réservation. Une invite de confirmation lui est alors affichée et un courriel est envoyé à l'utilisateur à l'origine de la réservation pour lui indiquer que celle-ci a été supprimée.
 
-L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
+L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
 
 \subsection{Emprunts en cours}
 La page «~Emprunts en cours~» permet à l'utilisateur de consulter la liste de tous les médias qui sont actuellement empruntés. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne.
 
-L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
+L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
 
 \subsection{Historique des emprunts}
 La page «~Historique des emprunts~» permet à l'utilisateur de consulter l'historique de tous les emprunts du système. Ceux-ci sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne.
 
-L'utilisateur peut consulter la fiche détaillée du médias en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
+L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son titre dans le tableau et la fiche détaillée de l'utilisateur en cliquant sur son nom.
 
 \subsection{Gestion des utilisateurs}
 La page de gestion des utilisateurs permet~:
@@ -381,13 +381,13 @@ La page de gestion des utilisateurs permet~:
 	\item De supprimer un utilisateur.
 \end{enumerate}
 
-Les utilisateurs sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. Par défaut, tous les utilisateurs sont affichés. Si l'on souhaite afficher uniquement les utilisateurs appartenant à un groupe donné, il suffit de sélectionner ce groupe dans la liste déroulante situé dans le coin supérieur droit de la page.
+Les utilisateurs sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. Par défaut, tous les utilisateurs sont affichés. Si l'on souhaite afficher uniquement les utilisateurs appartenant à un groupe donné, il suffit de sélectionner ce groupe dans la liste déroulante située dans le coin supérieur droit de la page.
 
-L'ajout d'un utilisateur nous apporte dans un formulaire permettant de saisir les informations de celui-ci alors que la modification nous amène au même formulaire mais avec les informations pré-remplies de l'utilisateur à modifier. C'est à partir de ce formulaire qu'une liste de sélection multiple nous permet de sélection tous les groupes auxquels appartient l'utilisateur\footnote{Voir la section \ref{sec:sécurité} sur la sécurité, à la page \pageref{sec:sécurité}, pour plus de détails sur les groupes.}.
+L'ajout d'un utilisateur nous apporte dans un formulaire permettant d'entrer les informations de celui-ci alors que la modification nous amène au même formulaire, mais avec les informations préremplies de l'utilisateur à modifier. C'est à partir de ce formulaire qu'une liste de sélection multiple nous permet de sélection tous les groupes auxquels appartient l'utilisateur\footnote{Voir la section \ref{sec:sécurité} sur la sécurité, à la page \pageref{sec:sécurité}, pour plus de détails sur les groupes.}.
 
 Pour ce qui est de la suppression, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer l'utilisateur.
 
-L'importation, quant à elle, se résume actuellement à un hyperlien qui ne mêne null part puisqu'il ne nous a pas été dit comment allait se passer la synchronisation des utilisateurs avec les élèves du département de musique. Nous avons fait comme hypothèse que l'importation se fera à partir d'un fichier XML qui contiendra la liste des nouveaux utilisateurs. Ceux qui programmeront le système devrons donc se charger de mettre en place un système d'importation qui se mettra en action lors du clique sur ledit hyperlien.
+L'importation, quant à elle, se résume actuellement à un hyperlien qui ne mène nul part puisqu'il ne nous a pas été dit comment allait se passer la synchronisation des utilisateurs avec les élèves du département de musique. Nous avons fait comme hypothèse que l'importation se fera à partir d'un fichier XML qui contiendra la liste des nouveaux utilisateurs. Ceux qui programmeront le système devront donc se charger de mettre en place un système d'importation qui se mettra en action lors du clique sur ledit hyperlien.
 
 \subsection{Gestion des groupes}
 
@@ -405,7 +405,7 @@ Nous avons intégrés une section «~À propos~» qui les sections suivantes~:
 	\item À propos de la règrementation.
 \end{itemize}
 
-Ces pages permettrons de publier des informations concernant la médiathèque et le département de musique comme. Ce sera l'endroit idéal pour parler de l'évolution du département de musique et de leur médiathèque ainsi que pour expliquer le fonctionnement du site.
+Ces pages permettront de publier des informations concernant la médiathèque et le département de musique comme. Ce sera l'endroit idéal pour parler de l'évolution du département de musique et de leur médiathèque ainsi que pour expliquer le fonctionnement du site.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Architecture du système}
@@ -415,7 +415,7 @@ Ces pages permettrons de publier des informations concernant la médiathèque et
 
 \subsection{Introduction}
 
-Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisie un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentif de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institions de musique, tel un orchestre symphonique constitué de musiciens vêtus de vestons cravates.
+Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisie un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentatifs de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institutions de musique, tel un orchestre symphonique constitué de musiciens vêtus de vestons cravates.
 
 \subsection{Maquette}
 
@@ -423,7 +423,7 @@ Toutes les pages sont construites sur la base du modèle suivant :
 
 \begin{enumerate}
 	\item Bandeau
-	\item Fil d'Ariane verticale (n'apparait cependant que dans certaines pages)
+	\item Fil d'Ariane vertical (n'apparais cependant que dans certaines pages)
 	\item Contenu de la page
 	\item Pied de page
 \end{enumerate}
@@ -439,7 +439,7 @@ Toutes les pages sont construites sur la base du modèle suivant :
 
 Le bandeau est constitué des éléments suivant:
 \begin{description}
-	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site et est toujours situé dans le coin suppérieur gauche. Par contre, ce n'est pas une image mais bien un mot mise en forme en CSS. Ce sigle permet, en tout temps, de revenir sur la page d'accueil. Le sigle du site utilise la police MegalopolisExtra-Webfont.
+	\item[Sigle Carcajou] Le sigle Carcajou est en fait le logo du site et est toujours situé dans le coin supérieur gauche. Par contre, ce n'est pas une image, mais bien un mot mise en forme en CSS. Ce sigle permet, en tout temps, de revenir sur la page d'accueil. Le sigle du site utilise la police MegalopolisExtra-Webfont.
 	\item[Menus déroulants]À la droite du sigle se retrouve le menu principal incluant des menus déroulants permettant de se déplacer dans les sections du site. Les entrées de menu sont les suivantes:
 		\begin{itemize}
 			\item À propos
@@ -486,7 +486,7 @@ Le bandeau est constitué des éléments suivant:
 \end{description}
 
 \subsubsection{Fil d'Ariane vertical (2)}
-Le fil d'Ariane vertical permet d'afficher des critères permettant d'avatange la recherche. Il contient des éléments liste contenant des liens pour raffiner la recherche.
+Le fil d'Ariane vertical permet d'afficher des critères permettant davantage la recherche. Il contient des éléments liste contenant des liens pour raffiner la recherche.
 
 \subsubsection{Contenu (3)}
 Le contenu des pages est affiché dans cette partie. Son contenu varie énormément selon la page affichée. Dans la capture d'écran présente ci-haut, on y voit les résultats d'une recherche.
@@ -559,14 +559,14 @@ La charte de couleur choisie est composée principalement de noir, de blanc et d
 
 \subsubsection{Police d’écriture}
 
-La police de caractère que nous avons choisis pour le site est Optima. Conformément à la convention, nous avons définis une liste de polices alternatives qui seront utilisées si Optima n'est pas disponnible. La liste est, par ordre de priorité~: Trebuchet MS, Lucida, Arial, Geneva, Verdana, Lucida Grande, Tahoma, Helvetica, sans-serif.
+La police de caractère que nous avons choisi pour le site est Optima. Conformément à la convention, nous avons défini une liste de polices alternatives qui seront utilisées si Optima n'est pas disponnible. La liste est, par ordre de priorité~: Trebuchet MS, Lucida, Arial, Geneva, Verdana, Lucida Grande, Tahoma, Helvetica, sans-serif.
 
-Nous avons décidés de ne pas donner une taille fixe à la police de caractère mais plutôt d'utiliser la taille désirée par l'utilisateur, définie dans les propriétées de son navigateur. Par exemple, pour configurer la taille de police par défaut sous Mozilla Firefox, il suffit d'aller dans \texttt{Préférences > Contenu > Polices et couleurs > Taille} et de définir la taille souhaitée. Nous sommes partis du principe que, si l'utilisateur à choisi d'afficher ses sites Internet avec une certaine taille, ce n'est pas à nous de contrevenir à sa volonté.
+Nous avons décidé de ne pas donner une taille fixe à la police de caractère, mais plutôt d'utiliser la taille désirée par l'utilisateur, définie dans les propriétés de son navigateur. Par exemple, pour configurer la taille de police par défaut sous Mozilla Firefox, il suffit d'aller dans \texttt{Préférences > Contenu > Polices et couleurs > Taille} et de définir la taille souhaitée. Nous sommes partis du principe que, si l'utilisateur a choisi d'afficher ses sites Internet avec une certaine taille, ce n'est pas à nous de contrevenir à sa volonté.
 
 Cette taille définie par le navigateur est la taille par défaut d'un \texttt{em}. La taille de police par défaut du site est donc de \texttt{1em}.
 
 \subsubsection{Titres}
-Les titres sont de la même police de caractère que le reste du site mais ont une taille plus importante, variant selon l'importance du titre.
+Les titres sont de la même police de caractère que le reste du site, mais ont une taille plus importante, variant selon l'importance du titre.
 
 \begin{table}[h!tbp]
 	\caption{Taille des différents niveaux de titre}
@@ -588,11 +588,11 @@ Les titres sont de la même police de caractère que le reste du site mais ont u
 
 \subsubsection{Majuscules-minuscules}
 
-Tous les titres commencent par une majuscule suivis par des minuscules. Il en est de même pour tout le texte contenu dans la page, c'est à dire, les paragraphes, les liens, etc.
+Tous les titres commencent par une majuscule suivie par des minuscules. Il en est de même pour tout le texte contenu dans la page, c'est à dire, les paragraphes, les liens, etc.
 
 \subsubsection{Arborescense du site}
 
-A generer a l'aide de visio ou a la main
+À générer à l'aide de vision ou à la main
 
 \subsubsection{Images}
 
@@ -753,30 +753,30 @@ Lors de la conception le site à été testé sur les navigateurs suivants~:
 	\item Google Chrome 11.0.696.65
 \end{itemize}
 
-Le site est fonctionnel sur l'ensemble des navigateurs mais certains effets graphiques ne sont disponnibles que sur les versions récentes de chacun.
+Le site est fonctionnel sur l'ensemble des navigateurs, mais certains effets graphiques ne sont disponibles que sur les versions récentes de chacun.
 
 \subsection{Languages}
 \subsubsection{Client}
-Du coté client, les languages utilisés sont le HTML 5, le CSS 3, le javascript et le XML.
+Du côté client, les langages utilisés sont le HTML 5, le CSS 3, le JavaScript et le XML.
 
-Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalitées dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 «~border-radius~» nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et affichera des coins carrés standards.
+Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalités dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 «~border-radius~» nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et affichera des coins carrés standards.
 
-Pour le javascript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utiliser afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet cette bibliothèque a l'avantage de proposer des fonctions unifiées qui se chargent pour nous de gérer les différences entre les différents navigateurs.
+Pour le JavaScript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utilisée afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet, cette bibliothèque a l'avantage de proposer des fonctions unifiées qui se chargent pour nous de gérer les différences entre les différents navigateurs.
 
-Cependant, il a été décidé de réduire au maximum la dépendance au javascript. Dans le cas de fonctionnalités javascript facultatives, comme le fait de n'afficher que les trois premier éléments des listes trop longues, le code HTML ne contient qu'une liste toute simple et c'est au chargement de la page par le navigateur que le javascript s'occupe de modifier la structure du document et d'offire un bouton permettant d'afficher les éléments excédentaires.
+Cependant, il a été décidé de réduire au maximum la dépendance au JavaScript. Dans le cas de fonctionnalités JavaScript facultatives, comme le fait de n'afficher que les trois premiers éléments des listes trop longues, le code HTML ne contient qu'une liste toute simple et c'est au chargement de la page par le navigateur que le JavaScript s'occupe de modifier la structure du document et d'offre un bouton permettant d'afficher les éléments excédentaires.
 
-Bien sur, il y certains cas où le javascript est absolument obligatoire, comme la création de nouveau champs dans les formulaires devant traiter un nombre variables d'enregistrements. Heureusement, ces cas complexes ne s'appliquent que dans des sections d'administration. Un visiteur ou un utilisateur disposant de droits minimaux peut donc se passer aisément de javascript et le site reste parfaitement consultable.
+Bien sûr, il y certains cas où le JavaScript est absolument obligatoire, comme la création de nouveaux champs dans les formulaires devant traiter un nombre variable d'enregistrements. Heureusement, ces cas complexes ne s'appliquent que dans des sections d'administration. Un visiteur ou un utilisateur disposant de droits minimaux peut donc se passer aisément de JavaScript et le site reste parfaitement consultable.
 
-Pour le XML, celui-ci est utilisé comme moyen de transmission de l'information lors des requêtes AJAX. À l'heure actuelle, les requêtes AJAX sont faites à des fichers XML statiques mais, à terme, des scripts PHP devrons être écrits permettant de générer dynamiquement le fichier selon les critères reçus en paramètre.
+Pour le XML, celui-ci est utilisé comme moyen de transmission de l'information lors des requêtes AJAX. À l'heure actuelle, les requêtes AJAX sont faites à des fichiers XML statiques, mais, à terme, des scripts PHP devrons être écrits permettant de générer dynamiquement le fichier selon les critères reçus en paramètre.
 
 \subsubsection{Serveur}
-Du coté serveur, le seul language utilisé est le PHP, qui a été utilisé dans ses versions 5.3.3 et 5.3.5 dépendamment des contributeurs.
+Du côté serveur, le seul langage utilisé est le PHP, qui a été utilisé dans ses versions 5.3.3 et 5.3.5 dépendamment des contributeurs.
 
 Les conventions php utilisés sont les suivantes~:
 
 \begin{itemize}
 	\item Les fichiers contenant la définition d'une classe PHP utilisent l'extension «~.class.php~».
-	\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit obligatoirement être inclu par un autre script utilisent l'extension «~.inc.php~».
+	\item Les fichiers contenant du code PHP qui ne fait rien par lui-même et doit être inclu par un autre script utilisent l'extension «~.inc.php~».
 	\item Les fichiers contenant du code PHP qui se suffit à lui-même utilisent l'extension «~.php~».
 	\item Les fichiers contenant les pages finales affichées à l'utilisateur sont situés à la racine du projet (/).
 	\item Les fichiers contenant des scripts PHP qui effectuent une action avant de rediriger l'utilisateur sont situés dans le répertoire php (/php/).
@@ -835,9 +835,9 @@ et qu'un groupe A dispose des droits de lecture et d'écriture dans la section �
 	\end{center}
 \end{table}
 
-Dans cet exemple, nous pouvons voir que le groupe A dispose des droits de lecture et d'écriture ($ 0001 + 0010 = 0011 $) sur la section «~administration~» et qu'il a le droit de renouveler des documents puisqu'il a le droit d'exécution (0100) sur «~extendLoan~».
+Dans cet exemple, nous pouvons voir que le groupe A dispose des droits de lecture et d'écriture ($ 0001 + 0010 = 0011 $) sur la section «~administration~» et qu'il a le droit de renouveler des documents puisqu'il a le droit d'exécution (0100) sur «~Renouveller un document~».
 
-Le groupe B, tant qu'à lui, ne dispose que du droit de renouveler des documents. En effet, si aucune entrée ne correspond à un groupe pour une section données, il est assumé que ledit groupe n'a aucun droit sur cette section. Le fait de ne créer aucun enregistrement est strictement équivalent au fait de créer un enregistrement contenant les droits (0000).
+Le groupe B, quant à lui, ne dispose que du droit de renouveler des documents. En effet, si aucune entrée ne correspond à un groupe pour une section donnée, il est supposé que le groupe en question n'a aucun droit sur cette section. Le fait de ne créer aucun enregistrement est strictement identique au fait de créer un enregistrement contenant les droits (0000).
 
 \begin{table}[h!]
 	\caption{utilisateurs}
@@ -916,32 +916,32 @@ Le groupe B, tant qu'à lui, ne dispose que du droit de renouveler des documents
 
 L'exemple précédant couvre la plupart des situations qui peuvent survenir.
 
-La table «~utilisateurs~» nous informe qu'il y a quatre utilisateurs d'enregistrés dans le système mais que l'un d'entre eux est inactif. Un utilisateur inactif pert automatiquement tous ses droits.
+La table «~utilisateurs~» nous informe qu'il y a quatre utilisateurs d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un utilisateur inactif perd automatiquement tous ses droits.
 
-La table «~groupes~» nous informe qu'il y a cinq groupes d'enregistrés dans le système mais que l'un d'entre eux est inactif. Un groupe inactif pert automatiquement tous ses droits et ne peut plus être assigné à de nouveaux utilisateurs.
+La table «~groupes~» nous informe qu'il y a cinq groupes d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un groupe inactif perd automatiquement tous ses droits et ne peut plus être assigné à de nouveaux utilisateurs.
 
 La table «~groupes\_utilisateurs~» nous informe que l'utilisateur 1 (Frodo Baggins) fait partit du groupe \emph{Administrateurs}\footnote{Par convention, le groupe \emph{Administrateurs} dispose généralement de tous les droits sur le système.}, que l'utilisateur 2 (Samwise Gamgee) fait partit à la fois du groupe \emph{Étudiants} et du groupe \emph{Commis}, que l'utilisateur 3 (Meriadoc Brandybuck) fait partit du groupe \emph{Étudiants} et, finalement, que l'utilisateur 4 (Peregrin Took) fait partit du groupe \emph{Enseignants}.
 
 Enfin, la table «~droits\_groupes~» nous informe si chaque groupe peut~:
 
 \begin{itemize}
-	\item Afficher et/ou modifier les résulats de la page drivingTable.php;
+	\item Afficher ou modifier les résultats de la page drivingTable.php;
 	\item Effectuer l'action de renouveler un document;
 	\item Effectuer l'action d'emprunter un document.
 \end{itemize}
 
-Nous voyons ainsi que les commis et les enseignants ont accès à la page drivingTable.php en lecture seule et que les administrateurs y ont accès en lecture-écriture. Les prêtres auraient aussi eu accès en lecture seule, mais en désignant leur groupe comme inactif, ils ont perdu tous leur droits; L'enregistrement numéro 4 doit donc être ignoré par le processur de traitement des droits. Les étudiant, quant à eux, n'ont aucun enregistrement correspondant à cette section. Il est alors assumé qu'ils n'ont aucun droit sur la page drivingTable.php.
+Nous voyons ainsi que les commis et les enseignants ont accès à la page drivingTable.php en lecture seule et que les administrateurs y ont accès en lecture-écriture. Les prêtres auraient aussi eu accès en lecture seule, mais en désignant leur groupe comme inactif, ils ont perdu tous leurs droits; L'enregistrement numéro 4 doit donc être ignoré par le processus de traitement des droits. Les étudiants, quant à eux, n'ont aucun enregistrement correspondant à cette section. Il est alors présumé qu'ils n'ont aucun droit sur la page drivingTable.php.
 
-Nous voyons que tous les groupes d'utilisateurs ont le droit de renouveller un document mais, encore une fois, l'enregistrement concernant les prêtres doit être ignoré.
+Nous voyons que tous les groupes d'utilisateurs ont le droit de renouveler un document, mais, encore une fois, l'enregistrement concernant les prêtres doit être ignoré.
 
-Nous voyons enfin que tous les groupes, à l'exception des étudiants, ont le droit d'effectuer un emprunt\footnote{Veuillez noter que c'est le fait d'entrer un nouvel emprunt dans le système qui est traité ici. En effet, un simple étudiant doit demander à un commis qui, lui, se chargera d'entrer sont emprunt dans le système.}.
+Nous voyons enfin que tous les groupes, à l'exception des étudiants, ont le droit d'effectuer un emprunt\footnote{Veuillez noter que c'est le fait d'entrer un nouvel emprunt dans le système qui est traité ici. En effet, un simple étudiant doit demander à un commis qui, lui, se chargera d'entrer son emprunt dans le système.}.
 
-Les utilisateurs actifs disposent de la somme des droits de chacun de groupes actifs auxquels ils appartiennent. Ainsi, Samwise Gamgee, qui est à la fois un étudiant et un commis, gagne le droit de consulter la page drivingTable.php en lecture seule et d'entrer des emprunts dans le système alors que Perigrin Took, qui est iniactif, n'a aucun droit sur le système, quels que soient les groupes auxquels il appartient.
+Les utilisateurs actifs disposent de la somme des droits de chacun de groupes actifs auxquels ils appartiennent. Ainsi, Samwise Gamgee, qui est à la fois un étudiant et un commis, gagne le droit de consulter la page drivingTable.php en lecture seule et d'entrer des emprunts dans le système alors que Perigrin Took, qui est inactif, n'a aucun droit sur le système, quels que soient les groupes auxquels il appartient.
 
 \subsection{En pratique}
-La sécurité repose essentiellement sur la validation des droits des utilisateurs lors de la génération des pages du site. C'est le PHP qui est chargé de valider que l'utilisateur courant dispose des droits suffisants avant d'ajouter une section à la page que le serveur HTTP s’apprête à retourner.
+La sécurité repose essentiellement sur la validation des droits des utilisateurs lors de la génération des pages du site. C'est le PHP qui est responsable de valider que l'utilisateur courant dispose des droits suffisants avant d'ajouter une section à la page que le serveur HTTP s’apprête à retourner.
 
-En pratique cela se traduit par un appel à la fonction \$application->currentUser->haveRights() en lui spécifiant en premier paramètre la section dont l'on veut tester les droits et en second paramètre la liste des droits dont l'utilisateur doit disposer pour avoir accès à ce contenu. Ces droits sont définis dans le tableau \$application->rights. Par exemple afin de valider que l'utilisateur a bien le droit d'accéder à la zone d'administration, il suffit d'utiliser le code suivant~:
+En pratique, cela se traduit par un appel à la fonction \$application->currentUser->haveRights() en lui spécifiant en premier paramètre la section dont on veut valider les droits et, en second paramètre, la liste des droits dont l'utilisateur doit disposer pour avoir accès à ce contenu. Ces droits sont définis dans le tableau \$application->rights. Par exemple afin de valider que l'utilisateur ait bien le droit d'accéder à la zone d'administration, il suffit d'utiliser le code suivant~:
 
 \begin{lstlisting}[style=php]
 if($application->currentUser->haveRights('administration', $application->rights['read'] | $application->rights['write']))
@@ -954,7 +954,7 @@ else
 }
 \end{lstlisting}
 
-Du point de vu de l'utilisateur de la fonction, c'est extrèmement simple. Pour celui qui devra l'implémanter, c'est une autre histoire. Plaçons-nous un peu à la place du programmeur. Nous sommes dans une fonction dont voici la signature~:
+Du point de vu de l'utilisateur de la fonction, c'est extrêmement simple. Pour celui qui devra l'implémenter, c'est une autre histoire. Plaçons-nous un peu à la place du programmeur. Nous sommes dans une fonction dont voici la signature~:
 
 \begin{lstlisting}[style=php]
 public function haveRights($section, $rights)
@@ -973,17 +973,17 @@ Pour atteindre son but, il dispose des informations suivantes :
 	\item \$application->rights retourne un tableau associatif contenant la représentation numérique de tous droits.
 \end{itemize}
 
-Pour pouvoir déterminer si l'utilisateur courrant a bien les droits demandés, il faudra exécuter une requête à la base de données qui nous retourne la liste de tous les droits qu'à cet utilisateur sur cette section\footnote{Il peut y en avoir plus d'un si l'utilisateur appartient à plus d'un groupe.}, additionner ces droits gràce à l'\href{http://www.php.net/manual/en/language.operators.bitwise.php}{opérateur «~ou~binaire~»} (binary or) et déterminer si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l'utilisateur gràce à l'opérateur «~et~binaire~» (binary and).
+Pour pouvoir déterminer si l'utilisateur courant a bien les droits demandés, il faudra exécuter une requête à la base de données qui nous retourne la liste de tous les droits qu'à cet utilisateur sur cette section\footnote{Il peut y en avoir plus d'un si l'utilisateur appartient à plus d'un groupe.}, additionner ces droits grâces à l'\href{http://www.php.net/manual/en/language.operators.bitwise.php}{opérateur «~ou~binaire~»} (binary or) et déterminer si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l'utilisateur grâce à l'opérateur «~et~binaire~» (binary and).
 
 \subsection{En conclusion}
-Cette façon de gérer les droits des utilisateurs offre de nombreux aventages~:
+Cette façon de gérer les droits des utilisateurs offre de nombreux avantages~:
 
 \begin{itemize}
 	\item La plus grande partie de la gestion des droits est centralisée dans la base de données plutôt que de s'éparpiller dans de multiples fichiers;
-	\item La notions de groups permet de généraliser des droits semblables à de nombreux utilisateurs;
-	\item Le fait qu'un utilisateur puisse appartenir à plusieurs groupes permet un haut niveau de granularité, tout en restant facultatif;
-	\item Le fait qu'un groupe ne dispose que des droits explicitement définies assure la sécurité car tous nouveau droit n'est effectif que pour ceux qui l'on explicitement reçus.
-	\item L'utilisation du «~bit~bashing~» plutôt que des colonnes explicitement définies permet d'ajouter très façilement de nouveaux types de droits à ceux déjà définis (read, write, execute).
+	\item La notion de groupes permet de généraliser des droits semblables à de nombreux utilisateurs;
+	\item Le fait qu'un utilisateur puisse appartenir à plusieurs groupes offre un haut niveau de granularité, tout en restant facultatif;
+	\item Le fait qu'un groupe ne dispose que des droits explicitement définis assure la sécurité, car tout nouveau droit n'est effectif que pour ceux qui l'on explicitement reçus.
+	\item L'utilisation du «~bit~bashing~» plutôt que des colonnes explicitement définies permet d'ajouter très facilement de nouveaux types de droits à ceux déjà définis (read, write, execute).
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
