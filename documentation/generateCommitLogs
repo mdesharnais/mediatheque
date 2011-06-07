@@ -1,0 +1,3 @@
+git log --author="Martin Desharnais" --date=iso > documentFinal/commitsMartinDesharnais.txt
+git log --author="Samuel Milette-Lacombe" --date=iso > documentFinal/commitsSamuelMiletteLacombe.txt
+git log --author="Marc-Andre Destrempes" --date=iso > documentFinal/commitsMarcAndreDestrempes.txt
