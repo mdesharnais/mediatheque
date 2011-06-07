@@ -27,7 +27,7 @@
 				}
 				else
 				{
-					$query = $application->database->prepare('SELECT ID, nom FROM genres ORDER BY nom');
+					$query = $application->database->prepare('SELECT DISTINCT genres.ID, genres.nom FROM genres INNER JOIN medias ON medias.genreID = genres.ID INNER JOIN supports ON medias.supportID = supports.ID WHERE supports.categorie_mediaID = 2 ORDER BY nom');
 					$query->execute();
 
 					echo '<form method="GET">';
@@ -42,13 +42,11 @@
 					// if param exist generate report else do nothing
 					if (isset($_GET['genreID']))
 					{
-					//catalogue, no de catalogue, titre, compositeur, interprète, titre de l'album/notes, référence
-					//RESTE CATALOGUE, NO CATALOGUE ET INTERPRETE A METTRE
 						$sql="SELECT exemplaires_medias.reference as reference, medias.titre as titre, medias.annee_publication as annee_publication, medias.notes as notes, maisons_edition.nom as menom, supports.nom as cnom FROM medias 
 							INNER JOIN maisons_edition ON medias.maison_editionID = maisons_edition.ID 
 							INNER JOIN supports ON medias.supportID = supports.ID 
 							INNER JOIN exemplaires_medias ON medias.ID = exemplaires_medias.exID
-							WHERE medias.genreID = '".$_GET['genreID']."' ORDER BY 1,2,3";
+							WHERE supports.categorie_mediaID = 2 AND medias.genreID = '".$_GET['genreID']."' ORDER BY 1,2,3";
 						$query = $application->database->prepare($sql);
 						$query->execute();
 						

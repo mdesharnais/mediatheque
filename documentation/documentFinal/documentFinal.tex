@@ -293,11 +293,8 @@ L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son 
 \section{Administration}
 La zone d'administration permet aux utilisateurs possédant les droits requis d'effectuer des emprunts, des retours, des rapports, de générer des codes QR, de faire la gestion des groupes, des utilisateurs et des tables de pilotages.
 
-\subsection{Emprunt}
-La page «~Emprunt~» permet, aux personnes qui ont les droits requis, d'entrer des emprunts dans la base de données. Pour effectuer un emprunt, la personne qui veut emprunter présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le +. Les dates disponibles vont changer selon les réservations et les disponibilités du commis.
-
-\subsection{Retour}
-La page «~Retour~» permet, aux personnes qui ont les droits requis, d'entrer des retours dans la base de données. Pour effectuer un retour, la personne qui veut faire un retour présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le -.
+\subsection{Emprunt et retour}
+Les pages «~Emprunt~» et «~Retour~» permettent, aux personnes qui ont les droits requis, d'entrer des emprunts et retours dans la base de données. Pour effectuer un emprunt ou retour, la personne qui veut emprunter présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le +. Pour les emprunts, les dates disponibles vont changer selon les réservations et les disponibilités du commis. Les retours n'ont pas besoin de dates.
 
 \subsection{Générer code QR}
 À partir du générateur de code QR, l'usagé n'a qu'à entrer le texte qu'il veut et le code QR correspondant sera généré. Dans le contexte présent, l'utilité de ces codes est de permettre l'identification des médias sans commettre d'erreurs. Ces codes peuvent contenir le texte désiré. Ainsi, le code de référencement maison peut toujours être utilisé. Si nous voulons pousser plus loin encore, les codes QR pourront être utilisés pour la fabrication de cartes qui seront remises aux usagés pour assurer un meilleur contrôle de ce qui entre et sort.
@@ -823,6 +820,8 @@ Apache HTTP Server 2.2.16 -- 2.2.17Diagramme d'enchaînement
 
 \subsection{Type de base de données}
 MySQL 5.1.49 -- 5.5.8
+
+Pour utiliser la base de données, il faut créer l'utilisateur website@localhost avec le mot de passe 1234.
 
 \section{Sécurité}
 \label{sec:sécurité}
