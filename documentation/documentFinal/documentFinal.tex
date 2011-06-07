@@ -1,4 +1,4 @@
-\documentclass[letter, 11pt, draft]{report}
+\documentclass[letter, 11pt]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -166,12 +166,6 @@ L'analyse nous a révélé que certains médias ne peuvent être empruntés que 
 
 Pour représenter cette situation, nous avons décidé que chaque média contiendra la liste des groupes habilités à l'emprunter. Si aucun groupe n'est défini, cela signifie que personne ne peut l'emprunter et qu'il est disponible en consultation sur place seulement.
 
-\subsection{Média audios}
-
-\subsection{Média vidéo}
-
-\subsection{Média imprimés}
-
 \subsection{Suggestions}
 Les utilisateurs du site ont la possibilité d'émettre une suggestion d'achat de nouveaux médias. Un formulaire les invite à entrer le titre, l'artiste ainsi que le type de support du média qu'ils comptent suggérer. Ils ont aussi la possibilité d'ajouter un commentaire si des informations supplémentaires sont nécessaires.
 
@@ -186,20 +180,19 @@ Des fonctions de recherche simple et avancée sont un élément essentiel pour u
 	\item Mode «~Parcourir~» permettant de parcourir tous les médias;
 	\item Recherche simple de médias;
 	\item Recherche avancée de médias;
-	\item Système de pagination avancée permettant de naviguer dans les résultats.
 \end{itemize}
 
 \subsection{Fil d'Ariane vertical}
 Un fil d'Ariane est un composant web d'aide à la navigation dans les pages d'un site web. Un fil d'Ariane horizontal standard est sous la forme de signalisation de la localisation du lecteur dans un document. Il permet d'indiquer à l'utilisateur où il se situe dans une page web et offre la possibilité de revenir à la section qu'il désire.  Dans le cas de Carcajou, c'est un fil d'Ariane vertical qui est utilisé. Au lieu de nous afficher notre position dans un site web sous forme d'arborescence, il nous permet de naviguer par critères dans les résultats de recherche. On pourra donc l'utiliser pour raffiner une recherche de médias. Pour une recherche donnée, une liste de valeurs regroupées par critères sera affichée et l'on pourra donc cliquer sur ces valeurs pour raffiner sa recherche. 
 
-Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la recherche devient plus spécifique et de moins en moins de valeurs d'attribut seront applicables à la recherche. Par exemple, si le niveau de raffinement de la recherche retourne uniquement deux résultats et que ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas affiché dans le fil d'Ariane. Lorsqu’aucune possibilité de raffinement supplémentaire n’est disponible pour les résultats affichés. 
-
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.4]{captures_ecran/exemple_fil_darianne.png}
+		\includegraphics[scale=0.5]{captures_ecran/exemple_fil_darianne.png}
 	\end{center}
 	\caption{Exemple de fil d'Ariane vertical}
 \end{figure}
+
+Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la recherche devient plus spécifique et de moins en moins de valeurs d'attribut seront applicables à la recherche. Par exemple, si le niveau de raffinement de la recherche retourne uniquement deux résultats et que ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas affiché dans le fil d'Ariane. Lorsqu’aucune possibilité de raffinement supplémentaire n’est disponible pour les résultats affichés. 
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -398,13 +391,16 @@ La page de gestion des utilisateurs permet~:
 
 Les utilisateurs sont affichés dans un tableau où il est possible de définir l'information de tri simplement en cliquant sur l'en-tête de la colonne. Par défaut, tous les utilisateurs sont affichés. Si l'on souhaite afficher uniquement les utilisateurs appartenant à un groupe donné, il suffit de sélectionner ce groupe dans la liste déroulante située dans le coin supérieur droit de la page.
 
-L'ajout d'un utilisateur nous apporte dans un formulaire permettant d'entrer les informations de celui-ci alors que la modification nous amène au même formulaire, mais avec les informations préremplies de l'utilisateur à modifier. C'est à partir de ce formulaire qu'une liste de sélection multiple nous permet de sélection tous les groupes auxquels appartient l'utilisateur\footnote{Voir la section \ref{sec:sécurité} sur la sécurité, à la page \pageref{sec:sécurité}, pour plus de détails sur les groupes.}.
+L'ajout d'un utilisateur nous apporte dans un formulaire permettant d'entrer les informations de celui-ci alors que la modification nous amène au même formulaire, mais avec les informations préremplies de l'utilisateur à modifier. C'est à partir de ce formulaire qu'une liste de sélection multiple nous permet de sélection tous les groupes auxquels appartient l'utilisateur\footnote{Voir la section \ref{sec:sécurité}, à la page \pageref{sec:sécurité}, pour plus d'informations sur les groupes et la sécurité.}.
 
 Pour ce qui est de la suppression, une invite de confirmation demande à l'utilisateur de confirmer qu'il désire bien supprimer l'utilisateur.
 
 L'importation, quant à elle, se résume actuellement à un hyperlien qui ne mène nul part puisqu'il ne nous a pas été dit comment allait se passer la synchronisation des utilisateurs avec les élèves du département de musique. Nous avons fait comme hypothèse que l'importation se fera à partir d'un fichier XML qui contiendra la liste des nouveaux utilisateurs. Ceux qui programmeront le système devront donc se charger de mettre en place un système d'importation qui se mettra en action lors du clique sur ledit hyperlien.
 
 \subsection{Gestion des groupes}
+À l'heure actuelle, la gestion des groupes se présente de la même façon que la gestion d'une table de pilotage\footnote{Voir la section \ref{sec:tables_de_pilotage}, à la page \pageref{sec:tables_de_pilotage}, pour plus d'informations sur les tables de pilotages.}.
+
+Lorsque le système sera implémenté, les programmeurs auront le choix d'offrir ou non au client la possibilité de modifier les droits de groupes. Puisque des droits de groupes mal configurés risquent d'ammener des failles de sécurités, le client préférera peut-être demander au département d'informatique chaque fois que de telles manipulations seront nécessaires.
 
 \section{Rapports}
 
