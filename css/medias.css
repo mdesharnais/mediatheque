@@ -104,7 +104,6 @@
 #media .detailsLevel2Summary > [class^="summary"]
 {
 	display: inline-block;
-	background-color: red;
 	padding: 0.1em 0.25em;
 	width: 3em;
 }
@@ -116,26 +115,22 @@
 
 #media .detailsLevel2Summary > .summaryTitle
 {
-	background-color: orange;
 	width: 25em;
 }
 
 #media .detailsLevel2 .detailsLevel3
 {
 	display: block;
-	background-color: red;
 	margin-left: 13em;
 }
 
 #media .detailsLevel2 .detailsLevel3 .rowLevel3
 {
 	display: block;
-	background-color: red;
 }
 
 #media .detailsLevel2 .detailsLevel3 .rowLevel3:last-of-type
 {
-	background-color: orange;
 	display: inline;
 }
 
