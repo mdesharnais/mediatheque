@@ -1,0 +1,1405 @@
+commit b1972098adba7d11eb77305ecf7ba5b676eea9d9
+Merge: 5353165 41af1b3
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 17:10:45 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 53531658d8a44853bfcfcc3b3f9433f1e4a986e5
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 17:07:49 -0400
+
+    Supprime la couleur de débogage dans le formulaire de détails d'un
+    média.
+
+commit ff293844b72bb5fecec98626faba336a19ddd09f
+Merge: 9fae33d 040c821
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 16:17:56 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 9fae33d9aa3ce8c1226048b3a8836e9665f4e080
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 16:14:16 -0400
+
+    Ajoute un fichier contenant les commandes permettant de générer un
+    fichier contenant les commits de chacun.
+
+commit c65a4c052ecdd4e7c441ee9d93aee8d7c66a370c
+Merge: 568bd4b bf48dd5
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 15:51:47 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 568bd4b463fac323ee70bd2289c65ee98ad1212a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 15:50:29 -0400
+
+    Ajout d'informations dans la section sur les groupes dans la partie sur les
+    spécifications fonctionnelles du document final.
+
+commit 1d8678c14156f319f1991a98b3130f48b0ca1b96
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 15:36:06 -0400
+
+    Mise à jour du dictionnaire de données.
+
+commit ec106c33b6a5d4514fcc59467c96eb702bf638a0
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 15:35:44 -0400
+
+    Modification de la taille de quelques images du document final.
+
+commit 464edec7e51620f1cc6459730281ec2a195cb417
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 15:35:21 -0400
+
+    Modification de la taille de deux captures d'écran.
+
+commit 7f05a17a50bb70579a493260b1117559fa17c558
+Merge: 374d1ce 75c3f97
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 15:17:03 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 374d1cebbfd7a6c73d4b5b77b8696935d112379a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-07 15:15:49 -0400
+
+    Déplace toutes les images dans le répertoire
+    /documentation/documentFinal/images/ et indique à latex d'aller voir
+    dans ce répertoire pour trouver les images.
+
+commit 4ecfeda68c7d3922622c4493e814b5ad27b9952c
+Merge: 62fa2d0 f3faed0
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-06 20:12:16 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 62fa2d0225f9491dd4a5f12aaf4474fc33383b3f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-06 20:11:48 -0400
+
+    Correction de nombreuses fautes d'orthographe dans la documentation.
+
+commit 01088f28b432c7b068a429404de778430eba8d01
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-05 18:00:57 -0400
+
+    Règle des problèmes de mise en page avec des images de la charte
+    graphique.
+
+commit 060e48ca420548656314f19182f44fbd8bfc9bef
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-05 17:44:53 -0400
+
+    Modification de la documentation sur la police de caractères, la
+    grosseur de police et les titres.
+
+commit 7694d2c023a7be196fd57d2fecc272a8a4a57884
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-05 17:40:37 -0400
+
+    Ajout d'un champ permettant de sélectionner les groupes pouvant
+    emprunter un médias dans la page de détails d'un média.
+
+commit 570a9704d2cb9d6efcdad2348452b6823895a111
+Merge: 94f8a7c eabcc61
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-05 15:46:05 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 94f8a7cd6decc7b9004117bafe82f40374815a5a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-05 15:44:52 -0400
+
+    Corrige le tableau des couleurs dans le document final.
+
+commit bcedfaedca1d655152450ba705aaefc756c004d4
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-05 13:01:50 -0400
+
+    Ajout de la documentation sur les tables de pilotages ainsi que d'une
+    image présentant un exemple de l'utilisation des liste déroulantes et
+    des datalist.
+
+commit 7e7f7a4074d2599132d91b63f6b4dd76bee8e1de
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 20:49:06 -0400
+
+    Ajout de documentation sur différentes sections de la zone
+    d'administration.
+
+commit 1f0168a64fe7ec5f0f2e29090b43d92af475df69
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 20:15:40 -0400
+
+    Ajout la documentation de la zone utilisateur dans le document final.
+
+commit cfa3efd8b898cd560d79475cdbefeb67d4c7f9ec
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 18:44:04 -0400
+
+    Ajout de documentation sur les pages d'informations, le mode
+    « Parcourir », les suggestions et ajout de sections supplémentaires
+    destinées à contenir la documentation d'autres sections du site.
+
+commit fd8159870c1ecb727c7ead7888b3c64dcddc5ef1
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 15:16:46 -0400
+
+    Ajout d'une description du système de médias dans la documentation
+    finale.
+
+commit b932a6ce87052f788b372f69a77bf53bc561442d
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 13:50:38 -0400
+
+    Mise sur la même ligne des éléments inline-block afin de contourner
+    l'espacement ajouté dans le rendu finale par le retour à la ligne dans
+    le fichier.
+
+commit e9e13022a8137d1a61ea8edde3b8ac49054e6a4d
+Merge: d53ef39 92e7402
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 13:48:24 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit d53ef39301623d76a4526b3d6507f8e9652980bb
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 13:48:08 -0400
+
+    Corrections mineures du document final.
+
+commit 2558276f52fcd61f2d0b7309c111dd5bef896b05
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 12:14:10 -0400
+
+    Ajout d'un commit pour tenter de régler un problème de communication
+    réseau.
+
+commit a759d3dd09e377213f16982fdb3d3b4b54142afd
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 12:10:50 -0400
+
+    Ajout de documentation traitant des utilisateurs dans les spécifications
+    fonctionnelles du document finale.
+
+commit d130e1ce11a5af73848b828f61b0ced2b85a5343
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 11:20:26 -0400
+
+    Réoganise la section des spécifications fonctionnelles de la
+    documentation finale et amméliore quelques images afin qu'elle
+    deviennent des figures à part entière.
+
+commit b15e5af24135fc581b8e113668673aa662d77c2d
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 09:50:07 -0400
+
+    Ajout de deux hyperliens, sur la page de gestion des utilisateurs, qui permettent,
+    respectivement, d'ajouter un nouvel utilisateur et de procéder à une importation
+    de plusieurs utilisateurs.
+
+commit 17048e4436ab429f2796624a44bebe549a3f2716
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 09:44:43 -0400
+
+    Ajout de la page user.php qui permet de modifier un utilisateur.
+
+commit 7279f1e760e4d47b0371e7ea6e79a6c68c032964
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 09:41:59 -0400
+
+    Ajout de la méthode User::getInstanceOf qui retourne une instance de la
+    classe User pour une clé primaire données.
+
+commit e1ad589b296eae423a0b87a113c5f1a19fbd1fc0
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-04 08:34:39 -0400
+
+    Ajoute la nécessité d'avoir le droit en écriture sur la page users.php
+    pour pouvoir supprimer des utilisateurs.
+
+commit d4eefb0a6e9a044d7e90d869fed747396fb56ab3
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 22:23:17 -0400
+
+    Ajout d'un lien dans la page d'administration permettant
+    d'ajouter/modifier/supprimer des groupes d'utilisateurs.
+
+commit 11f84879440d16b241b2ce2ab76640c194cec96e
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 21:51:27 -0400
+
+    Ajout d'une page permettant à l'administrateur de gérer les
+    utilisateurs.
+
+commit ffc6745d10ec162228f1d1950b5a228d625d6b9c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 20:22:18 -0400
+
+    Ajoute la gestion des droits et de quelques petites autres choses au
+    rapport des médias audios.
+
+commit 3ac817d81090f7bff407985ad4860d74b6eefbd0
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 20:14:02 -0400
+
+    Modifie le CSS s'appliquant à tous les input pour qu'il ne s'applique
+    qu'aux input[type="text"] car, sinon, tous les input[type="submit"] sont
+    aussi toucher.
+    
+    La seule autre solution consiste à utiliser des <button
+    type="submit"></button> en lieu et place des <input type="submit">.
+
+commit 88a95a2ed6609de1805d394377b485b893c8669c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 20:07:20 -0400
+
+    Modification de l'attribut « title » de la page audioMediaReport.php
+    afin que celui-ci respecte le standard.
+
+commit d0cfbec85725414a97d9c257085e7578574edf13
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 20:00:14 -0400
+
+    Correction du bouton du formulaire de la page audioMediaReport.php.
+
+commit 718bc499b0246fdbec57a188aba5fdcc69a285dc
+Merge: dce3bbf 65ba809
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 19:49:06 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+    
+    Conflicts:
+    	documentation/TODO
+    	reservation.php
+
+commit dce3bbf1b35c3373b60a690dfb4f41de93c12a5a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 19:44:29 -0400
+
+    Ajout d'une page d'administration qui permet d'afficher, au choix, tous
+    les emprunts en cours ou l'historique de tous les emprunts.
+
+commit 54ffc11f73127e6404fdc7b966de9bc84420ee75
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 18:53:36 -0400
+
+    Modification du titre et ajout de la possibilité de trier les tableaux
+    des pages "Mes réservations", "Mes emprunts en cours" et "Mon historique
+    d'emprunt".
+
+commit 22f76f1eb546fb7bdebdf246626a455b48c0f0f4
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 18:43:47 -0400
+
+    Ajoute la possibilité de trier le tableau des réservations selon
+    n'importe quelle colonne.
+
+commit f7571842383ee9b51d57768fa786f56a6106d25a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 18:36:30 -0400
+
+    Ajout d'une page d'administration permettant d'afficher toutes les
+    réservations du système.
+
+commit 5965e385298861f87101eed76d0949f0741bb01f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 18:33:05 -0400
+
+    Ajoute la constante Application::APPLICATION_NAME contenant le nom de
+    l'application que l'on peut utiliser pour, par exemple, l'attribut title
+    d'une page.
+
+commit 04c5749a11a7cccb41c7fa5f9fded65274bd93ca
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 10:49:31 -0400
+
+    Supprime le fichier reservation.php qui est devenu obsolet.
+
+commit 4dbeaa721ca289d92e500996f96a128ab3eff50a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 10:17:42 -0400
+
+    Correction d'une erreur dans Media::printGenreField().
+
+commit 05d736cb32e39a35fe7c2127925acf93c6557b73
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 10:13:06 -0400
+
+    Correction d'une erreur SQL de la base de données.
+
+commit 7e8d2c2b7ec9491d44787da0b5a941f77c7a4672
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 10:02:41 -0400
+
+    Ajoute le ON DELETE CASCAD sur le exID de la table exemplaires_medias.
+
+commit 523a9c46bed2daf832a95c2d383cf7b7bdfe6c14
+Merge: f969d07 5c4dac6
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 09:45:19 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit f969d07b38901354b7da87cb947757b99d045c24
+Merge: 33a5a67 cb4859f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 09:45:02 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 33a5a673a224469fa65bf081d07c8b3bf76984bf
+Merge: d93a200 58301a1
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 09:44:47 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit d93a2001cc1c59dd342246d68f101abcadd92dcf
+Merge: 2f96306 418a1db
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 09:44:01 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+    
+    Conflicts:
+    	documentation/documentFinal/documentFinal.tex
+    		Je les ai mergés.
+    	php/getMediaID.php
+    		J'ai conservé la version du serveur.
+
+commit 2f963064857191e185acc6e90d130c4bccb33acd
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 09:22:37 -0400
+
+    Ajout de la table medias_groupes dans la base de données qui sert à
+    contenir les groups habilités à emprunter un média.
+    
+    Ajout de la documentation correspondante dans la documentation.
+    
+    Ajout de la table exemplaires_medias dans la base de données qui sert à
+    représenter les différents exemplaires d'un même média.
+    
+    Mise à jour de nombreuses parties du site afin que celle-ci prennent en
+    compte la nouvelle position du numéro de référence.
+
+commit c1aef2d37a3691a2189a1d232b99b3c1d01bf801
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-03 09:16:11 -0400
+
+    Ajout de "petites pensées de Martin" dans le TODO.
+    
+    Les pensées précédées d'un astérisque sont particulièrement importantes.
+
+commit ea3494bf7d1d06e1316afbcd61741d246d03ea5f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-02 08:27:19 -0400
+
+    Modifie le css pour le champ Description d'un média.
+
+commit 4b997d6fe9ccdd362c9ca98345f39f1172185f89
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 21:43:42 -0400
+
+    Correction des erreurs laissé dans le document final et ammélioration
+    des tableaux de la section sur la sécurité.
+    
+    Ajout du dictionnaire de données en annexe.
+
+commit 7fb6e565fd79a142bc3743dc416e20cb31a4114c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 19:45:24 -0400
+
+    Renome le fichier affichant l'historique des emprunts de l'utilisateur
+    courant.
+
+commit d81b3b6be32d8601b188a8b19df32a1596f27765
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 19:43:16 -0400
+
+    Modification de la page affichant l'historique des emprunts de
+    l'utilisateur en cours.
+
+commit 4a74dbdd0b4eb641593f249a1a1c2f693f8b8ae5
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 19:34:34 -0400
+
+    Modifie le lien dans l'en-tête du site pour qu'il utilise le nouveau nom
+    de fichier myCurrentReservations.php.
+
+commit 104f91f11d9635e4f70f35b1dbb403cfb751952d
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 19:33:37 -0400
+
+    Renome le fichier affichant les réservations de l'utilisateur courant.
+
+commit efe5546735aff14d03531d587447fb113c5e504f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 19:32:50 -0400
+
+    Modification de la page affichant les emprunts en cours de l'utilisateur
+    courant.
+
+commit 553af4aa32e7eb0f0e80a0d74519d8c30297b462
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 11:31:09 -0400
+
+    Modification du lien vers les emprunts en cours dans l'en-tête.
+
+commit 25d6f560568c6877488c68281e1132806024829a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 11:29:18 -0400
+
+    Modification de la page affichant les emprunts en cours de l'utilisateur
+    courant.
+
+commit 89af4eef025fbd51907e6903b15463dc1b07875c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 10:15:29 -0400
+
+    Ajoute le champs « Artiste » dans la page de détails d'un média.
+    
+    Ajoute John Ronald Ruel Tolkien comme auteur des livres du Seigneur des
+    anneaux.
+    
+    Modifie la colonne « inactif » de plusieurs auteurs afin qu'ils
+    apparaissent dans le ComboBox des détails d'un média.
+    
+    Corrige une erreur de synthaxe SQL laissé par un commit précédent.
+
+commit b3d540a8245e1df61b1838c7eca45142e315643a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 09:27:46 -0400
+
+    Corrige un bogue dans la classe Pagination qui fesait que la deuxième
+    occurence de la pagination ne pointait pas sur la première occurence de
+    la pagination.
+
+commit e8ee5ed15f10ec95842b38163377ef234c40e9df
+Merge: 8f1999b f4aa1f1
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-06-01 09:19:57 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 8f1999bc441f38d4f8d77ae20fd92f11300f6f8b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-31 17:36:57 -0400
+
+    Modifie le javascript du fils d'Ariane vertical afin que ce ne soit que
+    les liste de plus de trois éléments qui soient enroullées.
+
+commit e8b330f021eaf32b4ffc41b9b0d84fef8d104966
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-31 17:01:08 -0400
+
+    Ajout l'album « Brel en public : Olympia  61 » de Jacques brel dans la
+    base de données.
+
+commit f55804290e53255bd2af49189be3b6a68cad5d04
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-31 16:31:36 -0400
+
+    Ajout l'album « Avale ta montre » de Polémil Bazar dans la base de
+    données.
+
+commit 0222ae14be8c1f94cf0c57e0647a3c5fa0e707d2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 22:28:56 -0400
+
+    Correction de la pagination qui ne fonctionnait pas pour les résultats
+    de recherche.
+
+commit bce0218008c0b1edfcac35ea4b0d9810691875b3
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 21:23:27 -0400
+
+    Ajout de genres pour les albums des cowboys fringants et ajout de la
+    gestion des genres dans la fenêtre de détails d'un média.
+
+commit 756bc4c3d36e3b27f6826bae53e1c010c105f3a7
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 21:07:26 -0400
+
+    Ajout de la gestion des clé étrangères en champ de type « select » dans
+    la page de gestion des tables de pilotages.
+
+commit c1eee15fb449ad7a052674bc6983e12b9743373b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 21:04:03 -0400
+
+    Correction d'une erreur laissé dans le commit précédent.
+
+commit 44d48e9e4c7a20629e085470d0b422c9bd736ea5
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 20:58:46 -0400
+
+    Modification de la classe Pagination afin que celle-ci puisse s'adapter
+    à une url de destination contenant déjà des paramètres.
+
+commit 504e7bc79b031fced0270163f5a4fb182342019c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 20:50:27 -0400
+
+    Ajout d'un champ « inactif » dans la table « categories_media » et
+    changement du commentare de la table « supports ».
+
+commit 5149c3fe96ccc1578ea7331697fe4f7170349efc
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 20:49:20 -0400
+
+    Ajout d'une page exclusivement dédiée à l'administration du site.
+    
+    Ajout d'un lien vers cette page dans l'en-tête.
+    
+    Ajout des tables de pilotage restantes dans la page d'administration.
+
+commit 0b6e0aaf615e0f04878f4d98f5689f98167d5326
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 20:48:19 -0400
+
+    Ajout de la section « Bande passante » dans la documentation.
+
+commit 651d0360bb904039d2eeb409f3697f3b41c0bbf9
+Merge: 2b44c9a 219dd91
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 20:36:42 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 2b44c9a474f7857dc94a5e57677f2dd22da4f9e8
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-30 19:49:44 -0400
+
+    Correction de guillemets anglais vers des guillemets français et ajout
+    de la section « Diagramme de classes ».
+
+commit ebb103295cd5c0c4d754b33ea8e0eed2d670afd7
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 19:25:19 -0400
+
+    Modifie les scripts de connexion et déconnexion afin que l'utilisateur
+    soit automatiquement redirigé vers la page d'où il venait.
+
+commit 335feb695dce3b7123c050044fe7d8ec623c86c9
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 16:13:17 -0400
+
+    Ajout d'une image pour l'album « Sur un air de déjà vu » des cowboys
+    fringants.
+
+commit 934036bdf5f83c7ab2d4758e7f66807959c621a6
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 16:06:45 -0400
+
+    Ajout de la classe Track représentant les éléments enfants d'un média
+    Audio.
+    
+    affichage semi-dynamique des détails du deuxième niveau de la
+    page de détails d'un méida audio.
+
+commit 03c738f4043407f5899a41040eff690becaa553f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 16:06:13 -0400
+
+    Correction du titre de l'album 1997 des cowboys fringants.
+
+commit 81284b4dba601e1dcbb3e6bd0fb1e69e5e650268
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 15:15:59 -0400
+
+    Renome la table categoriesMedia en categorie_media afin de conserver
+    l'uniformité avec le reste de la base de données.
+    
+    Séparation de la classe Media en trois classes héritant de Media :
+    - AudioMedia
+    - VideoMedia
+    - PrintedMedia
+
+commit 01e68545f7c4fc6d3ec4ed02630739240391944a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 13:38:17 -0400
+
+    Ajoute une validation manuelle qui permet aux visiteurs d'accéder aux
+    détails d'un média en lecture seule.
+
+commit 78204861ff8b05efb5a1e90673a8131ed56d2e8e
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 11:02:07 -0400
+
+    Ajoute la possibilité de supprimer et d'ajouter des détails du deuxième
+    niveau dans la page de détails d'un média.
+
+commit 53e5ee740118a474a5f6fa342968e56c7cdaec8b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 09:13:15 -0400
+
+    Ajout d'une maision d'édition pour les CD des cowboys fringants.
+
+commit 8e0d21aaaf9d4d31ed4641d096795c1ae11a9d12
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-29 08:57:47 -0400
+
+    Ajout d'une image pour le CD « L'expédition » des cowboys fringats.
+
+commit 56a254ffdd8e5706f900b316d814b437e64fb1ba
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-28 21:37:10 -0400
+
+    Ajout d'une image de la couverture pour le média « La communauté de
+    l'anneau ».
+
+commit 0d323032081f3baa43edcf3f4e419607635b51a3
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-28 21:24:46 -0400
+
+    Suppression de fichiers inutiles.
+
+commit d110332783bc941e6bbe68888ed0aabddc85a864
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-28 21:18:57 -0400
+
+    Ajout de la classe Media qui, jusqu'à présent, sert à représenter un média audio.
+    
+    Ajout, dans la classe Media,  de méthodes qui permettent de générer les champs de formulaires.
+    
+    Modification de la page de détails d'un média afin que les informations
+    du premier niveau de détails soient générées à partir de la base de
+    données.
+    
+    Modifications légères du CSS de la page de détails d'un média.
+    
+    Suppressiond de la contrainte NOT NULL du CUP d'un média audio/vidéo.
+    
+    Modification de quelques valeurs dans la générations de données dans la
+    base de données.
+
+commit 0d2e515713ccb571e446bd8b080c8bac6305e472
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-28 16:02:54 -0400
+
+    Ajout une page contenant les règlements de la médiathèque dans le menu
+    déroulant « À propos ».
+
+commit cd6f53e4ab9e90c5c104fa31a586b0a2d5878cf4
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-28 14:54:03 -0400
+
+    Ajout des tables nécessaires pour gérer les droits et, dans le document
+    final, de la documentation de la façon de faire.
+
+commit a4d6cba04e3b9b197628d9847241f0e2053e7ae5
+Merge: f7848eb 9b7336b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 17:05:52 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit f7848eb658dd6d7fe8184c7a553425377b8d2667
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 12:37:05 -0400
+
+    Ajout de commentaire décrivant la fonction haveRights() de la classe
+    User.
+
+commit 409c2ab2f69191dc7e98681463534dd862f693e2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 11:19:41 -0400
+
+    Travail sur la section languages du document final.
+
+commit 09949c298532e720efade990338bce8822f0ae98
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 10:24:50 -0400
+
+    Ajoute la clase Application dans le diagramme de classes.
+
+commit 829aa1336a7e22e1566629c26779819d5c872f97
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 10:04:50 -0400
+
+    Modifie la fonction haveRights() de la classe User afin de retourner
+    false si l'utilisateur est un visiteur et true dans l'autre cas.
+
+commit db464b7fd7685812c68ad4287b898e03a78a2f1c
+Merge: 780cba3 a58dd2c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 09:41:22 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 780cba39861072980a7e82f307aceedb4c5f0942
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 09:40:39 -0400
+
+    Correction de la fonction isVisitor de la classe User qui renvoyait
+    toujours true.
+
+commit c31f37436c05248733f5b5098a4e5d04758a8667
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 09:09:45 -0400
+
+    Suppression de deux méthodes qui n'étaient utilisées nul part dans le
+    projet et qui n'avaient plus d'utilité.
+
+commit 0c18046aa1a9a85c56f95d0c657f6c8074a4e6d3
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 08:59:51 -0400
+
+    Ajout de la classe Pagination dans le diagramme de classes.
+
+commit f2fbe6fcc4693c2f603b51875ab8888af5c0effe
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-27 08:32:59 -0400
+
+    Ajout du diagramme de classe contenant la classe User.
+
+commit 745041967d34e093b5b150bfbafb7416b4418f58
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 22:41:32 -0400
+
+    Ajout de tous les albums studio des cowboys fringants dans le fichier de
+    génération de la base de données.
+
+commit 2599d365325c7c0312faea70272a006a75fca022
+Merge: 116fd63 e90b7ef
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 22:40:56 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 116fd6397979ab5c59e328aedb2aec7eeeb85b27
+Merge: af9fc53 88c7944
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 14:38:29 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit af9fc5343432d2e99b4ce3760bd190f33aebc0d7
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 14:17:30 -0400
+
+    Travail sur le texte de la section "Language coté client" du document
+    final.
+
+commit f1d66c21ba0feb62c150cf438c916169679db23f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 11:45:59 -0400
+
+    Modifie le css de l'en-tête afin d'être compatible avec des navigateurs
+    plus anciens comme Mozilla Firefox 3.5.16.
+
+commit 4ef531cc2f5aaecfa81bc7d0b41819bcfe0192b6
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 11:31:35 -0400
+
+    Ajout le diagramme de l'architecture technologique au document finale.
+
+commit defef117f7a15e7680c03586b15ac42198f49a18
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 11:18:32 -0400
+
+    Ajoute les "require" nécessaires afin que la page de détails d'un média
+    utilise les fichiers communs.
+
+commit d37e5c5667cb3f4f1fa1acce9c22def05781678b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-26 11:13:22 -0400
+
+    Renome la page de détails d'un média.
+
+commit 4ec2e51cea37d5faa3f06dbaf67948668cddc248
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-25 21:00:44 -0400
+
+    Améliore la règle « clean » du makefile afin qu'il ne laisse que le
+    fichier .tex et lui-même dans le répertoire.
+
+commit 6181ef8d52a66313c70ee9e1440db82fc30f34cc
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-25 20:55:01 -0400
+
+    Ajoute le fichier LATEX permettant de générer le document final à
+    remettre pour le projet.
+
+commit 1e3098e6367d0b48c1f042c4fc80a552c59c8bb8
+Merge: 6bfa0cb 0b7bccb
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-22 22:28:09 -0400
+
+    Merge branch 'styleAlternatif'
+    
+    Conflicts:
+    	sharedFiles/style.inc.php
+
+commit 0b7bccb4291cec3d09d8357f6323d87bc3a41b2c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-22 22:23:42 -0400
+
+    Applique le nouveau style à l'ensembe des pages du site.
+    
+    Ajout d'un page « À propos du département de musique ».
+    
+    Ajout d'un page « À propos de la médiathèque ».
+
+commit 3e13a457de72d489ab62a042e19ce5d74bbf704d
+Merge: 6c9f8a8 cf49632
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-22 20:56:01 -0400
+
+    Merge branch 'master' into styleAlternatif
+
+commit f6ecbe88efc15dba6d5b8acf9dc5c88000f0ec59
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-22 11:47:37 -0400
+
+    Ajoute une table pour contenir les types de médias puisque MySQL ne gère
+    pas les contraintes CHECK.
+    
+    Correction de l'ensemble du fichier de génération de la base de données.
+
+commit 4ae6924115ccd124650df284b83a26e83a61df31
+Merge: 7ffd586 cf49632
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-22 10:41:46 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 6c9f8a83d939f75cf383ead9358fe9d8c88538b2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-22 10:25:07 -0400
+
+    Travail sur la mise en page du formulaire de détails d'un média.
+
+commit bccbd10248432a36c00e3989a205885dcde75582
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-21 18:26:34 -0400
+
+    Modifie le menu de navigation afin qu'il soit inclu dans une balise «
+    header » et ajoute un formulaire de recherche aligné sur le bord
+    supérieur droit de la page.
+
+commit 9affc1a60607b75bf89a05f66bb2068b517cce11
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-21 16:19:44 -0400
+
+    Ajoute un nouveau concept de thème pour la médiathèque.
+
+commit 7ffd586d2d8b6ad90af57a4621597a2759ac52bd
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-20 12:16:21 -0400
+
+    Modifie le formulaire de détails d'un média afin que le fichier soit un
+    fichier PHP au lieu d'un fichier HTML.
+
+commit fe803530ea0f2b351c549d14ad95a1f93d430b0c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-20 12:09:52 -0400
+
+    Modifie la requête SQL retournant les informations sur les colonnes de
+    la table dans le fichier php/drivingTables.inc.php. Celle-ci obtient
+    maintenant l'information permettant de savoir si une colonne est une clé
+    étrangère et, ci c'est le cas, la table et la colonne référencée.
+
+commit 1ae58b68b5c6424aab9dec0af1052f3fa9533b06
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 19:39:00 -0400
+
+    Ajoute un fichier SQL permettant de générer le dictionnaire de données.
+
+commit b3402d90e8eae49dc8dca1aa2578ea8f5908905d
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 19:08:30 -0400
+
+    Modifie le fichier php/drivingTables.inc.php afin d'utiliser les
+    informations présentent dans le schéma information_schema au lieu
+    d'utiliser la commande SHOW FULL COLUMNS.
+    
+    Ajoute un champ commantaire contenant le libellé de chaque table du
+    système dans le fichier permettant de générer la base de données.
+    
+    Utilise le libellé de la table comme titre de tableau lors de la
+    génération de la page de gestion d'une table de pilotage.
+
+commit 3164d0d94852dff317e62ffb093c672b6d345ad4
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 19:04:32 -0400
+
+    Corrige une erreur de synthaxe dans le constructeur de la classe
+    Application.
+    
+    Définie l'attribut PDO::ATTR_ERRMODE à PDO::ERRMODE_EXCEPTION, ce qui
+    dicte à PDO de lancer une exception en cas d'erreur.
+
+commit bd4651fc774b2af569d3526e8e838be338eee2e9
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 16:59:11 -0400
+
+    Ajout de la fonction getInputType dans le fichier
+    php/drivingTable.inc.php. Celle-ci prend une colonne en paramètre et
+    doit retourner le type de contrôle HTML qu'il faut générer.
+    
+    Ajout de l'attribut « required » lorsqu'un champ est obligatoire.
+    
+    Ajout de l'affichage des champs boolean grâce à un CheckBox.
+
+commit 98bbea8c9ce27be74d3ac0960396be4ed894e23a
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 16:56:20 -0400
+
+    Modification du fichier permettant de générer la base de données afin
+    que certains enregistrements de la table « epoques » aient l'attribut «
+    inactif » à TRUE.
+
+commit 9aea92453f593903d1b419cd9611399bb121c7ee
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 16:54:18 -0400
+
+    Ajoute un message d'erreur dans le cas où l'utilisateur ne dispose pas
+    des droits nécessaires lors de l'affichage de la page drivingTable.php.
+    
+    Modification de la classe User afin qu'un simple visiteur n'ait jamais
+    les droits demandés.
+
+commit 48993ddb03475cf575361d89090d8e1d51e2fdf2
+Merge: 3bba2be b21faa2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 11:27:36 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 3bba2be7a1ff9fcaf192e62fff3c47e05f0c4711
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 11:26:26 -0400
+
+    Modification de la fonction printDrivingTable afin que celle-ci génère
+    la table à partir des colonnes et des enregistrements de la table de la
+    base de données.
+
+commit efd7ffd42f8b9894b07487b964fdf80c4ffec87e
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 11:25:43 -0400
+
+    Ajoute un commentaire identifiant la clé primaire de toutes les tables
+    de la base de données.
+
+commit b3396ea0b0bbb068474f7245b954266a6e0918d2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 09:43:30 -0400
+
+    Ajoute le fichier php/saveDrivingTable.php qui devra contenir le code
+    nécessaire pour sauvegarder les données d'une table de pilotage.
+
+commit c25629e94d64a9a2e9f339acb696fb55f4dd7ee0
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-19 09:41:08 -0400
+
+    Ajoute un block try{}catch{} dans le constructeur de la classe
+    Application afin de capturer les erreurs éventuellement générées par
+    l'initialisation de la connexion à la base de donneés.
+
+commit 3dbee44e3076dcdc3228ab4846374b3b7324f355
+Merge: b7ca251 428658e
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-18 22:53:44 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit b7ca25111d30d00485b3f1ad239c97c1ccb5a6b5
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-18 22:40:43 -0400
+
+    Crée un objet $application disponnible automatiquement dans toutes les
+    pages du site et dans tout autre endroit où le fichier
+    php/Application.class.php est importé.
+    
+    Cet objet contient un attribut $application->database qui contient
+    l'instance de PDO permettant de se connecter à la base de données.
+    
+    Cet objet contient un attribut $application->currentUser qui contient
+    une instance de la classe User représentant l'utilisateur actuellement
+    connecté. Si aucun utilisateur n'est connecté, l'attribut
+    $application->currentUser->isVisitor() renvoie true et les autres
+    attributs sont null.
+    
+    Ajout de la méthode $application->currentUser->haveRights() qui prend
+    l'objet des droits et la liste des droits dont l'on veut valider.
+    Celle-ci devrait renvoyer true si l'utilisateur courrant dispose de tous
+    les droits spécifiés et false si il en manque.
+    e.g. $application->currentUser->haveRights('drivingTables.php',
+    $application->rights['read'] | $application->rights['write'])
+    
+    Ajout d'un fichier php/autoLoadClasses.inc.php qui se chargera de
+    charger automatiquement les classes nécessaires lors d'une
+    instanciation.
+    
+    Modification de l'index afin que celui-ci affiche un menu vertical
+    lorsqu'il y a un utilisateur d'actuellement connecté.
+    
+    Modification du code CSS afin que le corps de la page s'adapte
+    automatiquement à un menu vertical lorsque la balise aside est utilisée.
+
+commit 1a65ad96b821b510dbf3877561b605a0453f5e80
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-18 10:39:05 -0400
+
+    Ajoute une clase « User » représentant un utilisateur du système. Lors
+    de la connexion, un objet de type User est créé, les informations
+    disponnibles sont définis dans l'objet et celui-ci est sauvegardé dans
+    une variable SESSION.
+    
+    Par la suite, si l'on veut savoir si un utilisateur est actuellement
+    connecté, il suffit de vérifier si la variable $_SESSION['user'] et
+    définie.
+    
+    Si l'on veut utiliser cet objet, il suffit d'importer la classe
+    User et de déserialiser l'objet à l'aide de l'instruction
+    unserialize($_SESSION['user']).
+
+commit 79ae080ecee5cfcd6bb32c8650d4bb1071488789
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-18 10:05:43 -0400
+
+    Ajoute la possibilité de se connecter à un compte d'utilisateur et de
+    s'en déconnecter.
+    
+    Modification de la barre d'utilisateur sur toutes les page générées par
+    PHP afin qu'elle affiche l'option de connexion/déconnexion dépendament
+    de si un utilisateur est actuellement connecté.
+
+commit f945637dddec10b006ab581ab4581a35dc5f5a85
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-18 08:59:10 -0400
+
+    Ajout de la redirection des formulaires de recherche simple et de
+    recherche avancé vers la page de résultat de recherche.
+    
+    Suppresssion du menu horizontal dans l'en-tête.
+
+commit 2dde9b7352265ec3fd9449b1fea286c2cc748667
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-17 22:29:00 -0400
+
+    Diminue légèrement la taille du nom du site dans l'en-tête.
+    
+    Modifie la disposition des éléments de l'en-tête lorsque la fenêtre
+    atteint une taille de moins de 640x480 afin qu'ils se gènent moins les
+    un les autres.
+
+commit a2b9c4cb4f0fccebd81c0158ead69677f19444bb
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-17 22:14:22 -0400
+
+    Ajoute un formulaire permettant aux utilisateurs de se connecter à leur
+    compte.
+
+commit 93e65f747bdd1b2b8cbf6509b55d1838a61ffa9b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-17 21:17:08 -0400
+
+    Corrige le problème du bouton de recherche simple dans l'en-tête.
+
+commit 091b741029b6900f92205449fd2705ea99223848
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-17 20:45:26 -0400
+
+    Déplace le résultat d'une recherche dans le fichier searchResults.php.
+    
+    Supprime le fils d'Ariane vertical de la page d'accueil.
+    
+    Corrige l'indentation et la structure de la page advancedSearch.php.
+
+commit b47452bd9e4c85bf645f157c08bab9dbeda9f8d1
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-17 20:04:24 -0400
+
+    Correction du commit précédant.
+
+commit 355ec175bb3a060bd2cd1a59ddc775a57a7293be
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-17 20:01:05 -0400
+
+    Ajout de commentaire à tous les champs de la base de données.
+
+commit a49003e7bd436745310737657e6b9fd3175043fc
+Merge: 884d0fa 89dc3f9
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 12:15:28 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 884d0fae9b3d92c6215b0e05ca6f0ae9b1f6f783
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 12:14:28 -0400
+
+    Change la page de gestion des tables de pilotages afin qu'elle affiche
+    le formularire correspondant à un paramètre dans l'url et utilise une
+    fonction php pour générer ledit formulaire.
+
+commit d89d0d84be0431579c9d7805e4df6b26631662f2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 12:11:23 -0400
+
+    Ajoute la solution pour générer automatiquement le dictionnaire de données dans le
+    fichier TODO.
+
+commit eab61af9dd13f25a6bea4698326b80784d3c6ea2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 09:23:50 -0400
+
+    Change les nom des tables de la base de données afin qu'elles commences
+    par une minuscule.
+
+commit e61b98ca59b58f075a72a5da81be1bae1e4fe27c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 09:10:39 -0400
+
+    Modifie le fichier index.html afin que l'en-tête et le pied de page
+    soient inclus en PHP.
+    
+    Ajout d'un répertoire "sharedFiles" contenants les fichiers partagés
+    devant être inclus dans plusieurs pages.
+
+commit 6bd0318636f3b1bb03ed04b238438db92c59a4a5
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 09:08:21 -0400
+
+    Corrite l'utilisation de sélecteurs d'attributs CSS qui nécessitent
+    d'entourer les noms des attributs de guillemets doubles.
+
+commit 48931a5a6bf8c58a682937ea88f7739e57b40ab4
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 09:05:44 -0400
+
+    Ajoute les champs "inactif" de type BOOLEAN dans les tables de pilotages de la base de
+    données.
+
+commit ff6a9527507d15f5fd5fb25a18bd0472061c0ab2
+Merge: 21a16d9 e6b39ff
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 08:18:06 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 21a16d9c992ee60744e799c09fb739183c34b512
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-13 08:16:55 -0400
+
+    Ajoute les champs interprêtes, paroliers, compositeurs et artistes dans
+    le formulaire de détails d'une piste d'un média.
+
+commit 85651a1f7130ec74b27de558e6e3d5f3db213896
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-11 20:46:36 -0400
+
+    Ajoute la possibilité de supprimer des données du troisième niveau de
+    détails du formulaire de détails d'un média.
+
+commit 0cfa11b55d7ffa39d23db1ac530b2ca9778b1dd9
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-11 20:07:50 -0400
+
+    Ajoute la possibilité de supprimer des données du troisième niveau de
+    détails du formulaire de détails d'un média.
+
+commit db9e3bc7e0510961581f2543691647cd4204ad19
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-11 19:46:06 -0400
+
+    Améliore le troisième niveau de détails du formulaire de détails d'un
+    média afin qu la modification d'une valeur d'un select change le résumé
+    affiché.
+
+commit 8add913d7c1828214ee8f885bfffb976b1b971dd
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-07 22:07:49 -0400
+
+    Ajoute la page permettant de modifier un média audio/vidéo et applique
+    le concept de base permettant de représenter les trois niveaux de
+    détails des tables représentants ledit média.
+
+commit 441afce148892bc5831060e2f8825a2f5372b9e8
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-07 20:23:56 -0400
+
+    Supprime des espaces inutiles dans le fichier de génération de la base
+    de données.
+
+commit be95141bd9c5124e6b7418bfe61ac199658b06a2
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-07 15:44:21 -0400
+
+    Corrige une erreur de clé étrangère dans la table « Audios_videos ».
+
+commit de5dc6a089873acc63c565b0043fd4a85f0b2bfb
+Merge: 53432b0 58bbbf3
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-06 11:14:14 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 53432b078427554d5fdc119b901660de2cd12e81
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-06 10:53:11 -0400
+
+    Converti le code javascript de gestion des tables de pilotages en code
+    jQuery.
+    
+    Rend les champs row_state des tables de pilotages désactiver pour une
+    modification manuelle de l'utilisateur.
+    
+    Cache les enregistrements qui ont été utilisés par l'utilisateur et dont
+    le row_state est passé à Deleted.
+    
+    Corrige le bouton "Annuler" du formulaire afin qu'il fasse une
+    annulation complète.
+
+commit 74a838c588f14a78a7e29716e1a5931d4d5e6547
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-05 22:06:44 -0400
+
+    Convertit le code javascript du module de gestion des tables de
+    pilotages en code jQuery.
+    
+    Ajoute le concept de row_sate afin de connaître l'état de chaque
+    enregistrement de la table de pilotage.
+
+commit f605f4684fac01c6d139f09629b8fbc2b661b4e7
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-05 18:20:39 -0400
+
+    Change le code permettant d'animer le fil d'Ariane vertical de
+    javascript standard vers jquery.
+
+commit be5d414c611ec96c8908d80562f9f4e7a752db2e
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-05 18:19:17 -0400
+
+    Place la barre d'utilisateur à l'intérieur de l'en-tête, met un peu de
+    mise en forme sur le titre et lui importe une police de caractères
+    spécifique.
+
+commit 0fb6f0329387b19ff074ad1c2d3416c88e4cafdd
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-05-02 07:25:57 -0400
+
+    Améliore le fichier permettant d'ajouter/modifier/supprimer des
+    enregistrements des tables de pilotage en ajoutant un système de tri par
+    colonnes.
+
+commit 640087a43656845cc758bcf7908d3c63fffc0d8f
+Merge: 47c4a03 a9ce2fa
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-30 19:36:18 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 47c4a030c6ed5449a01c6b5dec7f5fd8ef327ced
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-30 19:33:16 -0400
+
+    Ajoute une page permettant de gérer les tables de pilotages et d'un
+    fichier javascript permettant de gérer l'ajout/suppression
+    d'enregistrements dans le formulaire.
+
+commit a62398687729c86cead027d21f006cdd0679e560
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-29 10:18:08 -0400
+
+    Ajoute un répertoire "documentation" contenant la liste des choses à
+    faire (TODO).
+
+commit 9120dbfd896039a6e2f4d91b63a397f6b05328b1
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-28 22:34:00 -0400
+
+    Ajoute une fonctionnalité javascript qui cache les éléments excédants un
+    nombre prédéfini dans les listes du fils d'Ariane vertical et affiche un
+    lien « Afficher plus » qui permet d'afficher ou de cacher les éléments
+    excédentaires.
+    
+    Advenant le cas où le javascript ne peut être exécuté, tous les éléments
+    sont affichés.
+
+commit efc0ccd2ebded4960b531304c75d981d4d6ed608
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-28 16:45:13 -0400
+
+    Ajoute le logo du cégep de Trois-Rivières et un icone pour le bouton de
+    recherche.
+
+commit a6b72080e37ed930cfcad51f30f6a7fc4739e533
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-28 12:09:05 -0400
+
+    Ajoute un formulaire de recherche simple sur la bordure droite du
+    header.
+
+commit 20f14106a254aae8dcfab28dcda8c173718f1715
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-27 21:33:50 -0400
+
+    Remplace les couleurs fluos par les couleurs choisies par Marc-André,
+    applique des tailles pour les titres, ajout de marges pour l'ensemble du
+    contenu et travail sur la mise en forme du vertical-breadcrumb.
+
+commit 4638ac7f553d8ffc82a4287022161ab6097b58e5
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-26 22:15:05 -0400
+
+    Configure settings to consider 1280x800, 1024x764, 800x600 and 640x480.
+
+commit 484aec03a223844b8152e2e365053f6328b787a7
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-26 21:43:09 -0400
+
+    Configure partial sizable page.
+
+commit b849a36707c1586e7fcb40507bc1ca705932988c
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-26 16:38:35 -0400
+
+    Work on the user-bar.
+
+commit a7221d7be3faa177765f7ed8dfad36f3060f7d8b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-24 19:01:14 -0400
+
+    Start to change header to correspond to what the team decided.
+
+commit fb105c810f13d4ffe486d4b58b437e52622c6a01
+Author: Martin Desharnais <martin@frodo.(none)>
+Date:   2011-04-14 14:39:28 -0400
+
+    Add CSS code to let old web browsers display new HTML5 tags with "display: block;" property.wq
+
+commit cd7af2bd42ccc96651775e0dc401128422afab0f
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-10 22:01:59 -0400
+
+    Add CSS design to content and footer.
+
+commit 7d630998a9e52149fdee4a63908f38b741b4906b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-10 21:30:54 -0400
+
+    Add a min width to the page.
+
+commit df03b892cd00c35152b8fb56928ff768e6aeca3b
+Author: Martin Desharnais <martin.desharnais@gmail.com>
+Date:   2011-04-10 21:08:36 -0400
+
+    Add initial files: the cegep logo, a default index file, CSS files for general, header,
+    content and footer.
+    
+    Design the header part.

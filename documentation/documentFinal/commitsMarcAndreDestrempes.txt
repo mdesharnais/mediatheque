@@ -1,0 +1,452 @@
+commit 41af1b378f6d01db23d8cb40607fc662e838e63f
+Merge: f9462b2 5994a9b
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-07 17:01:13 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit f9462b2ffe43633ff12af87a86b2342fd1b44893
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-07 17:00:20 -0400
+
+    Ajout de l'arborescence du site. Changement du diagramme d'enchainement pour une annexe.
+
+commit 24213c80aa6e1f9a15adae62b17a59dbb7f2de00
+Merge: 38aeaed 40dafc2
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-07 15:59:23 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 38aeaed8415b7f954aa9e2ad9c72ecf19c896768
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-07 15:57:27 -0400
+
+    Modification de la descriptions pour emprunt et retour.
+
+commit bf48dd5399e0a7ad1b42d308255ccd0372827cad
+Merge: 0460e20 1d8678c
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-07 15:46:24 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 0460e209b78d5c12a6ab8de89dd74e0103e1d5b6
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-07 15:45:32 -0400
+
+    Ajout d'un radio button pour le choix d'un interval pour les reservations ou des que le media est disponible.
+
+commit 75c3f977d00631ddbd15db0c990d82bae9304f91
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-07 14:22:07 -0400
+
+    Modification des titres des pages. Dernieres petites modifications au document final.
+
+commit bdf93a71d50c3b8806d4000f434589044e105e4c
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-06 23:02:14 -0400
+
+    Ajout de precision sur le texte et changement de place pour les rapports. Ajout de captures d'ecrans.
+
+commit 660565b5496df65946129b63ff7774429a47805b
+Merge: d8ab0a9 4ecfeda
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-06 21:07:31 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit d8ab0a97a9c603fdeffe678fc397f6aac96ac3e9
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-06 21:06:38 -0400
+
+    Ajout de la documentation sur emprunts, retours, reservations, qr code. Correction d'un bug lors de la suppression d'un media.
+
+commit f3faed03988790a14e74623dc571bed439cfb9e5
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-06 20:00:01 -0400
+
+    Creation du tableau pour les rapports. Ne reste que quelques colonnes a ajouter peut-etre.
+
+commit 637322908e2f4acdd0e956511bf4614fffc4df1d
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-06 19:25:27 -0400
+
+    Ajout de css pour enlever les table border dans les tooltips.
+
+commit fcc9319b15f36a8d69b760950e026a219e6259f2
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-06 19:19:49 -0400
+
+    Corriger une erreur de reference sur une colonne car elle a changer de nom dans la base de donnees.
+
+commit 4dce55c5cf4c48a25e493975c04fc767386aedb7
+Merge: d9c282f 6ded283
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 11:00:49 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit d9c282fe4222ba60a326a72fe8c09d9791587870
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 11:00:14 -0400
+
+    Ajout du fichier pour generer le rapport sur les medias audio a partir du genre.
+
+commit 413e4f4ce0e14faac14a5d4ba34dfb2ea08d8fff
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 10:35:19 -0400
+
+    Modification du fichier reservationMedia.php pour prendre en compte les nouveaux changements dans la base de donnees.
+
+commit a8179d9858872a6b6029ab2ca86e160e34ca51d1
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 10:16:40 -0400
+
+    Ajout du fichier jquery pour gerer les tooltips en local au lieu daller le chercher sur internet.
+
+commit 59c7988b6d2df1d06181b7d35e0441e5193fbec6
+Merge: d0813a7 7e8d2c2
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 10:04:52 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit d0813a798e2df1870528ec9eb00f68987c3119ba
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 10:02:21 -0400
+
+    Correction des fichiers getMedia pour refleter les changements dans la base de donnees. Changer les id des medias correspondant au numero de reference pour que chaque media ait un numero de reference et non pour qu'un media ait 10 reference.
+
+commit 9f64bc61d96d24a4c2cfce08fa8c1d41daec3d71
+Merge: 0155cf8 523a9c4
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 09:52:30 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 0155cf8af59ca34e35f243679c8bfa7c5c8dcf35
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 09:51:15 -0400
+
+    Centrer les colonnes des images.
+
+commit cb4859fb1687c82a2d81ddb076eb7531219c3e0b
+Merge: 6a98124 58301a1
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 09:44:35 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 6a981245483f95c1472685d6f0fe57c2a386b21c
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 09:43:50 -0400
+
+    Ajout des images pour le tableau image dans le dossier document final.
+
+commit 418a1dbc4c5ae88902b06fb4419a5f9f6df72dd4
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 09:28:58 -0400
+
+    Ajout des images dans le tableau images.
+
+commit 115053160e771c819bcf533f7524a3e6b4146c87
+Merge: 03096f3 9bd57aa
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 09:05:23 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 03096f399100a22ae614afc97301b91b14f0290b
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-03 09:04:46 -0400
+
+    Ajout du nouveau diagramme d'enchainement avec un petit texte descriptif.
+
+commit 9129e60965cfda0a0a6c959776c933e51e2db178
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 21:23:59 -0400
+
+    Ajout de l'affichage complet d'un media, comme dans une recherche, dans la page de reservation.
+
+commit cf1dcfd465d68897e29c2a1ea65f880169973d8c
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 10:30:02 -0400
+
+    Ajout de commentaires dans les fichiers php.
+
+commit ae77ebf63540fa95e047ecf5b22d8598ced6fa66
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 10:21:54 -0400
+
+    Changer les auteurs et titre de mes pages.
+
+commit 2575723aca905f92bfdd527902f66796762e454f
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 10:11:06 -0400
+
+    Completion du tableau sur les couleurs.
+
+commit 03e7ce6b25db3cb1d2975003dba341df51a0e81f
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 09:19:42 -0400
+
+    Modification du tableau des couleurs et des polices de caracteres.
+
+commit d7fdbcc8dab0236db10e37f9b3574c60f4a600c7
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 08:15:45 -0400
+
+    Suppression des screenshots. Modification de l'image du diagramme d'enchainement. Suppression de l'affichage des dimensions des fenetres du css.
+
+commit 51a2899be211f258d732ecdbd2950603da1d4530
+Merge: 01e9d8f 4b997d6
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 08:06:00 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 01e9d8f9c3294f21e8ad82b31d76a9585b1231e6
+Merge: c30c358 7fb6e56
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-02 08:05:41 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+    
+    Conflicts:
+    	php/myReservations.php
+
+commit c30c358239c34d8e274d8aa566163687cad4d207
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-06-01 19:49:53 -0400
+
+    Enlever les contours pour les table. Ajout de la page generateQR.php au menu administration. Corriger un bug ou pour mes reservations les requetes ne retourne pas toujours de resultats.
+
+commit 0cbd86f83d6c3d476350efbf7434b75f6e8527d6
+Merge: 021aa76 aee23ee
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-31 20:37:13 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 021aa765fe7f6091ef88bfc377d93a9d1dc4383a
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-31 20:35:58 -0400
+
+    Changer des labels dans emprunt.php et retour.php et supprimer le bout ou Exception des messages d'erreurs.
+
+commit 9ff9ad1f87aefeec83a5ad93b72fed1b02b6bcf2
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-31 20:05:42 -0400
+
+    Ajout de la charte graphique et du diagramme d'enchainement au fichier .tex. Ajout d'une commande insert pour les emprunts/reservations dans le fichier mediatheque.sql.
+
+commit 219dd91232eab56b6350708ca3e3e9e22d192774
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-30 19:45:06 -0400
+
+    Ajout des documents Charte Graphique, Diagramme d'enchainement et du QRreader. Correction de bugs pour les submit des pages emprunt et retour.
+
+commit 1d68da6a178b4eac958f28c1042e39badfb9abe0
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-30 19:30:42 -0400
+
+    Conversion de UTF-16 a UTF-8.
+
+commit 9dae3b4da793d548b200721883956ffdc7d0af1d
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-27 11:07:59 -0400
+
+    Correction des divers bugs avec la base de donnees. Ajout de la page heures douverture.
+
+commit a58dd2c056a226ce340a03cbf14ce48e130e4345
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-27 09:00:00 -0400
+
+    Ajout de la page retour. Correction des champs de dates dans la page de reservation.
+
+commit 5553df12e7d1b0bcb7f96bd0ad449b9a76c31514
+Merge: 89d727d 4c80e87
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-27 08:37:52 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit 89d727d1919623012775549726484811c442c2a5
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-27 08:36:48 -0400
+
+    Ajout de la page d'emprunt en cours. Correction de quelques accents manquant et ajout des liens dans le menu.
+
+commit e90b7ef8756b71daebf79d4aa76fead000d6d729
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-26 20:20:57 -0400
+
+    Correction du bug ou le tooltip pour les details d'un media ne s'affichais pas. Correction des fautes d'orthographes.
+
+commit 4108e4514ad60135d7074a53a0074bb7ea4009b5
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-26 19:39:31 -0400
+
+    Ajout de la page historique des emprunts.
+
+commit 82a2ae8a72b27fbb1e95b5b1b0443d2c2242aeb5
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-26 13:42:45 -0400
+
+    Ajout de la page pour visionner les reservations en cours.
+
+commit 6fbc720bd9a3a1fe73a6166528a308d4d1435071
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-26 12:31:28 -0400
+
+    Ajout de la gestion des utilisateurs avec les messages d'erreurs correspondants et la gestion du media par l'ID a ete modifie.
+
+commit dddc16d2fc46aea07fbcb1d7c53f78a0b11b48f0
+Merge: c407bb5 5d515c0
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-25 17:51:58 -0400
+
+    Merge branch 'master' of https://github.com/authchir/mediatheque
+
+commit c407bb5be00297cc458cd0f544fca76d27b4ca2d
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-25 17:50:21 -0400
+
+    Ajout et creation des fichiers necessaire pour la page reservation. La gestion des utilisateurs est integre, le media se charge automatiquement a partir du parametre qui lui est passe.
+
+commit 24b044f3f3cd375fe7a380ed2826fd81e648a659
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-25 16:37:11 -0400
+
+    Ajout des droits d'utilisateur sur la page emprunt et ajout de l'access a cette page a partir du menu.
+
+commit 938bcd2d81a5060171b51c38ed1e1c7fbc5ed629
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-25 16:07:33 -0400
+
+    Changement du fichier Untitled.odt pour autre.txt.
+
+commit caf92e0cc6a4e6427ca05d809fc471ffd62bdcc6
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-25 16:03:26 -0400
+
+    Ajout de fichiers de documentations.
+
+commit a8059f4c1c91b1814c5baa41798b06f5153b0162
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-22 19:18:35 -0400
+
+    Correction de l'emplacement du tooltip lors de l'affichage de celui. Il est centre automatiquement.
+
+commit f15f16a1f701cbaee01e7ce7b21ad2efa41e3b01
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-22 18:54:34 -0400
+
+    Correction du bug de l'affichage des donnees de le tooltip. Ajout de validations pour empecher la provocation d'erreurs.
+
+commit cf2b587e88fe65b319f8d44ee947e617166135c8
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-20 11:05:50 -0400
+
+    Ajout des tooltips pour les emprunts et modification de l'affichage des medias lors d'un emprunt.
+
+commit 0b715871ea4bdcf4158339403e3841f61d0f61c0
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-20 09:04:38 -0400
+
+    Suppression de fichiers qui ne sont désormais plus utiles.
+
+commit e1c2e3d3d67c9ffa617b1c7f4f8838c626f6ce4f
+Merge: 7aba501 1ae58b6
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-19 20:25:01 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 7aba501f33d06e6d55787fc7971b91a787e5c560
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-19 20:23:18 -0400
+
+    Fait le modele de la page de reservation avec les informations envoyer lors de la confirmation d'une reservation ainsi que des parametres utilisateur et media qui sont pris en compte automatiquement si ceux-ci existent.
+
+commit b21faa28effa23c481f6e62c826e8034a9444848
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-19 11:03:38 -0400
+
+    Ajout du fichier php pour ajouter des medias pour un emprunt.
+
+commit 3f18e414645d710f8d87456d4c182e66d7d4268f
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-19 09:59:02 -0400
+
+    Changer le fichier emprunt.html pour un fichier .php et le generateur de date a ete refait en entier et en php. La version de celui en javascript dans generateEmprunt a ete supprime.
+
+commit a5a64efac4dd67ec428e2b95060a4e9be127f4b6
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-15 19:22:24 -0400
+
+    Ajout des dates et tri de ceux-ci lors d'un emprunt.
+
+commit ee683a920991d233d39b67e810f0b22089247009
+Merge: 0ff3889 ff6a952
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-13 11:27:17 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 0ff38897fab70826e4a55fda788a1e9740983061
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-13 11:25:58 -0400
+
+    Ajout des boutons ajout/suppression de medias avec le code correspondant. Il reste a finaliser l'affichage des donnees.
+
+commit 8979ac10a87363587c2514b80a3f6f04f2028ddf
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-13 08:52:27 -0400
+
+    Correction du bug ou le bouton Afficher ne faisait absoluement rien.
+
+commit e6b39fff99de70a9414f42ae3a2f633b662a7b66
+Merge: 0d95619 5ea3486
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-13 08:17:27 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 0d95619e8395e6e0e1f8fa1894c7ec78e49f72b0
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-13 08:16:35 -0400
+
+    Changer le champ email pour courriel et la longueur de 100 a 320 dans le fichier .sql.
+
+commit eb16c97983268b8e4c4a3dbb12f5d048858e1d2a
+Merge: 240b49d 85651a1
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-12 10:55:55 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 240b49dba92415a87182276737b8501c3694a058
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-12 10:52:43 -0400
+
+    Creation de l'interface qui permettra de faire des emprunts. Un fichier xml avec les utilisateurs a ete ajouter. Il restera a corriger le bug du bouton afficher, lier le texte entrer avec les boutons pour afficher le bon resultat et permettre l'ajout de plusieurs medias.
+
+commit 58bbbf360bf3c29eba39f77c99a9c15e18ec0175
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-06 11:03:30 -0400
+
+    Ajout des champs matricule, telephone et email dans la table utilisateurs de la base de donnees.
+
+commit dfea1c019047306465fed2574e03bdfad5144d69
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-06 10:34:58 -0400
+
+    Creation de la page modifyMedia pour la modification de medias. La fonctionnalite implemente est la generation de code QR selon le code specifie dynamiquement.
+
+commit c83ce7527b7ad69ff3a5dfa2b6393a9904209f3c
+Author: Marc-Andre Destrempes <xeph_555@hotmail.com>
+Date:   2011-05-06 09:16:33 -0400
+
+    Ajoute un fichier qui genere des QRCode.

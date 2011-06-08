@@ -1,4 +1,4 @@
-\documentclass[letter, 11pt]{report}
+\documentclass[report, 11pt, twoside]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -136,7 +136,7 @@ Les médias audio et vidéos sont un cas à part, car nous nous sommes aperçus 
 
 Ainsi, pour effectuer une interrogation à la base de données concernant l'ensemble des médias, il suffit d'interroger la table \texttt{medias} qui contient les informations communes à tous les médias. Si nous voulons des informations plus précises sur un média audio, il suffit de joindre les tables \texttt{medias} et \texttt{audios\_videos} selon l'\texttt{ID} du premier et l'\texttt{exID} du second.
 
-Nous pouvons toujours être surs que, pour chaque enregistrement de la table \texttt{media}, il y aura toujours, selon le type, un enregistrement correspondant dans la table \texttt{audios\_videos} ou bien dans la table \texttt{imprimes}.
+Nous pouvons toujours être sûrs que, pour chaque enregistrement de la table \texttt{media}, il y aura toujours, selon le type, un enregistrement correspondant dans la table \texttt{audios\_videos} ou bien dans la table \texttt{imprimes}.
 
 Dans l'exemple des tableaux \ref{tab:sf-medias}, \ref{tab:sf-audios-videos} et \ref{tab:sf-imprimes}, nous voyons que le CD \emph{l'expédition}, paru en 2008, est de nationalité canadienne alors que le livre \emph{La communauté de l'anneau}, paru en 1972, appartient à la collection \emph{Le seigneur des anneaux}. Ce sont tous deux des médias, mais les informations supplémentaires de chacun sont dans la table correspondant à leur type.
 
@@ -201,7 +201,7 @@ Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la r
 	\caption{Fil d'Ariane lorsque raffiné au maximum}
 \end{figure}
 
-Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établi que s'il y avait plus de trois suggestions de valeurs pour un critère, une entrée de liste "Afficher plus" serait affichée pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à noter que cette fonction n'est disponible que sur un navigateur ayant le JavaScript activé. La désactivation du JavaScript n'amène pas de problèmes en tant que tels. Les valeurs des critères seront tout simplement affichées dans leur ensemble sans possibilité de cacher X résultats.
+Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établi que s'il y avait plus de trois suggestions de valeurs pour un critère, une entrée de liste "Afficher plus" serait affichée pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à noter que cette fonction n'est disponible que sur un navigateur ayant le JavaScript activé. La désactivation du JavaScript n'amène pas de problèmes en tant que tel. Les valeurs des critères seront tout simplement affichées dans leur ensemble sans possibilité de cacher X résultats.
 
 \subsection{Parcourir}
 Le mode « Parcourir » est tout simplement l'exécution d'une recherche n'ayant aucun critère spécifique. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination affichant 5 résultats par page. Pour raffiner les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
@@ -293,11 +293,8 @@ L'utilisateur peut consulter la fiche détaillée du média en cliquant sur son 
 \section{Administration}
 La zone d'administration permet aux utilisateurs possédant les droits requis d'effectuer des emprunts, des retours, des rapports, de générer des codes QR, de faire la gestion des groupes, des utilisateurs et des tables de pilotages.
 
-\subsection{Emprunt}
-La page «~Emprunt~» permet, aux personnes qui ont les droits requis, d'entrer des emprunts dans la base de données. Pour effectuer un emprunt, la personne qui veut emprunter présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le +. Les dates disponibles vont changer selon les réservations et les disponibilités du commis.
-
-\subsection{Retour}
-La page «~Retour~» permet, aux personnes qui ont les droits requis, d'entrer des retours dans la base de données. Pour effectuer un retour, la personne qui veut faire un retour présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le -.
+\subsection{Emprunt et retour}
+Les pages «~Emprunt~» et «~Retour~» permettent, aux personnes qui ont les droits requis, d'entrer des emprunts et retours dans la base de données. Pour effectuer un emprunt ou retour, la personne qui veut emprunter présente sa carte. À partir d'un lecteur de QR code on numérise le code et celui rempli automatiquement le champ désigné. On effectue la même opération lorsqu'il s'agit d'ajouter les médias. Ces deux opérations peuvent aussi s'effectuer à la main, c'est-à-dire entrer les codes manuellement. Pour supprimer un média de la liste lors d'une erreur, la personne n'a qu'à entrer le numéro de référence à nouveau et appuyer sur le +. Pour les emprunts, les dates disponibles vont changer selon les réservations et les disponibilités du commis. Les retours n'ont pas besoin de dates.
 
 \subsection{Générer code QR}
 À partir du générateur de code QR, l'usagé n'a qu'à entrer le texte qu'il veut et le code QR correspondant sera généré. Dans le contexte présent, l'utilité de ces codes est de permettre l'identification des médias sans commettre d'erreurs. Ces codes peuvent contenir le texte désiré. Ainsi, le code de référencement maison peut toujours être utilisé. Si nous voulons pousser plus loin encore, les codes QR pourront être utilisés pour la fabrication de cartes qui seront remises aux usagés pour assurer un meilleur contrôle de ce qui entre et sort.
@@ -330,7 +327,7 @@ Cette technique offre de nombreux avantages dont voici une liste non exhaustive~
 	\item Possibilité de définir une valeur comme n'étant plus disponible pour utilisation future, mais restant valide pour les utilisations passées;
 	\item Possibilité d'éviter tout risque de dédoublement de valeurs suite à des fautes d'orthographes\footnote{La seule possibilité de dédoublement des valeurs est si la personne chargée de gérer les tables de pilotages écrit deux fois la même valeur avec une orthographe différente (e.g.\ Trois-Rivières et trois-rivieres).}.
 	\item Possibilité de mettre à jour instantanément la valeur d'une option pour tous les enregistrements l'utilisant en modifiant simplement sa valeur dans la table de pilotage.
-	\item Poid de la base de données réduit puisqu'il est moins lourd de définir de nombreuses clés étrangères que de répéter de nombreuses fois la même chaine de caractères.
+	\item Poids de la base de données réduit puisqu'il est moins lourd de définir de nombreuses clés étrangères que de répéter de nombreuses fois la même chaine de caractères.
 	\item Possibilité de ne donner les droits de modification à la table de pilotage qu'à certains groupes d'utilisateurs.
 \end{itemize}
 
@@ -427,7 +424,7 @@ Ces pages permettront de publier des informations concernant la médiathèque et
 
 \subsection{Introduction}
 
-Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisie un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentatifs de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institutions de musique, tel un orchestre symphonique constitué de musiciens vêtus de vestons cravates.
+Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisi un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentatifs de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institutions de musique, tel un orchestre symphonique constitué de musiciens vêtus de vestons cravates.
 
 \subsection{Maquette}
 
@@ -435,7 +432,7 @@ Toutes les pages sont construites sur la base du modèle suivant :
 
 \begin{enumerate}
 	\item Bandeau
-	\item Fil d'Ariane vertical (n'apparais cependant que dans certaines pages)
+	\item Fil d'Ariane vertical (n'apparait cependant que dans certaines pages)
 	\item Contenu de la page
 	\item Pied de page
 \end{enumerate}
@@ -499,7 +496,7 @@ Le bandeau est constitué des éléments suivants:
 \end{description}
 
 \subsubsection{Fil d'Ariane vertical (2)}
-Le fil d'Ariane vertical permet d'afficher des critères permettant davantage la recherche. Il contient des éléments liste contenant des liens pour raffiner la recherche.
+Le fil d'Ariane vertical permet d'afficher des critères permettant davantage la recherche. Il contient des liste de critères permettant de raffiner la recherche.
 
 \subsubsection{Contenu (3)}
 Le contenu des pages est affiché dans cette partie. Son contenu varie énormément selon la page affichée. Dans la capture d'écran présente ci-haut, on y voit les résultats d'une recherche.
@@ -605,7 +602,7 @@ Tous les titres commencent par une majuscule suivie par des minuscules. Il en es
 
 \subsubsection{Arborescense du site}
 
-À générer à l'aide de vision ou à la main
+Voir le diagramme en annexe.
 
 \subsubsection{Images}
 
@@ -615,7 +612,7 @@ Tous les titres commencent par une majuscule suivie par des minuscules. Il en es
 		\begin{tabular}{|c|l|p{10cm}|}
 		\hline
 		Image                                            & Taille           & Description \\ \hline
-		\includegraphics[scale=0.2]{black_arrow_big.png} & 370x216, 209x122 & Cette image servira a afficher les détails d'un média sous forme d'infobulle.\\ \hline
+		\includegraphics[scale=0.2]{black_arrow_big.png} & 370x216, 209x122 & Cette image servira à afficher les détails d'un média sous forme d'infobulle.\\ \hline
 		\includegraphics{cart.png}                       & 20x20            & Icone représentant la réservation d'un média. \\ \hline
 		\includegraphics[scale=1.15]{emprunt.png}        & 87x87            & Icone représentant un emprunt. \\ \hline
 		\includegraphics[scale=0.3]{reservation.png}     & 87x87            & Icone représentant une réservation. \\ \hline
@@ -683,7 +680,7 @@ Pour la page de réservations, le média sélectionné est affiché avec ces dé
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.25]{captures_ecran/reservation.png}
+		\includegraphics[scale=0.4]{captures_ecran/reservation.png}
 	\end{center}
 	\caption{Modèle de réservations}
 \end{figure}
@@ -692,7 +689,7 @@ Pour la page de retours, le matricule de l'utilisateur est entré à la main ou 
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.25]{captures_ecran/retour.png}
+		\includegraphics[scale=0.5]{captures_ecran/retour.png}
 	\end{center}
 	\caption{Modèle de retours}
 \end{figure}
@@ -701,7 +698,7 @@ Pour la page d'emprunts, le modèle est exactement le même que celui des retour
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.25]{captures_ecran/emprunt.png}
+		\includegraphics[scale=0.5]{captures_ecran/emprunt.png}
 	\end{center}
 	\caption{Modèle d'emprunts}
 \end{figure}
@@ -712,7 +709,7 @@ Ce modèle est utilisé pour gérer le contenu des tables de pilotage\footnote{V
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[scale=0.4]{captures_ecran/modele_tables_de_pilotage.png}
+		\includegraphics[scale=0.7]{captures_ecran/modele_tables_de_pilotage.png}
 	\end{center}
 	\caption{Modèle table de pilotage}
 \end{figure}
@@ -730,7 +727,11 @@ Ce modèle est utilisé pour afficher des formulaires simples ayant un seul nive
 
 \subsection{Le modèle de page de détails avancé d'un média}
 
-Ce modèle est utilisé pour visionner ou modifier les détails d'un média. Lorsque l'utilisateur est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe plusieurs niveaux de détails pour un média. Des boutons plus et moins sont utilisés pour naviguer entre ces différents niveaux de détail.
+Ce modèle est utilisé pour visionner ou modifier les détails d'un média. Lorsque l'utilisateur est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe plusieurs niveaux de détails pour un média. Le premier représente le média lui-même, comme un CD de musique, le second représente les enfants du médias, comme les différentes pistes de notre CD, alors que le troisième niveau représente les enfants du second niveau, tel que les différents artistes ayant participés à une piste. 
+
+Puisque la quantité totale d'informations peut-être importante, tous les niveaux sont cachés par défaut et un résumé est affiché en lieu et place. Un clique sur le résumé fait apparaître l'enregistrement correspondant. De plus, des boutons plus et moins permettent d'ajouter et de supprimer des enregistrements des différents niveaux.
+
+C'est là l'une des râres pages entièrement dépendante du JavaScript. Sans lui, il serait simplement impossible d'offrir la modification de tous les niveaux d'un média en une seule page.
 
 Lorsque l'utilisateur n'est pas un administrateur, tous les champs éditables deviennent des éléments affichés.
 
@@ -747,18 +748,13 @@ Ce modèle de page est utilisé pour des données sous forme de rapports. Les ra
 
 \section{Diagramme d'enchaînement}
 
-\begin{figure}[htbp]
-	\begin{center}
-		\includegraphics[scale=0.13]{diagrammeEnchainement.png}
-	\end{center}
-	\caption{Diagramme d'enchaînement}
-\end{figure}
+Voir le diagramme en annexe.
 
 Pour accéder au niveau 2 du diagramme, nous devons emprunter exactement le chemin indiqué dans le schéma. Le niveau inférieur peut, en tout temps, accéder aux pages du niveau supérieur. Lors d'une connexion, si l'utilisateur n'est pas un administrateur nous ne lui affichons pas les pages emprunt et retour. Sinon, nous lui rajoutons ces options dans le menu.
 
 \section{Diagramme de classe}
 
-Voir l'API du système fourni avec le document.
+Le diagramme de classe est disponnible dans la documentation Doxygen se trouvant sur le CD accompagnant ce document. Pour pouvoir la consulter, il suffit d'ouvrir le fichier index.html et elle s'ouvrira sous forme de site internet.
 
 \section{Base de données et dictionnaire}
 
@@ -794,10 +790,11 @@ Lors de la conception, le site a été testé sur les navigateurs suivants~:
 Le site est fonctionnel sur l'ensemble des navigateurs, mais certains effets graphiques ne sont disponibles que sur les versions récentes de chacun.
 
 \subsection{Languages}
+
 \subsubsection{Client}
 Du côté client, les langages utilisés sont le HTML 5, le CSS 3, le JavaScript et le XML.
 
-Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalités dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 «~border-radius~» nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et affichera des coins carrés standards.
+Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalités dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 «~border-radius~» nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit simplement ignorer la propriété et affichera des coins carrés standards.
 
 Pour le JavaScript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utilisée afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet, cette bibliothèque a l'avantage de proposer des fonctions unifiées qui se chargent pour nous de gérer les différences entre les différents navigateurs.
 
@@ -821,13 +818,17 @@ Les conventions php utilisés sont les suivantes~:
 \end{itemize}
 
 \subsection{Bande passante}
-L'utilisation et l'administration du site nécessitent une bande passante standard.
+L'utilisation de la bande passante à été un sujet soins constants. La charte graphique du site se base massivement sur le CSS et n'utilise qu'un nombre très restreint d'images. De plus, la plupart des script JavaScript et codes CSS ont été placés dans des fichiers externes afin de bénéficier du cache des navigateur.
+
+La page la plus lourde répertoriée (dûe à la présence de trois grosses images JPG) ne pèse que 139 kilo-octets, dont environ 40 ko peuvent être mis en cache, alors que la page d'accueil du site internet du cégep de Trois-Rivières en pèse 625\footnote{Il est à noter que, dans les deux cas, les chiffres donnés sont ceux donnés avec compression des données. Nous prenons pour acquis que la fonctionnalité sera activée sur le serveur web.}. La consommation de bande passante à donc été réduite au minimum et un forfait d'entrée de gamme se révèlera plus que suffisant afin de pourvenir aux besoins de la médiathèque.
 
 \subsection{Serveurs}
 Apache HTTP Server 2.2.16 -- 2.2.17
 
 \subsection{Type de base de données}
 MySQL 5.1.49 -- 5.5.8
+
+Pour utiliser la base de données, il faut créer l'utilisateur \texttt{website@localhost} avec le mot de passe \texttt{1234}.
 
 \section{Sécurité}
 \label{sec:sécurité}
@@ -842,7 +843,7 @@ La gestion des droits fait appel au «~bit~bashing~», une technique qui consist
 	\item \$application->rights['execute'] = 0100
 \end{itemize}
 
-et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table droits\_groupes contiendrait quelque chose comme ceci~:
+et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table \texttt{droits\_groupes} contiendrait quelque chose comme ceci~:
 
 \begin{table}[ht]
 	\caption{groupes}
@@ -954,13 +955,13 @@ Le groupe B, quant à lui, ne dispose que du droit de renouveler des documents. 
 
 L'exemple précédant couvre la plupart des situations qui peuvent survenir.
 
-La table «~utilisateurs~» nous informe qu'il y a quatre utilisateurs d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un utilisateur inactif perd automatiquement tous ses droits.
+La table \texttt{utilisateurs} nous informe qu'il y a quatre utilisateurs d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un utilisateur inactif perd automatiquement tous ses droits.
 
-La table «~groupes~» nous informe qu'il y a cinq groupes d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un groupe inactif perd automatiquement tous ses droits et ne peut plus être assigné à de nouveaux utilisateurs.
+La table \texttt{groupes} nous informe qu'il y a cinq groupes d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un groupe inactif perd automatiquement tous ses droits et ne peut plus être assigné à de nouveaux utilisateurs.
 
-La table «~groupes\_utilisateurs~» nous informe que l'utilisateur 1 (Frodo Baggins) fait partit du groupe \emph{Administrateurs}\footnote{Par convention, le groupe \emph{Administrateurs} dispose généralement de tous les droits sur le système.}, que l'utilisateur 2 (Samwise Gamgee) fait partit à la fois du groupe \emph{Étudiants} et du groupe \emph{Commis}, que l'utilisateur 3 (Meriadoc Brandybuck) fait partit du groupe \emph{Étudiants} et, finalement, que l'utilisateur 4 (Peregrin Took) fait partit du groupe \emph{Enseignants}.
+La table \texttt{groupes\_utilisateurs} nous informe que l'utilisateur 1 (Frodo Baggins) fait partit du groupe \emph{Administrateurs}\footnote{Par convention, le groupe \emph{Administrateurs} dispose généralement de tous les droits sur le système.}, que l'utilisateur 2 (Samwise Gamgee) fait partit à la fois du groupe \emph{Étudiants} et du groupe \emph{Commis}, que l'utilisateur 3 (Meriadoc Brandybuck) fait partit du groupe \emph{Étudiants} et, finalement, que l'utilisateur 4 (Peregrin Took) fait partit du groupe \emph{Enseignants}.
 
-Enfin, la table «~droits\_groupes~» nous informe si chaque groupe peut~:
+Enfin, la table \texttt{droits\_groupes} nous informe si chaque groupe peut~:
 
 \begin{itemize}
 	\item Afficher ou modifier les résultats de la page drivingTable.php;
@@ -1011,7 +1012,7 @@ Pour atteindre son but, il dispose des informations suivantes :
 	\item \$application->rights retourne un tableau associatif contenant la représentation numérique de tous droits.
 \end{itemize}
 
-Pour pouvoir déterminer si l'utilisateur courant a bien les droits demandés, il faudra exécuter une requête à la base de données qui nous retourne la liste de tous les droits qu'à cet utilisateur sur cette section\footnote{Il peut y en avoir plus d'un si l'utilisateur appartient à plus d'un groupe.}, additionner ces droits grâces à l'\href{http://www.php.net/manual/en/language.operators.bitwise.php}{opérateur «~ou~binaire~»} (binary or) et déterminer si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l'utilisateur grâce à l'opérateur «~et~binaire~» (binary and).
+Pour pouvoir déterminer si l'utilisateur courant a bien les droits demandés, il faudra exécuter une requête à la base de données qui nous retourne la liste de tous les droits qu'a cet utilisateur sur cette section\footnote{Il peut y en avoir plus d'un si l'utilisateur appartient à plus d'un groupe.}, additionner ces droits grâces à l'\href{http://www.php.net/manual/en/language.operators.bitwise.php}{opérateur «~ou~binaire~»} (binary or) et déterminer si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l'utilisateur grâce à l'opérateur «~et~binaire~» (binary and).
 
 \subsection{En conclusion}
 Cette façon de gérer les droits des utilisateurs offre de nombreux avantages~:
@@ -1028,10 +1029,18 @@ Cette façon de gérer les droits des utilisateurs offre de nombreux avantages~:
 \chapter{Prototype fonctionnel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Le prototype fonctionnel est disponnible sur le CD accompagnant ce document.
+
 \appendix
 
 \chapter{Dictionnaire de données}
 \includepdf[pages=-]{dataDictionary.pdf}
+
+\chapter{Diagramme d'enchaînement}
+\includepdf[page=-]{diagrammeEnchainement.pdf}
+
+\chapter{Arborescence du site}
+\includepdf[page=-]{arborescenceDuSite.pdf}
 
 \listoffigures
 \listoftables

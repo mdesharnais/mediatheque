@@ -1,0 +1,654 @@
+commit 5994a9b556afd9a5f098f8031a6dc25fa49cca19
+Merge: 92a9aed ff29384
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-07 16:57:24 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 92a9aedfdc0168b6721509a09fc9903d1c4c5aa0
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-07 16:56:50 -0400
+
+    Correction de fautes d'orthographe phase 2.
+
+commit 040c8214c82d3207f5187dbde7932dede9d6879f
+Merge: e793ea9 24213c8
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-07 16:09:25 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit e793ea921029ac3a34878dac746cab0604ecd588
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-07 16:08:50 -0400
+
+    Rognage des captures d'écran pour ne contenir que l'essentiel et non la barre de navigation.
+
+commit 40dafc25df2248f8fcdd9f0be9134f1e51d99408
+Merge: 79a9af3 c65a4c0
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-07 15:52:11 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 79a9af38537008acba4edbfb26fbb0eb4b602f90
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-07 15:49:16 -0400
+
+    Suppression de l'élément de liste à puce consacrée au système de pagination.
+
+commit 300b2427d296af7fc99d0d6602408f6b52a8e151
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 20:49:55 -0400
+
+    Ajout de texte dans la partie sur la recherche dans les spécifications fonctionnelles.
+    Ajout de captures d'écrans pour les exemples de recherche et de fil d'Ariane verticale.
+
+commit acbbd312fc9d8e0eb8e6614a902f98046c44b5dd
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 19:03:07 -0400
+
+    Ajout des captures d'écran pour la plupart des modèles de page. Dans la section \section{Modèle des pages principales et secondaires}.
+    J'ai ajouté ces captures d'écran cette fois dans un répertoire captures_ecran.
+
+commit bb970a33c75cc0ba66bb647c8a9bd32138d61156
+Merge: f387104 01088f2
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 18:33:42 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit f387104f9cc09d5a4d35f838008f206aff5d5f25
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 18:32:55 -0400
+
+    Ajout du texte pour les modèles de pages dans la documentation. Cette section ne contient pas encore assez de contenu.
+
+commit 8e4ae347f647fa16b6d7482b29f70f390d46a66e
+Merge: c93bd35 570a970
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 16:47:42 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit c93bd35e8e161d9cc68f9800742792f1911c3770
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 16:46:11 -0400
+
+    Ajout de l'introduction pour la charte graphique.
+    Commencement des modèles de page principales et secondaire.
+    Ajout de précision pour la suggestions de valeurs dans les spécifications fonctionnelle de la recherche avancée.
+
+commit eabcc619c459ee8f334c128ae04e69e16e0458e7
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 15:00:08 -0400
+
+    Enlève le width:100% pour le tableau des résultats. Le problème était qu'il y avait une marge à gauche du tableau et pas à droite.
+
+commit 6b4ffa94f310f3192ed5161191240441b585f193
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 13:58:02 -0400
+
+    Déplacement du fichier de plan de présentation de la recherche vers le répertoire document.
+
+commit abfc8d8c9638fb73ac24d39a8953d603778a7b81
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 13:44:57 -0400
+
+    Ajout de plusieurs commentaires dans mes fichier php. Les fonctions sont commenté avec les balises Doxygen. J'explique aussi un peu mieux qu'avant dans les commentaires, comment nous avons pris des raccourcis pour la conception.
+
+commit 7828118746723f529fd859de066dca3d37d4e937
+Merge: 2ec023a bcedfae
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 13:43:59 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 2ec023a1c3b0b0a63e822ed4914b522b6bd103c0
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-05 13:41:59 -0400
+
+    Supprime l'attribut "list" dans les input de type texte dans la recherche avancée lors du changement de critère de recherche. J'avais oublié d'enlever l'attribut et donc lorsque l'utilisateur changeait de critères, la liste de suggestions de l'ancien critère restant lié au champ.
+    J'ai aussi ajouter des commentaire dans le fichier javascript correspondant.
+
+commit d4df0ced8f7f72c1a5bb812a159111487dac061b
+Merge: ceee8b8 b932a6c
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-04 13:54:03 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit ceee8b8a4bbdf0357ffd5382daab598b9ad1ab22
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-04 13:53:40 -0400
+
+    Remplissable des sections dans la docum:
+    \subsubsection{Fil d'Ariane vertical}
+    
+    \subsubsection{Parcourir}
+    
+    \subsubsection{Recherche simple}
+    
+    \subsubsection{Recherche avancée}
+
+commit 92e7402317fc344c32d7495068d52aa81e9e22a0
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-04 13:09:38 -0400
+
+    Ajout de la stratégie de présentation de la recherche avancée, recherche simple et fil d'ariane vertical.
+
+commit 4e80ec0d69f378936d4693a1ed0bd1e7f41985f9
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-04 13:09:09 -0400
+
+    Ajout d'une page suggestion de médias
+
+commit 65ba809cd024ec4293067c6dee12c3f8a2297c64
+Merge: 8e6b126 4dce55c
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 12:39:08 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 8e6b1263cfcafed39bdaee96ee6b3383224d95d3
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 12:38:52 -0400
+
+    Ajoute un style standard pour formulaires et étiquette dans le fichier de style général. Tous les input texte required ont une bordure de droite de couleur pour indiquer qu'ils sont obligatoires.
+    
+    Mise en paragraphe de l'image du logo du cégep dans l'accueil.
+    
+    Enlève un br inutile dans makeReservation.php
+    
+    Mise d'un lien sur tous les éléments de menu principal.
+
+commit 6ded283302dd953a9cabebe477c4df829c41fc35
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 10:32:28 -0400
+
+    Ajout du format standard ISO-8601 court pour les date de réservation et d'emprunts.
+
+commit 62a8544995e64f84b2a7f2b45464112434030ddc
+Merge: 94e902e 4dbeaa7
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 10:18:43 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 94e902e926d10ae3b593d9e7aa2ad09579109d37
+Merge: c7db9d4 05d736c
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 10:13:24 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit c7db9d4a57a913e3b824f6ba672828317b312b2a
+Merge: c9f4ee9 59c7988
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 10:09:33 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit c9f4ee975583cef575bc909b600f65191fccd950
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 10:03:20 -0400
+
+    Correction du commit précédent. J'avais oublié d'inclure le fichier header.
+
+commit 0ee34e2e40978f3c788c3a8e7b29cddbaaff0d03
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 10:02:09 -0400
+
+    Ajout de l'icône de la loupe pour le bouton Rechercher. Si l'image est indisponible, la balise alt fait afficher le mot "Rechercher".
+    J'ai aussi dans ce commit ajouter un texte alternatif pour le logo du Cegep.
+
+commit 5c4dac6ef3ca0995769103e8618ab514ddb89980
+Merge: dc46574 cb4859f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 09:44:55 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit dc46574a39e0555322dd8edd0f97bf51ae0dee5f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 09:44:30 -0400
+
+    Ajout d'un titre pour les pages de résultats de recherche et de recheche avancée.
+
+commit 58301a1d8410d1f4cb67eb50287a5f7fc1140e5d
+Merge: 4824e8b 418a1db
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 09:40:29 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 4824e8bd4380389f058cdf0768a2e46c9a02ebc2
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 09:40:17 -0400
+
+    Travail sur la charte graphique:
+    Mise en tableau des tailles de police
+    Écriture d'un début d'introduction
+
+commit 6b2048381f6ae85865c929bdc88247911a37a97a
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-03 09:38:32 -0400
+
+    Ajout du logo original du Cegep dans la page d'accueil.
+
+commit 9bd57aa7cc065b51bcafb895339feb2c7811dd31
+Merge: 089a12b 9129e60
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 21:31:34 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 089a12b1401f3d311474985aa43c008648ffa289
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 21:29:36 -0400
+
+    Travail sur la partie charte graphique de la documentation. Termine la description de la maquette du site.
+
+commit 53a372a855961b2567d847ee1172e82eb7432595
+Merge: 7614e86 cf1dcfd
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 11:17:33 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 7614e8618de61e1900e9a4202c6d0d2552ec82b4
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 11:16:44 -0400
+
+    Ajout des fichiers relatifs à la maquette (Le dessins open office, l'image du dessin format png et l'image réelle du site).
+
+commit 2143038c99cbdcbca703eb02c6d4976c34b7c66a
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 11:14:07 -0400
+
+    Ajout de la maquette et d'un vrai exemple de page. Ajoute la description du bandeau dans la charte graphique.
+
+commit 616edc4bec19772a4c05519abc133fcdf4a55c14
+Merge: 9b911ae d7fdbcc
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 08:54:44 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 9b911ae9ac6cbe62f92a82413385374cd1f5b258
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 08:53:34 -0400
+
+    Suppression des bordures pour le tableau des résultats de recherche. Seul les bordures du bas des td sont restantes.
+
+commit 6eba4801073e237f2bc9a3db9d489d69855f4afc
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-06-02 08:36:18 -0400
+
+    Règle l'erreur du notice disant que la variable posWhere n'était pas définie.
+    
+    Ajout d'une clause AND champ IS NOT NULL dans la requête du Breadcrumb pour s'assurer qu'il n'y ait pas de Li vide.
+
+commit f4aa1f1bf85b0c92e2a0fa050644f185612d64d2
+Merge: 7df07aa 0cbd86f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 21:45:16 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 7df07aa3e370f1d1724c79ed4a315983e4387834
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 21:44:33 -0400
+
+    Ajout de quelques spécifications fonctionnelles concernant la recherche.
+
+commit 69057137e996a3e82bb1ddf48e7170846ab97593
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 21:43:44 -0400
+
+    Ajout d'un padding-bottom:1em; pour les td dans les résultats de recherche de sorte qu'il aie un espacement plus prononcé entre les médias dans la recherche.
+
+commit aee23ee29798118a0e2643a20be92ada595449ab
+Merge: 7ba5298 9ff9ad1
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 20:16:56 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 7ba5298c5eba3fdc6ac4c2a2781bc381815a1e08
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 20:15:41 -0400
+
+    Modification de l'action du formulaire de la recherche simple pour qu'elle se dirige vers une recherche relié au mot clés Indiana Jones.
+
+commit eeff12d6349ccd8bc9888519268da05203f23dd5
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 20:13:12 -0400
+
+    Implémentation de la génération du breadcrumb semi dynamique.
+    Les valeurs possible des critères du breadcrumb se génèrent maintenant automatiquement en fonction des enregistrements affichés de la recherche en cours. Il faut par contre manuellement supprimer les insertions de critères inutile pour le niveau de détail. Il faut aussi vérifier à l'aide d'un IF si la valeur courante est la valeur qui sera utilisée pour la présentation, ex: Les cowboys fringuants *.
+
+commit 0dfef804423f6a39e1e74f6c899d40a135538b7f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 20:11:23 -0400
+
+    Ajout d'un éditeur indépendant dans la base de données pour être assigné au disque "12 grandes chansons" des Cowboys fringuants" (utile pour le fil d'ariane).
+
+commit acb62f8f0144a89ee7253945c7f4fa44ca5a3a07
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 17:46:42 -0400
+
+    Réduire l'espace occupé par le td contenant les images de médias dans résultats.
+    Agrandissement des images.
+    Centrage des images de type de média.
+
+commit 173988bd14c6157f6e5282976545b6eb105f0ec7
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 17:26:19 -0400
+
+    Ajustement des dégradé pour les résultats de recherche. Agrandissement la bordure séparatrice.
+
+commit 6b63832ea1ac3b24d8cd9924ec9f3cecdd7f364f
+Merge: 2eacdac e8b330f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 17:20:26 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 2eacdac7943c3ece0f36f01b64c58ef99dc262b7
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 17:18:48 -0400
+
+    Essaie de design de dégradé pour les résultats de recherche.
+
+commit 48e22e39dddaf437f88ed1ea6ad86f476dcbef91
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 16:45:05 -0400
+
+    Remplacement d'un mauvais caractère d'apostrophe par le bon dans la base de données.
+
+commit 01c0d9ab6a4df9f890738121800bed3af5cc4160
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-31 16:23:13 -0400
+
+    Apporte des modifications temporaires pour le test de l'affichage d'une recherche avancée.
+
+commit 687f5cb91b63145e1a4ab95c403f5ea4f6a99230
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-30 22:06:16 -0400
+
+    Ajout de la génération du breadcrumb en statique. Optimisation de la manière de fonctionner de la recherche avancée quand à un cas réel. Dans la recherche avancée, un tableau $_POST est passé à la page searchResults.php, ensuite dans cette page, on passe le tableau de paramètre à une fonction qui va créer à requête sql. Ensuite on affiche les résultats de recherche à partir de la crée précédemment. Durant la présentation, on passe un paramètre Get à la page, et selon la valeur du paramètre, on fait un traitement différent.
+
+commit 758e6a9589547446eb95df335f4dcfcc5638303a
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-30 19:07:24 -0400
+
+    Suppression des cadres sur les images. Cette particularité était notable dans la version de iceweasel qu'utilisait Martin.
+
+commit 78075dce11856e3ce4cbbd5c450dbf8cac1824d4
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-29 12:04:27 -0400
+
+    Codage en dure des 3 requête supplémentaires représentant les 3 niveaux de recherches que l'on va utiliser lors de la présentation.
+
+commit e8992914d243bf7e0568d9202d05b7f6eab95c51
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-29 11:41:53 -0400
+
+    Ajout d'un lien vers le détails d'un média lorsque l'on clique sur l'image du média dans les résultats de recherche.
+
+commit 9b7336b690bb7dd61642b4ceb0741cd8e44529a5
+Merge: 9396bb8 9dae3b4
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 12:39:05 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 9396bb8d46b08c552e31c971dfe8a2c3c4a9f786
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 12:36:23 -0400
+
+    Ajout du nombre résultat dans la description de la recherche.
+    Changement du fonctionnement pour la communication des critères de recherche entre les formulaire traitant de la recherche. La page search-results.inc.php prend maintenant un paramètre POST qui contient tous les critères de recherche. Une fonction sera à créer bientôt pour créer la requete à partir des critères de recherche. Ce sera pour l'instant une fonction qui retourne des requete créée en statique.
+
+commit 9d2c785743b674a3795c34f0eb58f62d1ddb83cd
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 12:34:28 -0400
+
+    Ajout du travail à faire pour le breadcrumb dans le fichier TODO.
+
+commit b91215e1ece3f5ba7efcc63993d23feba7feb9be
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 10:43:47 -0400
+
+    Correction du lien pour l'appel à la page réservation de Marc-André dans les résultats de recherche.
+
+commit fc1c2425b3de8bd0d099fb4061f9ddd93771127f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 10:39:25 -0400
+
+    Insertion du sytème de pagination dans l'affichage des résultats de recherche. J'ai pris le système de pagination originalement programmé par Martin pour le projet Quebec-Panama. J'ai aussi créer une fonction qui retourne une description qui correspondant à la recherche. Évidemment, nous somme en phase de conception alors je retourne seulement un texte selon un nombre passé en paramètre.
+
+commit 0ca7ccd901f2fbf1ed4ff2cf95ef365ce2106a4a
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 10:20:27 -0400
+
+    Ajout d'un recueil de chansons de Gilles Vigneault dans les médias. Ajout d'un cd d'une symphonie de Mozart.
+
+commit 4c80e87b1da34054c28d40d490f1d47c39622ca0
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 08:36:31 -0400
+
+    Suppression dans le fichier d'inclusion css  de l'inclusion du style pour la page des résultats de recherche. En effet, je ne vois pas pourquoi cette feuille de style devrait inclut partout.
+
+commit 02f6bc13713b3a943c072d73c2c227480a1b9c5e
+Merge: 4de34fd 7450419
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 08:20:43 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 4de34fdb5fb45ce618c818e1ba813fd41fb7635d
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 08:19:54 -0400
+
+    Modification de la taille du titre du média dans la bd, modification du type de champ durée dans pièce.
+
+commit 38a2649b54a13a17a3b47ea70b8579bc7a77d559
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-27 08:18:45 -0400
+
+    Ajout des quelques fichiers d'image pour les médias. Ajout du fichier breadcrumb.inc.php qui sera le fichier qui génèrera le fil d'ariane vertical.
+
+commit 88c7944136012e268299aec6b9c6120e4a1f028d
+Merge: 535ec10 82a2ae8
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-26 14:07:41 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 535ec10fa0c7ea8d11b5bf329b665930aa58a67d
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-26 11:35:50 -0400
+
+    Retouche du css pour les résultas de recherche. Raptissement du bouton réservation. Ajout d'un espacement supplémentaire entre les p formant caractéristique des médias.
+
+commit c8d12cacd4c4b21d5d673ec0adb480584db99fec
+Merge: 9864f9b defef11
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-26 11:22:30 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 9864f9bc3d7d6e61ab71ac49691bcebe564f3b08
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-26 11:16:22 -0400
+
+    Dans l'affichage des résultats de recherche, j'ai programmé l'affichage d'un bouton "Réserver" faisant une redirection vers le fichier php makeReservation de Marc-André avec un passage du paramètre ID. Le bouton réserver est en fait un lien "a" qui a du css appliqué dessus. Le css appliqué consiste à un affichage sous forme d'une couleur de fond avec des bordures arrondies dans le ton de gris. Il y a également une image de panier d'épicerie à la manière d'une boutique en ligne.
+
+commit 5d515c0bf7a01289aa65a6759535bd8722d74a38
+Merge: e440e8d 24b044f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-25 17:40:37 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit e440e8da7e53df6cff75e29fa0906ba693c7e5fe
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-25 17:38:54 -0400
+
+    Continuation de l'affichage des résultats.
+    Optimisation de la requête sql. La requête est maintenant faites avec des jointures JOIN.
+    Affichage de l'image du type de média lorsque le média n'a pas d'image.
+    Règle le problème des bordure de TR qui ne s'affichait pas. La solution est de mettre des bordures aux TD.
+
+commit 6bfa0cbdcc2ecec964221dc0dca83b3bcc9d7117
+Merge: 472962e a8059f4
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-22 22:13:34 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 472962e432616887d7b2a969a52a91abe15c2a89
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-22 22:11:12 -0400
+
+    Première ébauche de l'affichage des résultats de la recherche. Ajout d'une image d'un média dans le répertoire images/medias/. Modification du fichier include style pour inclure la feuille de style pour les résultats de recherche. Design de l'affichage des résulats de recherche à la manière de Koha sous forme de tableau.
+
+commit cf49632ebc497dbcd97e9f432c5a9f0805b61aba
+Merge: c37b998 cf2b587
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-20 12:24:56 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit c37b998b4cb2873080d3c9fc1a1b404281023f14
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-20 12:23:21 -0400
+
+    Commencement de l'affichage des résultats de la recherche. Pour l'instant, il n'y a qu'un affichage de tous les titres dans un echo.
+
+commit 8ee96659618ac0a1358d30b320c645f1e3304653
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-20 10:44:38 -0400
+
+    Ajout des données de base dans le fichiers sql.
+
+commit bcb6695ec1cc0de1ba321c3e23fbc0e01c811b0a
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-20 10:44:08 -0400
+
+    Ajout du fichier pdf du projet de médiathèque.
+
+commit da5b7b48392db355519f75901fcff6faa33449b1
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-20 08:41:06 -0400
+
+    Ajout des fichiers includes absents lors du dernier commit. Ajout de l'include du fichier css utilisé avec l'insertion de l'iĉone de la page.
+
+commit 65bc64e0fbfa2c8d26980aa25205d40a111cd48e
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-20 08:34:56 -0400
+
+    Modification de tous les fichiers html et php pour inclure les fichiers de script javascript avec la commande include.
+
+commit 04d2a89946d9e8a6afae1da4d4e9633f02428ba0
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-19 23:33:25 -0400
+
+    Correction du commit précédent, j'avais oublié dans le fonction de reset des critères de remettre les champ à leur valeurs par défaut c'est à dire vide pour les champs texte et la première valeur pour les "select".
+
+commit e91dac4f7d0115506fdf5a9133295da36f98ac34
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-19 23:20:05 -0400
+
+    Finalisation de l'affichage des suggestion de valeur pour les critères de recherches avancés. Le script en javascript charge 2 fichiers xml. Un pour les suggestion d'artistes et un autre pour les suggestion de titres de médias. Les valeurs sont importée vers le DOM sous forme de datalist et sont lié au input de type text correspodant. De plus, j'ai ajouté un effet de fondu lors de la suppression et l'ajout de critères de recherche. J'ai également programmé l'effacement des critères de recherche lors du clique sur le bouton effacer.
+
+commit 428658e188c124c913952f25fa2da00e42439a6f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-18 22:16:32 -0400
+
+    Première ébauche de l'affichage de liste de suggestion pour les critères de recherche. Pour l'instant, tous les input de type text ont une liste de suggestion commune indépendante au critère actuel.
+
+commit 80a43f70e357b7396f857446ffb6319cfe9d059f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-18 22:14:20 -0400
+
+    Ajout des fichiers xml d'exemples pour les critères de recherche
+
+commit 89dc3f9634d6e95f14f7e16eb0b7ce0570296795
+Merge: baa3fc4 ee683a9
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-13 12:14:43 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit baa3fc481f2527d97d8661255207a8be955f2af7
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-13 12:13:54 -0400
+
+    Modification de la liste des choses à faire.
+
+commit ca46af96236242b34580bfbb3f055390a5c2092f
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-13 12:13:01 -0400
+
+    Tentative avec échec de tri des listes de sélection de critères de recherche.
+
+commit 5ea3486aab4ef59dff56dd7d9f0e876f421ce270
+Merge: 24cf88c eb16c97
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-13 08:09:45 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit 24cf88cc67fb8e20f2e9feb9320cf454a9e668d0
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-13 08:06:54 -0400
+
+    Modification de la liste de choses à faire
+
+commit ab0c19eebc447890b233f6f0bdd7b32c2a7f1a92
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-12 12:01:21 -0400
+
+    Commencement des modifications des options des champs de recherche.
+
+commit 5cd86440ff7bcf8dd3961d44534b7742c20996cb
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-12 10:24:36 -0400
+
+    Finition du système d'ajout de critères de recherches dans le formulaire
+    de recherche avancé. On peut maintenant supprimer des champs et ajouter des champs tout en restant avec 3 champs de base non supprimables.
+
+commit e4d0a5eaad5645f1197f4fad2238562dd52c00ff
+Merge: a7108fa de5dc6a
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-06 12:37:01 -0400
+
+    Merge branch 'master' of github.com:authchir/mediatheque
+
+commit a7108fa95af2b68bb5193e9b0f0952b54b867b3b
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-06 12:35:19 -0400
+
+    Correction du commit précédent
+
+commit 727c076da5cb768f6894e98873f445b4076989d8
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-06 12:21:25 -0400
+
+    Suppression de la balise Filedset dans la recherche avancée
+
+commit 0655cab172be33c407c4c6622ed9958e0e2ff663
+Author: Samuel Milette-Lacombe <samulacombe@gmail.com>
+Date:   2011-05-06 10:54:03 -0400
+
+    Ajout du fichier javascript servant à l'affichage des critères de recherche dans la recherche avancée.
+    Ajout de la possibilité de supprimer ou ajouter des critères de recherche à la recherche en javascript.
+
+commit a9ce2fa721acc8b2a00d5890121b1683c7f9cefc
+Author: Samuel Milette-Lacombe <smlacombe@gmail.com>
+Date:   2011-04-29 11:35:54 -0400
+
+    Ajout de quelques commentaires dans le fichier TODO.
