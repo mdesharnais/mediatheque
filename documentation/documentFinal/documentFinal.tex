@@ -1,4 +1,4 @@
-\documentclass[letter, 11pt]{report}
+\documentclass[report, 11pt, twoside]{report}
 
 \usepackage{fullpage}
 \usepackage[utf8]{inputenc}
@@ -817,15 +817,17 @@ Les conventions php utilisés sont les suivantes~:
 \end{itemize}
 
 \subsection{Bande passante}
-L'utilisation et l'administration du site nécessitent une bande passante standard.
+L'utilisation de la bande passante à été un sujet soins constants. La charte graphique du site se base massivement sur le CSS et n'utilise qu'un nombre très restreint d'images. De plus, la plupart des script JavaScript et codes CSS ont été placés dans des fichiers externes afin de bénéficier du cache des navigateur.
+
+La page la plus lourde répertoriée (dûe à la présence de trois grosses images JPG) ne pèse que 139 kilo-octets, dont environ 40 ko peuvent être mis en cache, alors que la page d'accueil du site internet du cégep de Trois-Rivières en pèse 625\footnote{Il est à noter que, dans les deux cas, les chiffres donnés sont ceux donnés avec compression des données. Nous prenons pour acquis que la fonctionnalité sera activée sur le serveur web.}. La consommation de bande passante à donc été réduite au minimum et un forfait d'entrée de gamme se révèlera plus que suffisant afin de pourvenir aux besoins de la médiathèque.
 
 \subsection{Serveurs}
-Apache HTTP Server 2.2.16 -- 2.2.17Diagramme d'enchaînement
+Apache HTTP Server 2.2.16 -- 2.2.17
 
 \subsection{Type de base de données}
 MySQL 5.1.49 -- 5.5.8
 
-Pour utiliser la base de données, il faut créer l'utilisateur website@localhost avec le mot de passe 1234.
+Pour utiliser la base de données, il faut créer l'utilisateur \texttt{website@localhost} avec le mot de passe \texttt{1234}.
 
 \section{Sécurité}
 \label{sec:sécurité}
@@ -840,7 +842,7 @@ La gestion des droits fait appel au «~bit~bashing~», une technique qui consist
 	\item \$application->rights['execute'] = 0100
 \end{itemize}
 
-et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table droits\_groupes contiendrait quelque chose comme ceci~:
+et qu'un groupe A dispose des droits de lecture et d'écriture dans la section «~administration~», et qu'un groupe B dispose du droit de renouveler un prêt la table \texttt{droits\_groupes} contiendrait quelque chose comme ceci~:
 
 \begin{table}[ht]
 	\caption{groupes}
@@ -952,13 +954,13 @@ Le groupe B, quant à lui, ne dispose que du droit de renouveler des documents. 
 
 L'exemple précédant couvre la plupart des situations qui peuvent survenir.
 
-La table «~utilisateurs~» nous informe qu'il y a quatre utilisateurs d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un utilisateur inactif perd automatiquement tous ses droits.
+La table \texttt{utilisateurs} nous informe qu'il y a quatre utilisateurs d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un utilisateur inactif perd automatiquement tous ses droits.
 
-La table «~groupes~» nous informe qu'il y a cinq groupes d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un groupe inactif perd automatiquement tous ses droits et ne peut plus être assigné à de nouveaux utilisateurs.
+La table \texttt{groupes} nous informe qu'il y a cinq groupes d'enregistrés dans le système, mais que l'un d'entre eux est inactif. Un groupe inactif perd automatiquement tous ses droits et ne peut plus être assigné à de nouveaux utilisateurs.
 
-La table «~groupes\_utilisateurs~» nous informe que l'utilisateur 1 (Frodo Baggins) fait partit du groupe \emph{Administrateurs}\footnote{Par convention, le groupe \emph{Administrateurs} dispose généralement de tous les droits sur le système.}, que l'utilisateur 2 (Samwise Gamgee) fait partit à la fois du groupe \emph{Étudiants} et du groupe \emph{Commis}, que l'utilisateur 3 (Meriadoc Brandybuck) fait partit du groupe \emph{Étudiants} et, finalement, que l'utilisateur 4 (Peregrin Took) fait partit du groupe \emph{Enseignants}.
+La table \texttt{groupes\_utilisateurs} nous informe que l'utilisateur 1 (Frodo Baggins) fait partit du groupe \emph{Administrateurs}\footnote{Par convention, le groupe \emph{Administrateurs} dispose généralement de tous les droits sur le système.}, que l'utilisateur 2 (Samwise Gamgee) fait partit à la fois du groupe \emph{Étudiants} et du groupe \emph{Commis}, que l'utilisateur 3 (Meriadoc Brandybuck) fait partit du groupe \emph{Étudiants} et, finalement, que l'utilisateur 4 (Peregrin Took) fait partit du groupe \emph{Enseignants}.
 
-Enfin, la table «~droits\_groupes~» nous informe si chaque groupe peut~:
+Enfin, la table \texttt{droits\_groupes} nous informe si chaque groupe peut~:
 
 \begin{itemize}
 	\item Afficher ou modifier les résultats de la page drivingTable.php;
