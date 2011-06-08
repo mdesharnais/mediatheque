@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Carcajour:  Fichier source de php/Media.class.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Carcajour&#160;<span id="projectnumber">0.75</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Portée&#160;globale</span></a></li>
+    </ul>
+  </div>
+<div class="header">
+  <div class="headertitle">
+<h1>php/Media.class.php</h1>  </div>
+</div>
+<div class="contents">
+<a href="_media_8class_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 &lt;?php
+<a name="l00002"></a>00002 require_once(<span class="stringliteral">&#39;Application.class.php&#39;</span>);
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="class_media.html">00004</a> <span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="class_media.html">Media</a>
+<a name="l00005"></a>00005 {
+<a name="l00007"></a>00007         <span class="comment">// Attribute(s)</span>
+<a name="l00009"></a>00009 <span class="comment"></span>
+<a name="l00010"></a><a class="code" href="class_media.html#a827f412a36052e093451c8838a08f883">00010</a>         <span class="keyword">const</span> <a class="code" href="class_media.html#a827f412a36052e093451c8838a08f883">READ_ONLY</a> = 1;
+<a name="l00011"></a><a class="code" href="class_media.html#ae92384f4602b88ef3b46880f7d2f6c9f">00011</a>         <span class="keyword">const</span> <a class="code" href="class_media.html#ae92384f4602b88ef3b46880f7d2f6c9f">READ_WRITE</a> = 2;
+<a name="l00012"></a>00012 
+<a name="l00013"></a><a class="code" href="class_media.html#a68d2e459193313b71494801a69ade623">00013</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a68d2e459193313b71494801a69ade623">$ID</a>;
+<a name="l00014"></a><a class="code" href="class_media.html#a179bb8084d0f1d31575b40b368bb883a">00014</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a179bb8084d0f1d31575b40b368bb883a">$artist</a>;
+<a name="l00015"></a><a class="code" href="class_media.html#ada57e7bb7c152edad18fe2f166188691">00015</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#ada57e7bb7c152edad18fe2f166188691">$title</a>;
+<a name="l00016"></a><a class="code" href="class_media.html#a3aa523b9c865f596c7c5a421e1545b91">00016</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a3aa523b9c865f596c7c5a421e1545b91">$publicationYear</a>;
+<a name="l00017"></a><a class="code" href="class_media.html#a2275954676f5373e94d5e472d48460de">00017</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a2275954676f5373e94d5e472d48460de">$genre</a>;
+<a name="l00018"></a>00018         <span class="comment">//protected $referenceNumber;</span>
+<a name="l00019"></a><a class="code" href="class_media.html#a6ed26025230f1d749dce0ec09a737563">00019</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a6ed26025230f1d749dce0ec09a737563">$publishingHouse</a>;
+<a name="l00020"></a><a class="code" href="class_media.html#adc8304d5c901e37b68e55ed787efe469">00020</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#adc8304d5c901e37b68e55ed787efe469">$support</a>;
+<a name="l00021"></a><a class="code" href="class_media.html#a87b032cba06009e3467abf1c8018d960">00021</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a87b032cba06009e3467abf1c8018d960">$description</a>;
+<a name="l00022"></a><a class="code" href="class_media.html#aac6146b4cdec66c94263ddb55afd5946">00022</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#aac6146b4cdec66c94263ddb55afd5946">$image</a>;
+<a name="l00023"></a><a class="code" href="class_media.html#a8f46cfed716f0ac4ce6cdd8035b8207f">00023</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a8f46cfed716f0ac4ce6cdd8035b8207f">$supportImage</a>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="class_media.html#a0dcc7cc33d87e19752c00558119b908f">00025</a>         <span class="keyword">protected</span> <a class="code" href="class_media.html#a0dcc7cc33d87e19752c00558119b908f">$readOnly</a>;
+<a name="l00026"></a>00026 
+<a name="l00028"></a>00028         <span class="comment">// Constructor</span>
+<a name="l00030"></a>00030 <span class="comment"></span>
+<a name="l00031"></a><a class="code" href="class_media.html#aa038685d0a1d9b8b14214bc05a15285f">00031</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#aa038685d0a1d9b8b14214bc05a15285f">__construct</a>($row = null)
+<a name="l00032"></a>00032         {
+<a name="l00033"></a>00033                 <span class="keywordflow">if</span>($row != null)
+<a name="l00034"></a>00034                 {
+<a name="l00035"></a>00035                         $this-&gt;ID = $row[<span class="stringliteral">&#39;ID&#39;</span>];
+<a name="l00036"></a>00036                         $this-&gt;artist = stripslashes($row[<span class="stringliteral">&#39;artiste&#39;</span>]);
+<a name="l00037"></a>00037                         $this-&gt;title = stripslashes($row[<span class="stringliteral">&#39;titre&#39;</span>]);
+<a name="l00038"></a>00038                         $this-&gt;publicationYear = $row[<span class="stringliteral">&#39;annee_publication&#39;</span>];
+<a name="l00039"></a>00039                         $this-&gt;genre = $row[<span class="stringliteral">&#39;genre&#39;</span>];
+<a name="l00040"></a>00040                         <span class="comment">//$this-&gt;referenceNumber = stripslashes($row[&#39;reference&#39;]);</span>
+<a name="l00041"></a>00041                         $this-&gt;publishingHouse = stripslashes($row[<span class="stringliteral">&#39;maison_edition&#39;</span>]);
+<a name="l00042"></a>00042                         $this-&gt;support = stripslashes($row[<span class="stringliteral">&#39;support&#39;</span>]);
+<a name="l00043"></a>00043                         $this-&gt;description = stripslashes($row[<span class="stringliteral">&#39;notes&#39;</span>]);
+<a name="l00044"></a>00044                         $this-&gt;image = stripslashes($row[<span class="stringliteral">&#39;image&#39;</span>]);
+<a name="l00045"></a>00045                         $this-&gt;supportImage = stripslashes($row[<span class="stringliteral">&#39;imageCategorieMedia&#39;</span>]);
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047                         $this-&gt;readOnly = <span class="keyword">true</span>;
+<a name="l00048"></a>00048                 }
+<a name="l00049"></a>00049         }
+<a name="l00050"></a>00050 
+<a name="l00052"></a>00052         <span class="comment">// Get(s)</span>
+<a name="l00054"></a>00054 <span class="comment"></span>
+<a name="l00055"></a><a class="code" href="class_media.html#a30dd7fff4fec7a39f9be9d27d4b22a59">00055</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a30dd7fff4fec7a39f9be9d27d4b22a59">getID</a>()
+<a name="l00056"></a>00056         {
+<a name="l00057"></a>00057                 <span class="keywordflow">return</span> $this-&gt;ID;
+<a name="l00058"></a>00058         }
+<a name="l00059"></a>00059 
+<a name="l00060"></a><a class="code" href="class_media.html#a885a8570d62e92bb6f6c83144766e7fc">00060</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a885a8570d62e92bb6f6c83144766e7fc">getArtist</a>()
+<a name="l00061"></a>00061         {
+<a name="l00062"></a>00062                 <span class="keywordflow">return</span> $this-&gt;artist;
+<a name="l00063"></a>00063         }
+<a name="l00064"></a>00064 
+<a name="l00065"></a><a class="code" href="class_media.html#a95e859a4588a39a1824b717378a84c29">00065</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a95e859a4588a39a1824b717378a84c29">getTitle</a>()
+<a name="l00066"></a>00066         {
+<a name="l00067"></a>00067                 <span class="keywordflow">return</span> $this-&gt;title;
+<a name="l00068"></a>00068         }
+<a name="l00069"></a>00069 
+<a name="l00070"></a><a class="code" href="class_media.html#abd8ec5650755cf86f182add5964f67bb">00070</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#abd8ec5650755cf86f182add5964f67bb">getPublicationYear</a>()
+<a name="l00071"></a>00071         {
+<a name="l00072"></a>00072                 <span class="keywordflow">return</span> $this-&gt;publicationYear;
+<a name="l00073"></a>00073         }
+<a name="l00074"></a>00074 
+<a name="l00075"></a><a class="code" href="class_media.html#adc6f217756d49edbac6975e1f69485d5">00075</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#adc6f217756d49edbac6975e1f69485d5">getGenre</a>()
+<a name="l00076"></a>00076         {
+<a name="l00077"></a>00077                 <span class="keywordflow">return</span> $this-&gt;genre;
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080         <span class="comment">/*</span>
+<a name="l00081"></a>00081 <span class="comment">        public function getReferenceNumber()</span>
+<a name="l00082"></a>00082 <span class="comment">        {</span>
+<a name="l00083"></a>00083 <span class="comment">                return $this-&gt;referenceNumber;</span>
+<a name="l00084"></a>00084 <span class="comment">        }</span>
+<a name="l00085"></a>00085 <span class="comment">        */</span>
+<a name="l00086"></a>00086 
+<a name="l00087"></a><a class="code" href="class_media.html#a0cbf6eca27d534d3b831518b3690b49d">00087</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a0cbf6eca27d534d3b831518b3690b49d">getPublishingHouse</a>()
+<a name="l00088"></a>00088         {
+<a name="l00089"></a>00089                 <span class="keywordflow">return</span> $this-&gt;publishingHouse;
+<a name="l00090"></a>00090         }
+<a name="l00091"></a>00091 
+<a name="l00092"></a><a class="code" href="class_media.html#adebadb765f89024695500663d66b5366">00092</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#adebadb765f89024695500663d66b5366">getSupport</a>()
+<a name="l00093"></a>00093         {
+<a name="l00094"></a>00094                 <span class="keywordflow">return</span> $this-&gt;support;
+<a name="l00095"></a>00095         }
+<a name="l00096"></a>00096 
+<a name="l00097"></a><a class="code" href="class_media.html#a2e7bb35c71bf1824456ceb944cb7a845">00097</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a2e7bb35c71bf1824456ceb944cb7a845">getDescription</a>()
+<a name="l00098"></a>00098         {
+<a name="l00099"></a>00099                 <span class="keywordflow">return</span> $this-&gt;description;
+<a name="l00100"></a>00100         }
+<a name="l00101"></a>00101 
+<a name="l00102"></a><a class="code" href="class_media.html#a2af8add37797384585cae101fb8cbfe7">00102</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a2af8add37797384585cae101fb8cbfe7">getImage</a>()
+<a name="l00103"></a>00103         {
+<a name="l00104"></a>00104                 <span class="keywordflow">if</span>($this-&gt;image != null)
+<a name="l00105"></a>00105                         <span class="keywordflow">return</span> <span class="stringliteral">&#39;images/medias/&#39;</span>.$this-&gt;image;
+<a name="l00106"></a>00106                 <span class="keywordflow">else</span>
+<a name="l00107"></a>00107                         <span class="keywordflow">return</span> <span class="stringliteral">&#39;images/typesMedia/&#39;</span>.$this-&gt;supportImage;
+<a name="l00108"></a>00108         }
+<a name="l00109"></a>00109 
+<a name="l00110"></a><a class="code" href="class_media.html#ae95587e215aa82b61ab7cfc340a99dbf">00110</a>         <span class="keyword">public</span> <span class="keyword">static</span> function <a class="code" href="class_media.html#ae95587e215aa82b61ab7cfc340a99dbf">getInstanceOf</a>($id)
+<a name="l00111"></a>00111         {
+<a name="l00112"></a>00112                 global <a class="code" href="_application_8class_8php.html#a537fa9b460dddc2a67074faab810398a">$application</a>;
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114                 $query = $application-&gt;database-&gt;prepare(<span class="stringliteral">&#39;</span>
+<a name="l00115"></a>00115 <span class="stringliteral">                        SELECT categories_media.nom AS typeMedia </span>
+<a name="l00116"></a>00116 <span class="stringliteral">                        FROM medias </span>
+<a name="l00117"></a>00117 <span class="stringliteral">                                INNER JOIN supports ON supports.ID = medias.supportID </span>
+<a name="l00118"></a>00118 <span class="stringliteral">                                INNER JOIN categories_media ON categories_media.ID = supports.categorie_mediaID </span>
+<a name="l00119"></a>00119 <span class="stringliteral">                        WHERE medias.ID = ?&#39;</span>);
+<a name="l00120"></a>00120                 $query-&gt;execute(array($id));
+<a name="l00121"></a>00121                 $row = $query-&gt;fetch();
+<a name="l00122"></a>00122                 
+<a name="l00123"></a>00123                 <span class="keywordflow">if</span>($row == <span class="keyword">false</span>)
+<a name="l00124"></a>00124                         <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Le média demandé n&#39;existe pas.&quot;</span>);
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126                 <span class="keywordflow">switch</span>($row[<span class="stringliteral">&#39;typeMedia&#39;</span>])
+<a name="l00127"></a>00127                 {
+<a name="l00128"></a>00128                 <span class="keywordflow">case</span> <span class="stringliteral">&#39;Imprimé&#39;</span>:
+<a name="l00129"></a>00129                         $media = <span class="keyword">new</span> <a class="code" href="class_printed_media.html">PrintedMedia</a>($id);
+<a name="l00130"></a>00130                         <span class="keywordflow">break</span>;
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132                 <span class="keywordflow">case</span> <span class="stringliteral">&#39;Audio&#39;</span>:
+<a name="l00133"></a>00133                         $media = <span class="keyword">new</span> <a class="code" href="class_audio_media.html">AudioMedia</a>($id);
+<a name="l00134"></a>00134                         <span class="keywordflow">break</span>;
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136                 <span class="keywordflow">case</span> <span class="stringliteral">&#39;Vidéo&#39;</span>:
+<a name="l00137"></a>00137                         $media = <span class="keyword">new</span> <a class="code" href="class_video_media.html">VideoMedia</a>($id);
+<a name="l00138"></a>00138                         <span class="keywordflow">break</span>;
+<a name="l00139"></a>00139                 }
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141                 <span class="keywordflow">return</span> $media;
+<a name="l00142"></a>00142         }
+<a name="l00143"></a>00143 
+<a name="l00145"></a>00145         <span class="comment">// Set(s)</span>
+<a name="l00147"></a>00147 <span class="comment"></span>
+<a name="l00148"></a><a class="code" href="class_media.html#aedb3b9354b6451554912fd1cb36bb2d0">00148</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#aedb3b9354b6451554912fd1cb36bb2d0">setMode</a>($mode)
+<a name="l00149"></a>00149         {
+<a name="l00150"></a>00150                 <span class="keywordflow">switch</span>($mode)
+<a name="l00151"></a>00151                 {
+<a name="l00152"></a>00152                 <span class="keywordflow">case</span> self::READ_ONLY:
+<a name="l00153"></a>00153                         $this-&gt;readOnly = <span class="keyword">true</span>;
+<a name="l00154"></a>00154                         <span class="keywordflow">break</span>;
+<a name="l00155"></a>00155                 <span class="keywordflow">case</span> self::READ_WRITE:
+<a name="l00156"></a>00156                         $this-&gt;readOnly = <span class="keyword">false</span>;
+<a name="l00157"></a>00157                         <span class="keywordflow">break</span>;
+<a name="l00158"></a>00158                 }
+<a name="l00159"></a>00159         }
+<a name="l00160"></a>00160 
+<a name="l00162"></a>00162         <span class="comment">// Methods(s)</span>
+<a name="l00164"></a>00164 <span class="comment"></span>
+<a name="l00165"></a><a class="code" href="class_media.html#a870868bd17987e0020f0e93c8943d6c4">00165</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a870868bd17987e0020f0e93c8943d6c4">printArtistField</a>()
+<a name="l00166"></a>00166         {
+<a name="l00167"></a>00167                 global <a class="code" href="_application_8class_8php.html#a537fa9b460dddc2a67074faab810398a">$application</a>;
+<a name="l00168"></a>00168                 echo <span class="stringliteral">&#39;&lt;label for=&quot;artiste&quot;&gt;Artiste&lt;/label&gt;&#39;</span>;
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170                 <span class="keywordflow">if</span>($this-&gt;readOnly)
+<a name="l00171"></a>00171                 {
+<a name="l00172"></a>00172                         echo <span class="stringliteral">&#39;&lt;span&gt;&#39;</span>.$this-&gt;getArtist().<span class="stringliteral">&#39;&lt;/span&gt;&#39;</span>;
+<a name="l00173"></a>00173                 }
+<a name="l00174"></a>00174                 <span class="keywordflow">else</span>
+<a name="l00175"></a>00175                 {
+<a name="l00176"></a>00176                         $query = $application-&gt;database-&gt;prepare(<span class="stringliteral">&#39;SELECT ID, nom FROM artistes WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC&#39;</span>);
+<a name="l00177"></a>00177                         $query-&gt;execute(array($this-&gt;<a class="code" href="class_media.html#a885a8570d62e92bb6f6c83144766e7fc">getArtist</a>()));
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179                         echo <span class="stringliteral">&#39;&lt;select id=&quot;artisteID&quot; name=&quot;artisteID&quot;&gt;&#39;</span>;
+<a name="l00180"></a>00180                         echo <span class="stringliteral">&#39;&lt;option value=&quot;0&quot;&gt;&lt;/option&gt;&#39;</span>;
+<a name="l00181"></a>00181                         <span class="keywordflow">foreach</span>($query as $row)
+<a name="l00182"></a>00182                         {
+<a name="l00183"></a>00183                                 <span class="keywordflow">if</span>($row[<span class="stringliteral">&#39;nom&#39;</span>] == $this-&gt;<a class="code" href="class_media.html#a885a8570d62e92bb6f6c83144766e7fc">getArtist</a>())
+<a name="l00184"></a>00184                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot; selected&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00185"></a>00185                                 <span class="keywordflow">else</span>
+<a name="l00186"></a>00186                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot;&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00187"></a>00187                         }
+<a name="l00188"></a>00188                         echo <span class="stringliteral">&#39;&lt;/select&gt;&#39;</span>;
+<a name="l00189"></a>00189                 }
+<a name="l00190"></a>00190         }
+<a name="l00191"></a>00191 
+<a name="l00192"></a><a class="code" href="class_media.html#a16b05735029bf78a4f2a379225c76932">00192</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a16b05735029bf78a4f2a379225c76932">printTitleField</a>()
+<a name="l00193"></a>00193         {
+<a name="l00194"></a>00194                 echo <span class="stringliteral">&#39;&lt;label for=&quot;titre&quot;&gt;Titre&lt;/label&gt;&#39;</span>;
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196                 <span class="keywordflow">if</span>($this-&gt;readOnly)
+<a name="l00197"></a>00197                 {
+<a name="l00198"></a>00198                         echo <span class="stringliteral">&#39;&lt;span&gt;&#39;</span>.$this-&gt;getTitle().<span class="stringliteral">&#39;&lt;/span&gt;&#39;</span>;
+<a name="l00199"></a>00199                 }
+<a name="l00200"></a>00200                 <span class="keywordflow">else</span>
+<a name="l00201"></a>00201                 {
+<a name="l00202"></a>00202                         echo <span class="stringliteral">&#39;&lt;input type=&quot;text&quot; id=&quot;titre&quot; name=&quot;titre&quot; maxlength=&quot;75&quot;&#39;</span>;
+<a name="l00203"></a>00203 
+<a name="l00204"></a>00204                         <span class="keywordflow">if</span>(isset($this-&gt;title))
+<a name="l00205"></a>00205                                 echo <span class="stringliteral">&#39; value=&quot;&#39;</span>.$this-&gt;getTitle().<span class="charliteral">&#39;&quot;&#39;</span>;
+<a name="l00206"></a>00206 
+<a name="l00207"></a>00207                         echo <span class="stringliteral">&#39; required&gt;&#39;</span>;
+<a name="l00208"></a>00208                 }
+<a name="l00209"></a>00209         }
+<a name="l00210"></a>00210 
+<a name="l00211"></a><a class="code" href="class_media.html#a716cfb80583810083ef20c8a31e29586">00211</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a716cfb80583810083ef20c8a31e29586">printPublicationYearField</a>()
+<a name="l00212"></a>00212         {
+<a name="l00213"></a>00213                 echo <span class="stringliteral">&#39;&lt;label for=&quot;annee_publication&quot;&gt;Année de publication&lt;/label&gt;&#39;</span>;
+<a name="l00214"></a>00214 
+<a name="l00215"></a>00215                 <span class="keywordflow">if</span>($this-&gt;readOnly)
+<a name="l00216"></a>00216                 {
+<a name="l00217"></a>00217                         echo <span class="stringliteral">&#39;&lt;span&gt;&#39;</span>.$this-&gt;getPublicationYear().<span class="stringliteral">&#39;&lt;/span&gt;&#39;</span>;
+<a name="l00218"></a>00218                 }
+<a name="l00219"></a>00219                 <span class="keywordflow">else</span>
+<a name="l00220"></a>00220                 {
+<a name="l00221"></a>00221                         echo <span class="stringliteral">&#39;&lt;input type=&quot;number&quot; id=&quot;annee_publication&quot; name=&quot;annee_publication&quot;&#39;</span>;
+<a name="l00222"></a>00222 
+<a name="l00223"></a>00223                         <span class="keywordflow">if</span>(isset($this-&gt;publicationYear))
+<a name="l00224"></a>00224                                 echo <span class="stringliteral">&#39; value=&quot;&#39;</span>.$this-&gt;getPublicationYear().<span class="charliteral">&#39;&quot;&#39;</span>;
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226                         echo <span class="charliteral">&#39;&gt;&#39;</span>;
+<a name="l00227"></a>00227                 }
+<a name="l00228"></a>00228         }
+<a name="l00229"></a>00229 
+<a name="l00230"></a><a class="code" href="class_media.html#a21f268fc17519fe25b8703a91fc21df8">00230</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a21f268fc17519fe25b8703a91fc21df8">printGenreField</a>()
+<a name="l00231"></a>00231         {
+<a name="l00232"></a>00232                 global <a class="code" href="_application_8class_8php.html#a537fa9b460dddc2a67074faab810398a">$application</a>;
+<a name="l00233"></a>00233                 echo <span class="stringliteral">&#39;&lt;label for=&quot;genreID&quot;&gt;Genre&lt;/label&gt;&#39;</span>;
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235                 <span class="keywordflow">if</span>($this-&gt;readOnly)
+<a name="l00236"></a>00236                 {
+<a name="l00237"></a>00237                         echo <span class="stringliteral">&#39;&lt;span&gt;&#39;</span>.$this-&gt;getGenre().<span class="stringliteral">&#39;&lt;/span&gt;&#39;</span>;
+<a name="l00238"></a>00238                 }
+<a name="l00239"></a>00239                 <span class="keywordflow">else</span>
+<a name="l00240"></a>00240                 {
+<a name="l00241"></a>00241                         $query = $application-&gt;database-&gt;prepare(<span class="stringliteral">&#39;SELECT ID, nom FROM genres WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC&#39;</span>);
+<a name="l00242"></a>00242                         $query-&gt;execute(array($this-&gt;<a class="code" href="class_media.html#adc6f217756d49edbac6975e1f69485d5">getGenre</a>()));
+<a name="l00243"></a>00243 
+<a name="l00244"></a>00244                         echo <span class="stringliteral">&#39;&lt;select id=&quot;genreID&quot; name=&quot;genreID&quot;&gt;&#39;</span>;
+<a name="l00245"></a>00245                         echo <span class="stringliteral">&#39;&lt;option value=&quot;0&quot;&gt;&lt;/option&gt;&#39;</span>;
+<a name="l00246"></a>00246                         <span class="keywordflow">foreach</span>($query as $row)
+<a name="l00247"></a>00247                         {
+<a name="l00248"></a>00248                                 <span class="keywordflow">if</span>($row[<span class="stringliteral">&#39;nom&#39;</span>] == $this-&gt;<a class="code" href="class_media.html#adc6f217756d49edbac6975e1f69485d5">getGenre</a>())
+<a name="l00249"></a>00249                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot; selected&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00250"></a>00250                                 <span class="keywordflow">else</span>
+<a name="l00251"></a>00251                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot;&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00252"></a>00252                         }
+<a name="l00253"></a>00253                         echo <span class="stringliteral">&#39;&lt;/select&gt;&#39;</span>;
+<a name="l00254"></a>00254                 }
+<a name="l00255"></a>00255         }
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257         <span class="comment">/*</span>
+<a name="l00258"></a>00258 <span class="comment">        public function printReferenceNumberField()</span>
+<a name="l00259"></a>00259 <span class="comment">        {</span>
+<a name="l00260"></a>00260 <span class="comment">                echo &#39;&lt;label for=&quot;reference&quot;&gt;Numéro de référence&lt;/label&gt;&#39;;</span>
+<a name="l00261"></a>00261 <span class="comment">                </span>
+<a name="l00262"></a>00262 <span class="comment">                if($this-&gt;readOnly)</span>
+<a name="l00263"></a>00263 <span class="comment">                {</span>
+<a name="l00264"></a>00264 <span class="comment">                        echo &#39;&lt;span&gt;&#39;.$this-&gt;getReferenceNumber().&#39;&lt;/span&gt;&#39;;</span>
+<a name="l00265"></a>00265 <span class="comment">                }</span>
+<a name="l00266"></a>00266 <span class="comment">                else</span>
+<a name="l00267"></a>00267 <span class="comment">                {</span>
+<a name="l00268"></a>00268 <span class="comment">                        echo &#39;&lt;input type=&quot;text&quot; id=&quot;reference&quot; name=&quot;reference&quot;&#39;;</span>
+<a name="l00269"></a>00269 <span class="comment"></span>
+<a name="l00270"></a>00270 <span class="comment">                        if(isset($this-&gt;referenceNumber))</span>
+<a name="l00271"></a>00271 <span class="comment">                                echo &#39;value=&quot;&#39;.$this-&gt;getReferenceNumber().&#39;&quot;&#39;;</span>
+<a name="l00272"></a>00272 <span class="comment"></span>
+<a name="l00273"></a>00273 <span class="comment">                        echo &#39; required&gt;&#39;;</span>
+<a name="l00274"></a>00274 <span class="comment">                }</span>
+<a name="l00275"></a>00275 <span class="comment">        }</span>
+<a name="l00276"></a>00276 <span class="comment">        */</span>
+<a name="l00277"></a>00277 
+<a name="l00278"></a><a class="code" href="class_media.html#a84d6918e7ec2a19cf8b0ec3c68e7c04e">00278</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a84d6918e7ec2a19cf8b0ec3c68e7c04e">printPublishingHouseField</a>()
+<a name="l00279"></a>00279         {
+<a name="l00280"></a>00280                 global <a class="code" href="_application_8class_8php.html#a537fa9b460dddc2a67074faab810398a">$application</a>;
+<a name="l00281"></a>00281                 echo <span class="stringliteral">&#39;&lt;label for=&quot;maison_editionID&quot;&gt;Maison d\&#39;édition&lt;/label&gt;&#39;</span>;
+<a name="l00282"></a>00282 
+<a name="l00283"></a>00283                 <span class="keywordflow">if</span>($this-&gt;readOnly)
+<a name="l00284"></a>00284                 {
+<a name="l00285"></a>00285                         echo <span class="stringliteral">&#39;&lt;span&gt;&#39;</span>.$this-&gt;getPublishingHouse().<span class="stringliteral">&#39;&lt;/span&gt;&#39;</span>;
+<a name="l00286"></a>00286                 }
+<a name="l00287"></a>00287                 <span class="keywordflow">else</span>
+<a name="l00288"></a>00288                 {
+<a name="l00289"></a>00289                         $query = $application-&gt;database-&gt;prepare(<span class="stringliteral">&#39;SELECT ID, nom FROM maisons_edition WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC&#39;</span>);
+<a name="l00290"></a>00290                         $query-&gt;execute(array($this-&gt;<a class="code" href="class_media.html#a0cbf6eca27d534d3b831518b3690b49d">getPublishingHouse</a>()));
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292                         echo <span class="stringliteral">&#39;&lt;select id=&quot;maison_editionID&quot; name=&quot;maison_editionID&quot;&gt;&#39;</span>;
+<a name="l00293"></a>00293                         echo <span class="stringliteral">&#39;&lt;option value=&quot;0&quot;&gt;&lt;/option&gt;&#39;</span>;
+<a name="l00294"></a>00294                         <span class="keywordflow">foreach</span>($query as $row)
+<a name="l00295"></a>00295                         {
+<a name="l00296"></a>00296                                 <span class="keywordflow">if</span>($row[<span class="stringliteral">&#39;nom&#39;</span>] == $this-&gt;<a class="code" href="class_media.html#a0cbf6eca27d534d3b831518b3690b49d">getPublishingHouse</a>())
+<a name="l00297"></a>00297                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot; selected&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00298"></a>00298                                 <span class="keywordflow">else</span>
+<a name="l00299"></a>00299                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot;&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00300"></a>00300                         }
+<a name="l00301"></a>00301                         echo <span class="stringliteral">&#39;&lt;/select&gt;&#39;</span>;
+<a name="l00302"></a>00302                 }
+<a name="l00303"></a>00303         }
+<a name="l00304"></a>00304 
+<a name="l00305"></a><a class="code" href="class_media.html#ad7a558043b2da8c05115425e3c181fa0">00305</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#ad7a558043b2da8c05115425e3c181fa0">printSupportField</a>()
+<a name="l00306"></a>00306         {
+<a name="l00307"></a>00307                 global <a class="code" href="_application_8class_8php.html#a537fa9b460dddc2a67074faab810398a">$application</a>;
+<a name="l00308"></a>00308                 echo <span class="stringliteral">&#39;&lt;label for=&quot;supportID&quot;&gt;Support&lt;/label&gt;&#39;</span>;
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310                 <span class="keywordflow">if</span>($this-&gt;readOnly)
+<a name="l00311"></a>00311                 {
+<a name="l00312"></a>00312                         echo <span class="stringliteral">&#39;&lt;span&gt;&#39;</span>.$this-&gt;getSupport().<span class="stringliteral">&#39;&lt;/span&gt;&#39;</span>;
+<a name="l00313"></a>00313                 }
+<a name="l00314"></a>00314                 <span class="keywordflow">else</span>
+<a name="l00315"></a>00315                 {
+<a name="l00316"></a>00316                         $query = $application-&gt;database-&gt;prepare(<span class="stringliteral">&#39;SELECT ID, nom FROM supports WHERE inactif = FALSE OR nom = ? ORDER BY nom ASC&#39;</span>);
+<a name="l00317"></a>00317                         $query-&gt;execute(array($this-&gt;<a class="code" href="class_media.html#adebadb765f89024695500663d66b5366">getSupport</a>()));
+<a name="l00318"></a>00318 
+<a name="l00319"></a>00319                         echo <span class="stringliteral">&#39;&lt;select id=&quot;supportID&quot; name=&quot;supportID&quot;&gt;&#39;</span>;
+<a name="l00320"></a>00320                         echo <span class="stringliteral">&#39;&lt;option value=&quot;0&quot;&gt;&lt;/option&gt;&#39;</span>;
+<a name="l00321"></a>00321                         <span class="keywordflow">foreach</span>($query as $row)
+<a name="l00322"></a>00322                         {
+<a name="l00323"></a>00323                                 <span class="keywordflow">if</span>($row[<span class="stringliteral">&#39;nom&#39;</span>] == $this-&gt;<a class="code" href="class_media.html#adebadb765f89024695500663d66b5366">getSupport</a>())
+<a name="l00324"></a>00324                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot; selected&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00325"></a>00325                                 <span class="keywordflow">else</span>
+<a name="l00326"></a>00326                                         echo <span class="stringliteral">&#39;&lt;option value=&quot;&#39;</span>.$row[<span class="stringliteral">&#39;ID&#39;</span>].<span class="stringliteral">&#39;&quot;&gt;&#39;</span>.$row[<span class="stringliteral">&#39;nom&#39;</span>].<span class="stringliteral">&#39;&lt;/option&gt;&#39;</span>;
+<a name="l00327"></a>00327                         }
+<a name="l00328"></a>00328                         echo <span class="stringliteral">&#39;&lt;/select&gt;&#39;</span>;
+<a name="l00329"></a>00329                 }
+<a name="l00330"></a>00330         }
+<a name="l00331"></a><a class="code" href="class_media.html#a4eec898dc0498ce3c8a94519a7f7ed7a">00331</a>         <span class="keyword">public</span> function <a class="code" href="class_media.html#a4eec898dc0498ce3c8a94519a7f7ed7a">printDescriptionField</a>()
+<a name="l00332"></a>00332         {
+<a name="l00333"></a>00333                 echo <span class="stringliteral">&#39;&lt;label for=&quot;notes&quot;&gt;Description&lt;/label&gt;&#39;</span>;
+<a name="l00334"></a>00334 
+<a name="l00335"></a>00335                 <span class="keywordflow">if</span>($this-&gt;readOnly)
+<a name="l00336"></a>00336                 {
+<a name="l00337"></a>00337                         echo <span class="stringliteral">&#39;&lt;span&gt;&#39;</span>.$this-&gt;getDescription().<span class="stringliteral">&#39;&lt;/span&gt;&#39;</span>;
+<a name="l00338"></a>00338                 }
+<a name="l00339"></a>00339                 <span class="keywordflow">else</span>
+<a name="l00340"></a>00340                 {
+<a name="l00341"></a>00341                         echo <span class="stringliteral">&#39;&lt;textarea id=&quot;notes&quot; name=&quot;notes&quot;&gt;&#39;</span>;
+<a name="l00342"></a>00342                         echo $this-&gt;<a class="code" href="class_media.html#a2e7bb35c71bf1824456ceb944cb7a845">getDescription</a>();
+<a name="l00343"></a>00343                         echo <span class="stringliteral">&#39;&lt;/textarea&gt;&#39;</span>;
+<a name="l00344"></a>00344                 }
+<a name="l00345"></a>00345         }
+<a name="l00346"></a>00346 }
+<a name="l00347"></a>00347 ?&gt;
+</pre></div></div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Tue Jun 7 2011 21:18:22 pour Carcajour par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>
