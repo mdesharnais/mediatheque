@@ -136,7 +136,7 @@ Les médias audio et vidéos sont un cas à part, car nous nous sommes aperçus 
 
 Ainsi, pour effectuer une interrogation à la base de données concernant l'ensemble des médias, il suffit d'interroger la table \texttt{medias} qui contient les informations communes à tous les médias. Si nous voulons des informations plus précises sur un média audio, il suffit de joindre les tables \texttt{medias} et \texttt{audios\_videos} selon l'\texttt{ID} du premier et l'\texttt{exID} du second.
 
-Nous pouvons toujours être surs que, pour chaque enregistrement de la table \texttt{media}, il y aura toujours, selon le type, un enregistrement correspondant dans la table \texttt{audios\_videos} ou bien dans la table \texttt{imprimes}.
+Nous pouvons toujours être sûrs que, pour chaque enregistrement de la table \texttt{media}, il y aura toujours, selon le type, un enregistrement correspondant dans la table \texttt{audios\_videos} ou bien dans la table \texttt{imprimes}.
 
 Dans l'exemple des tableaux \ref{tab:sf-medias}, \ref{tab:sf-audios-videos} et \ref{tab:sf-imprimes}, nous voyons que le CD \emph{l'expédition}, paru en 2008, est de nationalité canadienne alors que le livre \emph{La communauté de l'anneau}, paru en 1972, appartient à la collection \emph{Le seigneur des anneaux}. Ce sont tous deux des médias, mais les informations supplémentaires de chacun sont dans la table correspondant à leur type.
 
@@ -201,7 +201,7 @@ Plus la recherche sera raffinée, moins le fil d'Ariane sera rempli puisque la r
 	\caption{Fil d'Ariane lorsque raffiné au maximum}
 \end{figure}
 
-Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établi que s'il y avait plus de trois suggestions de valeurs pour un critère, une entrée de liste "Afficher plus" serait affichée pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à noter que cette fonction n'est disponible que sur un navigateur ayant le JavaScript activé. La désactivation du JavaScript n'amène pas de problèmes en tant que tels. Les valeurs des critères seront tout simplement affichées dans leur ensemble sans possibilité de cacher X résultats.
+Pour ajouter à l'ergonomie déjà présente dans le fil d'Ariane, nous avons établi que s'il y avait plus de trois suggestions de valeurs pour un critère, une entrée de liste "Afficher plus" serait affichée pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à noter que cette fonction n'est disponible que sur un navigateur ayant le JavaScript activé. La désactivation du JavaScript n'amène pas de problèmes en tant que tel. Les valeurs des critères seront tout simplement affichées dans leur ensemble sans possibilité de cacher X résultats.
 
 \subsection{Parcourir}
 Le mode « Parcourir » est tout simplement l'exécution d'une recherche n'ayant aucun critère spécifique. Tous les médias sont donc affichés. Une surcharge de résultats sur la page est évitée avec l'utilisation du système de pagination affichant 5 résultats par page. Pour raffiner les résultats de la recherche, on utilise le fil d'Ariane vertical décrit précédemment.
@@ -327,7 +327,7 @@ Cette technique offre de nombreux avantages dont voici une liste non exhaustive~
 	\item Possibilité de définir une valeur comme n'étant plus disponible pour utilisation future, mais restant valide pour les utilisations passées;
 	\item Possibilité d'éviter tout risque de dédoublement de valeurs suite à des fautes d'orthographes\footnote{La seule possibilité de dédoublement des valeurs est si la personne chargée de gérer les tables de pilotages écrit deux fois la même valeur avec une orthographe différente (e.g.\ Trois-Rivières et trois-rivieres).}.
 	\item Possibilité de mettre à jour instantanément la valeur d'une option pour tous les enregistrements l'utilisant en modifiant simplement sa valeur dans la table de pilotage.
-	\item Poid de la base de données réduit puisqu'il est moins lourd de définir de nombreuses clés étrangères que de répéter de nombreuses fois la même chaine de caractères.
+	\item Poids de la base de données réduit puisqu'il est moins lourd de définir de nombreuses clés étrangères que de répéter de nombreuses fois la même chaine de caractères.
 	\item Possibilité de ne donner les droits de modification à la table de pilotage qu'à certains groupes d'utilisateurs.
 \end{itemize}
 
@@ -424,7 +424,7 @@ Ces pages permettront de publier des informations concernant la médiathèque et
 
 \subsection{Introduction}
 
-Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisie un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentatifs de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institutions de musique, tel un orchestre symphonique constitué de musiciens vêtus de vestons cravates.
+Le site doit véhiculer l'image universelle de la musique. Nous avons donc choisi un thème graphique près du noir sur blanc pour s'apparenter aux touches d'un piano qui est un des instruments le plus représentatifs de l'image qu'ont le peuple Nord-Américain de la musique. Pour cela, une charte graphique a été définie. Elle dégage une ambiance sobre et pratique. De plus, cette charte respecte le sérieux, l'élégance et la fierté des institutions de musique, tel un orchestre symphonique constitué de musiciens vêtus de vestons cravates.
 
 \subsection{Maquette}
 
@@ -432,7 +432,7 @@ Toutes les pages sont construites sur la base du modèle suivant :
 
 \begin{enumerate}
 	\item Bandeau
-	\item Fil d'Ariane vertical (n'apparais cependant que dans certaines pages)
+	\item Fil d'Ariane vertical (n'apparait cependant que dans certaines pages)
 	\item Contenu de la page
 	\item Pied de page
 \end{enumerate}
@@ -496,7 +496,7 @@ Le bandeau est constitué des éléments suivants:
 \end{description}
 
 \subsubsection{Fil d'Ariane vertical (2)}
-Le fil d'Ariane vertical permet d'afficher des critères permettant davantage la recherche. Il contient des éléments liste contenant des liens pour raffiner la recherche.
+Le fil d'Ariane vertical permet d'afficher des critères permettant davantage la recherche. Il contient des liste de critères permettant de raffiner la recherche.
 
 \subsubsection{Contenu (3)}
 Le contenu des pages est affiché dans cette partie. Son contenu varie énormément selon la page affichée. Dans la capture d'écran présente ci-haut, on y voit les résultats d'une recherche.
@@ -612,7 +612,7 @@ Voir le diagramme en annexe.
 		\begin{tabular}{|c|l|p{10cm}|}
 		\hline
 		Image                                            & Taille           & Description \\ \hline
-		\includegraphics[scale=0.2]{black_arrow_big.png} & 370x216, 209x122 & Cette image servira a afficher les détails d'un média sous forme d'infobulle.\\ \hline
+		\includegraphics[scale=0.2]{black_arrow_big.png} & 370x216, 209x122 & Cette image servira à afficher les détails d'un média sous forme d'infobulle.\\ \hline
 		\includegraphics{cart.png}                       & 20x20            & Icone représentant la réservation d'un média. \\ \hline
 		\includegraphics[scale=1.15]{emprunt.png}        & 87x87            & Icone représentant un emprunt. \\ \hline
 		\includegraphics[scale=0.3]{reservation.png}     & 87x87            & Icone représentant une réservation. \\ \hline
@@ -790,10 +790,11 @@ Lors de la conception, le site a été testé sur les navigateurs suivants~:
 Le site est fonctionnel sur l'ensemble des navigateurs, mais certains effets graphiques ne sont disponibles que sur les versions récentes de chacun.
 
 \subsection{Languages}
+
 \subsubsection{Client}
 Du côté client, les langages utilisés sont le HTML 5, le CSS 3, le JavaScript et le XML.
 
-Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalités dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 «~border-radius~» nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et affichera des coins carrés standards.
+Pour le HTML 5 et le CSS 3, il a été décidé d'utiliser les fonctionnalités dont nous avions besoin tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant pas ces nouvelles technologies. Par exemple, la propriété CSS 3 «~border-radius~» nous permet d'afficher des coins arrondis facilement sur n'importe quel composant de la page. Dans le cas où celle-ci ne serait pas reconnue par un navigateur, celui-ci doit simplement ignorer la propriété et affichera des coins carrés standards.
 
 Pour le JavaScript, la bibliothèque \href{http://jquery.com/}{jQuery 1.6.1} a été utilisée afin de simplifier le code et d'unifier la gestion des différents navigateurs. En effet, cette bibliothèque a l'avantage de proposer des fonctions unifiées qui se chargent pour nous de gérer les différences entre les différents navigateurs.
 
@@ -1011,7 +1012,7 @@ Pour atteindre son but, il dispose des informations suivantes :
 	\item \$application->rights retourne un tableau associatif contenant la représentation numérique de tous droits.
 \end{itemize}
 
-Pour pouvoir déterminer si l'utilisateur courant a bien les droits demandés, il faudra exécuter une requête à la base de données qui nous retourne la liste de tous les droits qu'à cet utilisateur sur cette section\footnote{Il peut y en avoir plus d'un si l'utilisateur appartient à plus d'un groupe.}, additionner ces droits grâces à l'\href{http://www.php.net/manual/en/language.operators.bitwise.php}{opérateur «~ou~binaire~»} (binary or) et déterminer si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l'utilisateur grâce à l'opérateur «~et~binaire~» (binary and).
+Pour pouvoir déterminer si l'utilisateur courant a bien les droits demandés, il faudra exécuter une requête à la base de données qui nous retourne la liste de tous les droits qu'a cet utilisateur sur cette section\footnote{Il peut y en avoir plus d'un si l'utilisateur appartient à plus d'un groupe.}, additionner ces droits grâces à l'\href{http://www.php.net/manual/en/language.operators.bitwise.php}{opérateur «~ou~binaire~»} (binary or) et déterminer si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l'utilisateur grâce à l'opérateur «~et~binaire~» (binary and).
 
 \subsection{En conclusion}
 Cette façon de gérer les droits des utilisateurs offre de nombreux avantages~:
