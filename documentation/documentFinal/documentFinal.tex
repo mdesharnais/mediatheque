@@ -727,7 +727,11 @@ Ce modèle est utilisé pour afficher des formulaires simples ayant un seul nive
 
 \subsection{Le modèle de page de détails avancé d'un média}
 
-Ce modèle est utilisé pour visionner ou modifier les détails d'un média. Lorsque l'utilisateur est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe plusieurs niveaux de détails pour un média. Des boutons plus et moins sont utilisés pour naviguer entre ces différents niveaux de détail.
+Ce modèle est utilisé pour visionner ou modifier les détails d'un média. Lorsque l'utilisateur est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe plusieurs niveaux de détails pour un média. Le premier représente le média lui-même, comme un CD de musique, le second représente les enfants du médias, comme les différentes pistes de notre CD, alors que le troisième niveau représente les enfants du second niveau, tel que les différents artistes ayant participés à une piste. 
+
+Puisque la quantité totale d'informations peut-être importante, tous les niveaux sont cachés par défaut et un résumé est affiché en lieu et place. Un clique sur le résumé fait apparaître l'enregistrement correspondant. De plus, des boutons plus et moins permettent d'ajouter et de supprimer des enregistrements des différents niveaux.
+
+C'est là l'une des râres pages entièrement dépendante du JavaScript. Sans lui, il serait simplement impossible d'offrir la modification de tous les niveaux d'un média en une seule page.
 
 Lorsque l'utilisateur n'est pas un administrateur, tous les champs éditables deviennent des éléments affichés.
 
