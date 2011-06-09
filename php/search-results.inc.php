@@ -245,18 +245,19 @@ function printSearchRequest($sqlQuery,Pagination $pagination)
 		    $requestText= "Tous les médias";
 		    break;
 		case 2:
-		    $requestText= "Tous les médias de catégorie «audio»";
+		    $requestText= "Tous les médias de catégorie « audio »";
 		    break;
 		case 3:
-		    $requestText= "Tous les médias audio de l'artiste «Les cowboys fringuants»";
+		    $requestText= "Tous les médias « audio » de l'artiste « Les cowboys fringuants »";
+			break;
 	    case 4:
-	    $requestText= "Tous les médias audio de l'artiste «Les cowboys fringuants» dont l'année de publication est «2008»";
+	    $requestText= "Tous les médias « audio » de l'artiste « Les cowboys fringuants » dont l'année de publication est « 2008 »";
 	    	break;
 	    case 5:
-	    $requestText= "Les médias ayant pour titre: «La communauté de l'anneau»";
+	    $requestText= "Les médias ayant pour titre: « La communauté de l'anneau »";
 	    	break;
 	    case 6:
-	    $requestText= "Les médias ayant le mot clé: «Indiana Jones»";
+	    $requestText= "Les médias ayant le mot clé: « Indiana Jones »";
 	    	break;
 	}
 
