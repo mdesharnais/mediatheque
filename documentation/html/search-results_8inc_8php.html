@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Carcajour: Référence du fichier php/search-results.inc.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Généré par Doxygen 1.7.3 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Carcajour&#160;<span id="projectnumber">0.75</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Portée&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<h1>Référence du fichier php/search-results.inc.php</h1>  </div>
+</div>
+<div class="contents">
+
+<p><a href="search-results_8inc_8php_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="search-results_8inc_8php.html#ad9a193e67cb52ddfb507bbf508aea4d2">createSqlQuery</a> ($criterias)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui créer la requête sql à partir du tableau $_POST fournit en paramètre.  <a href="#ad9a193e67cb52ddfb507bbf508aea4d2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="search-results_8inc_8php.html#aa7a61cfe752b0351c92684b633cc4984">printSearchResults</a> ($sqlQuery)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui écrit les résultats de la recherche dans la page avec le balise html.  <a href="#aa7a61cfe752b0351c92684b633cc4984"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="search-results_8inc_8php.html#aaa1ecd079a8195c8e8fbd5bebca101d3">printSearchRequest</a> ($sqlQuery, <a class="el" href="class_pagination.html">Pagination</a> $pagination)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui écrit dans la page la requête de recherche en mots compréhensibles pour l'utilisateur.  <a href="#aaa1ecd079a8195c8e8fbd5bebca101d3"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="search-results_8inc_8php.html#ab50cc98eabdfff37ef3c67225a01fa1f">$presentationID</a> = 0</td></tr>
+</table>
+<hr/><h2>Documentation des fonctions</h2>
+<a class="anchor" id="ad9a193e67cb52ddfb507bbf508aea4d2"></a><!-- doxytag: member="search&#45;results.inc.php::createSqlQuery" ref="ad9a193e67cb52ddfb507bbf508aea4d2" args="($criterias)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">createSqlQuery </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>criterias</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fonction qui créer la requête sql à partir du tableau $_POST fournit en paramètre. </p>
+<dl class="author"><dt><b>Auteur:</b></dt><dd>Samuel Milette Lacombe </dd></dl>
+<dl><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">criterias</td><td>Tableau $_POST contenant les critères de recherche et leurs valeurs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>La requête SQl complète pour afficher les résultats de la recherche </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="search-results_8inc_8php_source.html#l00014">14</a> du fichier <a class="el" href="search-results_8inc_8php_source.html">search-results.inc.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa1ecd079a8195c8e8fbd5bebca101d3"></a><!-- doxytag: member="search&#45;results.inc.php::printSearchRequest" ref="aaa1ecd079a8195c8e8fbd5bebca101d3" args="($sqlQuery, Pagination $pagination)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">printSearchRequest </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>sqlQuery</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_pagination.html">Pagination</a> $&#160;</td>
+          <td class="paramname"><em>pagination</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fonction qui écrit dans la page la requête de recherche en mots compréhensibles pour l'utilisateur. </p>
+<dl class="author"><dt><b>Auteur:</b></dt><dd>Samuel Milette Lacombe </dd></dl>
+<dl><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sqlQuery</td><td>Requête sql de la recherche </td></tr>
+    <tr><td class="paramname">pagination</td><td>Objet de pagination utilisé pour afficher le nombre de médias contenu dans la recherche. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Renvoie:</b></dt><dd>Une chaine de caractère contenant une balise div contenant la description de la recherche demandée. </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="search-results_8inc_8php_source.html#l00240">240</a> du fichier <a class="el" href="search-results_8inc_8php_source.html">search-results.inc.php</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa7a61cfe752b0351c92684b633cc4984"></a><!-- doxytag: member="search&#45;results.inc.php::printSearchResults" ref="aa7a61cfe752b0351c92684b633cc4984" args="($sqlQuery)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">printSearchResults </td>
+          <td>(</td>
+          <td class="paramtype">$&#160;</td>
+          <td class="paramname"><em>sqlQuery</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Fonction qui écrit les résultats de la recherche dans la page avec le balise html. </p>
+<dl class="author"><dt><b>Auteur:</b></dt><dd>Samuel Milette Lacombe </dd></dl>
+<dl><dt><b>Paramètres:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sqlQuery</td><td>Requête sql de la recherche </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Définition à la ligne <a class="el" href="search-results_8inc_8php_source.html#l00118">118</a> du fichier <a class="el" href="search-results_8inc_8php_source.html">search-results.inc.php</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Documentation des variables</h2>
+<a class="anchor" id="ab50cc98eabdfff37ef3c67225a01fa1f"></a><!-- doxytag: member="search&#45;results.inc.php::$presentationID" ref="ab50cc98eabdfff37ef3c67225a01fa1f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$presentationID = 0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="search-results_8inc_8php_source.html#l00006">6</a> du fichier <a class="el" href="search-results_8inc_8php_source.html">search-results.inc.php</a>.</p>
+
+</div>
+</div>
+</div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Généré le Tue Jun 7 2011 21:18:22 pour Carcajour par&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
+</body>
+</html>

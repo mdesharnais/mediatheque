@@ -1,0 +1,5369 @@
+Carcajou
+Martin Desharnais
+Samuel Milette-Lacombe
+Marc-André Destrempes
+7 juin 2011
+
+Résumé
+Ce document contient la documentation du projet de médiathèque (nom de code « Carcajou »)
+conçu pour le département de musique du cégep de Trois-Rivières.
+
+Table des matières
+1 Spéciﬁcations fonctionnelles
+1.1 Médias . . . . . . . . . . . . . . . . . .
+1.1.1 Suggestions . . . . . . . . . . .
+1.2 Recherche . . . . . . . . . . . . . . . .
+1.2.1 Fil d’Ariane vertical . . . . . .
+1.2.2 Parcourir . . . . . . . . . . . .
+1.2.3 Recherche simple . . . . . . . .
+1.2.4 Recherche avancée . . . . . . .
+1.3 Gestion des utilisateurs . . . . . . . .
+1.3.1 Utilisateurs . . . . . . . . . . .
+1.3.2 Groupes . . . . . . . . . . . . .
+1.4 Zone utilisateur . . . . . . . . . . . . .
+1.4.1 Mes réservations . . . . . . . .
+1.4.2 Mes emprunts en cours . . . .
+1.4.3 Mon historique d’emprunts . .
+1.5 Administration . . . . . . . . . . . . .
+1.5.1 Emprunt . . . . . . . . . . . .
+1.5.2 Retour . . . . . . . . . . . . . .
+1.5.3 Générer code QR . . . . . . . .
+1.5.4 Tables de pilotages . . . . . . .
+1.5.5 Réservations en cours . . . . .
+1.5.6 Emprunts en cours . . . . . . .
+1.5.7 Historique des emprunts . . . .
+1.5.8 Gestion des utilisateurs . . . .
+1.5.9 Gestion des groupes . . . . . .
+1.6 Rapports . . . . . . . . . . . . . . . .
+1.6.1 Rapport sur les médias audios
+1.7 Pages d’information . . . . . . . . . .
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+3
+3
+5
+5
+5
+7
+7
+7
+8
+9
+9
+9
+9
+10
+10
+10
+10
+10
+11
+11
+13
+13
+13
+14
+14
+14
+14
+15
+
+2 Architecture du système
+2.1 Charte graphique . . . .
+2.1.1 Introduction . .
+2.1.2 Maquette . . . .
+2.1.3 Charte graphique
+2.1.4 Typographie . .
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+16
+16
+16
+16
+18
+20
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+1
+
+2.2
+
+2.3
+2.4
+2.5
+
+Modèle des pages principales et secondaires . . . . . . . . . . . . . . . .
+2.2.1 Le modèle de page descriptif . . . . . . . . . . . . . . . . . . . .
+2.2.2 Le modèle de page d’aﬃchage des résultats de recherche . . . . .
+2.2.3 Le modèle de page des réservations, des retours et des emprunts
+2.2.4 Le modèle de page table de pilotage . . . . . . . . . . . . . . . .
+2.2.5 Le modèle de page formulaire simple . . . . . . . . . . . . . . . .
+2.2.6 Le modèle de page de détails avancé d’un média . . . . . . . . .
+2.2.7 Le modèle de page rapport . . . . . . . . . . . . . . . . . . . . .
+Diagramme d’enchaînement . . . . . . . . . . . . . . . . . . . . . . . . .
+Diagramme de classe . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+Base de données et dictionnaire . . . . . . . . . . . . . . . . . . . . . . .
+
+3 Architecture technologique
+3.1 Représentation graphique . . . .
+3.2 Spéciﬁcations techniques . . . . .
+3.2.1 Navigateurs . . . . . . . .
+3.2.2 Languages . . . . . . . . .
+3.2.3 Bande passante . . . . . .
+3.2.4 Serveurs . . . . . . . . . .
+3.2.5 Type de base de données
+3.3 Sécurité . . . . . . . . . . . . . .
+3.3.1 En théorie . . . . . . . . .
+3.3.2 En pratique . . . . . . . .
+3.3.3 En conclusion . . . . . . .
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+22
+22
+22
+23
+24
+24
+26
+26
+27
+27
+27
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+28
+28
+28
+28
+29
+30
+30
+30
+30
+30
+32
+33
+
+4 Prototype fonctionnel
+
+35
+
+A Dictionnaire de données
+
+36
+
+2
+
+Chapitre 1
+
+Spéciﬁcations fonctionnelles
+1.1
+
+Médias
+
+Nous avons décidé de centraliser un certain nombre d’informations communes à tous les articles
+pouvant faire partie de la médiathèque, comme le titre ou le numéro de référence, sous l’identité de
+média. Ainsi, tous les articles de la médiathèque sont des médias et partagent un certain nombre
+de propriétés. Par la suite, ceux-ci sont subdivisés en médias audios, vidéos et imprimés où chaque
+subdivision contient un certain nombre d’informations unique à sa catégorie.
+Au niveau de la base de données, cette situation se traduit par une table medias qui contient
+un enregistrement correspondant à tous les médias de la médiathèque ainsi que des tables enfants
+contenant les informations plus précises de chaque type.
+Les informations propres aux médias imprimés se trouvent dans la table imprimes.
+Les médias audio et vidéos sont un cas à part, car nous nous sommes aperçus que ceuxci étaient extrêmement semblables. Les quelques propriétés qui les distinguaient pouvaient très
+bien s’appliquer l’un à l’autre. Nous avons donc décidé, à l’interne, de les regrouper dans la table
+audios_videos.
+Table 1.1 – medias
+ID
+1
+2
+3
+4
+
+titre
+L’expédition
+La communauté de l’anneau
+La communauté de l’anneau
+Indiana Jones et la dernière croisade
+
+annee_publication
+2008
+1972
+2005
+1987
+
+Table 1.2 – audios_videos
+ID
+1
+2
+
+exID
+1
+4
+
+nationalite
+Canadienne
+Américaine
+
+3
+
+Table 1.3 – imprimes
+ID
+1
+2
+
+exID
+2
+3
+
+collection
+Le seigneur des anneaux
+Le seigneur des anneaux
+
+Ainsi, pour eﬀectuer une interrogation à la base de données concernant l’ensemble des médias,
+il suﬃt d’interroger la table medias qui contient les informations communes à tous les médias. Si
+nous voulons des informations plus précises sur un média audio, il suﬃt de joindre les tables medias
+et audios_videos selon l’ID du premier et l’exID du second.
+Nous pouvons toujours être surs que, pour chaque enregistrement de la table media, il y aura
+toujours, selon le type, un enregistrement correspondant dans la table audios_videos ou bien dans
+la table imprimes.
+Dans l’exemple des tableaux 1.1, 1.2 et 1.3, nous voyons que le CD l’expédition, paru en 2008, est
+de nationalité canadienne alors que le livre La communauté de l’anneau, paru en 1972, appartient
+à la collection Le seigneur des anneaux. Ce sont tous deux des médias, mais les informations
+supplémentaires de chacun sont dans la table correspondant à leur type.
+Nous pouvons aussi constater qu’il y a deux médias portant le même titre, mais ayant une date
+de publication diﬀérente. Il s’agit là d’une réédition et puisque certaines informations changent
+d’une édition à l’autre, un nouveau média a été créé pour la représenter.
+Table 1.4 – exemplaires_medias
+ID
+1
+2
+3
+4
+5
+
+exID
+1
+1
+2
+3
+4
+
+reference
+CD-00001
+CD-00002
+ROM-00003
+ROM-00004
+VHS-00005
+
+Il peut aussi arriver que nous disposions de plusieurs copies identiques d’un même média. Dans
+ce cas, nous pouvons simplement ajouter un exemplaire à un média déjà présent dans la base de
+données. Dans le tableau 1.4, nous pouvons voir que nous possédons deux exemplaires de l’album
+l’expédition alors que nous ne possédons qu’un seul exemplaire des autres médias. Puisque ce sont
+des objets distincts, les deux albums ont un numéro de référence diﬀérent aﬁn de permettre de les
+diﬀérencier.
+L’analyse nous a révélé que certains médias ne peuvent être empruntés que par certains groupes
+d’utilisateurs alors que d’autres sont disponibles uniquement pour consultation sur place.
+Pour représenter cette situation, nous avons décidé que chaque média contiendra la liste des
+groupes habilités à l’emprunter. Si aucun groupe n’est déﬁni, cela signiﬁe que personne ne peut
+l’emprunter et qu’il est disponible en consultation sur place seulement.
+
+4
+
+1.1.1
+
+Suggestions
+
+Les utilisateurs du site ont la possibilité d’émettre une suggestion d’achat de nouveaux médias. Un formulaire les invite à entrer le titre, l’artiste ainsi que le type de support du média
+qu’ils comptent suggérer. Ils ont aussi la possibilité d’ajouter un commentaire si des informations
+supplémentaires sont nécessaires.
+Le champ permettant d’entrer l’artiste devra être lié à une liste de suggestions permettant à
+l’utilisateur de sélectionner un artiste déjà présent dans le système. Pour plus d’informations sur
+les listes de suggestions, voir la section 1.2.4 sur la recherche avancée. Le champ contenant l’artiste
+ne peut être une simple liste déroulante statique puisque nous désirons laisser à l’utilisateur la
+possibilité de suggérer un média appartenant à un nouvel artiste.
+
+1.2
+
+Recherche
+
+Des fonctions de recherche simple et avancée sont un élément essentiel pour un système de
+médiathèque. Le nôtre n’en fait pas exception puisqu’il oﬀre un module de recherche évolué et des
+possibilités de raﬃnement sans limites. Nous avons voulu créer un système de recherche nécessitant
+un temps d’apprentissage quasi nul. Pour cela, nous avons joint quelques particularités aux fonctions
+de recherche de base. Voici la liste des éléments assurant une facilité de recherche et une bonne
+navigabilité des résultats correspondants à cette recherche.
+– Fil d’Ariane vertical permettant de raﬃner les résultats de recherche ;
+– Mode « Parcourir » permettant de parcourir tous les médias ;
+– Recherche simple de médias ;
+– Recherche avancée de médias ;
+
+1.2.1
+
+Fil d’Ariane vertical
+
+Un ﬁl d’Ariane est un composant web d’aide à la navigation dans les pages d’un site web. Un ﬁl
+d’Ariane horizontal standard est sous la forme de signalisation de la localisation du lecteur dans un
+document. Il permet d’indiquer à l’utilisateur où il se situe dans une page web et oﬀre la possibilité
+de revenir à la section qu’il désire. Dans le cas de Carcajou, c’est un ﬁl d’Ariane vertical qui est
+utilisé. Au lieu de nous aﬃcher notre position dans un site web sous forme d’arborescence, il nous
+permet de naviguer par critères dans les résultats de recherche. On pourra donc l’utiliser pour
+raﬃner une recherche de médias. Pour une recherche donnée, une liste de valeurs regroupées par
+critères sera aﬃchée et l’on pourra donc cliquer sur ces valeurs pour raﬃner sa recherche.
+Plus la recherche sera raﬃnée, moins le ﬁl d’Ariane sera rempli puisque la recherche devient
+plus spéciﬁque et de moins en moins de valeurs d’attribut seront applicables à la recherche. Par
+exemple, si le niveau de raﬃnement de la recherche retourne uniquement deux résultats et que
+ces médias ont le même attribut « genre », il est évident que ce critère ne sera pas aﬃché dans
+le ﬁl d’Ariane. Lorsqu’aucune possibilité de raﬃnement supplémentaire n’est disponible pour les
+résultats aﬃchés.
+Pour ajouter à l’ergonomie déjà présente dans le ﬁl d’Ariane, nous avons établi que s’il y avait
+plus de trois suggestions de valeurs pour un critère, une entrée de liste "Aﬃcher plus" serait aﬃchée
+pour développer les valeurs supplémentaires. La page est donc moins surchargée. Il est à noter que
+cette fonction n’est disponible que sur un navigateur ayant le JavaScript activé. La désactivation
+
+5
+
+Figure 1.1 – Exemple de ﬁl d’Ariane vertical
+
+Figure 1.2 – Fil d’Ariane lorsque raﬃné au maximum
+
+6
+
+du JavaScript n’amène pas de problèmes en tant que tels. Les valeurs des critères seront tout
+simplement aﬃchées dans leur ensemble sans possibilité de cacher X résultats.
+
+1.2.2
+
+Parcourir
+
+Le mode « Parcourir » est tout simplement l’exécution d’une recherche n’ayant aucun critère
+spéciﬁque. Tous les médias sont donc aﬃchés. Une surcharge de résultats sur la page est évitée avec
+l’utilisation du système de pagination aﬃchant 5 résultats par page. Pour raﬃner les résultats de
+la recherche, on utilise le ﬁl d’Ariane vertical décrit précédemment.
+
+1.2.3
+
+Recherche simple
+
+Accessible à partir de la barre de navigation principale, la recherche simple permet à partir d’un
+mot clé d’eﬀectuer une recherche sur tous les médias. Seuls les médias satisfaisant le mot clé évoqué
+seront aﬃchés. Pour cela, tous les champs sont parcourus pour rechercher une correspondance à ce
+mot clé en ignorant la casse. Par exemple, une recherche avec le mot « cowboy » pourrait autant
+retourner un média de l’artiste « Les cowboys fringants » qu’un média contenant la chanson « Bye
+Bye Mon Cowboy ».
+
+Figure 1.3 – Barre de recherche simple
+
+1.2.4
+
+Recherche avancée
+
+La recherche avancée permet de faire une recherche très spéciﬁque. On peut y sélectionner tous
+les critères de recherche possible et sans limites de nombre. On peut sélectionner les opérateurs
+logiques (et, ou, etc.) et les opérateurs de comparaison (contient, égale, etc.). On pourrait donc
+eﬀectuer une recherche comme celle-ci : Titre du média contenant « Indiana Jones» et année de
+publication plus grande que 1988.
+
+Figure 1.4 – Exemple de recherche avancée
+Lors de la sélection d’un critère d’une recherche, une liste de suggestions est automatiquement
+liée au champ texte. Dès que l’on tape une série de lettres, une liste de valeurs contenant ce groupe de
+7
+
+lettres s’aﬃchera. Cet ajout rend la recherche avancée beaucoup plus conviviale. Cette fonctionnalité
+utilise la balise « datalist » qui est disponible uniquement sur des navigateurs supportant cette balise
+Html 5.
+
+Figure 1.5 – Exemple de suggestions à partir d’une datalist
+Il est aussi possible d’ajouter autant de critères de recherches que l’on désire. Pour cela, le
+JavaScript a été utilisé pour interagir dynamiquement avec le DOM de la page. Des eﬀets visuels
+de disparation et d’apparition ont même été ajoutés pour une ergonomie plus dynamique.
+
+Figure 1.6 – Ajout d’un nombre personnalisé de critères
+
+1.3
+
+Gestion des utilisateurs
+
+Suite à l’analyse du projet, nous avons relevé qu’il y a, principalement, quatre groupes d’utilisateurs à gérer :
+– Les administrateurs du système qui ont tous les droits ;
+– Les commis qui sont charger d’entrer les emprunts, les réservations et les nouvelles acquisitions ;
+– Les étudiants qui ont le droit d’eﬀectuer des réservations, mais dépendent d’un commis pour
+emprunter et retourner un média ;
+– Les enseignants du département qui n’ont pas à passer par le commis pour eﬀectuer un
+emprunt ou un retour à leur nom.
+
+8
+
+1.3.1
+
+Utilisateurs
+
+Chaque personne souhaitant bénéﬁcier des services de la médiathèque doit avoir un compte
+utilisateur identiﬁé par nom d’utilisateur 1 ainsi qu’un mot de passe. À moins que, lors de la programmation, les informations nécessaires soient disponibles, ces identiﬁants sont dissociés des noms
+d’utilisateurs et mot de passe utilisés pour accéder aux services LÉA et aux ordinateurs du cégep
+de Trois-Rivières. Cependant, rien n’empêche les utilisateurs de choisir le même mot de passe pour
+les deux systèmes.
+Toutes les informations sur un utilisateur sont stockées dans la table utilisateurs. Il est
+important de noter que les informations personnelles de l’utilisateur doivent en tout temps rester
+accessibles au moins de personnes possible 2 . Ceci est possible grâce au système de gestion des droits
+qui permet de donner le droit en lecture à ces informations uniquement à certains groupes (e.g.
+Administrateurs et Commis).
+Pour plus d’informations sur la gestion des droits et la sécurité, voir la section 3.3 sur la sécurité
+à la page 30.
+Certaines informations, comme le mot de passe de l’utilisateur, doivent rester totalement inconnues de tous, excepté de l’utilisateur lui-même. Pour ce faire, ces informations devront être
+cryptées avant d’être enregistrées dans la base de données. Dans le cas où un utilisateur perde sont
+mot de passe, la seule solution consiste à le réinitialiser à une valeur par défaut et à demander à
+l’utilisateur d’en déﬁnir un nouveau.
+
+1.3.2
+
+Groupes
+
+Les groupes servent à eﬀectuer une distinction entre les diﬀérents utilisateurs et à leur attribuer
+des droits correspondant à leur statut dans le département. Plutôt que de tenter de prédire tous
+les besoins de hiérarchisation des utilisateurs dont le département de musique aura besoin dans le
+futur, nous avons pris la décision de rendre la gestion des groupes accessible aux utilisateurs. Ainsi,
+dans cinq ans, un administrateur pourrait créer un nouveau groupe avec des droits spéciﬁques pour
+représenter une nouvelle situation, comme l’arrivée d’enseignants stagiaires.
+Pour plus d’informations sur la gestion des groupes et la sécurité, voir la section 3.3 sur la
+sécurité à la page 30.
+
+1.4
+
+Zone utilisateur
+
+La zone utilisateur permet à l’utilisateur actuellement connecté d’accéder à des informations
+concernant son utilisation de la médiathèque.
+
+1.4.1
+
+Mes réservations
+
+La page « Mes réservations » permet à l’utilisateur de consulter la liste des réservations qu’il a
+actuellement. Celles-ci sont aﬃchées dans un tableau où il est possible de déﬁnir l’information de tri
+simplement en cliquant sur l’en-tête de la colonne. De plus, un lien oﬀre à l’utilisateur la possibilité
+de supprimer une réservation. Si le JavaScript est activé, une invite de conﬁrmation demande à
+1. Actuellement, nous utilisons le matricule comme nom d’utilisateur.
+2. Ceci est un exemple évident de l’application du « Principle of least privilege ».
+
+9
+
+l’utilisateur de conﬁrmer qu’il désire bien supprimer la réservation. Dans le cas où le JavaScript est
+désactivé, la réservation est supprimée sans demander de conﬁrmation.
+Une fois celle-ci supprimée, un courriel doit être envoyé à l’utilisateur aﬁn de lui conﬁrmer la
+suppression de sa réservation.
+L’utilisateur peut consulter la ﬁche détaillée du média en cliquant sur son titre dans le tableau.
+
+1.4.2
+
+Mes emprunts en cours
+
+La page « Mes emprunts en cours » permet à l’utilisateur de consulter la liste des médias qu’il
+a actuellement en sa possession. Ceux-ci sont aﬃchés dans un tableau où il est possible de déﬁnir
+l’information de tri simplement en cliquant sur l’en-tête de la colonne. De plus, un lien oﬀre à
+l’utilisateur la possibilité de demander un renouvellement d’un emprunt.
+L’utilisateur peut consulter la ﬁche détaillée du média en cliquant sur son titre dans le tableau.
+
+1.4.3
+
+Mon historique d’emprunts
+
+La page « Mon historique d’emprunts » permet à l’utilisateur de consulter la liste des emprunts
+qu’il a eﬀectués par le passé. Ceux-ci sont aﬃchés dans un tableau où il est possible de déﬁnir
+l’information de tri simplement en cliquant sur l’en-tête de la colonne.
+L’utilisateur peut consulter la ﬁche détaillée du média en cliquant sur son titre dans le tableau.
+
+1.5
+
+Administration
+
+La zone adminsitration permet aux utilisateurs possédant les droits requis d’eﬀectuer des emprunts, des retours, des rapports, de générer des codes QR, de faire la gestion des groupes, des
+utilisateurs et des tables de pilotages.
+
+1.5.1
+
+Emprunt
+
+La page « Emprunt » permet, aux personnes qui ont les droits requis, d’entrer des emprunts
+dans la base de données. Pour eﬀectuer un emprunt, la personne qui veut emprunter présente sa
+carte. À partir d’un lecteur de QR code on numérise le code et celui remplis automatiquement
+le champ désigné. On eﬀectue la même opération lorsqu’il s’agit d’ajouter les médias. Ces deux
+opérations peuvent aussi s’eﬀectuées à la main, c’est-à-dire entrer les codes manuellement. Pour
+supprimer un média de la liste lors d’une erreur, la personne n’a qu’à entrer le numéro de référence
+à nouveau et appuyer sur le +. Les dates disponibles vont changer selon les réservations et les
+disponibilitées du commis.
+
+1.5.2
+
+Retour
+
+La page « Retour » permet, aux personnes qui ont les droits requis, d’entrer des retours dans
+la base de données. Pour eﬀectuer un retour, la personne qui veut faire un retour présente sa carte.
+À partir d’un lecteur de QR code on numérise le code et celui remplis automatiquement le champ
+désigné. On eﬀectue la même opération lorsqu’il s’agit d’ajouter les médias. Ces deux opérations
+peuvent aussi s’eﬀectuées à la main, c’est-à-dire entrer les codes manuellement. Pour supprimer un
+média de la liste lors d’une erreur, la personne n’a qu’à entrer le numéro de référence à nouveau et
+appuyer sur le -.
+10
+
+1.5.3
+
+Générer code QR
+
+À partir du générateur de code QR, l’usagé n’a qu’à entrer le texte qu’il veut et le code QR
+correspondant sera généré. Dans le contexte présent, l’utilité de ces codes est de permettre l’identiﬁcation des médias sans commettre d’erreurs. Ces codes peuvent contenir le texte désiré. Ainsi, le
+code de référencement maison peut toujours être utilisé. Si nous voulons pousser plus loin encore,
+les codes QR pourront être utilisés pour la fabrication de cartes qui seront remis aux usagés pour
+assurer un meilleur contrôle de ce qui entre et sort.
+
+Figure 1.7 – Exemple de code QR
+
+1.5.4
+
+Tables de pilotages
+
+De nombreuses tables de la base de données sont basées sur le concept de table de pilotage.
+Celles-ci sont des tables qui servent à déﬁnir une liste de valeurs possibles pour une colonne d’une
+ou plusieurs autres tables. Par exemple, la table medias oﬀre le champ maison_edition qui permet
+d’identiﬁer la maison d’édition d’un média donné. Plutôt que de fournir un champ texte de 50 à 75
+caractères de long et de devoir réécrire le nom de la maison d’édition pour chaque enregistrement,
+nous avons créé la table maisons_edition qui contient la liste de toutes les maisons d’édition utilisables par le système. La colonne medias.maison_edition ne contient donc qu’une clé étrangère
+pointant sur l’enregistrement correspondant de sa table de pilotage.
+De plus, nous avons ajouté une colonne inactif à toutes les tables de pilotage aﬁn que l’utilisateur puisse déﬁnir une valeur comme n’étant plus utilisable dans le futur. D’aucun pourrais suggérer
+de simplement supprimer cette valeur, mais un bon système de gestion de base de données (SGBD)
+appliquant l’intégrité référentielle refusera une telle opération si ne serait-ce qu’une clé étrangère
+pointe sur l’enregistrement. Nous pourrions très bien supprimer toutes les clés étrangères avant
+d’eﬀectuer la suppression, mais, en y réﬂéchissant bien, nous ne souhaitons pas faire disparaitre
+toute trace de la valeur, nous souhaitons simplement qu’elle ne puisse plus être utilisée à l’avenir.
+En déﬁnissant un champ inactif, nous permettons à l’utilisateur de bloquer l’utilisation d’une valeur
+pour le futur tout en laissant les enregistrements l’utilisant déjà intacts.
+Dans le contexte d’un formulaire permettant d’entrer des médias, cette relation se traduit par
+une liste déroulante, remplie de toutes les valeurs non inactives, où il suﬃt de choisir une valeur
+parmi celles proposées.
+Cette technique oﬀre de nombreux avantages dont voici une liste non exhaustive :
+– Possibilité de ﬁltrer les valeurs acceptables pour un champ ;
+– Possibilité de déﬁnir une valeur comme n’étant plus disponible pour utilisation future, mais
+restant valide pour les utilisations passées ;
+11
+
+Figure 1.8 – Exemple de liste déroulante
+– Possibilité d’éviter tout risque de dédoublement de valeurs suite à des fautes d’orthographes 3 .
+– Possibilité de mettre à jour instantanément la valeur d’une option pour tous les enregistrements l’utilisant en modiﬁant simplement sa valeur dans la table de pilotage.
+– Poid de la base de données réduit puisqu’il est moins lourd de déﬁnir de nombreuse clés
+étrangères que de répéter de nombreuses fois la même chaine de caractères.
+– Possibilité de ne donner les droits de modiﬁcation à la table de pilotage qu’à certains groupes
+d’utilisateurs.
+La zone d’administration permet à l’utilisateur d’ajouter, modiﬁer et supprimer des données
+de nombreuses tables de pilotages. La page de modiﬁcation se présente sous forme de tableau où
+il est possible de déﬁnir l’information de tri simplement en cliquant sur l’en-tête de la colonne
+correspondante et où la première ligne sert à entrer une nouvelle valeur. Un bouton permet de
+supprimer une valeur, mais, comme dit précédemment, la suppression ne doit être acceptée que si
+aucune clé étrangère n’est déﬁnie sur cet enregistrement.
+C’est l’une des rares pages du site qui est totalement dépendante du JavaScript et requiert donc
+qu’il soit activé sur le navigateur des utilisateurs souhaitant modiﬁer les tables de pilotages.
+Comme la taille d’une table de pilotage peut devenir assez grande, et que tous les enregistrements apparaissent dans le formulaire, nous avons développé un système permettant aux futurs
+programmeurs de mettre facilement à jour la table. Sans cette technique, il aurait toujours fallu
+mettre à jour tous les enregistrements, ajouter tous ceux ne ﬁgurant pas dans la nouvelle liste et supprimer tous ceux n’y ﬁgurant plus. Toutes ces opérations auraient été très couteuses en ressources
+et très diﬃciles à mettre en place.
+Pour palier à ces problèmes, nous avons ajouté une colonne invisible dans le formulaire qui a
+pour nom row_state. Celle-ci contient un nombre qui ne peut avoir que quatre valeurs :
+La valeur de la colonne est modiﬁée en JavaScript selon les modiﬁcations faites à chaque enregistrement. Lorsque le formulaire est envoyé au serveur, le programmeur sait qu’il n’a rien à faire
+avec les enregistrements dont la row_state est à 1, qu’il doit faire une requête INSERT lorsqu’elle
+est à 2, qu’il doit faire une requête DELETE lorsqu’elle est à 3 et une requête UPDATE lorsqu’elle est
+à 4.
+Comme les tables de pilotages sont nombreuses et que leur formulaire de modiﬁcation est très
+3. La seule possibilité de dédoublement des valeurs est si la personne chargée de gérer les tables de pilotages écrit
+deux fois la même valeur avec une orthographe diﬀérente (e.g. Trois-Rivières et trois-rivieres).
+
+12
+
+Table 1.5 – Valeurs possible de la colonne row_state
+Valeur
+1
+2
+3
+4
+
+Signiﬁcaton
+Unchanged
+Added
+Deleted
+Modiﬁed
+
+semblable, nous avons décidé que, plutôt que de faire une page séparée par table de pilotage, une
+seule page se permettrait de toutes les modiﬁer. Tous les hyperliens pointent donc vers la même
+page et se contentent de passer en paramètre la table qui doit être modiﬁée. La page se connecte
+alors à la base de données aﬁn de l’interroger sur la structure de la table en question et génère alors
+dynamiquement un formulaire contenant toutes les colonnes celle-ci.
+Cette façon de faire permet de s’assurer que le formulaire sera toujours parfaitement à jour avec
+la structure de la table dans la base de données et permet aussi d’ajouter de nouvelles tables de
+pilotage très facilement et très rapidement puisqu’il n’y a pas de nouveau formulaire à créer.
+
+1.5.5
+
+Réservations en cours
+
+La page « Réservations en cours » permet à l’utilisateur de consulter la liste de toutes les
+réservations du système. Celles-ci sont aﬃchées dans un tableau où il est possible de déﬁnir l’information de tri simplement en cliquant sur l’en-tête de la colonne. L’utilisateur à aussi la possibilité
+de supprimer une réservation. Une invite de conﬁrmation lui est alors aﬃchée et un courriel est
+envoyé à l’utilisateur à l’origine de la réservation pour lui indiquer que celle-ci a été supprimée.
+L’utilisateur peut consulter la ﬁche détaillée du média en cliquant sur son titre dans le tableau
+et la ﬁche détaillée de l’utilisateur en cliquant sur son nom.
+
+1.5.6
+
+Emprunts en cours
+
+La page « Emprunts en cours » permet à l’utilisateur de consulter la liste de tous les médias
+qui sont actuellement empruntés. Ceux-ci sont aﬃchés dans un tableau où il est possible de déﬁnir
+l’information de tri simplement en cliquant sur l’en-tête de la colonne.
+L’utilisateur peut consulter la ﬁche détaillée du média en cliquant sur son titre dans le tableau
+et la ﬁche détaillée de l’utilisateur en cliquant sur son nom.
+
+1.5.7
+
+Historique des emprunts
+
+La page « Historique des emprunts » permet à l’utilisateur de consulter l’historique de tous les
+emprunts du système. Ceux-ci sont aﬃchés dans un tableau où il est possible de déﬁnir l’information
+de tri simplement en cliquant sur l’en-tête de la colonne.
+L’utilisateur peut consulter la ﬁche détaillée du média en cliquant sur son titre dans le tableau
+et la ﬁche détaillée de l’utilisateur en cliquant sur son nom.
+
+13
+
+1.5.8
+
+Gestion des utilisateurs
+
+La page de gestion des utilisateurs permet :
+1. De visualiser tous les utilisateurs ou bien seulement ceux d’un groupe donné ;
+2. D’ajouter un nouvel utilisateur ;
+3. D’importer plusieurs nouveaux utilisateurs ;
+4. De modiﬁer un utilisateur ;
+5. De supprimer un utilisateur.
+Les utilisateurs sont aﬃchés dans un tableau où il est possible de déﬁnir l’information de tri
+simplement en cliquant sur l’en-tête de la colonne. Par défaut, tous les utilisateurs sont aﬃchés.
+Si l’on souhaite aﬃcher uniquement les utilisateurs appartenant à un groupe donné, il suﬃt de
+sélectionner ce groupe dans la liste déroulante située dans le coin supérieur droit de la page.
+L’ajout d’un utilisateur nous apporte dans un formulaire permettant d’entrer les informations
+de celui-ci alors que la modiﬁcation nous amène au même formulaire, mais avec les informations
+préremplies de l’utilisateur à modiﬁer. C’est à partir de ce formulaire qu’une liste de sélection
+multiple nous permet de sélection tous les groupes auxquels appartient l’utilisateur 4 .
+Pour ce qui est de la suppression, une invite de conﬁrmation demande à l’utilisateur de conﬁrmer
+qu’il désire bien supprimer l’utilisateur.
+L’importation, quant à elle, se résume actuellement à un hyperlien qui ne mène nul part puisqu’il
+ne nous a pas été dit comment allait se passer la synchronisation des utilisateurs avec les élèves du
+département de musique. Nous avons fait comme hypothèse que l’importation se fera à partir d’un
+ﬁchier XML qui contiendra la liste des nouveaux utilisateurs. Ceux qui programmeront le système
+devront donc se charger de mettre en place un système d’importation qui se mettra en action lors
+du clique sur ledit hyperlien.
+
+1.5.9
+
+Gestion des groupes
+
+À l’heure actuelle, la gestion des groupes se présente de la même façon que la gestion d’une
+table de pilotage 5 .
+Lorsque le système sera implémenté, les programmeurs auront le choix d’oﬀrir ou non au client
+la possibilité de modiﬁer les droits de groupes. Puisque des droits de groupes mal conﬁgurés risquent
+d’ammener des failles de sécurités, le client préférera peut-être demander au département d’informatique chaque fois que de telles manipulations seront nécessaires.
+
+1.6
+1.6.1
+
+Rapports
+Rapport sur les médias audios
+
+La page « Rapport » permet, aux personnes qui ont les droits requis, de générer un rapport sur
+les médias selon le genre sélectionné. Le résultat du rapport est présenté dans un tableau simple et
+eﬃcace qui est trié par ordre de code de référence, par titre et par année de publication. Le but de
+pouvoir faire des rapports est de générer une liste de ce que l’on cherche rapidement et eﬃcacement,
+4. Voir la section 3.3, à la page 30, pour plus d’informations sur les groupes et la sécurité.
+5. Voir la section 1.5.4, à la page 11, pour plus d’informations sur les tables de pilotages.
+
+14
+
+le tout sans erreurs, pour accélérer le travail par la suite. D’autres rapports du genre pourront être
+ajouté sur demande.
+
+1.7
+
+Pages d’information
+
+Nous avons intégrés une section « À propos » qui les sections suivantes :
+– À propos de la médiathèque ;
+– À propos du département de musique ;
+– À propos des heures d’ouverture ;
+– À propos de la règrementation.
+Ces pages permettront de publier des informations concernant la médiathèque et le département
+de musique comme. Ce sera l’endroit idéal pour parler de l’évolution du département de musique
+et de leur médiathèque ainsi que pour expliquer le fonctionnement du site.
+
+15
+
+Chapitre 2
+
+Architecture du système
+2.1
+2.1.1
+
+Charte graphique
+Introduction
+
+Le site doit véhiculer l’image universelle de la musique. Nous avons donc choisie un thème graphique près du noir sur blanc pour s’apparenter aux touches d’un piano qui est un des instruments
+le plus représentatifs de l’image qu’ont le peuple Nord-Américain de la musique. Pour cela, une
+charte graphique a été déﬁnie. Elle dégage une ambiance sobre et pratique. De plus, cette charte
+respecte le sérieux, l’élégance et la ﬁerté des institutions de musique, tel un orchestre symphonique
+constitué de musiciens vêtus de vestons cravates.
+
+2.1.2
+
+Maquette
+
+Toutes les pages sont construites sur la base du modèle suivant :
+1. Bandeau
+2. Fil d’Ariane vertical (n’apparais cependant que dans certaines pages)
+3. Contenu de la page
+4. Pied de page
+Bandeau (1)
+Le bandeau est constitué des éléments suivant :
+Sigle Carcajou Le sigle Carcajou est en fait le logo du site et est toujours situé dans le coin
+supérieur gauche. Par contre, ce n’est pas une image, mais bien un mot mise en forme en
+CSS. Ce sigle permet, en tout temps, de revenir sur la page d’accueil. Le sigle du site utilise
+la police MegalopolisExtra-Webfont.
+Menus déroulants À la droite du sigle se retrouve le menu principal incluant des menus déroulants permettant de se déplacer dans les sections du site. Les entrées de menu sont les
+suivantes :
+– À propos
+– De la médiathèque
+16
+
+Figure 2.1 – Maquette générale du site
+
+–
+
+–
+
+–
+
+–
+
+– Du département de musique
+– Des heures d’ouverture
+– De la règlementation
+Médiathèque
+– Recherche avancée
+– Parcourir
+– Suggestions
+Zone utilisateur (lorsque non connecté)
+– Connexion
+– Inscription
+Zone utilisateur (lorsque connecté)
+– Mes réservations
+– Mes emprunts en cours
+– Mon historique d’emprunts
+– Déconnexion
+Administration (lorsque connecté)
+– Emprunt
+– Retour
+– Rapports
+– Générer code QR
+
+Champ de recherche simple Le champ texte accompagné du bouton « Rechercher » permet
+17
+
+d’eﬀectuer une recherche simple avec un mot clé.
+Fil d’Ariane vertical (2)
+Le ﬁl d’Ariane vertical permet d’aﬃcher des critères permettant davantage la recherche. Il
+contient des éléments liste contenant des liens pour raﬃner la recherche.
+Contenu (3)
+Le contenu des pages est aﬃché dans cette partie. Son contenu varie énormément selon la page
+aﬃchée. Dans la capture d’écran présente ci-haut, on y voit les résultats d’une recherche.
+Pied de page (4)
+Les noms des auteurs sont aﬃchés dans cette partie. Le pied de page contient aussi, sous forme
+de listes, des liens vers diﬀérentes sections du site comme on le voit si souvent dans les tendances
+actuelles du web. Le principe d’aﬃcher plusieurs liens divers dans le pied de page oﬀre la possibilité
+d’oﬀrir une navigation alternative au menu conventionnel. À la phase conception, le pied ne contient
+pas encore de véritables liens. Seuls des liens d’exemple « Lorem Ipsum » sont aﬃchés.
+
+Figure 2.2 – Exemple de page comprenant tous les éléments de la maquette
+
+2.1.3
+
+Charte graphique
+
+Couleurs
+La charte de couleur choisie est composée principalement de noir, de blanc et de diﬀérentes
+teintes de gris.
+
+18
+
+Table 2.1 – Couleurs utilisées dans l’en-tête
+Element
+background 1
+background 2
+background 3
+border
+text
+a
+
+Code
+#FFFFFF
+#F5F5F5
+#E3E3E3
+#CCCCCC
+#000000
+#000000
+
+Apercu
+
+Table 2.2 – Couleurs utilisées dans le corps de la page
+Element
+background
+text
+a
+
+Code
+#000000
+#FFFFFF
+#FFFFFF
+
+Apercu
+
+Table 2.3 – Couleurs utilisées dans le pied de page
+Element
+background 1
+background 2
+background 3
+border 1
+border 2
+text
+a
+
+Code
+#FFFFFF
+#EEEEEE
+#DBD9D9
+#C1C1C1
+#C0C0C0
+#000000
+#C52100
+
+19
+
+Apercu
+
+2.1.4
+
+Typographie
+
+Police d’écriture
+La police de caractère que nous avons choisi pour le site est Optima. Conformément à la convention, nous avons déﬁni une liste de polices alternatives qui seront utilisées si Optima n’est pas
+disponnible. La liste est, par ordre de priorité : Trebuchet MS, Lucida, Arial, Geneva, Verdana,
+Lucida Grande, Tahoma, Helvetica, sans-serif.
+Nous avons décidé de ne pas donner une taille ﬁxe à la police de caractère, mais plutôt d’utiliser
+la taille désirée par l’utilisateur, déﬁnie dans les propriétés de son navigateur. Par exemple, pour
+conﬁgurer la taille de police par défaut sous Mozilla Firefox, il suﬃt d’aller dans Préférences >
+Contenu > Polices et couleurs > Taille et de déﬁnir la taille souhaitée. Nous sommes partis
+du principe que, si l’utilisateur a choisi d’aﬃcher ses sites Internet avec une certaine taille, ce n’est
+pas à nous de contrevenir à sa volonté.
+Cette taille déﬁnie par le navigateur est la taille par défaut d’un em. La taille de police par
+défaut du site est donc de 1em.
+Titres
+Les titres sont de la même police de caractère que le reste du site, mais ont une taille plus
+importante, variant selon l’importance du titre.
+Table 2.4 – Taille des diﬀérents niveaux de titre
+Titre
+h1
+h2
+h3
+h4
+h5
+h5
+
+Taille
+1.9em
+1.75em
+1.4em
+1.2em
+1.15em
+1.1em
+
+Majuscules-minuscules
+Tous les titres commencent par une majuscule suivie par des minuscules. Il en est de même pour
+tout le texte contenu dans la page, c’est à dire, les paragraphes, les liens, etc.
+Arborescense du site
+À générer à l’aide de vision ou à la main
+
+20
+
+Table 2.5 – Images
+Image
+
+Taille
+
+Description
+
+370x216, 209x122
+
+Cette image servira a aﬃcher les détails d’un média sous
+forme d’infobulle.
+
+20x20
+
+Icone représentant la réservation d’un média.
+
+87x87
+
+Icone représentant un emprunt.
+
+87x87
+
+Icone représentant une réservation.
+
+128x128
+
+Logo signiﬁant la présence d’un média sous le format audio.
+
+128x128
+
+Logo signiﬁant la présence d’un média sous le format imprimé.
+
+128x128
+
+Logo signiﬁant la présence d’un média sous le format vidéo.
+
+16x16
+21x4
+21x4
+21x9
+
+Icone indiquant une recherche.
+Indique que la colonne est triée par ordre croissant.
+Indique que la colonne est triée par ordre décroissant.
+Indique que la colonne n’est pas utilisé pour le tri.
+
+21
+
+Images
+
+2.2
+
+Modèle des pages principales et secondaires
+
+Dans l’idée de garantir une identité visuelle, toutes les pages du site sont construites sur une
+structure identique.
+En tout, 7 modèles de pages ont été développés.
+– Le modèle de page descriptif ;
+– Le modèle d’aﬃchage des résultats de recherche ;
+– Le modèle de page de réservations et emprunts ;
+– Le modèle tables de pilotage ;
+– Le modèle formulaire simple ;
+– Le modèle de détails avancé d’un média ;
+– Le modèle rapport.
+
+2.2.1
+
+Le modèle de page descriptif
+
+Ce modèle est utilisé pour des pages d’information statiques. La page « À propos de la médiathèque » est un exemple de ce type de page. Les éléments que l’on retrouve dans ce modèle sont
+assez élémentaires. On y retrouve habituellement un titre de niveau 2, des paragraphes et une ou
+plusieurs images.
+
+Figure 2.3 – Modèle descriptif
+
+2.2.2
+
+Le modèle de page d’aﬃchage des résultats de recherche
+
+Ce modèle est utilisé pour l’aﬃchage des résultats de recherche. Il est considéré comme le type
+de page le plus fourni en terme de contenu. Il se compose des éléments suivants :
+– Un ﬁl d’Ariane vertical disposé sur le côté gauche ;
+– Une description de la recherche en cours en haut de page ;
+– Le système de pagination en haut et en bas de la page ;
+
+22
+
+– Les résultats de recherche sous forme d’élément de tableau contenant, les valeur des champs
+standards à tous les médias, accompagné d’une image.
+
+Figure 2.4 – Modèle d’aﬃchage des résultats de recherche
+
+2.2.3
+
+Le modèle de page des réservations, des retours et des emprunts
+
+Ces modèles sont utilisés pour les pages de réservations, retours et d’emprunts.
+Pour la page de réservations, le média sélectionné est aﬃché avec ces détails, comme dans la
+recherche. Juste en dessous du média, l’utilisateur choisi s’il veut obtenir le média lorsqu’il sera
+disponible ou bien il choisi la plage de dates sur laquelle il veut réserver le média. Le bouton
+enregistrer envoie la réservation au serveur.
+
+Figure 2.5 – Modèle de réservations
+Pour la page de retours, le matricule de l’utilisateur est entré à la main ou à l’aide du code
+23
+
+QR. Le champ no. référence permet, soit à la main ou à l’aide du code QR d’ajouter ou bien de
+supprimer les médias. Le bouton enregistrer envoie le retour au serveur.
+
+Figure 2.6 – Modèle de retours
+Pour la page d’emprunts, le modèle est exactement le même que celui des retours excepté le
+choix d’une plage de date sur laquelle le média sera emprunter.
+
+Figure 2.7 – Modèle d’emprunts
+
+2.2.4
+
+Le modèle de page table de pilotage
+
+Ce modèle est utilisé pour gérer le contenu des tables de pilotage 1 .
+
+2.2.5
+
+Le modèle de page formulaire simple
+
+Ce modèle est utilisé pour aﬃcher des formulaire simples ayant un seul niveau de détail. Les
+éléments se retrouvant dans ce modèle sont consitué de quelques champ avec un bouton "Submit"
+permettant d’eﬀecuter une action particulière sur les données. La page « Suggestions » en est un
+exemple.
+1. Voir la section 1.5.4 sur les tables de pilotage, à la page 11, pour plus de détails.
+
+24
+
+Figure 2.8 – Modèle table de pilotage
+
+Figure 2.9 – Modèle formulaire simple
+
+25
+
+2.2.6
+
+Le modèle de page de détails avancé d’un média
+
+Ce modèle est utilisé pour visionner ou modiﬁer les détails d’un média. Lorsque l’utilisateur
+est un administrateur, les attributs des médias sont éditables sous forme de champs texte ou liste
+de sélection. On y retrouve des champs texte pour les champs indépendants des tables de pilotage
+et des listes de sélection lorsque ce sont des données provenant des tables de pilotage. Il existe
+plusieurs niveaux de détails pour un média. Des boutons plus et moins sont utilisés pour naviguer
+entre ces diﬀérents niveaux de détail.
+Lorsque l’utilisateur n’est pas un admistrateur, tous les champs éditables deviennent des éléments aﬃchés.
+
+Figure 2.10 – Modèle formulaire simple
+
+2.2.7
+
+Le modèle de page rapport
+
+Ce modèle de page est utilisé pour des données sous forme de rapports. Les rapports sont tout
+simplement constitués d’un tableau présentant les valeurs des diﬀérentes colonnes de la table dans
+la base de données.
+
+26
+
+2.3
+
+Diagramme d’enchaînement
+
+Figure 2.11 – Diagramme d’enchaînement
+Pour accéder au niveau 2 du diagramme, nous devons emprunter exactement le chemin indiqué
+dans le schéma. Le niveau inférieur peut, en tout temps, accéder aux pages du niveau supérieur.
+Lors d’une connexion, si l’utilisateur n’est pas un administrateur nous ne lui aﬃchons pas les pages
+emprunt et retour. Sinon, nous lui rajoutons ces options dans le menu.
+
+2.4
+
+Diagramme de classe
+
+Voir l’API du système fournis avec le document.
+
+2.5
+
+Base de données et dictionnaire
+
+Voir le tableau en annexe.
+
+27
+
+Chapitre 3
+
+Architecture technologique
+3.1
+
+Représentation graphique
+
+Figure 3.1 – Diagramme de l’architecture technologique
+
+3.2
+3.2.1
+
+Spéciﬁcations techniques
+Navigateurs
+
+Lors de la conception le site à été testé sur les navigateurs suivants :
+– Mozilla Firefox 3.5.16
+– Mozilla Firefox 3.6.10
+– Mozilla Firefox 4.0.1
+– Google Chrome 6.0.472.63
+– Google Chrome 11.0.696.65
+28
+
+Le site est fonctionnel sur l’ensemble des navigateurs, mais certains eﬀets graphiques ne sont
+disponibles que sur les versions récentes de chacun.
+
+3.2.2
+
+Languages
+
+Client
+Du côté client, les langages utilisés sont le HTML 5, le CSS 3, le JavaScript et le XML.
+Pour le HTML 5 et le CSS 3, il a été décidé d’utiliser les fonctionnalités dont nous avions besoin
+tout en gardant en tête que le site devait rester consultable sur les navigateurs ne reconnaissant
+pas ces nouvelles technologies. Par exemple, la propriété CSS 3 « border-radius » nous permet
+d’aﬃcher des coins arrondis facilement sur n’importe quel composant de la page. Dans le cas où
+celle-ci ne serait pas reconnue par un navigateur, celui-ci doit ignorera simplement la propriété et
+aﬃchera des coins carrés standards.
+Pour le JavaScript, la bibliothèque jQuery 1.6.1 a été utilisée aﬁn de simpliﬁer le code et d’uniﬁer la gestion des diﬀérents navigateurs. En eﬀet, cette bibliothèque a l’avantage de proposer des
+fonctions uniﬁées qui se chargent pour nous de gérer les diﬀérences entre les diﬀérents navigateurs.
+Cependant, il a été décidé de réduire au maximum la dépendance au JavaScript. Dans le cas de
+fonctionnalités JavaScript facultatives, comme le fait de n’aﬃcher que les trois premiers éléments
+des listes trop longues, le code HTML ne contient qu’une liste toute simple et c’est au chargement
+de la page par le navigateur que le JavaScript s’occupe de modiﬁer la structure du document et
+d’oﬀre un bouton permettant d’aﬃcher les éléments excédentaires.
+Bien sûr, il y certains cas où le JavaScript est absolument obligatoire, comme la création de
+nouveaux champs dans les formulaires devant traiter un nombre variable d’enregistrements. Heureusement, ces cas complexes ne s’appliquent que dans des sections d’administration. Un visiteur
+ou un utilisateur disposant de droits minimaux peut donc se passer aisément de JavaScript et le
+site reste parfaitement consultable.
+Pour le XML, celui-ci est utilisé comme moyen de transmission de l’information lors des requêtes
+AJAX. À l’heure actuelle, les requêtes AJAX sont faites à des ﬁchiers XML statiques, mais, à terme,
+des scripts PHP devrons être écrits permettant de générer dynamiquement le ﬁchier selon les critères
+reçus en paramètre.
+Serveur
+Du côté serveur, le seul langage utilisé est le PHP, qui a été utilisé dans ses versions 5.3.3 et
+5.3.5 dépendamment des contributeurs.
+Les conventions php utilisés sont les suivantes :
+– Les ﬁchiers contenant la déﬁnition d’une classe PHP utilisent l’extension « .class.php ».
+– Les ﬁchiers contenant du code PHP qui ne fait rien par lui-même et doit être inclu par un
+autre script utilisent l’extension « .inc.php ».
+– Les ﬁchiers contenant du code PHP qui se suﬃt à lui-même utilisent l’extension « .php ».
+– Les ﬁchiers contenant les pages ﬁnales aﬃchées à l’utilisateur sont situés à la racine du projet
+(/).
+– Les ﬁchiers contenant des scripts PHP qui eﬀectuent une action avant de rediriger l’utilisateur
+sont situés dans le répertoire php (/php/).
+
+29
+
+3.2.3
+
+Bande passante
+
+L’utilisation et l’administration du site nécessitent une bande passante standard.
+
+3.2.4
+
+Serveurs
+
+Apache HTTP Server 2.2.16 – 2.2.17
+
+3.2.5
+
+Type de base de données
+
+MySQL 5.1.49 – 5.5.8
+
+3.3
+3.3.1
+
+Sécurité
+En théorie
+
+La gestion des droits fait appel au « bit bashing », une technique qui consiste à donner une
+représentation binaire à chacun des droits et de ne stocker que la somme de ces droits dans la base
+de données. Ainsi, si nous avons les droits suivants de déﬁnis :
+– $application->rights[’read’] = 0001
+– $application->rights[’write’] = 0010
+– $application->rights[’execute’] = 0100
+et qu’un groupe A dispose des droits de lecture et d’écriture dans la section « administration »,
+et qu’un groupe B dispose du droit de renouveler un prêt la table droits_groupes contiendrait
+quelque chose comme ceci :
+Table 3.1 – groupes
+ID
+1
+2
+
+nom
+A
+B
+
+inactif
+FALSE
+FALSE
+
+Table 3.2 – droits_groupes
+ID
+1
+2
+3
+
+section
+administration
+Renouveller un document
+Renouveller un document
+
+groupeID
+1
+1
+2
+
+droits
+0011
+0100
+0100
+
+Dans cet exemple, nous pouvons voir que le groupe A dispose des droits de lecture et d’écriture
+(0001+0010 = 0011) sur la section « administration » et qu’il a le droit de renouveler des documents
+puisqu’il a le droit d’exécution (0100) sur « Renouveller un document ».
+Le groupe B, quant à lui, ne dispose que du droit de renouveler des documents. En eﬀet, si
+aucune entrée ne correspond à un groupe pour une section donnée, il est supposé que le groupe en
+30
+
+question n’a aucun droit sur cette section. Le fait de ne créer aucun enregistrement est strictement
+identique au fait de créer un enregistrement contenant les droits (0000).
+Table 3.3 – utilisateurs
+ID
+1
+2
+3
+4
+
+matricule
+11111111
+22222222
+33333333
+44444444
+
+nom
+Baggins
+Gamgee
+Brandybuck
+Took
+
+prenom
+Frodo
+Samwise
+Meriadoc
+Peregrin
+
+inactif
+FALSE
+FALSE
+TRUE
+FALSE
+
+Table 3.4 – groupes
+ID
+1
+2
+3
+4
+5
+
+nom
+Administrateurs
+Enseignants
+Commis
+Étudiants
+Prêtre
+
+inactif
+FALSE
+FALSE
+FALSE
+FALSE
+TRUE
+
+Table 3.5 – groupes_utilisateurs
+ID
+1
+2
+3
+4
+5
+
+exID
+1
+2
+2
+3
+4
+
+groupeID
+1
+4
+3
+4
+2
+
+L’exemple précédant couvre la plupart des situations qui peuvent survenir.
+La table « utilisateurs » nous informe qu’il y a quatre utilisateurs d’enregistrés dans le système,
+mais que l’un d’entre eux est inactif. Un utilisateur inactif perd automatiquement tous ses droits.
+La table « groupes » nous informe qu’il y a cinq groupes d’enregistrés dans le système, mais
+que l’un d’entre eux est inactif. Un groupe inactif perd automatiquement tous ses droits et ne peut
+plus être assigné à de nouveaux utilisateurs.
+La table « groupes_utilisateurs » nous informe que l’utilisateur 1 (Frodo Baggins) fait partit
+du groupe Administrateurs 1 , que l’utilisateur 2 (Samwise Gamgee) fait partit à la fois du groupe
+Étudiants et du groupe Commis, que l’utilisateur 3 (Meriadoc Brandybuck) fait partit du groupe
+Étudiants et, ﬁnalement, que l’utilisateur 4 (Peregrin Took) fait partit du groupe Enseignants.
+1. Par convention, le groupe Administrateurs dispose généralement de tous les droits sur le système.
+
+31
+
+Table 3.6 – droits_groupes
+ID
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+
+section
+drivingTable.php
+drivingTable.php
+drivingTable.php
+drivingTable.php
+Renouveler un document
+Renouveler un document
+Renouveler un document
+Renouveler un document
+Renouveler un document
+Emprunter un document
+Emprunter un document
+Emprunter un document
+Emprunter un document
+
+groupeID
+1
+2
+3
+5
+1
+2
+3
+4
+5
+1
+2
+3
+5
+
+droits
+0011
+0001
+0001
+0001
+0100
+0100
+0100
+0100
+0100
+0100
+0100
+0100
+0100
+
+Enﬁn, la table « droits_groupes » nous informe si chaque groupe peut :
+– Aﬃcher ou modiﬁer les résultats de la page drivingTable.php ;
+– Eﬀectuer l’action de renouveler un document ;
+– Eﬀectuer l’action d’emprunter un document.
+Nous voyons ainsi que les commis et les enseignants ont accès à la page drivingTable.php en
+lecture seule et que les administrateurs y ont accès en lecture-écriture. Les prêtres auraient aussi
+eu accès en lecture seule, mais en désignant leur groupe comme inactif, ils ont perdu tous leurs
+droits ; L’enregistrement numéro 4 doit donc être ignoré par le processus de traitement des droits.
+Les étudiants, quant à eux, n’ont aucun enregistrement correspondant à cette section. Il est alors
+présumé qu’ils n’ont aucun droit sur la page drivingTable.php.
+Nous voyons que tous les groupes d’utilisateurs ont le droit de renouveler un document, mais,
+encore une fois, l’enregistrement concernant les prêtres doit être ignoré.
+Nous voyons enﬁn que tous les groupes, à l’exception des étudiants, ont le droit d’eﬀectuer un
+emprunt 2 .
+Les utilisateurs actifs disposent de la somme des droits de chacun de groupes actifs auxquels ils
+appartiennent. Ainsi, Samwise Gamgee, qui est à la fois un étudiant et un commis, gagne le droit
+de consulter la page drivingTable.php en lecture seule et d’entrer des emprunts dans le système
+alors que Perigrin Took, qui est inactif, n’a aucun droit sur le système, quels que soient les groupes
+auxquels il appartient.
+
+3.3.2
+
+En pratique
+
+La sécurité repose essentiellement sur la validation des droits des utilisateurs lors de la génération
+des pages du site. C’est le PHP qui est responsable de valider que l’utilisateur courant dispose des
+droits suﬃsants avant d’ajouter une section à la page que le serveur HTTP s’apprête à retourner.
+2. Veuillez noter que c’est le fait d’entrer un nouvel emprunt dans le système qui est traité ici. En eﬀet, un simple
+étudiant doit demander à un commis qui, lui, se chargera d’entrer son emprunt dans le système.
+
+32
+
+En pratique, cela se traduit par un appel à la fonction $application->currentUser->haveRights()
+en lui spéciﬁant en premier paramètre la section dont on veut valider les droits et, en second
+paramètre, la liste des droits dont l’utilisateur doit disposer pour avoir accès à ce contenu. Ces
+droits sont déﬁnis dans le tableau $application->rights. Par exemple aﬁn de valider que l’utilisateur
+ait bien le droit d’accéder à la zone d’administration, il suﬃt d’utiliser le code suivant :
+Listing 3.1 – PHP
+1
+2
+3
+4
+5
+6
+7
+8
+
+i f ( $ a p p l i c a t i o n −>c u r r e n t U s e r −>h a v e R i g h t s ( ’ a d m i n i s t r a t i o n ’ , $ a p p l i c a t i o n −>r i g h t s [ ’
+r e a d ’ ] | $ a p p l i c a t i o n −>r i g h t s [ ’ w r i t e ’ ] ) )
+{
+// We can now p r i n t a d m i n i s t r a t i o n s e c t i o n
+}
+else
+{
+// Current u s e r d o e s not have s u f f i s e n t r i g h t s
+}
+
+Du point de vu de l’utilisateur de la fonction, c’est extrêmement simple. Pour celui qui devra
+l’implémenter, c’est une autre histoire. Plaçons-nous un peu à la place du programmeur. Nous
+sommes dans une fonction dont voici la signature :
+Listing 3.2 – PHP
+1
+2
+3
+4
+
+p u b l i c f u n c t i o n haveRights ( $section , $ r i g h t s )
+{
+// TODO: Implement f u n c t i o n
+}
+
+Pour atteindre son but, il dispose des informations suivantes :
+– $section qui est la section dont l’on veut tester les droits ;
+– $rights qui sont les droits que l’on doit tester ;
+– $application->currentUser retourne une instance de la classe User représentant l’utilisateur
+actuellement connecté ;
+– $application->database retourne une instance de la classe PDO représentant la base de données ;
+– $application->rights retourne un tableau associatif contenant la représentation numérique de
+tous droits.
+Pour pouvoir déterminer si l’utilisateur courant a bien les droits demandés, il faudra exécuter
+une requête à la base de données qui nous retourne la liste de tous les droits qu’à cet utilisateur sur
+cette section 3 , additionner ces droits grâces à l’opérateur « ou binaire » (binary or) et déterminer
+si tous les bits à 1 dans les droits demandés sont aussi à 1 dans les bits des droits de l’utilisateur
+grâce à l’opérateur « et binaire » (binary and).
+
+3.3.3
+
+En conclusion
+
+Cette façon de gérer les droits des utilisateurs oﬀre de nombreux avantages :
+– La plus grande partie de la gestion des droits est centralisée dans la base de données plutôt
+que de s’éparpiller dans de multiples ﬁchiers ;
+– La notion de groupes permet de généraliser des droits semblables à de nombreux utilisateurs ;
+3. Il peut y en avoir plus d’un si l’utilisateur appartient à plus d’un groupe.
+
+33
+
+– Le fait qu’un utilisateur puisse appartenir à plusieurs groupes oﬀre un haut niveau de granularité, tout en restant facultatif ;
+– Le fait qu’un groupe ne dispose que des droits explicitement déﬁnis assure la sécurité, car
+tout nouveau droit n’est eﬀectif que pour ceux qui l’on explicitement reçus.
+– L’utilisation du « bit bashing » plutôt que des colonnes explicitement déﬁnies permet d’ajouter
+très facilement de nouveaux types de droits à ceux déjà déﬁnis (read, write, execute).
+
+34
+
+Chapitre 4
+
+Prototype fonctionnel
+
+35
+
+Annexe A
+
+Dictionnaire de données
+
+36
+
++-------------------------------+----------------------+------------+-----------+--------------------------+-------------------+---------------+-------------+----------------+-----------------------------+
+| table_name
+| column_name
+| column_key | data_type | character_maximum_length | numeric_precision | numeric_scale | is_nullable | column_default | column_comment
+|
++-------------------------------+----------------------+------------+-----------+--------------------------+-------------------+---------------+-------------+----------------+-----------------------------+
+| arrangeurs_details_imprimes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| arrangeurs_details_imprimes
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| arrangeurs_details_imprimes
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Arrangeur
+|
+| arrangeurs_pieces
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| arrangeurs_pieces
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| arrangeurs_pieces
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Arrangeur
+|
+| artistes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| artistes
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| artistes
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| artistes_pieces
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| artistes_pieces
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| artistes_pieces
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Artiste
+|
+| audios_videos
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| audios_videos
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| audios_videos
+| collectionID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Collection
+|
+| audios_videos
+| position_collection |
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Position dans la collection |
+| audios_videos
+| CUP
+|
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| CUP
+|
+| audios_videos
+| realisateurs
+|
+| varchar
+|
+200 |
+NULL |
+NULL | YES
+| NULL
+| Réalisateur
+|
+| audios_videos
+| nationaliteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Nationalité
+|
+| catalogues
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| catalogues
+| code
+|
+| varchar
+|
+10 |
+NULL |
+NULL | NO
+| NULL
+| Code
+|
+| catalogues
+| description
+|
+| varchar
+|
+100 |
+NULL |
+NULL | YES
+| NULL
+| Description
+|
+| catalogues
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| categories_media
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| categories_media
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| categories_media
+| image
+|
+| varchar
+|
+100 |
+NULL |
+NULL | YES
+| NULL
+| Image
+|
+| categories_media
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| collections
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| collections
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| collections
+| type
+|
+| smallint |
+NULL |
+5 |
+0 | NO
+| NULL
+| Type de média
+|
+| collections
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| compositeurs_details_imprimes | ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| compositeurs_details_imprimes | exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| compositeurs_details_imprimes | artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Compositeur
+|
+| compositeurs_pieces
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| compositeurs_pieces
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| compositeurs_pieces
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Compositeur
+|
+| details_imprimes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| details_imprimes
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| details_imprimes
+| titre
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Titre
+|
+| details_imprimes
+| position_media
+|
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Position dans le média
+|
+| details_imprimes
+| catalogueID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Catalogue
+|
+| details_imprimes
+| genreID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Genre
+|
+| droits_groupes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| droits_groupes
+| section
+| MUL
+| varchar
+|
+250 |
+NULL |
+NULL | NO
+| NULL
+| Section
+|
+| droits_groupes
+| groupeID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Groupe
+|
+| droits_groupes
+| droits
+|
+| bigint
+|
+NULL |
+19 |
+0 | NO
+| NULL
+| Droits
+|
+| emprunts
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| emprunts
+| utilisateurID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Utilisateur
+|
+| emprunts
+| date_reservation
+|
+| date
+|
+NULL |
+NULL |
+NULL | YES
+| NULL
+| Date de réservation
+|
+| emprunts
+| date_voulue
+|
+| date
+|
+NULL |
+NULL |
+NULL | YES
+| NULL
+| Date voulue
+|
+| emprunts
+| date_emprunt
+|
+| date
+|
+NULL |
+NULL |
+NULL | YES
+| NULL
+| Date d'emprunt
+|
+| emprunts
+| duree
+|
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Durée
+|
+| emprunts
+| date_retour
+|
+| date
+|
+NULL |
+NULL |
+NULL | YES
+| NULL
+| Date de retour
+|
+| emprunts
+| mediaID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Média
+|
+| epoques
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| epoques
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| epoques
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| exemplaires_medias
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| exemplaires_medias
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Média
+|
+| exemplaires_medias
+| reference
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Numéro de référence
+|
+| formes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| formes
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| formes
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| genres
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| genres
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| genres
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| groupes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| groupes
+| nom
+| UNI
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| groupes
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| NULL
+| Inactif
+|
+| groupes_utilisateurs
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| groupes_utilisateurs
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Utilisateur
+|
+| groupes_utilisateurs
+| groupeID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Groupe
+|
+| imprimes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| imprimes
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| imprimes
+| sous_titre
+|
+| varchar
+|
+100 |
+NULL |
+NULL | YES
+| NULL
+| Sous-titre
+|
+
+| imprimes
+| collectionID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Collection
+|
+| imprimes
+| position_collection |
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Position dans la collection |
+| instrumentations
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| instrumentations
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| instrumentations
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| interpretes_pieces
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| interpretes_pieces
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| interpretes_pieces
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Interprête
+|
+| interpretes_pieces
+| taches
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Tâche
+|
+| maisons_edition
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| maisons_edition
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| maisons_edition
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| medias
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| medias
+| titre
+|
+| varchar
+|
+75 |
+NULL |
+NULL | NO
+| NULL
+| Titre
+|
+| medias
+| annee_publication
+|
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Année de publication
+|
+| medias
+| image
+|
+| varchar
+|
+100 |
+NULL |
+NULL | YES
+| NULL
+| Image
+|
+| medias
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Artiste
+|
+| medias
+| genreID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Genre
+|
+| medias
+| notes
+|
+| varchar
+|
+150 |
+NULL |
+NULL | YES
+| NULL
+| Notes
+|
+| medias
+| maison_editionID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Maison d'édition
+|
+| medias
+| supportID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Catégorie
+|
+| medias
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| medias_groupes
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| medias_groupes
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Media
+|
+| medias_groupes
+| groupeID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Groupe
+|
+| nationalites
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| nationalites
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| nationalites
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| orchestrateurs_pieces
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| orchestrateurs_pieces
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| orchestrateurs_pieces
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Orchestrateur
+|
+| parolier_pieces
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| parolier_pieces
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| parolier_pieces
+| artisteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Parolier
+|
+| pieces
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| pieces
+| exID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+|
+|
+| pieces
+| titre
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Titre
+|
+| pieces
+| position_media
+|
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Position dans le média
+|
+| pieces
+| annee_enregistrement |
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Année d'enregistrement
+|
+| pieces
+| duree
+|
+| time
+|
+NULL |
+NULL |
+NULL | YES
+| NULL
+| Durée
+|
+| pieces
+| catalogueID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Catalogue
+|
+| pieces
+| epoqueID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Époque
+|
+| pieces
+| formeID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Forme
+|
+| pieces
+| genreID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Genre
+|
+| pieces
+| instrumentationID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Instrumentation
+|
+| pieces
+| tonaliteID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | YES
+| NULL
+| Tonalité
+|
+| pieces
+| notes
+|
+| varchar
+|
+150 |
+NULL |
+NULL | YES
+| NULL
+| Notes
+|
+| supports
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| supports
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| supports
+| description
+|
+| varchar
+|
+100 |
+NULL |
+NULL | NO
+| NULL
+| Description
+|
+| supports
+| categorie_mediaID
+| MUL
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Type de support
+|
+| supports
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| tonalites
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| tonalites
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| tonalites
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
+| utilisateurs
+| ID
+| PRI
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| ID
+|
+| utilisateurs
+| matricule
+|
+| int
+|
+NULL |
+10 |
+0 | NO
+| NULL
+| Matricule
+|
+| utilisateurs
+| nom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Nom
+|
+| utilisateurs
+| prenom
+|
+| varchar
+|
+50 |
+NULL |
+NULL | NO
+| NULL
+| Prénom
+|
+| utilisateurs
+| telephone
+|
+| varchar
+|
+10 |
+NULL |
+NULL | NO
+| NULL
+| Téléphone
+|
+| utilisateurs
+| courriel
+|
+| varchar
+|
+320 |
+NULL |
+NULL | YES
+| NULL
+| Addresse de courriel
+|
+| utilisateurs
+| inactif
+|
+| tinyint
+|
+NULL |
+3 |
+0 | NO
+| 0
+| Inactif
+|
++-------------------------------+----------------------+------------+-----------+--------------------------+-------------------+---------------+-------------+----------------+-----------------------------+
+
+Table des ﬁgures
+1.1
+1.2
+1.3
+1.4
+1.5
+1.6
+1.7
+1.8
+
+Exemple de ﬁl d’Ariane vertical . . . . . . . . .
+Fil d’Ariane lorsque raﬃné au maximum . . . .
+Barre de recherche simple . . . . . . . . . . . .
+Exemple de recherche avancée . . . . . . . . . .
+Exemple de suggestions à partir d’une datalist
+Ajout d’un nombre personnalisé de critères . .
+Exemple de code QR . . . . . . . . . . . . . . .
+Exemple de liste déroulante . . . . . . . . . . .
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+. 6
+. 6
+. 7
+. 7
+. 8
+. 8
+. 11
+. 12
+
+2.1
+2.2
+2.3
+2.4
+2.5
+2.6
+2.7
+2.8
+2.9
+2.10
+2.11
+
+Maquette générale du site . . . . . . . . . . . . . . . . . . . . .
+Exemple de page comprenant tous les éléments de la maquette
+Modèle descriptif . . . . . . . . . . . . . . . . . . . . . . . . . .
+Modèle d’aﬃchage des résultats de recherche . . . . . . . . . .
+Modèle de réservations . . . . . . . . . . . . . . . . . . . . . . .
+Modèle de retours . . . . . . . . . . . . . . . . . . . . . . . . .
+Modèle d’emprunts . . . . . . . . . . . . . . . . . . . . . . . . .
+Modèle table de pilotage . . . . . . . . . . . . . . . . . . . . . .
+Modèle formulaire simple . . . . . . . . . . . . . . . . . . . . .
+Modèle formulaire simple . . . . . . . . . . . . . . . . . . . . .
+Diagramme d’enchaînement . . . . . . . . . . . . . . . . . . . .
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+3.1
+
+Diagramme de l’architecture technologique . . . . . . . . . . . . . . . . . . . . . . . . 28
+
+39
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+
+17
+18
+22
+23
+23
+24
+24
+25
+25
+26
+27
+
+Liste des tableaux
+1.1
+1.2
+1.3
+1.4
+1.5
+
+medias . . . . . . . . . . . . .
+audios_videos . . . . . . . . .
+imprimes . . . . . . . . . . .
+exemplaires_medias . . . . .
+Valeurs possible de la colonne
+
+. . . . . . .
+. . . . . . .
+. . . . . . .
+. . . . . . .
+row_state
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+. 3
+. 3
+. 4
+. 4
+. 13
+
+2.1
+2.2
+2.3
+2.4
+2.5
+
+Couleurs utilisées dans l’en-tête . . . . . .
+Couleurs utilisées dans le corps de la page
+Couleurs utilisées dans le pied de page . .
+Taille des diﬀérents niveaux de titre . . .
+Images . . . . . . . . . . . . . . . . . . . .
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+
+19
+19
+19
+20
+21
+
+3.1
+3.2
+3.3
+3.4
+3.5
+3.6
+
+groupes . . . . . . .
+droits_groupes . . .
+utilisateurs . . . . .
+groupes . . . . . . .
+groupes_utilisateurs
+droits_groupes . . .
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+30
+30
+31
+31
+31
+32
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+
+40
+
+.
+.
+.
+.
+.
+.
+
+
