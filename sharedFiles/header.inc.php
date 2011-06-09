@@ -26,7 +26,7 @@
 						echo '<h2><a href="connexion.php">Zone utilisateur</a></h2>';
 						echo '<ul>';
 						echo '<li><a href="connexion.php">Connexion</a></li>';
-						echo '<li><a href="inscription.php">Inscription</a></li>';
+						echo '<li><a href="#">Inscription</a></li>';
 					}
 					else
 					{
