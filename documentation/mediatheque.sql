@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS medias_groupes (
 
 INSERT INTO artistes (ID, nom, inactif)
 VALUES
-	(1,  'Wolgang Amadeus Mozart', FALSE),
+	(1,  'Wolfgang Amadeus Mozart', FALSE),
 	(2,  'André Mathieu', FALSE),
 	(3,  'Ludwig van Beethoven', FALSE),
 	(4,  'Frédéric Chopin', TRUE),
@@ -363,7 +363,6 @@ VALUES
 	(1, 'Américain', FALSE),
 	(2, 'Français', FALSE),
 	(3, 'Canadien', FALSE),
-	(4, 'Belge', FALSE),
 	(5, 'Néo-zélandais', TRUE),
 	(6, 'Autrichienne', FALSE),
 	(7, 'Belge', FALSE);
